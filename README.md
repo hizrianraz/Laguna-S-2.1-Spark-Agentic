@@ -1,7 +1,7 @@
 ---
 license: openmdw-1.1
 base_model: poolside/Laguna-S-2.1
-base_model_relation: finetune
+base_model_relation: quantized
 tags:
   - laguna-s-2.1
   - moe
@@ -10,6 +10,7 @@ tags:
   - llama.cpp
   - hermes-class
   - openai-compatible
+  - measured
 library_name: gguf
 pipeline_tag: text-generation
 ---

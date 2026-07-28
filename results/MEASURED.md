@@ -51,6 +51,9 @@ $HOME/src/llama.cpp-laguna/build/bin/llama-server \
 ```
 
 ## Not done here
-- Parent HF docs-only publish (needs `hf auth login` + confirm org/user)
 - Full `llama-bench` second-process while server holds GPU (OOM risk on 121G host)
 - Competitive/agentic eval beyond smoke
+- DFlash draft measure
+
+## Published
+- HF (docs only, no weight rehost): https://huggingface.co/hizrianraz/laguna-s-2.1-spark
