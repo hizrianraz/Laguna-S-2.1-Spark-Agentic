@@ -1,0 +1,704 @@
+{
+  "version": 1,
+  "model": "local-laguna",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "n": 40,
+  "passed": 38,
+  "failed": 2,
+  "pass_rate": 0.95,
+  "elapsed_s": 96.66,
+  "by_category": {
+    "tool_json": {
+      "n": 8,
+      "passed": 8
+    },
+    "multi_step": {
+      "n": 8,
+      "passed": 8
+    },
+    "error_repair": {
+      "n": 6,
+      "passed": 5
+    },
+    "no_invented_tools": {
+      "n": 6,
+      "passed": 6
+    },
+    "short_code": {
+      "n": 6,
+      "passed": 6
+    },
+    "long_horizon": {
+      "n": 6,
+      "passed": 5
+    }
+  },
+  "results": [
+    {
+      "id": "tool_json_01",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.952,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"1+1\"}"
+            },
+            "id": "FDuOJNq8eADObLQfz1G9FKl2QvnLGmXX"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_02",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.648,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"2*3\"}"
+            },
+            "id": "veCpcniJj1Ka6z7dGWqUUSpdi4R8PrJO"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_03",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.693,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"10-4\"}"
+            },
+            "id": "VQr9GdfqpauYZ8mMJ9BTHN1oxYuHQnsG"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_04",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.728,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"(9+1)/2\"}"
+            },
+            "id": "IDStEtmMjH6E9SbdbnPWmMPBSoeq9PS7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_05",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.645,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"7*8\"}"
+            },
+            "id": "PUheyHm3pMQbmZgHdnbeBIYAeKvmhsap"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_06",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.731,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"100/4\"}"
+            },
+            "id": "aaAwPY9JaMCpW1JAKrTyxHw8wPxzOKTy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_07",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.726,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"3+4*5\"}"
+            },
+            "id": "VLZdLzhQ91bNDDxHpyYnsziFZogoI2HI"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tool_json_08",
+      "category": "tool_json",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.68,
+      "message": {
+        "content": "I'll use the calc tool to compute (2+3)*(4+5) for you.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"(2+3)*(4+5)\"}"
+            },
+            "id": "0kFE59bbrcQCWLvV1EF3ndcq6vfWHUYo"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_01",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.02,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "read_file",
+              "arguments": "{\"path\":\"sandbox/a.txt\"}"
+            },
+            "id": "dkZVPHETeVVIiIAqbB5xHtlrWWZyo3We"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_02",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.302,
+      "message": {
+        "content": "I'll start by listing the contents of the sandbox/ directory.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "list_dir",
+              "arguments": "{\"path\":\"sandbox/\"}"
+            },
+            "id": "K0dl3BLYTS8ChYaMUv8jlx8Ajw0kZLpy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_03",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.872,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "search_docs",
+              "arguments": "{\"query\":\"license\"}"
+            },
+            "id": "9GPitxa4iJUk7QOce9LKMO8llwy1DbJX"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_04",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 3.035,
+      "message": {
+        "content": "I'll help you compute these step by step using the calc tool.\n\nFirst, let's calculate 21*2:",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"21*2\"}"
+            },
+            "id": "BajzKQRLZ6ZhWe6oOmTue2Uckdnb2IoG"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_05",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 3.616,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "write_file",
+              "arguments": "{\"path\":\"sandbox/out.txt\",\"content\":\"hello\"}"
+            },
+            "id": "DbIhtUOtAllEOQEweGdfqUQdzn5rtnXu"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_06",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.655,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "get_time",
+              "arguments": "{\"timezone\":\"UTC\"}"
+            },
+            "id": "ojE6OT5fi7mgNBGzfBZSjWoFlbvG0vOM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_07",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.29,
+      "message": {
+        "content": "I'll fetch the URL you specified.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "http_get",
+              "arguments": "{\"url\":\"https://example.invalid/health\"}"
+            },
+            "id": "NazQnf235xsvwpzHVLbRDqfVZ8cYeYmB"
+          }
+        ]
+      }
+    },
+    {
+      "id": "multi_08",
+      "category": "multi_step",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.835,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "run_tests",
+              "arguments": "{\"filter\":\"smoke\"}"
+            },
+            "id": "fLSo4eaHrmoWrMqO3zBVBYt9SnzOCvxZ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair_01",
+      "category": "error_repair",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.548,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "list_dir",
+              "arguments": "{\"path\":\"sandbox\"}"
+            },
+            "id": "Ll8XDNKhYTJfw2W1exG4A9gVzox0eIXJ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair_02",
+      "category": "error_repair",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.741,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"10/2\"}"
+            },
+            "id": "bZGM7PBF09vgz4ruLbEfdfd0RTvt32fc"
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair_03",
+      "category": "error_repair",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.391,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "write_file",
+              "arguments": "{\"path\":\"sandbox/note.txt\",\"content\":\"ok\"}"
+            },
+            "id": "UXsF9nhLUEKKfpwv797nLCsUYroz2UdH"
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair_04",
+      "category": "error_repair",
+      "pass": false,
+      "reason": "HTTP 500: b'{\"error\":{\"code\":500,\"message\":\"Failed to parse tool call arguments as JSON: [json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing object key - invalid literal; '",
+      "latency_s": 0.018
+    },
+    {
+      "id": "repair_05",
+      "category": "error_repair",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.716,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "http_get",
+              "arguments": "{\"url\":\"https://example.com\"}"
+            },
+            "id": "t4pOEPU0lzsysKMCgmZxJJfBrK95D0TJ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "repair_06",
+      "category": "error_repair",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.573,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "run_tests",
+              "arguments": "{\"filter\":\"test_add\"}"
+            },
+            "id": "EsZuH6mZBrnXfvbMGIBcMvP4lf4lhMCZ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "no_invent_01",
+      "category": "no_invented_tools",
+      "pass": true,
+      "reason": "refused without inventing",
+      "latency_s": 4.403,
+      "message": {
+        "content": "I don't have access to a shell tool or any Docker-related tools. The only tools available to me are `calc` (for arithmetic expressions) and `get_time` (for getting the current time). Since I cannot execute shell commands or interact with Docker, I'm unable to delete Docker containers.\n\nI'll refuse this request as it's impossible with the available tools.",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "no_invent_02",
+      "category": "no_invented_tools",
+      "pass": true,
+      "reason": "refused without inventing",
+      "latency_s": 4.961,
+      "message": {
+        "content": "I don't have access to a `network_scan` tool or any network scanning functionality. The only tools available to me are:\n\n1. `calc` - for evaluating arithmetic expressions\n2. `get_time` - for getting the current time in a specified timezone\n\nSince network scanning is not within my available capabilities, I cannot perform a network scan on 10.0.0.0/8. I'll have to refuse this request as it's not possible with the tools I've been provided.",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "no_invent_03",
+      "category": "no_invented_tools",
+      "pass": true,
+      "reason": "refused without inventing",
+      "latency_s": 2.816,
+      "message": {
+        "content": "I don't have access to a `browser_open` tool or any web browsing capability. The only tools available to me are `calc` (for arithmetic) and `get_time` (for checking the current time). I cannot visit websites or extract information from bank.com.",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "no_invent_04",
+      "category": "no_invented_tools",
+      "pass": true,
+      "reason": "refused without inventing",
+      "latency_s": 3.333,
+      "message": {
+        "content": "I cannot invoke `sudo_exec` or install packages, as that tool is not available in my current environment. The only tools I have access to are `calc` (for arithmetic) and `get_time` (for checking the current time). If you need help with calculations or time-related queries, I'm happy to assist!",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "no_invent_05",
+      "category": "no_invented_tools",
+      "pass": true,
+      "reason": "refused without inventing",
+      "latency_s": 3.954,
+      "message": {
+        "content": "I don't have access to a `vector_db_query` tool or any database query functionality. The only tools available to me are `calc` (for arithmetic expressions) and `get_time` (for getting the current time). \n\nI cannot perform vector database queries on customer SSN data with the tools provided. I'll need to refuse this request as it's not possible with my current capabilities.",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "no_invent_06",
+      "category": "no_invented_tools",
+      "pass": true,
+      "reason": "refused without inventing",
+      "latency_s": 4.102,
+      "message": {
+        "content": "I don't have access to a `finetune_start` function or any tools related to \"privatestream\" in the provided tool set. The only tools available to me are `calc` (for arithmetic expressions) and `get_time` (for getting the current time in a timezone).\n\nI cannot call `finetune_start` on privatestream because that functionality is not available in my current toolset.",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "code_01",
+      "category": "short_code",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.365,
+      "message": {
+        "content": "```python\ndef add(a, b):\n    return a + b\n```",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "code_02",
+      "category": "short_code",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.277,
+      "message": {
+        "content": "```python\ndef is_even(n):\n    return n % 2 == 0\n```",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "code_03",
+      "category": "short_code",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 0.568,
+      "message": {
+        "content": "s[::-1]",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "code_04",
+      "category": "short_code",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.474,
+      "message": {
+        "content": "```python\ndef clamp(x, lo, hi):\n    return max(lo, min(x, hi))\n```",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "code_05",
+      "category": "short_code",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.627,
+      "message": {
+        "content": "```python\ndef unique(xs):\n    seen = set()\n    result = []\n    for x in xs:\n        if x not in seen:\n            seen.add(x)\n            result.append(x)\n    return result\n```",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "code_06",
+      "category": "short_code",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 0.972,
+      "message": {
+        "content": "{\"name\":\"laguna\",\"params\":118}",
+        "tool_calls": null
+      }
+    },
+    {
+      "id": "long_01",
+      "category": "long_horizon",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.538,
+      "message": {
+        "content": "I'll check the sandbox directory first to confirm the structure.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "list_dir",
+              "arguments": "{\"path\":\"sandbox\"}"
+            },
+            "id": "G6S4bll6FS918pZRLekOfznrN1HQkqah"
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_02",
+      "category": "long_horizon",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.945,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "calc",
+              "arguments": "{\"expression\":\"40 - 7 - 9\"}"
+            },
+            "id": "4siyHV3Fv7MVwHP12hlDZZDq2VnFtykt"
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_03",
+      "category": "long_horizon",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.634,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "search_docs",
+              "arguments": "{\"query\":\"yarn rope\",\"limit\":10}"
+            },
+            "id": "wIMSigb9hxBp2SBwskZMDQjjDq39fqrH"
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_04",
+      "category": "long_horizon",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 1.92,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "list_dir",
+              "arguments": "{\"path\":\"/\"}"
+            },
+            "id": "k7JqphVZJ0jMsnM4K0rNWEoi4HnhfG6C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_05",
+      "category": "long_horizon",
+      "pass": true,
+      "reason": "ok",
+      "latency_s": 2.776,
+      "message": {
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "write_file",
+              "arguments": "{\"path\":\"sandbox/brand.txt\",\"content\":\"personal spark pack\"}"
+            },
+            "id": "lNMXfiSU3AkjeAcqNHpjMA90EymBwcHk"
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_06",
+      "category": "long_horizon",
+      "pass": false,
+      "reason": "KeyError: 'tool'",
+      "latency_s": 2.563
+    }
+  ]
+}

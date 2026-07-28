@@ -1,0 +1,58 @@
+{
+  "ts": 1785231990.7463834,
+  "host": "dgx-spark",
+  "engine": "poolsideai/llama.cpp 04b2b72",
+  "model": "laguna-s-2.1-Q4_K_M.gguf",
+  "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+  "serve": {
+    "host": "0.0.0.0",
+    "port": 8000,
+    "ctx": 8192,
+    "ngl": -1,
+    "parallel": 1,
+    "alias": "local-laguna",
+    "jinja": true,
+    "fa": "on"
+  },
+  "mem": {
+    "host_total_gi": 121,
+    "used_after_smoke_gi_approx": 96,
+    "available_gi_approx": 25,
+    "server_rss_ki_post": 2054584
+  },
+  "throughput": [
+    {
+      "label": "gen8_short",
+      "prompt_tokens": 45,
+      "completion_tokens": 4,
+      "latency_s": 0.511,
+      "tok_s": 7.821
+    },
+    {
+      "label": "gen128",
+      "prompt_tokens": 61,
+      "completion_tokens": 128,
+      "latency_s": 6.057,
+      "tok_s": 21.133
+    },
+    {
+      "label": "prefill_heavy_gen64",
+      "prompt_tokens": 1655,
+      "completion_tokens": 3,
+      "latency_s": 2.647,
+      "tok_s": 1.134
+    }
+  ],
+  "quote_gen_tok_s": 21.13,
+  "agent_smoke": {
+    "passed": 38,
+    "failed": 2,
+    "n": 40,
+    "pass_rate": 0.95,
+    "elapsed_s": 96.66,
+    "fails": [
+      "repair_04 HTTP500 tool-arg JSON",
+      "long_06 KeyError tool"
+    ]
+  }
+}

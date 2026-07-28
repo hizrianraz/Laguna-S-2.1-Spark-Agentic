@@ -112,7 +112,19 @@ python eval/agent_smoke/run_smoke.py --base-url http://127.0.0.1:8000/v1 --model
 
 Full Spark notes → [`SPARK.md`](./SPARK.md)  
 Hermes-class client → [`hermes/`](./hermes/)  
-Smoke suite → [`eval/agent_smoke/`](./eval/agent_smoke/)
+Smoke suite → [`eval/agent_smoke/`](./eval/agent_smoke/)  
+Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
+
+## Measured on this Spark (2026-07-28)
+
+| Metric | Value |
+|--------|--------|
+| Quant | official `Q4_K_M` · sha256 `a8b55c75…` |
+| Engine | poolside llama.cpp `04b2b72` + `math.h`/`::isfinite` host patch |
+| Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
+| Host mem after load | ~96–99 Gi used of 121 Gi |
+| agent_smoke | **38/40 · 95%** (~97 s) |
+| DFlash | not measured this run |
 
 ## What is **not** in this pack
 

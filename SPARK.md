@@ -165,23 +165,24 @@ ps -o pid,rss,cmd -p $(pgrep -f llama-server)
 
 Record **RSS** of `llama-server`, host free mem before/after load, and ctx size.
 
-## Measured results (fill after run)
+## Measured results (2026-07-28 Spark)
 
-Host: DGX Spark · GB10 · CUDA 13.0 · engine SHA: _TBD_ · weight: Q4_K_M @ `a8b55c75…`
+Host: DGX Spark · GB10 · CUDA 13.0 · engine `04b2b72` · weight Q4_K_M @ `a8b55c75…`  
+Serve proven: `-c 8192 -ngl -1 --parallel 1 --alias local-laguna --jinja -fa on` · load ~6.5 min · host ~96–99 Gi used after load (121 Gi total)
 
-| Setting | pp tok/s | tg tok/s | server RSS | notes |
-|---------|----------|----------|------------|-------|
-| ctx 2k, ngl 99, fa | TBD | TBD | TBD | |
-| ctx 8k, ngl 99, fa | TBD | TBD | TBD | |
-| ctx 8k + DFlash | TBD | TBD | TBD | |
+| Setting | prefill latency | tg tok/s | server RSS | notes |
+|---------|-----------------|----------|------------|-------|
+| ctx 8k, ngl -1, fa on | 836 prompt → 1.83 s; 3236 prompt → 4.73 s | **~21.1** @ 128 gen | ~2–3.4 Gi process RSS | unified mem holds weights; quote **21 tok/s** gen |
+| gen8 short | — | ~7.8 | same | tiny completion noise floor |
+| ctx 8k + DFlash | unmeasured | — | — | optional next |
 
 Agent-shaped (tool round-trips, see smoke):
 
 | Suite | quant | pass | n | notes |
 |-------|-------|------|---|-------|
-| agent_smoke v1 | Q4_K_M | TBD | 40 | |
+| agent_smoke v1 | Q4_K_M | **38/40 · 95%** | 40 | fails: `repair_04` tool-arg JSON HTTP500; `long_06` runner KeyError |
 
-Raw JSON: `results/` (committed only for completed runs).
+Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/server_bench.json`.
 
 ## Agent-shaped benches
 
