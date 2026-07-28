@@ -67,17 +67,23 @@ If HF token dies: restore the personal Hugging Face write token from the local s
 Personal founder surface only. Docs/results may be pushed to this HF repo.  
 No company vault binding for this pack.
 
-## Quant compare + smaller-device path
+## Quant compare + smaller-device path (Aug 3 accelerated)
 
 - Scoreboard: `research/quant-comparison-scoreboard-2026-07-28.md`
-- Mac/PC/laptop path: `research/post-freeze-smaller-device-path.md`
-- Rule: no DIY/smaller SKU until official Q4_K_M bar holds post-launch.
+- Device matrix: `research/device-quant-matrix-aug3.md`
+- Path notes: `research/post-freeze-smaller-device-path.md`
+- Pull helper: `scripts/pull_sku.sh <sku_id>`
+- Headline remains Spark **official Q4_K_M** measured row
+- Smaller SKUs ship as **pointers + optional same-harness delta** — promote to scoreboard only at ≥ official−2
+- 16–32G MacBook/PC: **explicit non-fit** for full Laguna (this Studio host = 32G)
+- No bulk third-party LFS rehost; no public promo before Aug 3 12:00 WIB
 
 ## Hermes-class smoke v2
 
 - Suite path: `eval/hermes_agent_smoke/` (27 cases; ship_min 24)
 - Does **not** replace launch bar `agent_smoke` 40/40
-- Card may list the suite; claim pass rate only after `results/hermes_agent_smoke.json` from live Spark
+- **Measured 2026-07-28: 27/27** in 102.68s · artifact `results/hermes_agent_smoke.json`
+- Card may list **27/27 hermes_agent_smoke** alongside **40/40 agent_smoke**
 - **Public promo** (X / social / “top trending” push): still wait until **2026-08-03 12:00 WIB**
 
 ## Promo timing (lock)

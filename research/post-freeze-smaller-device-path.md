@@ -1,60 +1,57 @@
-# Post-freeze path — Mac mini / MacBook / PC / laptop quants
+# Smaller-device path — Mac mini / MacBook / PC / laptop
 
-Status: **gated** — only after Aug 3 launch bar holds on Spark official Q4_K_M.
-Personal surface only. Freeze lock still applies until launch.
+Status: **UNLOCKED for Aug 3 parallel track** (2026-07-28).
+Still personal surface. Public promo clock unchanged: **2026-08-03 12:00 WIB**.
+
+Canonical matrix → [`device-quant-matrix-aug3.md`](./device-quant-matrix-aug3.md)  
+Pull helper → `scripts/pull_sku.sh`
 
 ## Bottom line
 
-Do **not** ship smaller SKUs to chase top-10 before the Spark Q4 bar is public and stable.
+Ship a **device ladder + pointers + same-harness deltas** by Aug 3.
 
-Win sequence:
+Do **not** swap the Spark official Q4_K_M headline.
 
-1. Hold Spark official Q4_K_M (40/40 agent_smoke + ~21 tok/s gen128 + digests).
-2. Publish pack so strangers can reproduce.
-3. Then map smaller third-party quants with the **same harness**.
-4. Only promote a Mac/PC SKU if agent quality stays within −2/40 of official (or better).
+Full Laguna-S-2.1 does **not** fit 16–32G laptops — say so on the card.
 
-## Why this order
+## Order of work (accelerated)
 
-- Global HF top-10 is **reach**, not one better GGUF.
-- Our defensible win is **measured agent runtime on Spark + official digest binding**.
-- DIY or third-party small quants without same-harness evidence dilute the card.
+1. Hold Spark official Q4_K_M (40/40 + ~21 tok/s + digests).
+2. Pack stranger reproduce path.
+3. Download + alternate-port smoke 1–2 smaller SKUs on Spark disk (IQ4_XS, IQ3_S).
+4. Document Mac/PC/laptop fit honestly (including non-fit).
+5. Promote a SKU to the scoreboard only if ≤ −2/40 vs official.
 
-## Device targets (after unlock)
+## Device targets
 
-| Device class | RAM ballpark | Candidate class | Engine |
-|--------------|--------------|-----------------|--------|
-| DGX Spark (now) | 128G | Official Q4_K_M (~96G) | poolside llama.cpp laguna |
-| High-end workstation | 64–128G | Q4_K_M / UD-Q4_K_XL | llama.cpp CUDA/Metal/ROCm |
-| Mac Studio / mini M-series maxed | 64–128G unified | UD-Q4 / IQ4 family or MLX port | llama.cpp Metal or MLX |
-| MacBook 32–48G | 32–48G | IQ3 / UD-Q3 / aggressive IQ4 | Metal/MLX — expect quality drop |
-| PC laptop 16–24G | 16–24G | Likely **not** full Laguna-S-2.1; need distill or MoE-off path — out of scope unless research proves otherwise | — |
+| Device class | RAM | Candidate | Engine | Aug 3 intent |
+|--------------|-----|-----------|--------|--------------|
+| DGX Spark | ~121G | Official Q4_K_M (~96G) | poolside laguna CUDA | **stand-behind measured** |
+| Workstation 64–128G | 64–128G | UD-Q4_K_XL / IQ4_XS | CUDA / Metal | pointer + optional measure |
+| Mac Studio / mini 64–128G | 64–128G | UD-IQ4_XS / IQ4_XS | Metal / laguna fork | pointer; measure if host free |
+| Mac / PC 48–64G | 48–64G | UD-IQ3_S / Q3_K_* | Metal/CUDA | pointer; quality dip expected |
+| MacBook / PC 32G | ~32G | **full Laguna non-fit** | — | explicit non-fit (this Studio is 32G) |
+| Laptop 16–24G | 16–24G | no full Laguna | — | distill / smaller base later |
 
-Sizes above are order-of-magnitude from current HF shard layouts; **sum all shards** before claiming fit.
-
-## Gate checklist for any new SKU card section
+## Gate checklist (any scoreboard SKU)
 
 - [ ] Same `eval/agent_smoke` 40 cases
-- [ ] Same method doc (temp, max tokens, tools schema)
-- [ ] Host labeled honestly (never call Mac numbers "Spark")
-- [ ] sha256 + source repo (Unsloth/Bartowski/official)
-- [ ] Delta vs Spark official Q4_K_M published
-- [ ] Fail cases listed (no silent drop)
-- [ ] Founder go before any public claim change
+- [ ] Same method (temp, max tokens, tools schema)
+- [ ] Host labeled honestly (never Mac numbers as "Spark")
+- [ ] sha256 + exact source path
+- [ ] Delta vs Spark official Q4_K_M
+- [ ] Fail cases listed
+- [ ] ≥ official − 2 **or** research footnote only
+- [ ] Founder go for post-freeze claim edits
 
-## Promotion rule
+## Non-goals
 
-Promote third-party or DIY only if:
+- Bulk multi-quant LFS rehost of Unsloth/Bartowski trees
+- "Runs on any MacBook" claims
+- Nemotron swap as Laguna headline
+- Global HF top-10 from device count alone
+- Public X/trending before Aug 3 12:00 WIB
 
-- agent_smoke ≥ official − 2 (i.e. ≥38/40 if official is 40), **and**
-- clear device-fit win (RAM/speed), **and**
-- method fully disclosed
+## Authority
 
-Else: keep as research footnote only.
-
-## Explicit non-goals until founder reopen
-
-- No freeze break for boutique GGUF
-- No bulk multi-size rehost of Unsloth tree
-- No Nemotron swap as Laguna headline
-- No claim of global HF top-10 from device proliferation alone
+Personal founder pack. Third-party quants stay at source; we point + measure.

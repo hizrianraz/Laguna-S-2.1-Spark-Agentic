@@ -75,12 +75,26 @@ sha256sum -c SHA256SUMS
 
 | Goal | Artifact | Notes |
 |------|----------|-------|
-| Default agent serve on 128 GB unified (Spark) | Poolside **Q4_K_M** | Best official quality/size for agents; imatrix K-quant, signal path Q8_0 |
+| Default agent serve on 128 GB unified (Spark) | Poolside **Q4_K_M** | Stand-behind; measured agent_smoke 40/40 |
 | Higher fidelity, more RAM | Poolside **Q8_0** | Routed experts Q8, signal BF16 |
-| Disk-tight experiment | Unsloth **UD-Q4_K_XL** | Smaller; third-party dynamic quant — re-run `agent_smoke` yourself |
+| 64–96G Mac / PC (pointer) | Unsloth **UD-IQ4_XS** (~58 GB) or Bartowski **IQ4_XS** (~63 GB) | Third-party; re-run smoke; see device matrix |
+| 48–64G tight (pointer) | Unsloth **UD-IQ3_S** (~48 GB) | Quality dip expected |
+| Aggressive experiment | Unsloth **UD-Q2_K_XL** (~40 GB) | Research only until measured |
 | Speculative decode | + Poolside **DFlash-BF16** | Needs poolside `laguna` fork (`--spec-type draft-dflash`) |
+| 16–32G laptop / this Mac Studio 32G | **non-fit** for full Laguna-S-2.1 | Need distill / smaller base — do not claim |
+
+Pull by SKU id:
+
+```bash
+./scripts/pull_sku.sh official-q4km
+./scripts/pull_sku.sh unsloth-ud-iq4-xs   # ~58 GB third-party
+./scripts/pull_sku.sh unsloth-ud-iq3-s    # ~48 GB third-party
+```
+
+Device ladder → [`research/device-quant-matrix-aug3.md`](./research/device-quant-matrix-aug3.md)
 
 **Do not** claim “first quant”. FP8 / NVFP4 / INT4 / GGUF already exist upstream and community.
+**Do not** print third-party numbers as “Spark measured” without same-harness JSON under `results/sku_*`.
 
 ## One-evening stranger path (S1)
 
@@ -129,8 +143,8 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 |------|-------|-----|-----------|-------|----------|--------|-------|
 | DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | engine `04b2b72` + isfinite patch · Hermes-class client |
 
-Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json)  
-Hermes-class suite (fixed, live runtime optional): [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/) — do not claim a pass fraction until `results/hermes_agent_smoke.json` exists.
+Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json) · [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json)  
+Hermes-class suite live: **27/27** — [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)
 
 ### Measured detail (2026-07-28)
 
@@ -140,9 +154,11 @@ Hermes-class suite (fixed, live runtime optional): [`eval/hermes_agent_smoke/`](
 | Engine | poolside llama.cpp `04b2b72` + `math.h`/`::isfinite` host patch |
 | Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
 | Host mem after load | ~96–99 Gi used of 121 Gi |
-| agent_smoke | **40/40 · 100%** (97.25 s, 2026-07-28 19:00 WIB) |
+| agent_smoke | **40/40 · 100%** (97.25 s / reconfirm ~88.96 s, 2026-07-28) |
+| hermes_agent_smoke v2 | **27/27 · 100%** (102.68 s, 2026-07-28) · `results/hermes_agent_smoke.json` |
 | Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
 | DFlash | not measured this run |
+| Multi-device SKUs | pointer track unlocked for Aug 3 — see `research/device-quant-matrix-aug3.md` (not Spark-headline) |
 
 ## What is **not** in this pack
 

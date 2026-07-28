@@ -13,6 +13,11 @@
   "measured_smoke": "40/40",
   "measured_smoke_at_wib": "2026-07-28T19:00:00+07:00",
   "measured_smoke_elapsed_s": 97.25,
+  "hermes_agent_smoke_v2": "27/27",
+  "hermes_agent_smoke_elapsed_s": 102.68,
+  "hermes_agent_smoke_at_wib": "2026-07-28T19:47:00+07:00",
+  "multi_device_track": "unlocked_pointer_docs",
   "diy_gguf": false,
-  "branding": "personal-only"
+  "branding": "personal-only",
+  "public_promo_before_launch": false
 }

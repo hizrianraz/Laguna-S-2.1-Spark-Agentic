@@ -10,6 +10,7 @@ results/*.json
 !results/launch_lock.json
 !results/launch_receipt.json
 !results/quant_comparison.json
+!results/hermes_agent_smoke.json
 *.gguf
 .venv/
 .env

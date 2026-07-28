@@ -44,12 +44,14 @@ Note: `results/server_bench.json` is prefill-latency oriented (replies "OK"); no
 
 Raw: `results/agent_smoke.json` (40/40).
 
-## Hermes-class smoke v2 (suite only)
+## Hermes-class smoke v2 (live)
 
-- Path: `eval/hermes_agent_smoke/` (27 cases, ship_min 24/27)
+- Path: `eval/hermes_agent_smoke/` (27 cases, ship_min 24/27, stretch 27/27)
 - Runner: `run_hermes_smoke.py` (reuses agent_smoke judges + sanitize)
-- Live Spark result file: **not written yet** — do not claim a pass fraction on card/README scoreboard
+- **Live 2026-07-28: 27/27 · 100% · 102.68 s** · model `local-laguna` · base Spark `:8000`
+- Artifact: `results/hermes_agent_smoke.json`
 - Branding: tool-agent family shape only; not Nous-endorsed
+- Does **not** replace launch bar agent_smoke 40/40
 
 ## Serve recipe (proven)
 ```bash
@@ -68,7 +70,11 @@ $HOME/src/llama.cpp-laguna/build/bin/llama-server \
 ## Published
 - HF (docs only, no weight rehost): https://huggingface.co/hizrianraz/laguna-s-2.1-spark
 
-## Quant comparison
+## Quant comparison + multi-device (Aug 3 accelerated track)
 - Scoreboard: [`research/quant-comparison-scoreboard-2026-07-28.md`](../research/quant-comparison-scoreboard-2026-07-28.md)
+- Device matrix: [`research/device-quant-matrix-aug3.md`](../research/device-quant-matrix-aug3.md)
+- Smaller-device path: [`research/post-freeze-smaller-device-path.md`](../research/post-freeze-smaller-device-path.md)
 - Machine: [`results/quant_comparison.json`](./quant_comparison.json)
-- Stand-behind remains official Q4_K_M; third-party smaller quants = post-freeze only.
+- Stand-behind remains official Q4_K_M on Spark.
+- Smaller third-party SKUs: **pointer + optional same-harness**; no server swap while live Q4 holds `:8000`.
+- Pull helper: `scripts/pull_sku.sh`

@@ -18,6 +18,19 @@ Hermes-**class** agent tool smoke for Laguna OpenAI-compatible serve.
 
 Categories: terminal · files · web · multi_tool · multi_turn · error_repair · no_invented · browser · memory_cron · args_strict · safety
 
+## Measured (live Spark)
+
+| Field | Value |
+|-------|--------|
+| Result | **27/27 (100%)** |
+| Elapsed | 102.68 s |
+| Model id | `local-laguna` |
+| Base | Spark OpenAI-compatible `:8000` |
+| Artifact | `results/hermes_agent_smoke.json` |
+| When | 2026-07-28 ~19:47 WIB |
+
+Meets ship_min and stretch. Does **not** replace agent_smoke 40/40 launch bar.
+
 ## Run
 
 ```bash
@@ -32,5 +45,5 @@ Optional: `--limit N`, `--ids term_01,files_01`, `--temperature 0`.
 
 ## Claims rule
 
-Do **not** put a pass fraction on the card until `results/hermes_agent_smoke.json` exists from a real Spark run.
-Until then: suite is fixed and shippable; headline remains agent_smoke **40/40**.
+Pass fraction on the card only with `results/hermes_agent_smoke.json` from a real run.
+Headline launch bar remains agent_smoke **40/40**.

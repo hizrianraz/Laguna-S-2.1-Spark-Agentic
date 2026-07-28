@@ -15,7 +15,8 @@ Not a global HF top-10 claimsheet. Global trending needs downloads/likes/recency
 | Serve | `:8000` · ctx 8192 · ngl -1 · jinja · fa on · alias `local-laguna` |
 | Gen128 | **21.016 tok/s** · 128 tok · 6.091s |
 | Prefill marks | 2k→1.022s · 8k→1.521s (OK replies) |
-| agent_smoke | **40/40 (100%)** prior lock; live reconfirm in this session |
+| agent_smoke | **40/40 (100%)** prior lock; live reconfirm this session |
+| hermes_agent_smoke v2 | **27/27 (100%)** · 102.68 s · `results/hermes_agent_smoke.json` |
 
 ## Same-family GGUF landscape (HF metadata)
 
@@ -58,15 +59,20 @@ Not a global HF top-10 claimsheet. Global trending needs downloads/likes/recency
 - **Not swapped in** this window (would drop live Laguna serve).
 - Post-freeze same-harness pulse is the fair path if founder wants scientific cross-base compare.
 
-## Laptop / Mac mini / PC path (only after launch bar holds)
+## Laptop / Mac mini / PC path (Aug 3 accelerated — parallel track)
 
-Order (quality-first, no freeze break):
+**Unlocked 2026-07-28** for pack docs + pointer wiring before promo clock.
+Does **not** move public promo; does **not** swap live Q4 on `:8000`.
 
-1. Hold Aug 3 lock: official Q4_K_M + 40/40 + pack docs.
-2. Optional same-harness on Unsloth `UD-Q4_K_XL` / `UD-IQ4_XS` on Spark (agent delta vs official).
-3. If agent_smoke ≥ official−2 and tok/s usable → publish **pointer + measured delta**, still no bare rehost unless delta is ours.
-4. Mac path: MLX or llama.cpp Metal on **smaller** third-party quants; separate card section `results/apple_silicon.md` — never relabel Mac numbers as Spark.
-5. DIY imatrix GGUF only if it **beats** official/Unsloth on agent_smoke + a fixed tool bench.
+Order (quality-first):
+
+1. Hold Aug 3 lock: official Q4_K_M + agent_smoke 40/40 + hermes 27/27 + pack docs.
+2. Parallel: device matrix + pull helper (`research/device-quant-matrix-aug3.md`, `scripts/pull_sku.sh`).
+3. Pull third-party SKUs on Spark disk without loading (live Q4 stays up). Primary candidate: Unsloth `UD-IQ3_S` ~45 GB; then `UD-IQ4_XS` ~58 GB if space.
+4. Same-harness only when GPU/RAM free (stop Q4 or secondary host) — never relabel Mac numbers as Spark.
+5. If agent_smoke ≥ official−2 and usable tok/s → publish **pointer + measured delta**, no bare rehost unless delta is ours.
+6. Mac / 16–32G: honest non-fit for full Laguna; point at very-small third-party only with risk label (see matrix).
+7. DIY imatrix GGUF only if it **beats** official/Unsloth on agent_smoke + fixed tool bench.
 
 ## Live bench stamp
 
