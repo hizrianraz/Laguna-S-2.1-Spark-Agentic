@@ -2,7 +2,7 @@
 """Fixed agent_smoke runner for Laguna OpenAI-compatible servers.
 
 Pass/fail only against the pinned cases.json — no free-form grading.
-personal · not Ainfera · not Neptune · not Fin · not Gate0
+personal fixed smoke runner
 """
 
 from __future__ import annotations

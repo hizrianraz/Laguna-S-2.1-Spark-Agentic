@@ -1,6 +1,6 @@
 # Reproducible method — Laguna-S-2.1 Spark pack
 
-personal · not Ainfera · not Neptune · not Fin · not Gate0
+Personal reproducible method.
 
 ## Pins (card freeze)
 
@@ -39,9 +39,9 @@ sha256sum -c SHA256SUMS
 
 ## Personal HF publish surface
 
-- User: `hizrianraz` (personal). Not `ainfera-ai` without separate founder Go.
-- Suggested repo id: `hizrianraz/laguna-s-2.1-spark`
-- Line 1 of card must remain: `personal · not Ainfera · not Neptune · not Fin · not Gate0`
+- User: `hizrianraz` (personal)
+- Repo id: `hizrianraz/laguna-s-2.1-spark`
+- Card framing: personal measurements only; no org product claims
 
 ## DIY quant policy
 

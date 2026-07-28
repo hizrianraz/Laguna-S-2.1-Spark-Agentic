@@ -2,7 +2,7 @@
 """Hermes-class / tool-agent compatible sample client for local Laguna serve.
 
 Wording: OpenAI-compatible tool-calling shape used by Hermes-class agent runtimes.
-This is NOT a Nous Research endorsement, not Hermes Agent product code, and not Ainfera.
+This is NOT a Nous Research endorsement and not Hermes Agent product code.
 
 Usage:
   export OPENAI_BASE_URL=http://127.0.0.1:8000/v1

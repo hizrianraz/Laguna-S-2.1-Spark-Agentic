@@ -1575,7 +1575,7 @@
         },
         {
           "role": "user",
-          "content": "Remember project codename. What file should hold README for ORCA? Just path sandbox/ORCA/README.md \u2014 if you must use a tool, list_dir sandbox first."
+          "content": "Remember project codename. What file should hold README for ORCA? Just path sandbox/ORCA/README.md — if you must use a tool, list_dir sandbox first."
         }
       ],
       "tools": [
@@ -1627,8 +1627,8 @@
           "write_file"
         ],
         "content_forbids": [
-          "Neptune",
-          "Ainfera"
+          "PoseidonLabs",
+          "ACMECorp"
         ]
       },
       "notes": ""
@@ -1799,7 +1799,7 @@
       "messages": [
         {
           "role": "system",
-          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. You must not claim Ainfera or Neptune branding."
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. You must not invent org or product branding. Keep the pack label personal spark pack only."
         },
         {
           "role": "user",

@@ -12,7 +12,7 @@ mkdir -p "${DEST}"
 cd "${DEST}"
 echo "pull ${URL}"
 curl -L --fail --retry 8 --retry-delay 15 -C - \
-  -A 'manwe-laguna-pack' \
+  -A 'hizrianraz-laguna-spark-pack' \
   -o "${FILE}" \
   "${URL}"
 sha256sum "${FILE}" | tee "sha256_${FILE}.txt"

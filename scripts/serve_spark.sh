@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Serve official Laguna-S-2.1 GGUF on DGX Spark via poolside llama.cpp (laguna).
-# personal · not Ainfera · not Neptune · not Fin · not Gate0
+# personal DGX Spark serve helper
 set -euo pipefail
 
 ROOT="${LAGUNA_ENGINE:-$HOME/src/llama.cpp-laguna}"

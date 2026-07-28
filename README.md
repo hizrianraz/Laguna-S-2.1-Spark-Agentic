@@ -15,14 +15,13 @@ library_name: gguf
 pipeline_tag: text-generation
 ---
 
-# personal · not Ainfera · not Neptune · not Fin · not Gate0
+# Laguna-S-2.1 · DGX Spark pack (personal)
 
 **Launch target: 2026-08-03 (WIB)** — see [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
 
 Personal DGX Spark agent-runtime pack for [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1) (118B-A8B MoE, agentic coding).
 
-This is **not** an Ainfera product, not Neptune Core, not Fin-70B, and not Gate0.
-Unrelated to company org ships. Solo founder personal HF surface only.
+Solo personal HF surface by **hizrianraz**. Independent measurements on one DGX Spark. Not affiliated with Poolside or Nous Research.
 
 ## What this is
 
@@ -140,10 +139,10 @@ Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/
 
 ## What is **not** in this pack
 
-- No Ainfera routing, no Neptune staged gates, no Fin weights
-- No Verda/cloud CREATE for this workstream
+- No bare GGUF re-upload when the official file is the stand-behind artifact
+- No affiliate / org / company product claims
 - No fake benches — only fixed `agent_smoke` + `llama-bench` / server timings you can re-run
-- No spam GGUF re-upload when the official file is the stand-behind artifact (S5)
+- No off-Spark (rented cloud) numbers relabeled as Spark
 
 ## Reproducible method
 
@@ -158,4 +157,4 @@ See [`docs/REPRODUCE.md`](./docs/REPRODUCE.md) for exact clone SHAs, cmake flags
 
 ## Disclaimer
 
-Independent personal measurements on one DGX Spark. Not affiliated with, endorsed by, or representing Poolside, Nous Research, Hermes Agent product claims, or Ainfera Inc. product lines. “Hermes-class” means OpenAI-compatible tool-calling agent runtime shape only — **not** a Nous endorsement.
+Independent personal measurements on one DGX Spark. Not affiliated with, endorsed by, or representing Poolside or Nous Research. “Hermes-class” means OpenAI-compatible tool-calling agent runtime shape only — **not** a Nous endorsement.

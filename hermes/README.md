@@ -1,6 +1,6 @@
 # Hermes-class sample client
 
-personal · not Ainfera · not Neptune · not Fin · not Gate0
+Personal sample client for local Spark serve.
 
 OpenAI-compatible client notes for **Hermes-class / tool-agent** runtimes against
 local `llama-server` serving Laguna-S-2.1 on DGX Spark.
@@ -11,7 +11,7 @@ local `llama-server` serving Laguna-S-2.1 on DGX Spark.
   + `tools` / `tool_calls` shape common to agent stacks in that family.
 - **Not** a Nous Research endorsement.
 - **Not** Hermes Agent source, branding, or product affiliation.
-- **Not** Ainfera gateway.
+- **Not** a third-party gateway product.
 
 ## Connect
 

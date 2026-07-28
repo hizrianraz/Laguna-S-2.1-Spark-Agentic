@@ -1,6 +1,6 @@
 # Laguna-S-2.1 on DGX Spark — measured 2026-07-28
 
-personal · not Ainfera · not Neptune
+personal Spark measurement note
 
 ## Artifacts
 - Model: poolside official `laguna-s-2.1-Q4_K_M.gguf` (90G)

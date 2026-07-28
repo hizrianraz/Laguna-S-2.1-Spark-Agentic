@@ -1,7 +1,7 @@
-# Laguna Spark HF launch lock — 2026-08-03 (birthday)
+# Laguna Spark HF launch lock — 2026-08-03
 
 Status: **LOCKED**  
-Owner: Manwë (personal; not Ainfera / not Neptune)  
+Owner: personal (hizrianraz)  
 Repo: https://huggingface.co/hizrianraz/laguna-s-2.1-spark  
 Timezone: Asia/Jakarta (WIB)
 
@@ -13,7 +13,7 @@ Timezone: Asia/Jakarta (WIB)
 | Aug 2 18:00 WIB | Content freeze (no new claims without re-measure) |
 | Aug 3 09:00 WIB | Preflight |
 | Aug 3 12:00 WIB | **GO LIVE** (card + announce ready state) |
-| Aug 3 18:00 WIB | Post-launch verify + founder brief |
+| Aug 3 18:00 WIB | Post-launch verify + brief |
 
 ## Launch definition of done (all required)
 
@@ -26,17 +26,17 @@ Timezone: Asia/Jakarta (WIB)
    - Target: **≥38/40 (95%)** minimum ship
    - Stretch: **40/40** if fixed before freeze
 7. Gen throughput quote: ~21 tok/s @ 128 completion (or fresher re-measure)
-8. Clear disclaimer: personal · not Ainfera · not first quant · not Poolside/Nous affiliate
+8. Clear disclaimer: personal · not first quant · not Poolside/Nous affiliate
 9. No DIY GGUF unless it beats a scoreboard cell (default: **bind official only**)
 10. Launch receipt JSON written + card updated same day
 
 ## Non-goals (hard)
 
-- Ainfera / Neptune / Fin branding
+- Org / company product branding on this surface
 - Re-hosting official GGUF without measured win
-- K3 / other model side quests under this tag
+- Side-quest models under this tag
 - Fake 100% smoke or unverified tok/s
-- X/public brand push beyond HF card (rename gate still holds for X)
+- X/public brand push beyond HF card
 
 ## Daily clock (WIB)
 
@@ -54,14 +54,14 @@ Timezone: Asia/Jakarta (WIB)
 
 If smoke cannot reach 40/40 by freeze: ship **38/40 with named fails**.  
 If Spark down at launch: freeze last green MEASURED row; do not invent numbers.  
-If HF token dies: restore from Doppler `ainfera-ai/prd` `HUGGINGFACE_TOKEN` only; never paste token in chat.
+If HF token dies: restore the personal Hugging Face write token from the local secret store only; never paste token in chat.
 
-## Announce text (draft — founder edits OK)
+## Announce text (draft — edits OK)
 
 > Personal DGX Spark agent-runtime pack for Poolside Laguna-S-2.1: measured OpenAI-compatible serve, fixed agent smoke, official Q4_K_M digests (no bare re-upload).  
 > https://huggingface.co/hizrianraz/laguna-s-2.1-spark
 
 ## Authority
 
-Personal founder surface only. Manwë may push docs/results to this HF repo.  
-No Tier-1 actions. No company vault binding for this pack.
+Personal founder surface only. Docs/results may be pushed to this HF repo.  
+No company vault binding for this pack.

@@ -1,6 +1,6 @@
 # Build notes — poolside llama.cpp laguna on DGX Spark
 
-personal · not Ainfera · not Neptune · not Fin · not Gate0
+Personal Spark build notes.
 
 ## Engine
 
@@ -24,7 +24,7 @@ Measured fix that builds clean:
 if (!std::isfinite(v)) {
 
 // after (Spark / GNU 13.3)
-if (!::isfinite(static_cast<double>(v))) /* manwe-isfinite-fix */ {
+if (!::isfinite(static_cast<double>(v))) /* spark-isfinite-fix */ {
 ```
 
 Do **not** treat a failed UI-asset HF fetch during build as fatal — `llama-server` still links; only the optional embedded UI may stay stale.
