@@ -75,15 +75,16 @@ sha256sum -c SHA256SUMS
 
 | Goal | Artifact | Notes |
 |------|----------|-------|
-| Default agent serve on Spark (~121G) | Poolside **Q4_K_M** | **Stand-behind** · measured agent_smoke 40/40 · ~21 t/s |
-| **Founder MacBook / Mac Studio (≤32G) · full S** | **no local S weights** | **Laguna Mac = client** → Spark `http://<spark>:8000/v1` · S IQ3 ~48G alone > 32G RAM |
-| **Founder Mac ≤32G · XS parallel (not S)** | Poolside **XS** `Laguna-XS-2.1-Q4_K_M.gguf` (~18.9G) | **Separate 33B-A3B model** · disk candidate · **0 Mac smoke** · not a quant of S · see [`research/laguna-xs-2.1-mac-fit-2026-07-28.md`](./research/laguna-xs-2.1-mac-fit-2026-07-28.md) + dual roadmap |
-| Higher fidelity, more RAM (Spark) | Poolside **Q8_0** | Routed experts Q8, signal BF16 |
+| Default agent serve on **S / Spark** (~121G) | Poolside **S Q4_K_M** | **Stand-behind** · measured agent_smoke 40/40 · hermes 27/27 · ~21 t/s |
+| **Founder MacBook / Mac Studio (≤32G) · full S** | **no local S weights** | **Laguna Mac = client → Spark** `http://<spark>:8000/v1` · S IQ3 ~48G alone > 32G RAM |
+| Higher fidelity, more RAM (Spark) | Poolside **S Q8_0** | Routed experts Q8, signal BF16 |
 | Community 64–96G box (pointer, not founder Mac) | Unsloth **UD-IQ4_XS** (~58 GB) or Bartowski **IQ4_XS** (~63 GB) | Third-party; strangers re-run smoke; see device matrix |
-| Community 48–64G tight (Spark-measured pointer) | Unsloth **UD-IQ3_S** (~48 GB) | Spark same-harness **38/40** · not headline · **not** a MacBook claim |
+| Community 48–64G tight (Spark pointer) | Unsloth **UD-IQ3_S** (~48 GB) | Spark **38/40 on older runner** (no sanitize) · not headline · **not** a MacBook claim · not Q4 runner-identical |
 | Aggressive experiment | Unsloth **UD-Q2_K_XL** (~40 GB) | Research only until measured |
 | Speculative decode | + Poolside **DFlash-BF16** | Needs poolside `laguna` fork (`--spec-type draft-dflash`) |
 | iPhone / Android phone or tablet | **non-fit** for full Laguna-S | ~40GB+ even at IQ3; mobile NPU/RAM is 4–12G class — need SLM/distill, not this MoE |
+
+**XS is parallel, not an S quant.** Founder Mac ≤32G XS disk candidate = Poolside `Laguna-XS-2.1-Q4_K_M.gguf` (~18.9G) · separate 33B-A3B · **0 Mac smoke** · see [`research/laguna-xs-2.1-mac-fit-2026-07-28.md`](./research/laguna-xs-2.1-mac-fit-2026-07-28.md) + dual roadmap.
 
 Pull by SKU id:
 
@@ -144,7 +145,7 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 | Host | Quant | Ctx | Gen tok/s | Smoke | RAM used | DFlash | Notes |
 |------|-------|-----|-----------|-------|----------|--------|-------|
 | DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | **Headline** · engine `04b2b72` + isfinite · Hermes-class |
-| DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen ~41 t/s (tiny) | **38/40 (95%)** | ~46 G weights | not measured | **Not headline** · same-harness SKU · ship ≥38 met · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/) |
+| DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen ~41 t/s (tiny) | **38/40 (95%)** | ~46 G weights | not measured | **Not headline** · older-runner SKU (no sanitize/any_of_tools) · ship ≥38 met · **not** Q4 runner-identical · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/) |
 
 Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json) · [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json) · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/)  
 Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)
@@ -157,11 +158,11 @@ Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval
 | Engine | poolside llama.cpp `04b2b72` + `math.h`/`::isfinite` host patch |
 | Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
 | Host mem after load | ~96–99 Gi used of 121 Gi |
-| agent_smoke | **40/40 · 100%** (97.25 s / reconfirm ~88.96 s, 2026-07-28) |
-| hermes_agent_smoke v2 | **27/27 · 100%** (102.68 s, 2026-07-28) · `results/hermes_agent_smoke.json` |
+| agent_smoke | **40/40 · 100%** · post-restore **97.79 s** (~23:55 WIB) · prior 97.25 / ~88.96 s · temp **0.0** |
+| hermes_agent_smoke v2 | **27/27 · 100%** · post-restore **104.4 s** (~23:57 WIB) · prior 102.68 s · temp **0.0** · one-response · `results/hermes_agent_smoke.json` |
 | Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
 | DFlash | not measured this run |
-| Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · sha256 `8a9ab3f8…` · **38/40 · 71s** on Spark (Q4 briefly stopped; **restored**) · fails `repair_04`/`long_06` on *stale* Spark runner (no sanitize); not claimed as weight regression · phone/tablet **non-fit** |
+| Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · sha256 `8a9ab3f8…` · **38/40 · 71s** on Spark (Q4 briefly stopped; **restored**) · fails `repair_04`/`long_06` on **older runner** md5 `c1a587c8…` (no sanitize / any_of_tools) — **not** same runner as post-fix Q4 40/40 · not claimed as weight regression · phone/tablet **non-fit** |
 
 ## What is **not** in this pack
 

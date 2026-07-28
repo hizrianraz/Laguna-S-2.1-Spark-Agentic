@@ -45,16 +45,15 @@
   ],
   "quote_gen_tok_s": 21.016,
   "agent_smoke": {
-    "passed": 40,
-    "failed": 0,
-    "n": 40,
-    "pass_rate": 1.0,
-    "elapsed_s": 88.96,
-    "fails": [],
-    "runner_note": "live reconfirm after harness close; sanitize + any_of_tools",
-    "measured_at_wib": "2026-07-28 ~19:20 WIB",
-    "model_alias": "local-laguna",
-    "base_url_host": "100.98.213.2:8000"
+    "pass": "40/40",
+    "elapsed_s": 97.79,
+    "temperature": 0.0,
+    "model": "local-laguna",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "host": "Hizrian-Razs-DGX-Spark",
+    "out": "results/agent_smoke.json",
+    "run_manifest_schema": "laguna.run_manifest/v1",
+    "lock_note": "post-restore 2026-07-28 ~23:55 WIB"
   },
   "ts_agent_smoke_rerun": 1785240797.710043,
   "server_bench_live": {
@@ -80,5 +79,22 @@
     ],
     "ts": 1785240608.512297
   },
-  "ts_live_bench": 1785240797.710044
+  "ts_live_bench": 1785240797.710044,
+  "schema": "laguna.measured/v1",
+  "updated_at_wib": "2026-07-29T00:10:29+07:00",
+  "headline_quant": "Q4_K_M",
+  "hermes_agent_smoke": {
+    "pass": "27/27",
+    "elapsed_s": 104.4,
+    "temperature": 0.0,
+    "model": "local-laguna",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "host": "Hizrian-Razs-DGX-Spark",
+    "out": "results/hermes_agent_smoke.json",
+    "run_manifest_schema": "laguna.run_manifest/v1",
+    "protocol": "one-response protocol; tools validated not executed",
+    "lock_note": "post-restore 2026-07-28 ~23:57 WIB",
+    "runner_path_note": "post-restore receipt stamped helper path; runners now accept runner_path override for next smoke"
+  },
+  "headline": "40/40 agent_smoke \u00b7 official Q4_K_M \u00b7 hermes 27/27"
 }

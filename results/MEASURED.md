@@ -28,9 +28,11 @@ Primary gen number to quote: **~21 tok/s** @ 128 completion tokens, short prompt
 Note: `results/server_bench.json` is prefill-latency oriented (replies "OK"); not digests gen throughput.
 
 ## Agent smoke (40 cases)
-- **40/40 pass · 100% · 88.96s** (live reconfirm 2026-07-28 ~19:20 WIB; prior lock 97.25s)
+- **Post-restore lock 2026-07-28 ~23:55 WIB: 40/40 · 100% · 97.79 s** · temp **0.0** · `local-laguna` Spark `:8000`
+- Runner: fixed `eval/agent_smoke/run_smoke.py` sha256 `c0924f8a2971…` (sanitize + any_of_tools + run_manifest)
+- Prior live reconfirm same day ~19:20 WIB: 40/40 · 88.96 s; earlier lock 97.25 s
 - Prior baseline: 38/40 · 95% · 96.7s (same weights/engine; two harness bugs)
-- by category:
+- by category (post-restore):
   - tool_json 8/8
   - multi_step 8/8
   - error_repair 6/6
@@ -48,8 +50,10 @@ Raw: `results/agent_smoke.json` (40/40).
 
 - Path: `eval/hermes_agent_smoke/` (27 cases, ship_min 24/27, stretch 27/27)
 - Runner: `run_hermes_smoke.py` (reuses agent_smoke judges + sanitize)
-- **Live 2026-07-28: 27/27 · 100% · 102.68 s** · model `local-laguna` · base Spark `:8000`
+- **Post-restore lock 2026-07-28 ~23:57 WIB: 27/27 · 100% · 104.4 s** · temp **0.0** · `local-laguna` Spark `:8000`
+- Prior same-day: 27/27 · 102.68 s
 - Artifact: `results/hermes_agent_smoke.json`
+- Protocol: **one-response** — tools validated, not executed
 - Branding: tool-agent family shape only; not Nous-endorsed
 - Does **not** replace launch bar agent_smoke 40/40
 
@@ -79,18 +83,23 @@ $HOME/src/llama.cpp-laguna/build/bin/llama-server \
 - Pull helper: `scripts/pull_sku.sh`
 - **Founder Mac lock:** MacBook Pro / Mac Studio = **≤32G** (this Studio M2 Max 32G). Full Laguna weights **non-fit**. Mac path = OpenAI/Hermes **client → Spark**, not local GGUF.
 
-### SKU same-harness: Unsloth UD-IQ3_S (not headline)
+### SKU pointer (older-runner): Unsloth UD-IQ3_S (not headline)
+
+**Honest label:** same host/engine family, **not** runner-identical to post-fix Q4 40/40.
+Do **not** call this “same-harness vs Q4” without re-running IQ3 on the fixed runner.
 
 | Field | Value |
 |-------|-------|
 | File | `unsloth/Laguna-S-2.1-GGUF` · `Laguna-S-2.1-UD-IQ3_S.gguf` |
 | sha256 | `8a9ab3f8b3ff1723441cd251e873b295a7ef086d78dbae7515e5e27c8382b002` |
 | bytes | 48428911520 (~45.1 Gi) |
-| Host / engine | Spark · same poolside laguna `04b2b72` |
+| Host / engine | Spark · poolside laguna `04b2b72` |
 | Serve window | Q4 stopped briefly; IQ3 on `:8000` alias `local-laguna-iq3s`; **Q4 restored** after |
 | agent_smoke | **38/40 · 95% · 71.0 s** (2026-07-28 20:10 WIB) |
 | fails | `repair_04`, `long_06` |
-| Harness caveat | Spark pack `run_smoke.py` md5 `c1a587c8…` lacked `sanitize_messages_for_server` + `any_of_tools` judge (local fixed md5 `4b2fe7af…`). Same two fails were **harness-closed on Q4** earlier. IQ3 still meets ship gate ≥38/40 end-to-end on the runner that ran. |
+| Runner | Spark pack `run_smoke.py` md5 `c1a587c8…` — **no** `sanitize_messages_for_server`, **no** `any_of_tools` judge |
+| Post-fix Q4 runner | local fixed md5 `4b2fe7af…` — harness-closed those two IDs on Q4 |
+| Caveat | IQ3 meets ship gate ≥38/40 **on the older runner that ran**. Not re-measured on the fixed runner. Not weight-regression claim. |
 | Promotion | ship-min **met** · pointer + delta only · **not** default quant |
 | Phone / tablet | **full Laguna non-fit** (iPhone + Android) — need SLM/distill |
 

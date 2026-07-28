@@ -11,8 +11,21 @@ results/*.json
 !results/launch_receipt.json
 !results/quant_comparison.json
 !results/hermes_agent_smoke.json
+!results/xs_mac_track_lock.json
+!results/MEASURED.md
+!results/freeze_notes_*.md
+!results/dual_audit_consolidation_*.md
+# Placement / jury local-only — never auto-push as public freeze evidence
+# (intentionally NOT whitelisted: three_jury_*, weight_placement_*, sku under sku_/)
+results/sku_*/**
+!results/sku_*/
+!results/sku_*/README.md
+!results/sku_*/sku_meta.json
+!results/sku_*/MEASURED.md
 *.gguf
 .venv/
 .env
-!results/xs_mac_track_lock.json
-!results/MEASURED.md
+models/
+weights/
+*.log
+prompts/_mirror/

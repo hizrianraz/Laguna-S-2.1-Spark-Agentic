@@ -67,7 +67,7 @@
     "hermes_v2_elapsed_s": 102.68
   },
   "refreshed_at_unix": 1785245154.5385852,
-  "refreshed_at_wib": "2026-07-28T20:25:54+07:00",
+  "refreshed_at_wib": "2026-07-29T00:11:39+07:00",
   "last_docs_sync_wib": "2026-07-28T21:33:30+07:00",
   "last_docs_hf_commit": "593c20e8fa26d47ef89c5b7d5ac8f311c49e753f",
   "last_docs_gh_commit": "3d54042",
@@ -75,5 +75,24 @@
     "github": "https://github.com/hizrianraz/laguna-xs-2.1-mac",
     "hf": "https://huggingface.co/hizrianraz/laguna-xs-2.1-mac",
     "status": "prep_published_unmeasured"
-  }
+  },
+  "repo": "hizrianraz/laguna-s-2.1-spark",
+  "note": "measurement lock refresh after Q4 restore; weights unchanged; no re-upload this tick",
+  "headline_quant": "Q4_K_M",
+  "stand_behind": "official Poolside Q4_K_M \u2014 always restore after alt SKU",
+  "agent_smoke": {
+    "pass": "40/40",
+    "elapsed_s": 97.79,
+    "artifact": "results/agent_smoke.json",
+    "wib": "2026-07-28T23:55"
+  },
+  "hermes_agent_smoke": {
+    "pass": "27/27",
+    "elapsed_s": 104.4,
+    "artifact": "results/hermes_agent_smoke.json",
+    "wib": "2026-07-28T23:57",
+    "protocol": "one-response"
+  },
+  "mac_rule": "founder Mac \u226432G = client\u2192Spark only; no local full-S weights; XS is parallel sibling pack",
+  "iq3_pointer": "Unsloth UD-IQ3_S 38/40 older-runner; not headline; not founder-Mac claim"
 }

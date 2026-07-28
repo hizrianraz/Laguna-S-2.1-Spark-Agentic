@@ -131,6 +131,19 @@ def main():
         "by_category": cats,
         "results": results,
     }
+    # Reuse agent_smoke provenance helper when present (same schema).
+    # Pass this entrypoint as runner_path so hermes is not stamped as run_smoke.py.
+    if hasattr(smoke, "build_run_manifest"):
+        summary["run_manifest"] = smoke.build_run_manifest(
+            suite=suite,
+            version=ver,
+            cases_path=cases_path,
+            base_url=args.base_url,
+            model=args.model,
+            temperature=args.temperature,
+            out_path=args.out or None,
+            runner_path=Path(__file__).resolve(),
+        )
 
     text = json.dumps(summary, indent=2)
     if args.out:

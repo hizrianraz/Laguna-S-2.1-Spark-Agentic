@@ -80,8 +80,10 @@ log for template warnings before blaming the model.
 python eval/hermes_agent_smoke/run_hermes_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
   --model local-laguna \
+  --temperature 0 \
   --out results/hermes_agent_smoke.json
 ```
 
 27 fixed cases (terminal/files/web multi-turn + repair). See `eval/hermes_agent_smoke/README.md`.
+**one-response protocol** — tools validated, not executed. Claim temp **0.0**.
 Not a Nous endorsement.

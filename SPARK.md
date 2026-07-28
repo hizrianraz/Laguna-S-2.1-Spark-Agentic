@@ -180,10 +180,10 @@ Agent-shaped (tool round-trips, see smoke):
 
 | Suite | quant | pass | n | notes |
 |-------|-------|------|---|-------|
-| agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | prior 38/40 was harness: `repair_04` sanitize + `long_06` any_of_tools judge; re-run 97.25s WIB 19:00 |
-| hermes_agent_smoke v2 | Q4_K_M | *pending live run* | 27 | suite fixed in-repo; ship_min 24/27; no card claim until JSON exists |
+| agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | **post-restore 97.79 s** WIB ~23:55 · temp 0.0 · prior same-day 97.25 / 88.96 s · harness fixes: sanitize + any_of_tools |
+| hermes_agent_smoke v2 | Q4_K_M | **27/27 · 100%** | 27 | **post-restore 104.4 s** WIB ~23:57 · temp 0.0 · prior 102.68 s · one-response protocol · `results/hermes_agent_smoke.json` |
 
-Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/server_bench.json`.
+Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/hermes_agent_smoke.json`, `results/server_bench.json`.
 
 ## Agent-shaped benches
 
@@ -207,13 +207,16 @@ OpenAI tool shape only — not a Nous endorsement.
 python eval/agent_smoke/run_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
   --model local-laguna \
-  --out results/smoke_q4km.json
+  --out results/agent_smoke.json
 
 python eval/hermes_agent_smoke/run_hermes_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
   --model local-laguna \
+  --temperature 0 \
   --out results/hermes_agent_smoke.json
 ```
+
+Claim temperature **0.0**. Both suites are **one-response** (tools validated, not executed).
 
 ## vLLM (optional, unmeasured default)
 

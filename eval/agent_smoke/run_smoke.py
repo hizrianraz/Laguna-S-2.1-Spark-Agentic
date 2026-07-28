@@ -8,18 +8,98 @@ personal fixed smoke runner
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
+import platform
 import re
+import socket
+import subprocess
 import sys
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 
 def load_cases(path: Path):
     data = json.loads(path.read_text())
     return data["cases"], data.get("version", 1)
+
+
+def build_run_manifest(
+    *,
+    suite: str,
+    version,
+    cases_path: Path,
+    base_url: str,
+    model: str,
+    temperature: float = 0.0,
+    out_path: str | None = None,
+    runner_path: str | Path | None = None,
+) -> dict:
+    """Provenance block attached to every smoke receipt (nulls stay null — fail closed).
+
+    runner_path: optional override for wrappers (e.g. hermes_agent_smoke) so the
+    stamped runner is the entrypoint script, not this helper module.
+    """
+    cases_path = Path(cases_path)
+    runner_file = Path(runner_path).resolve() if runner_path else Path(__file__).resolve()
+    try:
+        cases_sha = hashlib.sha256(cases_path.read_bytes()).hexdigest()
+    except OSError:
+        cases_sha = None
+    try:
+        runner_sha = hashlib.sha256(runner_file.read_bytes()).hexdigest()
+    except OSError:
+        runner_sha = None
+    git_head = None
+    try:
+        # Prefer pack root from helper location (…/eval/agent_smoke → pack root parents[2])
+        root = Path(__file__).resolve().parents[2]
+        git_head = (
+            subprocess.check_output(
+                ["git", "-C", str(root), "rev-parse", "HEAD"],
+                stderr=subprocess.DEVNULL,
+                timeout=5,
+            )
+            .decode()
+            .strip()
+        )
+    except Exception:
+        git_head = None
+    return {
+        "schema": "laguna.run_manifest/v1",
+        "suite": suite,
+        "suite_version": version,
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "host": {
+            "hostname": socket.gethostname(),
+            "platform": platform.platform(),
+            "python": sys.version.split()[0],
+        },
+        "runner": {
+            "path": str(runner_file),
+            "sha256": runner_sha,
+        },
+        "cases": {
+            "path": str(cases_path.resolve()) if cases_path.exists() else str(cases_path),
+            "sha256": cases_sha,
+        },
+        "request": {
+            "base_url": base_url,
+            "model": model,
+            "temperature": temperature,
+        },
+        "pack_git_head": git_head,
+        "out": out_path,
+        "env_note": {
+            "LAGUNA_MODEL": os.environ.get("LAGUNA_MODEL"),
+            "OPENAI_BASE_URL": os.environ.get("OPENAI_BASE_URL"),
+        },
+        "protocol": "one-response protocol; tools validated not executed",
+    }
 
 
 def post_chat(base_url: str, api_key: str, model: str, messages, tools, temperature=0.0, max_tokens=512, timeout=180):
@@ -261,6 +341,7 @@ def main():
         time.sleep(args.sleep)
 
     summary = {
+        "suite": "agent_smoke",
         "version": ver,
         "model": args.model,
         "base_url": args.base_url,
@@ -278,6 +359,15 @@ def main():
         d["n"] += 1
         d["passed"] += int(r["pass"])
     summary["by_category"] = cats
+    summary["run_manifest"] = build_run_manifest(
+        suite="agent_smoke",
+        version=ver,
+        cases_path=Path(args.cases),
+        base_url=args.base_url,
+        model=args.model,
+        temperature=0.0,
+        out_path=args.out or None,
+    )
 
     text = json.dumps(summary, indent=2)
     if args.out:
