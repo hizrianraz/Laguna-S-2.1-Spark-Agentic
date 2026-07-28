@@ -17,8 +17,8 @@ personal Spark measurement note
 ## Throughput (chat completions, local)
 | mark | prompt_tok | completion_tok | latency_s | tok/s |
 |------|------------|----------------|-----------|-------|
-| gen8_short | 45 | 4 | 0.511 | 7.82 |
-| gen128 | 61 | 128 | 6.057 | **21.13** |
+| gen8_short | 49 | 4 | 0.47 | 8.51 |
+| gen128 | 55 | 128 | 6.091 | **21.02** |
 | prefill_heavy (1.6k→3) | 1655 | 3 | 2.647 | (gen low; prefill)~ |
 | script 2k filler | 836 | 3 | 1.826 | n/a (max_tokens=3 OK) |
 | script 8k filler | 3236 | 3 | 4.731 | n/a (max_tokens=3 OK) |
@@ -28,7 +28,7 @@ Primary gen number to quote: **~21 tok/s** @ 128 completion tokens, short prompt
 Note: `results/server_bench.json` is prefill-latency oriented (replies "OK"); not digests gen throughput.
 
 ## Agent smoke (40 cases)
-- **40/40 pass · 100% · 97.25s** (re-run 2026-07-28 19:00 WIB)
+- **40/40 pass · 100% · 88.96s** (live reconfirm 2026-07-28 ~19:20 WIB; prior lock 97.25s)
 - Prior baseline: 38/40 · 95% · 96.7s (same weights/engine; two harness bugs)
 - by category:
   - tool_json 8/8
@@ -60,3 +60,8 @@ $HOME/src/llama.cpp-laguna/build/bin/llama-server \
 
 ## Published
 - HF (docs only, no weight rehost): https://huggingface.co/hizrianraz/laguna-s-2.1-spark
+
+## Quant comparison
+- Scoreboard: [`research/quant-comparison-scoreboard-2026-07-28.md`](../research/quant-comparison-scoreboard-2026-07-28.md)
+- Machine: [`results/quant_comparison.json`](./quant_comparison.json)
+- Stand-behind remains official Q4_K_M; third-party smaller quants = post-freeze only.

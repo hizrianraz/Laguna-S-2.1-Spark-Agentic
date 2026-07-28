@@ -24,7 +24,7 @@ Timezone: Asia/Jakarta (WIB)
 5. Measured artifacts on HF (not only local): `results/measured.json`, `server_bench.json`, `agent_smoke.json` (+ receipt)
 6. agent_smoke headline honest:
    - Min ship: **≥38/40 (95%)**
-   - **Current measured: 40/40 (100%)** · 97.25s · 2026-07-28 19:00 WIB (harness closed)
+   - **Current measured: 40/40 (100%)** · 88.96s live reconfirm 2026-07-28 ~19:20 WIB (prior lock 97.25s)
 7. Gen throughput quote: ~21 tok/s @ 128 completion (or fresher re-measure)
 8. Clear disclaimer: personal · not first quant · not Poolside/Nous affiliate
 9. No DIY GGUF unless it beats a scoreboard cell (default: **bind official only**)
@@ -66,3 +66,9 @@ If HF token dies: restore the personal Hugging Face write token from the local s
 
 Personal founder surface only. Docs/results may be pushed to this HF repo.  
 No company vault binding for this pack.
+
+## Quant compare + smaller-device path
+
+- Scoreboard: `research/quant-comparison-scoreboard-2026-07-28.md`
+- Mac/PC/laptop path: `research/post-freeze-smaller-device-path.md`
+- Rule: no DIY/smaller SKU until official Q4_K_M bar holds post-launch.

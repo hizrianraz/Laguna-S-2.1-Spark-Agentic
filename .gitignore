@@ -9,6 +9,7 @@ results/*.json
 !results/hf_publish.json
 !results/launch_lock.json
 !results/launch_receipt.json
+!results/quant_comparison.json
 *.gguf
 .venv/
 .env

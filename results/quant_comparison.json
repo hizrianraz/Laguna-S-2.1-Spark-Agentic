@@ -1,0 +1,243 @@
+{
+  "ts": 1785240774.865856,
+  "stand_behind": {
+    "repo_weights": "poolside/Laguna-S-2.1-GGUF",
+    "file": "laguna-s-2.1-Q4_K_M.gguf",
+    "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+    "pack": "hizrianraz/laguna-s-2.1-spark"
+  },
+  "live_gen": {
+    "rows": [
+      {
+        "label": "gen8_short",
+        "prompt_tokens": 49,
+        "completion_tokens": 4,
+        "latency_s": 0.47,
+        "tok_s": 8.505
+      },
+      {
+        "label": "gen128",
+        "prompt_tokens": 55,
+        "completion_tokens": 128,
+        "latency_s": 6.091,
+        "tok_s": 21.016
+      },
+      {
+        "label": "prefill_heavy_gen64",
+        "prompt_tokens": 424,
+        "completion_tokens": 4,
+        "latency_s": 1.074,
+        "tok_s": 3.724
+      }
+    ],
+    "ts": 1785240616.986526
+  },
+  "live_server_bench": {
+    "base_url": "http://100.98.213.2:8000/v1",
+    "model": "local-laguna",
+    "rows": [
+      {
+        "mark": "2k",
+        "latency_s": 1.022,
+        "prompt_tokens": 836,
+        "completion_tokens": 3,
+        "completion_tok_s": 2.935,
+        "content": "OK"
+      },
+      {
+        "mark": "8k",
+        "latency_s": 1.521,
+        "prompt_tokens": 3236,
+        "completion_tokens": 3,
+        "completion_tok_s": 1.973,
+        "content": "OK"
+      }
+    ],
+    "ts": 1785240608.512297
+  },
+  "competitors": [
+    {
+      "repo": "poolside/Laguna-S-2.1-GGUF",
+      "tag": "official",
+      "likes": 157,
+      "downloads": 90106,
+      "n_ggufish": 5,
+      "key_files": [
+        {
+          "file": "laguna-s-2.1.imatrix",
+          "size_gb": 0.35,
+          "sha256": "4a4f480f57a3251e3acfb1d35ffba64720662536135e4ca4f4d05b0732539be2"
+        },
+        {
+          "file": "laguna-s-2.1-DFlash-BF16.gguf",
+          "size_gb": 2.23,
+          "sha256": "2ee8aa30338d6599bc7a8ce008cc57c56f2c2b2fdc21f6db9ecda203c751bfd4"
+        },
+        {
+          "file": "laguna-s-2.1-Q4_K_M.gguf",
+          "size_gb": 96.03,
+          "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4"
+        },
+        {
+          "file": "laguna-s-2.1-Q8_0.gguf",
+          "size_gb": 128.75,
+          "sha256": "d946b221d69f2c5f87a986952bcd3cfb75831e5a6a2184e626e361663e1bfe2b"
+        },
+        {
+          "file": "laguna-s-2.1-F16.gguf",
+          "size_gb": 235.2,
+          "sha256": "2036c9dcf70f59738d480d1da2a2a59c0a3a3c5bd4ab8c43a61d77fba031e1f8"
+        }
+      ]
+    },
+    {
+      "repo": "unsloth/Laguna-S-2.1-GGUF",
+      "tag": "unsloth",
+      "likes": 222,
+      "downloads": 129601,
+      "n_ggufish": 58,
+      "key_files": [
+        {
+          "file": "imatrix_unsloth.gguf_file",
+          "size_gb": 0.35,
+          "sha256": "158642bc6e6a55954ca48b77a4ffea990f2c740faf41b764c1a18d2f64b7af4a"
+        },
+        {
+          "file": "UD-Q3_K_M/Laguna-S-2.1-UD-Q3_K_M-00003-of-00003.gguf",
+          "size_gb": 4.04,
+          "sha256": "da24bcd7b5931a7f9a4dfd09cab5ec4b69cef00b8f240cb98e819670596d27f1"
+        },
+        {
+          "file": "UD-Q3_K_XL/Laguna-S-2.1-UD-Q3_K_XL-00003-of-00003.gguf",
+          "size_gb": 4.39,
+          "sha256": "25c8d2c8e9e1c6c059b1b7dfbeaa02e29caeadc85974c4971dea5e7878665d2d"
+        },
+        {
+          "file": "UD-IQ4_XS/Laguna-S-2.1-UD-IQ4_XS-00003-of-00003.gguf",
+          "size_gb": 7.74,
+          "sha256": "6fde44340ca9be41cddc86661acce1518cbaf08875f0daa6e393b62228b59dbd"
+        },
+        {
+          "file": "UD-Q6_K_XL/Laguna-S-2.1-UD-Q6_K_XL-00004-of-00004.gguf",
+          "size_gb": 7.83,
+          "sha256": "faa6e791d9a5067f7ad1ff5fd4f45e8db58ee29bcc8ad95e6eaadaa924b28ce1"
+        },
+        {
+          "file": "UD-IQ4_NL/Laguna-S-2.1-UD-IQ4_NL-00003-of-00003.gguf",
+          "size_gb": 9.12,
+          "sha256": "d61591ee52027a517c94eb5d432e242a2f56658717f823a939464aeb7c9722a6"
+        },
+        {
+          "file": "UD-Q4_K_S/Laguna-S-2.1-UD-Q4_K_S-00003-of-00003.gguf",
+          "size_gb": 19.0,
+          "sha256": "2354ad27a19ea411cc85e1982e2209c21c1e672d6d397c8c76d77fb01419d2c5"
+        },
+        {
+          "file": "UD-Q4_K_M/Laguna-S-2.1-UD-Q4_K_M-00003-of-00003.gguf",
+          "size_gb": 23.18,
+          "sha256": "0d730b919a0591739091f135cde53c28631c89d0221482778f6fc70a3101eb49"
+        }
+      ]
+    },
+    {
+      "repo": "bartowski/Laguna-S-2.1-GGUF",
+      "tag": "bartowski",
+      "likes": 7,
+      "downloads": 5235,
+      "n_ggufish": 50,
+      "key_files": [
+        {
+          "file": "Laguna-S-2.1-imatrix.gguf",
+          "size_gb": 0.35,
+          "sha256": "dfb45106433b5a8a607774e8d1ef25779925e0e988d2cc357ee033ec760a4c63"
+        },
+        {
+          "file": "Laguna-S-2.1-Q5_K_S/Laguna-S-2.1-Q5_K_S-00003-of-00003.gguf",
+          "size_gb": 2.28,
+          "sha256": "f5b5587eba92c6c6b6c4ee629e44e8dbfcf9c384432cfcfc9e028fe78ad1bada"
+        },
+        {
+          "file": "Laguna-S-2.1-bf16/Laguna-S-2.1-bf16-00007-of-00007.gguf",
+          "size_gb": 3.22,
+          "sha256": "0f0a52a4d8fabce0e04c85b10d8b940c5268318b8d85202c8efc93d0b06bc783"
+        },
+        {
+          "file": "Laguna-S-2.1-Q5_K_L/Laguna-S-2.1-Q5_K_L-00003-of-00003.gguf",
+          "size_gb": 4.79,
+          "sha256": "d3d03ca06aa071927a3d15c223a5564275163896eca7b421794c576a08c82e55"
+        },
+        {
+          "file": "Laguna-S-2.1-Q5_K_M/Laguna-S-2.1-Q5_K_M-00003-of-00003.gguf",
+          "size_gb": 4.79,
+          "sha256": "d3d03ca06aa071927a3d15c223a5564275163896eca7b421794c576a08c82e55"
+        },
+        {
+          "file": "Laguna-S-2.1-Q8_0/Laguna-S-2.1-Q8_0-00004-of-00004.gguf",
+          "size_gb": 6.15,
+          "sha256": "698323a14cf9fabaed617b6e7a618c4965df2726205655854556f6d86da2d551"
+        },
+        {
+          "file": "Laguna-S-2.1-IQ3_XS/Laguna-S-2.1-IQ3_XS-00002-of-00002.gguf",
+          "size_gb": 14.28,
+          "sha256": "35774dd1cf1a86d2a6cbb5b4671942e2e52312828254d7649059c84e565f35b2"
+        },
+        {
+          "file": "Laguna-S-2.1-IQ3_M/Laguna-S-2.1-IQ3_M-00002-of-00002.gguf",
+          "size_gb": 16.78,
+          "sha256": "559726371fd9339a69024f96597f78d5304a638c62df729f88682a585094b5f7"
+        }
+      ]
+    },
+    {
+      "repo": "lmstudio-community/Laguna-S-2.1-GGUF",
+      "tag": "lmstudio",
+      "likes": 1,
+      "downloads": 2991,
+      "n_ggufish": 9,
+      "key_files": [
+        {
+          "file": "Laguna-S-2.1-Q8_0-00004-of-00004.gguf",
+          "size_gb": 6.15,
+          "sha256": "698323a14cf9fabaed617b6e7a618c4965df2726205655854556f6d86da2d551"
+        },
+        {
+          "file": "Laguna-S-2.1-Q6_K-00003-of-00003.gguf",
+          "size_gb": 17.65,
+          "sha256": "1f1155b647f17acf034c019a88ec24f5263df027b26a5c94461340057881c20b"
+        },
+        {
+          "file": "Laguna-S-2.1-Q4_K_M-00002-of-00002.gguf",
+          "size_gb": 31.22,
+          "sha256": "f6a0356469e49f5918408c9d1d68eb8afd261c2228bde6ac9d537d14fa54cebf"
+        },
+        {
+          "file": "Laguna-S-2.1-Q6_K-00002-of-00003.gguf",
+          "size_gb": 39.45,
+          "sha256": "ab82ec9e2e5b28c09c97c95ade86b19c401e8369219abd414e15d463f37ad10a"
+        },
+        {
+          "file": "Laguna-S-2.1-Q6_K-00001-of-00003.gguf",
+          "size_gb": 39.46,
+          "sha256": "d9936c860c5254f85a6f6e6e2757203c1a11cbc58c428ca349e55045bed4f4a4"
+        },
+        {
+          "file": "Laguna-S-2.1-Q8_0-00001-of-00004.gguf",
+          "size_gb": 39.61,
+          "sha256": "e4d3364d0305bf2b3ec531ef8a4fe8ace6fb23995eca4bd62551a53d9a2cbb5e"
+        },
+        {
+          "file": "Laguna-S-2.1-Q8_0-00002-of-00004.gguf",
+          "size_gb": 39.63,
+          "sha256": "a8937890e54addad1b25318c2516cbcd59017d1c93b2c609f2e3c0aa4e955208"
+        },
+        {
+          "file": "Laguna-S-2.1-Q8_0-00003-of-00004.gguf",
+          "size_gb": 39.63,
+          "sha256": "6ff917fa7dc373ca438fc273e3ac225233c3d7e6bdd2212e09bc879fd0ec4751"
+        }
+      ]
+    }
+  ],
+  "method": "same-harness agent_smoke + gen128 + bench_server; Spark-only headlines",
+  "top10_position": "Do not claim global top-10; win Laguna measured-agent / Spark pack cluster"
+}

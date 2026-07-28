@@ -158,3 +158,9 @@ See [`docs/REPRODUCE.md`](./docs/REPRODUCE.md) for exact clone SHAs, cmake flags
 ## Disclaimer
 
 Independent personal measurements on one DGX Spark. Not affiliated with, endorsed by, or representing Poolside or Nous Research. “Hermes-class” means OpenAI-compatible tool-calling agent runtime shape only — **not** a Nous endorsement.
+
+## Quant comparison (same-family)
+
+- Live scoreboard: [`research/quant-comparison-scoreboard-2026-07-28.md`](research/quant-comparison-scoreboard-2026-07-28.md)
+- Stand-behind: official Poolside **Q4_K_M** only until post-freeze.
+- Smaller Mac mini / MacBook / PC SKUs: only after this bar holds — see `research/post-freeze-smaller-device-path.md`.

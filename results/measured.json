@@ -23,38 +23,62 @@
   "throughput": [
     {
       "label": "gen8_short",
-      "prompt_tokens": 45,
+      "prompt_tokens": 49,
       "completion_tokens": 4,
-      "latency_s": 0.511,
-      "tok_s": 7.821
+      "latency_s": 0.47,
+      "tok_s": 8.505
     },
     {
       "label": "gen128",
-      "prompt_tokens": 61,
+      "prompt_tokens": 55,
       "completion_tokens": 128,
-      "latency_s": 6.057,
-      "tok_s": 21.133
+      "latency_s": 6.091,
+      "tok_s": 21.016
     },
     {
       "label": "prefill_heavy_gen64",
-      "prompt_tokens": 1655,
-      "completion_tokens": 3,
-      "latency_s": 2.647,
-      "tok_s": 1.134
+      "prompt_tokens": 424,
+      "completion_tokens": 4,
+      "latency_s": 1.074,
+      "tok_s": 3.724
     }
   ],
-  "quote_gen_tok_s": 21.13,
+  "quote_gen_tok_s": 21.016,
   "agent_smoke": {
     "passed": 40,
     "failed": 0,
     "n": 40,
     "pass_rate": 1.0,
-    "elapsed_s": 97.25,
+    "elapsed_s": 88.96,
     "fails": [],
-    "runner_note": "run_smoke sanitize invalid prior tool-args + tool_call/any_of_tools schema; hermes-class client",
-    "measured_at_wib": "2026-07-28 19:00 WIB",
+    "runner_note": "live reconfirm after harness close; sanitize + any_of_tools",
+    "measured_at_wib": "2026-07-28 ~19:20 WIB",
     "model_alias": "local-laguna",
     "base_url_host": "100.98.213.2:8000"
   },
-  "ts_agent_smoke_rerun": 1785240032.314429
+  "ts_agent_smoke_rerun": 1785240797.710043,
+  "server_bench_live": {
+    "base_url": "http://100.98.213.2:8000/v1",
+    "model": "local-laguna",
+    "rows": [
+      {
+        "mark": "2k",
+        "latency_s": 1.022,
+        "prompt_tokens": 836,
+        "completion_tokens": 3,
+        "completion_tok_s": 2.935,
+        "content": "OK"
+      },
+      {
+        "mark": "8k",
+        "latency_s": 1.521,
+        "prompt_tokens": 3236,
+        "completion_tokens": 3,
+        "completion_tok_s": 1.973,
+        "content": "OK"
+      }
+    ],
+    "ts": 1785240608.512297
+  },
+  "ts_live_bench": 1785240797.710044
 }
