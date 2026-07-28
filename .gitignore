@@ -3,6 +3,12 @@ __pycache__/
 .DS_Store
 results/*.json
 !results/.gitkeep
+!results/measured.json
+!results/server_bench.json
+!results/agent_smoke.json
+!results/hf_publish.json
+!results/launch_lock.json
+!results/launch_receipt.json
 *.gguf
 .venv/
 .env

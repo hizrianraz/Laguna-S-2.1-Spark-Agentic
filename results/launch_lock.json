@@ -1,0 +1,15 @@
+{
+  "event": "laguna-s-2.1-spark-hf-launch",
+  "status": "locked",
+  "locked_at_wib": "2026-07-28T18:00:00+07:00",
+  "launch_at_wib": "2026-08-03T12:00:00+07:00",
+  "freeze_at_wib": "2026-08-02T18:00:00+07:00",
+  "repo_id": "hizrianraz/laguna-s-2.1-spark",
+  "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
+  "default_quant": "poolside/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
+  "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+  "ship_min_smoke": "38/40",
+  "ship_stretch_smoke": "40/40",
+  "diy_gguf": false,
+  "branding": "personal-only"
+}

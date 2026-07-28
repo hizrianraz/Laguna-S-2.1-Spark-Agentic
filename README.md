@@ -17,6 +17,8 @@ pipeline_tag: text-generation
 
 # personal · not Ainfera · not Neptune · not Fin · not Gate0
 
+**Launch target: 2026-08-03 (WIB)** — see [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
+
 Personal DGX Spark agent-runtime pack for [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1) (118B-A8B MoE, agentic coding).
 
 This is **not** an Ainfera product, not Neptune Core, not Fin-70B, and not Gate0.
@@ -116,7 +118,15 @@ Hermes-class client → [`hermes/`](./hermes/)
 Smoke suite → [`eval/agent_smoke/`](./eval/agent_smoke/)  
 Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 
-## Measured on this Spark (2026-07-28)
+## Scoreboard (Spark · freeze before Aug 3)
+
+| Host | Quant | Ctx | Gen tok/s | Smoke | RAM used | DFlash | Notes |
+|------|-------|-----|-----------|-------|----------|--------|-------|
+| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **38/40 (95%)** | ~96–99 / 121 Gi | not measured | engine `04b2b72` + isfinite patch |
+
+Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json)
+
+### Measured detail (2026-07-28)
 
 | Metric | Value |
 |--------|--------|
@@ -125,6 +135,7 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 | Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
 | Host mem after load | ~96–99 Gi used of 121 Gi |
 | agent_smoke | **38/40 · 95%** (~97 s) |
+| Named fails | `repair_04` HTTP500 bad tool-arg JSON · `long_06` runner KeyError |
 | DFlash | not measured this run |
 
 ## What is **not** in this pack

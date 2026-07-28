@@ -1,0 +1,28 @@
+{
+  "repo_id": "hizrianraz/laguna-s-2.1-spark",
+  "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
+  "commit": "1562d4ebcffc92cf4193c026b1da37cdf22bfe06",
+  "siblings": [
+    ".gitattributes",
+    ".gitignore",
+    "LICENSE.md",
+    "LICENSE.openmdw-1.1.txt",
+    "NOTICE",
+    "README.md",
+    "SHA256SUMS",
+    "SPARK.md",
+    "docs/BUILD_SPARK.md",
+    "docs/REPRODUCE.md",
+    "eval/agent_smoke/cases.json",
+    "eval/agent_smoke/run_smoke.py",
+    "hermes/README.md",
+    "hermes/sample_client.py",
+    "results/.gitkeep",
+    "results/MEASURED.md",
+    "results/engine_sha.txt",
+    "scripts/bench_server.py",
+    "scripts/pull_official_gguf.sh",
+    "scripts/serve_spark.sh"
+  ],
+  "private": false
+}
