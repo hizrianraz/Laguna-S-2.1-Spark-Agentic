@@ -1,0 +1,19 @@
+NOTICE
+
+This pack documents personal Spark runtime notes for poolside/Laguna-S-2.1
+under OpenMDW-1.1. See LICENSE.md (upstream model repo copy) and
+LICENSE.openmdw-1.1.txt.
+
+Upstream model: poolside/Laguna-S-2.1
+Upstream GGUF: poolside/Laguna-S-2.1-GGUF
+
+Original materials in this repository (SPARK.md measurement scaffolding,
+agent_smoke cases/runner, hermes sample client, scripts): personal work by
+hizrianraz for reproducibility. Not Ainfera, not Neptune, not Fin, not Gate0.
+
+Weight binaries are not re-hosted here unless a measured Spark-unique delta
+exists (policy S5). Prefer official GGUF download + sha256 verify via SHA256SUMS.
+
+If Modified Materials / custom code under OpenMDW §3.3 are later published
+as weight derivatives, update this NOTICE with the required Custom Code
+statement.

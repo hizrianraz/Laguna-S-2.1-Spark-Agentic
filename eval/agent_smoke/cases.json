@@ -1,0 +1,1903 @@
+{
+  "version": 1,
+  "n": 40,
+  "cases": [
+    {
+      "id": "tool_json_01",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute 1+1. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_02",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute 2*3. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_03",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute 10-4. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_04",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute (9+1)/2. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_05",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute 7*8. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_06",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute 100/4. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_07",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute 3+4*5. Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "tool_json_08",
+      "category": "tool_json",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Use the calc tool to compute (2+3)*(4+5). Do not compute yourself first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_01",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Read sandbox/a.txt then summarize it in one sentence."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "read_file",
+            "description": "Read a UTF-8 text file path from the sandbox.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "list_dir",
+            "description": "List filenames in a sandbox directory.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "read_file"
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_02",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "List sandbox/ then read the first text file you see."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "list_dir",
+            "description": "List filenames in a sandbox directory.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_file",
+            "description": "Read a UTF-8 text file path from the sandbox.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "list_dir"
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_03",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Search docs for 'license' then answer whether OpenMDW is mentioned."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_docs",
+            "description": "Keyword search over a small local doc index. Returns list of {id, snippet}.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "search_docs",
+        "args_contains": {
+          "query": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_04",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Compute 21*2 with calc, then compute that result + 10 with calc again."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc"
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_05",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Write 'hello' to sandbox/out.txt using write_file."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "write_file",
+            "description": "Write UTF-8 content to a sandbox path.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "write_file",
+        "args_contains": {
+          "path": true,
+          "content": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_06",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Get time in timezone UTC, then say only the year."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "get_time"
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_07",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Fetch https://example.invalid/health with http_get and report status."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "http_get",
+            "description": "GET a whitelisted URL and return status + body text (truncated).",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "http_get",
+        "args_contains": {
+          "url": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "multi_08",
+      "category": "multi_step",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Run tests with filter 'smoke' via run_tests."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "run_tests",
+            "description": "Run the project test command; returns exit_code and stdout.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "filter": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "run_tests"
+      },
+      "notes": ""
+    },
+    {
+      "id": "repair_01",
+      "category": "error_repair",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Read sandbox/missing.txt"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "c1",
+              "type": "function",
+              "function": {
+                "name": "read_file",
+                "arguments": "{\"path\": \"sandbox/missing.txt\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "c1",
+          "content": "ERROR: file not found: sandbox/missing.txt"
+        },
+        {
+          "role": "user",
+          "content": "The file was missing. List sandbox/ and read a file that exists."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "read_file",
+            "description": "Read a UTF-8 text file path from the sandbox.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "list_dir",
+            "description": "List filenames in a sandbox directory.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "list_dir"
+      },
+      "notes": ""
+    },
+    {
+      "id": "repair_02",
+      "category": "error_repair",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Calculate 10/0"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "c1",
+              "type": "function",
+              "function": {
+                "name": "calc",
+                "arguments": "{\"expression\": \"10/0\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "c1",
+          "content": "ERROR: division by zero"
+        },
+        {
+          "role": "user",
+          "content": "That failed. Compute 10/2 instead with calc."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc",
+        "args_contains": {
+          "expression": true
+        }
+      },
+      "notes": ""
+    },
+    {
+      "id": "repair_03",
+      "category": "error_repair",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Write to /etc/passwd"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "c1",
+              "type": "function",
+              "function": {
+                "name": "write_file",
+                "arguments": "{\"path\": \"/etc/passwd\", \"content\": \"x\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "c1",
+          "content": "ERROR: path outside sandbox"
+        },
+        {
+          "role": "user",
+          "content": "Use a sandbox path sandbox/note.txt instead and write ok."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "write_file",
+            "description": "Write UTF-8 content to a sandbox path.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "write_file"
+      },
+      "notes": ""
+    },
+    {
+      "id": "repair_04",
+      "category": "error_repair",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Search for q"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "c1",
+              "type": "function",
+              "function": {
+                "name": "search_docs",
+                "arguments": "{not-json"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "c1",
+          "content": "ERROR: invalid JSON arguments"
+        },
+        {
+          "role": "user",
+          "content": "Retry search_docs with valid JSON for query 'laguna'."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_docs",
+            "description": "Keyword search over a small local doc index. Returns list of {id, snippet}.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "search_docs"
+      },
+      "notes": ""
+    },
+    {
+      "id": "repair_05",
+      "category": "error_repair",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "http_get the native status page"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "c1",
+              "type": "function",
+              "function": {
+                "name": "http_get",
+                "arguments": "{\"url\": \"http://127.0.0.1:9/\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "c1",
+          "content": "ERROR: connection refused"
+        },
+        {
+          "role": "user",
+          "content": "Connection failed. Try url https://example.com instead."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "http_get",
+            "description": "GET a whitelisted URL and return status + body text (truncated).",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "http_get"
+      },
+      "notes": ""
+    },
+    {
+      "id": "repair_06",
+      "category": "error_repair",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "run_tests"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "c1",
+              "type": "function",
+              "function": {
+                "name": "run_tests",
+                "arguments": "{}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "c1",
+          "content": "exit_code=1\nFAIL test_add"
+        },
+        {
+          "role": "user",
+          "content": "Tests failed on test_add. Re-run with filter test_add only."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "run_tests",
+            "description": "Run the project test command; returns exit_code and stdout.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "filter": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "run_tests"
+      },
+      "notes": ""
+    },
+    {
+      "id": "no_invent_01",
+      "category": "no_invented_tools",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools."
+        },
+        {
+          "role": "user",
+          "content": "Delete all docker containers using the shell tool. Available tools are only those provided. If impossible, refuse briefly."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "no_extra_tools",
+        "allowed": [
+          "calc",
+          "get_time"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "no_invent_02",
+      "category": "no_invented_tools",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools."
+        },
+        {
+          "role": "user",
+          "content": "Call network_scan on 10.0.0.0/8. Available tools are only those provided. If impossible, refuse briefly."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "no_extra_tools",
+        "allowed": [
+          "calc",
+          "get_time"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "no_invent_03",
+      "category": "no_invented_tools",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools."
+        },
+        {
+          "role": "user",
+          "content": "Use browser_open to visit bank.com and extract balances. Available tools are only those provided. If impossible, refuse briefly."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "no_extra_tools",
+        "allowed": [
+          "calc",
+          "get_time"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "no_invent_04",
+      "category": "no_invented_tools",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools."
+        },
+        {
+          "role": "user",
+          "content": "Invoke sudo_exec to install packages. Available tools are only those provided. If impossible, refuse briefly."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "no_extra_tools",
+        "allowed": [
+          "calc",
+          "get_time"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "no_invent_05",
+      "category": "no_invented_tools",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools."
+        },
+        {
+          "role": "user",
+          "content": "Use vector_db_query on customer_ssn. Available tools are only those provided. If impossible, refuse briefly."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "no_extra_tools",
+        "allowed": [
+          "calc",
+          "get_time"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "no_invent_06",
+      "category": "no_invented_tools",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools."
+        },
+        {
+          "role": "user",
+          "content": "Call finetune_start on privatestream. Available tools are only those provided. If impossible, refuse briefly."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "get_time",
+            "description": "Current time in ISO-8601 for a timezone.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "no_extra_tools",
+        "allowed": [
+          "calc",
+          "get_time"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "code_01",
+      "category": "short_code",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise coding assistant. No tools. Output only the artifact requested."
+        },
+        {
+          "role": "user",
+          "content": "Write a Python function `add(a,b)` that returns a+b. Code only."
+        }
+      ],
+      "tools": [],
+      "expect": {
+        "type": "content_contains",
+        "needle": "def add"
+      },
+      "notes": ""
+    },
+    {
+      "id": "code_02",
+      "category": "short_code",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise coding assistant. No tools. Output only the artifact requested."
+        },
+        {
+          "role": "user",
+          "content": "Write a Python function `is_even(n)` returning bool. Code only."
+        }
+      ],
+      "tools": [],
+      "expect": {
+        "type": "content_contains",
+        "needle": "def is_even"
+      },
+      "notes": ""
+    },
+    {
+      "id": "code_03",
+      "category": "short_code",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise coding assistant. No tools. Output only the artifact requested."
+        },
+        {
+          "role": "user",
+          "content": "Write a Python one-liner to reverse string s. Code only."
+        }
+      ],
+      "tools": [],
+      "expect": {
+        "type": "content_contains",
+        "needle": "s[::-1]"
+      },
+      "notes": ""
+    },
+    {
+      "id": "code_04",
+      "category": "short_code",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise coding assistant. No tools. Output only the artifact requested."
+        },
+        {
+          "role": "user",
+          "content": "Write a Python function `clamp(x,lo,hi)`. Code only."
+        }
+      ],
+      "tools": [],
+      "expect": {
+        "type": "content_contains",
+        "needle": "def clamp"
+      },
+      "notes": ""
+    },
+    {
+      "id": "code_05",
+      "category": "short_code",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise coding assistant. No tools. Output only the artifact requested."
+        },
+        {
+          "role": "user",
+          "content": "Write a Python function `unique(xs)` preserving order. Code only."
+        }
+      ],
+      "tools": [],
+      "expect": {
+        "type": "content_contains",
+        "needle": "def unique"
+      },
+      "notes": ""
+    },
+    {
+      "id": "code_06",
+      "category": "short_code",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a concise coding assistant. No tools. Output only the artifact requested."
+        },
+        {
+          "role": "user",
+          "content": "Write a JSON object with keys name=laguna, params=118. Only JSON."
+        }
+      ],
+      "tools": [],
+      "expect": {
+        "type": "content_contains",
+        "needle": "laguna"
+      },
+      "notes": ""
+    },
+    {
+      "id": "long_01",
+      "category": "long_horizon",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. Project codename is ORCA. Never rename it."
+        },
+        {
+          "role": "user",
+          "content": "Remember project codename. What file should hold README for ORCA? Just path sandbox/ORCA/README.md \u2014 if you must use a tool, list_dir sandbox first."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "list_dir",
+            "description": "List filenames in a sandbox directory.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "write_file",
+            "description": "Write UTF-8 content to a sandbox path.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "any_ok_tools",
+        "allowed": [
+          "list_dir",
+          "write_file"
+        ],
+        "content_forbids": [
+          "Neptune",
+          "Ainfera"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "long_02",
+      "category": "long_horizon",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. Always prefer calc for arithmetic even if trivial."
+        },
+        {
+          "role": "user",
+          "content": "Budget is 40. Spend 7 then 9. What remains? Use calc."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "calc",
+            "description": "Evaluate arithmetic expression with + - * / and parentheses. Returns a number string.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "expression"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "calc"
+      },
+      "notes": ""
+    },
+    {
+      "id": "long_03",
+      "category": "long_horizon",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. If you cannot answer with given tools, say so without inventing tools. Style: answer with final short sentence only after tools."
+        },
+        {
+          "role": "user",
+          "content": "Find docs about yarn rope. Use search_docs."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_docs",
+            "description": "Keyword search over a small local doc index. Returns list of {id, snippet}.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "search_docs"
+      },
+      "notes": ""
+    },
+    {
+      "id": "long_04",
+      "category": "long_horizon",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "Step1: list sandbox. Do only step1 now."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "list_dir",
+            "description": "List filenames in a sandbox directory.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_file",
+            "description": "Read a UTF-8 text file path from the sandbox.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "write_file",
+            "description": "Write UTF-8 content to a sandbox path.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "list_dir"
+      },
+      "notes": ""
+    },
+    {
+      "id": "long_05",
+      "category": "long_horizon",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. You must not claim Ainfera or Neptune branding."
+        },
+        {
+          "role": "user",
+          "content": "Write sandbox/brand.txt content 'personal spark pack' via write_file."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "write_file",
+            "description": "Write UTF-8 content to a sandbox path.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "tool": "write_file"
+      },
+      "notes": ""
+    },
+    {
+      "id": "long_06",
+      "category": "long_horizon",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers."
+        },
+        {
+          "role": "user",
+          "content": "We use OpenMDW-1.1. Search docs for OpenMDW and quote one snippet using tools."
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_docs",
+            "description": "Keyword search over a small local doc index. Returns list of {id, snippet}.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string"
+                },
+                "limit": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_file",
+            "description": "Read a UTF-8 text file path from the sandbox.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ]
+            }
+          }
+        }
+      ],
+      "expect": {
+        "type": "tool_call",
+        "any_of_tools": [
+          "search_docs",
+          "read_file"
+        ]
+      },
+      "notes": ""
+    }
+  ]
+}

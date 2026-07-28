@@ -1,0 +1,8 @@
+host: DGX Spark GB10
+engine_repo: github.com/poolsideai/llama.cpp
+engine_branch: laguna
+engine_sha: 04b2b72cb54048ead292884adbe11f284e3ec950
+local_patch: common/speculative.cpp +#include <cmath> (std::isfinite build fix)
+build: CMAKE CUDAARCHS=121 -> 121a; GNU 13.3.0 aarch64
+bin_builtin_version: 1 (04b2b72)
+build_targets: llama-server llama-cli llama-bench
