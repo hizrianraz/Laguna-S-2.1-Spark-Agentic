@@ -11,7 +11,7 @@ Do not run this pack’s claimed numbers on Verda or rented cloud and relabel th
 |------|--------|
 | Repo | `github.com/poolsideai/llama.cpp` branch `laguna` |
 | Commit | `04b2b72cb54048ead292884adbe11f284e3ec950` |
-| Host patch | `common/speculative.cpp` + `#include <cmath>` |
+| Host patch | `common/speculative.cpp`: `math.h` + `::isfinite` (GNU 13.3) |
 | CUDA arch | `121a` (GB10) |
 | Bin version string | `version: 1 (04b2b72)` |
 
