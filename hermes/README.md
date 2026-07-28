@@ -73,3 +73,15 @@ log for template warnings before blaming the model.
 | invented tool names | smoke case `no_invented_tools`; tighten system prompt |
 | JSON args invalid | repair turn in agent_smoke `error_repair` |
 | 404 /v1/... | base_url must include `/v1` |
+
+## Hermes-class smoke v2
+
+```bash
+python eval/hermes_agent_smoke/run_hermes_smoke.py \
+  --base-url http://127.0.0.1:8000/v1 \
+  --model local-laguna \
+  --out results/hermes_agent_smoke.json
+```
+
+27 fixed cases (terminal/files/web multi-turn + repair). See `eval/hermes_agent_smoke/README.md`.
+Not a Nous endorsement.

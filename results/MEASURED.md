@@ -44,6 +44,13 @@ Note: `results/server_bench.json` is prefill-latency oriented (replies "OK"); no
 
 Raw: `results/agent_smoke.json` (40/40).
 
+## Hermes-class smoke v2 (suite only)
+
+- Path: `eval/hermes_agent_smoke/` (27 cases, ship_min 24/27)
+- Runner: `run_hermes_smoke.py` (reuses agent_smoke judges + sanitize)
+- Live Spark result file: **not written yet** — do not claim a pass fraction on card/README scoreboard
+- Branding: tool-agent family shape only; not Nous-endorsed
+
 ## Serve recipe (proven)
 ```bash
 export LD_LIBRARY_PATH=$HOME/src/llama.cpp-laguna/build/bin:$LD_LIBRARY_PATH

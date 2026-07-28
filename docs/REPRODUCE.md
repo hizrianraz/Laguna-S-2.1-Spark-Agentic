@@ -34,6 +34,7 @@ sha256sum -c SHA256SUMS
 6. `llama-bench` @ prompt 2048 and 8192; save stdout to `results/llama_bench_q4km.txt`.
 7. `python scripts/bench_server.py --ctx-mark 2k --ctx-mark 8k`.
 8. `python eval/agent_smoke/run_smoke.py --out results/smoke_q4km.json`.
+8b. Optional Hermes-class: `python eval/hermes_agent_smoke/run_hermes_smoke.py --out results/hermes_agent_smoke.json`.
 9. Populate the tables in `SPARK.md` from those files only — never invent.
 10. Publish pack (docs + results + scripts). **Host GGUF binary only if you have a measured unique artifact**; otherwise ship digests + download commands (S5).
 

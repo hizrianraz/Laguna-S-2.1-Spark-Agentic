@@ -180,13 +180,16 @@ Agent-shaped (tool round-trips, see smoke):
 
 | Suite | quant | pass | n | notes |
 |-------|-------|------|---|-------|
-| agent_smoke v1 | Q4_K_M | **40/40 · 100%** | 40 | prior 38/40 was harness: `repair_04` sanitize + `long_06` any_of_tools judge; re-run 97.25s WIB 19:00 |
+| agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | prior 38/40 was harness: `repair_04` sanitize + `long_06` any_of_tools judge; re-run 97.25s WIB 19:00 |
+| hermes_agent_smoke v2 | Q4_K_M | *pending live run* | 27 | suite fixed in-repo; ship_min 24/27; no card claim until JSON exists |
 
 Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/server_bench.json`.
 
 ## Agent-shaped benches
 
-Not MMLU. Fixed suite under `eval/agent_smoke/`:
+Not MMLU. Fixed suites under `eval/`:
+
+**v1 — launch bar** (`eval/agent_smoke/`, 40 cases):
 
 1. **tool JSON** — emit valid tool call objects only from the offered schema  
 2. **multi-step** — 2–4 tool hops before final answer  
@@ -195,11 +198,21 @@ Not MMLU. Fixed suite under `eval/agent_smoke/`:
 5. **short code** — small pure functions, exact stdout  
 6. **long-horizon** — sticky constraints across turns  
 
+**v2 — Hermes-class** (`eval/hermes_agent_smoke/`, 27 cases):
+
+Terminal / files / web / multi_tool / multi_turn / error_repair / no_invented / browser / memory_cron / args_strict / safety.  
+OpenAI tool shape only — not a Nous endorsement.
+
 ```bash
 python eval/agent_smoke/run_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
   --model local-laguna \
   --out results/smoke_q4km.json
+
+python eval/hermes_agent_smoke/run_hermes_smoke.py \
+  --base-url http://127.0.0.1:8000/v1 \
+  --model local-laguna \
+  --out results/hermes_agent_smoke.json
 ```
 
 ## vLLM (optional, unmeasured default)

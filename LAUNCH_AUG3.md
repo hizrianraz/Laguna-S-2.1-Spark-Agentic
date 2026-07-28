@@ -72,3 +72,18 @@ No company vault binding for this pack.
 - Scoreboard: `research/quant-comparison-scoreboard-2026-07-28.md`
 - Mac/PC/laptop path: `research/post-freeze-smaller-device-path.md`
 - Rule: no DIY/smaller SKU until official Q4_K_M bar holds post-launch.
+
+## Hermes-class smoke v2
+
+- Suite path: `eval/hermes_agent_smoke/` (27 cases; ship_min 24)
+- Does **not** replace launch bar `agent_smoke` 40/40
+- Card may list the suite; claim pass rate only after `results/hermes_agent_smoke.json` from live Spark
+- **Public promo** (X / social / “top trending” push): still wait until **2026-08-03 12:00 WIB**
+
+## Promo timing (lock)
+
+| Surface | When |
+|---------|------|
+| HF pack docs + measured artifacts | now → freeze (keep honest) |
+| Soft profile link (GH bio / HF details) | optional now, factual only |
+| Public launch / announce / trending push | **Aug 3 12:00 WIB**, not before |

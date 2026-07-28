@@ -107,14 +107,20 @@ huggingface-cli download poolside/Laguna-S-2.1-GGUF \
   --ctx-size 8192 -ngl 99 --jinja \
   -fa on
 
-# 4) smoke
+# 4) smoke (launch bar)
 cd /path/to/this/pack
 python eval/agent_smoke/run_smoke.py --base-url http://127.0.0.1:8000/v1 --model laguna-q4
+
+# 5) optional Hermes-class suite (v2; does not replace the 40-case bar)
+python eval/hermes_agent_smoke/run_hermes_smoke.py \
+  --base-url http://127.0.0.1:8000/v1 --model laguna-q4 \
+  --out results/hermes_agent_smoke.json
 ```
 
 Full Spark notes → [`SPARK.md`](./SPARK.md)  
 Hermes-class client → [`hermes/`](./hermes/)  
-Smoke suite → [`eval/agent_smoke/`](./eval/agent_smoke/)  
+Smoke suite (launch bar) → [`eval/agent_smoke/`](./eval/agent_smoke/)  
+Hermes-class smoke v2 → [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)  
 Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 
 ## Scoreboard (Spark · freeze before Aug 3)
@@ -123,7 +129,8 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 |------|-------|-----|-----------|-------|----------|--------|-------|
 | DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | engine `04b2b72` + isfinite patch · Hermes-class client |
 
-Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json)
+Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json)  
+Hermes-class suite (fixed, live runtime optional): [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/) — do not claim a pass fraction until `results/hermes_agent_smoke.json` exists.
 
 ### Measured detail (2026-07-28)
 
