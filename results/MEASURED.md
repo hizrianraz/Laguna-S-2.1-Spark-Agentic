@@ -28,18 +28,21 @@ Primary gen number to quote: **~21 tok/s** @ 128 completion tokens, short prompt
 Note: `results/server_bench.json` is prefill-latency oriented (replies "OK"); not digests gen throughput.
 
 ## Agent smoke (40 cases)
-- **38/40 pass · 95.0% · 96.7s**
+- **40/40 pass · 100% · 97.25s** (re-run 2026-07-28 19:00 WIB)
+- Prior baseline: 38/40 · 95% · 96.7s (same weights/engine; two harness bugs)
 - by category:
   - tool_json 8/8
   - multi_step 8/8
-  - error_repair 5/6 (`repair_04` — server HTTP 500 parse tool-call args JSON)
+  - error_repair 6/6
   - no_invented_tools 6/6
   - short_code 6/6
-  - long_horizon 5/6 (`long_06` — runner KeyError `'tool'` on response)
+  - long_horizon 6/6
 
-## Failures (not blocking first serve)
-1. `repair_04` — engine rejected malformed tool-call JSON from model (`json.exception.parse_error`)
-2. `long_06` — smoke runner assumption (KeyError `tool`); investigate case schema / message shape
+## Closed fails (harness, not weights)
+1. `repair_04` — **case/engine, not model:** history held `{not-json` tool args; llama-server re-parsed priors and HTTP 500'd before decode. Fix: Hermes-class client `sanitize_messages_for_server` (valid JSON envelope + preserve `_raw`). Live after fix: **PASS** (~2.8s).
+2. `long_06` — **runner schema, not model:** expect was `{type: tool_call, any_of_tools: [...]}` without `tool` → KeyError. Fix: judge accepts `tool_call` + `any_of_tools`. Live after fix: **PASS** (~2.6s).
+
+Raw: `results/agent_smoke.json` (40/40).
 
 ## Serve recipe (proven)
 ```bash

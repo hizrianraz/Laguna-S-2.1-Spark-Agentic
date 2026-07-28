@@ -10,6 +10,9 @@
   "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
   "ship_min_smoke": "38/40",
   "ship_stretch_smoke": "40/40",
+  "measured_smoke": "40/40",
+  "measured_smoke_at_wib": "2026-07-28T19:00:00+07:00",
+  "measured_smoke_elapsed_s": 97.25,
   "diy_gguf": false,
   "branding": "personal-only"
 }

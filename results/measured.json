@@ -45,14 +45,16 @@
   ],
   "quote_gen_tok_s": 21.13,
   "agent_smoke": {
-    "passed": 38,
-    "failed": 2,
+    "passed": 40,
+    "failed": 0,
     "n": 40,
-    "pass_rate": 0.95,
-    "elapsed_s": 96.66,
-    "fails": [
-      "repair_04 HTTP500 tool-arg JSON",
-      "long_06 KeyError tool"
-    ]
-  }
+    "pass_rate": 1.0,
+    "elapsed_s": 97.25,
+    "fails": [],
+    "runner_note": "run_smoke sanitize invalid prior tool-args + tool_call/any_of_tools schema; hermes-class client",
+    "measured_at_wib": "2026-07-28 19:00 WIB",
+    "model_alias": "local-laguna",
+    "base_url_host": "100.98.213.2:8000"
+  },
+  "ts_agent_smoke_rerun": 1785240032.314429
 }

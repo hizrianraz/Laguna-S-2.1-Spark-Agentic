@@ -74,6 +74,61 @@ def parse_args_map(msg):
     return out
 
 
+def _is_valid_json_args(raw) -> bool:
+    if raw is None:
+        return True
+    if not isinstance(raw, str):
+        return True
+    try:
+        json.loads(raw if raw.strip() else "{}")
+        return True
+    except json.JSONDecodeError:
+        return False
+
+
+def sanitize_messages_for_server(messages):
+    """Coerce historical assistant tool-call arguments to valid JSON.
+
+    llama-server and similar engines re-parse prior tool_call.arguments and
+    HTTP 500 on invalid JSON before the model runs. A Hermes-class client
+    must not forward raw broken args; keep the tool error turn, replace the
+    broken arguments string with a valid JSON envelope that preserves the raw
+    text for context. This keeps repair_04 a model test, not an engine crash.
+    """
+    out = []
+    for m in messages:
+        mm = dict(m)
+        tcs = mm.get("tool_calls")
+        if tcs:
+            new_tcs = []
+            for tc in tcs:
+                tc2 = dict(tc)
+                fn = dict(tc2.get("function") or {})
+                raw = fn.get("arguments")
+                if not _is_valid_json_args(raw):
+                    fn["arguments"] = json.dumps(
+                        {
+                            "_invalid_json_arguments": True,
+                            "_raw": raw if isinstance(raw, str) else repr(raw),
+                        },
+                        ensure_ascii=False,
+                    )
+                tc2["function"] = fn
+                new_tcs.append(tc2)
+            mm["tool_calls"] = new_tcs
+        out.append(mm)
+    return out
+
+
+def judge_any_of_tools(exp, names) -> tuple[bool, str]:
+    allowed = set(exp.get("any_of_tools") or exp.get("allowed") or [])
+    if not names:
+        return False, "no tool called"
+    if any(n in allowed for n in names) and all(n in allowed for n in names):
+        return True, "ok"
+    return False, f"tools {names} not subset/hit of {sorted(allowed)}"
+
+
 def judge(case, msg) -> tuple[bool, str]:
     exp = case["expect"]
     et = exp["type"]
@@ -82,9 +137,11 @@ def judge(case, msg) -> tuple[bool, str]:
     calls = parse_args_map(msg)
 
     if et == "tool_call":
+        # Accept schema form {type: tool_call, any_of_tools: [...]} without KeyError
+        if "tool" not in exp and exp.get("any_of_tools"):
+            return judge_any_of_tools(exp, names)
         want = exp["tool"]
         if want not in names:
-            # allow any_of variant mixed in
             return False, f"expected tool {want}, got {names}"
         if exp.get("args_contains"):
             matched = False
@@ -107,12 +164,7 @@ def judge(case, msg) -> tuple[bool, str]:
         return True, "ok"
 
     if et == "any_of_tools":
-        allowed = set(exp["any_of_tools"])
-        if not names:
-            return False, "no tool called"
-        if any(n in allowed for n in names) and all(n in allowed for n in names):
-            return True, "ok"
-        return False, f"tools {names} not subset/hit of {sorted(allowed)}"
+        return judge_any_of_tools(exp, names)
 
     if et == "no_extra_tools":
         allowed = set(exp.get("allowed") or [])
@@ -179,13 +231,14 @@ def main():
         row = {"id": c["id"], "category": c["category"], "pass": False, "reason": "", "latency_s": None}
         t1 = time.time()
         try:
-            # strip None content weirdness for JSON
+            # strip None content weirdness for JSON; sanitize invalid prior tool args
             messages = []
             for m in c["messages"]:
                 mm = dict(m)
                 if mm.get("content") is None and mm.get("tool_calls"):
                     mm["content"] = ""
                 messages.append(mm)
+            messages = sanitize_messages_for_server(messages)
             resp = post_chat(args.base_url, args.api_key, args.model, messages, c.get("tools") or [])
             msg = extract_message(resp)
             ok, reason = judge(c, msg)

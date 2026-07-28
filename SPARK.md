@@ -180,7 +180,7 @@ Agent-shaped (tool round-trips, see smoke):
 
 | Suite | quant | pass | n | notes |
 |-------|-------|------|---|-------|
-| agent_smoke v1 | Q4_K_M | **38/40 · 95%** | 40 | fails: `repair_04` tool-arg JSON HTTP500; `long_06` runner KeyError |
+| agent_smoke v1 | Q4_K_M | **40/40 · 100%** | 40 | prior 38/40 was harness: `repair_04` sanitize + `long_06` any_of_tools judge; re-run 97.25s WIB 19:00 |
 
 Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/server_bench.json`.
 

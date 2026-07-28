@@ -23,8 +23,8 @@ Timezone: Asia/Jakarta (WIB)
 4. Stranger path works: pull official Q4 → serve → smoke
 5. Measured artifacts on HF (not only local): `results/measured.json`, `server_bench.json`, `agent_smoke.json` (+ receipt)
 6. agent_smoke headline honest:
-   - Target: **≥38/40 (95%)** minimum ship
-   - Stretch: **40/40** if fixed before freeze
+   - Min ship: **≥38/40 (95%)**
+   - **Current measured: 40/40 (100%)** · 97.25s · 2026-07-28 19:00 WIB (harness closed)
 7. Gen throughput quote: ~21 tok/s @ 128 completion (or fresher re-measure)
 8. Clear disclaimer: personal · not first quant · not Poolside/Nous affiliate
 9. No DIY GGUF unless it beats a scoreboard cell (default: **bind official only**)
@@ -43,7 +43,7 @@ Timezone: Asia/Jakarta (WIB)
 | Day | Date | Theme | Exit gate |
 |-----|------|-------|-----------|
 | T-6 | Jul 28 | Lock + HF gap close | measured JSON on HF, launch file live |
-| T-5 | Jul 29 | Smoke harden | repair_04 + long_06 diagnosed; fix or documented wontfix |
+| T-5 | Jul 29 | Smoke harden | **DONE early Jul 28** — repair_04+long_06 closed; smoke **40/40** |
 | T-4 | Jul 30 | DFlash / serve sweep | one scoreboard row with DFlash status final for launch |
 | T-3 | Jul 31 | Card polish | stranger path re-run dry; REPRODUCE exact |
 | T-2 | Aug 1 | Buffer / second measure | optional Unsloth abort/keep only if free |
@@ -52,7 +52,8 @@ Timezone: Asia/Jakarta (WIB)
 
 ## Contingency
 
-If smoke cannot reach 40/40 by freeze: ship **38/40 with named fails**.  
+Smoke gate clear: **40/40 measured**. Hold that bar through freeze; if a later re-run slips, ship last green with named fails (never invent).  
+
 If Spark down at launch: freeze last green MEASURED row; do not invent numbers.  
 If HF token dies: restore the personal Hugging Face write token from the local secret store only; never paste token in chat.
 

@@ -121,7 +121,7 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 
 | Host | Quant | Ctx | Gen tok/s | Smoke | RAM used | DFlash | Notes |
 |------|-------|-----|-----------|-------|----------|--------|-------|
-| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **38/40 (95%)** | ~96–99 / 121 Gi | not measured | engine `04b2b72` + isfinite patch |
+| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | engine `04b2b72` + isfinite patch · Hermes-class client |
 
 Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json)
 
@@ -133,8 +133,8 @@ Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/
 | Engine | poolside llama.cpp `04b2b72` + `math.h`/`::isfinite` host patch |
 | Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
 | Host mem after load | ~96–99 Gi used of 121 Gi |
-| agent_smoke | **38/40 · 95%** (~97 s) |
-| Named fails | `repair_04` HTTP500 bad tool-arg JSON · `long_06` runner KeyError |
+| agent_smoke | **40/40 · 100%** (97.25 s, 2026-07-28 19:00 WIB) |
+| Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
 | DFlash | not measured this run |
 
 ## What is **not** in this pack
