@@ -50,6 +50,8 @@ Not a global HF top-10 claimsheet. Global trending needs downloads/likes/recency
 | First/only Laguna quant | **No** — Poolside/Unsloth/Bartowski exist |
 | Best universal tok/s | **No** without same-harness wins |
 | Spark-measured agent smoke 40/40 on official Q4_K_M | **Yes** (evidence in `results/`) |
+| Spark-measured Unsloth UD-IQ3_S agent smoke ≥38/40 (not headline) | **Yes** · 38/40 · `results/sku_unsloth-ud-iq3-s/` |
+| Full Laguna on iPhone / Android | **No** — explicit non-fit |
 | Global HF top-10 overall | **Not a commit** — optimize pack cluster + agent evidence |
 | Top tier *among Laguna Spark packs / measured agent runtimes* | **Target** |
 
@@ -62,17 +64,28 @@ Not a global HF top-10 claimsheet. Global trending needs downloads/likes/recency
 ## Laptop / Mac mini / PC path (Aug 3 accelerated — parallel track)
 
 **Unlocked 2026-07-28** for pack docs + pointer wiring before promo clock.
-Does **not** move public promo; does **not** swap live Q4 on `:8000`.
+Does **not** move public promo. Live Q4 restored on `:8000` after one brief IQ3 window.
 
-Order (quality-first):
+### IQ3_S same-harness (done 2026-07-28)
 
-1. Hold Aug 3 lock: official Q4_K_M + agent_smoke 40/40 + hermes 27/27 + pack docs.
-2. Parallel: device matrix + pull helper (`research/device-quant-matrix-aug3.md`, `scripts/pull_sku.sh`).
-3. Pull third-party SKUs on Spark disk without loading (live Q4 stays up). Primary candidate: Unsloth `UD-IQ3_S` ~45 GB; then `UD-IQ4_XS` ~58 GB if space.
-4. Same-harness only when GPU/RAM free (stop Q4 or secondary host) — never relabel Mac numbers as Spark.
-5. If agent_smoke ≥ official−2 and usable tok/s → publish **pointer + measured delta**, no bare rehost unless delta is ours.
-6. Mac / 16–32G: honest non-fit for full Laguna; point at very-small third-party only with risk label (see matrix).
-7. DIY imatrix GGUF only if it **beats** official/Unsloth on agent_smoke + fixed tool bench.
+| Field | Value |
+|-------|-------|
+| SKU | Unsloth `Laguna-S-2.1-UD-IQ3_S.gguf` |
+| sha256 | `8a9ab3f8b3ff1723441cd251e873b295a7ef086d78dbae7515e5e27c8382b002` |
+| Host | DGX Spark (not Mac) |
+| agent_smoke | **38/40 · 95% · 71s** |
+| ship gate (≥38) | **met** |
+| Headline? | **No** — row is pointer + delta |
+| Evidence | `results/sku_unsloth-ud-iq3-s/` |
+| Caveat | Spark runner lacked sanitize / any_of_tools; fails = closed harness IDs on Q4 |
+
+### Remaining order
+
+1. Hold Aug 3 lock: official Q4_K_M + 40/40 + hermes 27/27 + pack docs (**still lead**).
+2. Optional: re-smoke IQ3 with **fixed** harness when GPU free (expect possible 40/40; do not block claims).
+3. Pull `UD-IQ4_XS` if disk allows; smoke only when free.
+4. Never relabel Mac/PC numbers as Spark; never claim iPhone/Android for full Laguna.
+5. DIY imatrix only if it **beats** official/Unsloth on agent_smoke.
 
 ## Live bench stamp
 

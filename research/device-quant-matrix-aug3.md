@@ -14,10 +14,11 @@ We ship a **honest ladder** of third-party GGUF *pointers* + same-harness deltas
 |--------------|--------------|--------------|--------|-------------|--------|---------------------|
 | DGX Spark GB10 | ~121 Gi | **official Q4_K_M** | poolside | **96.0 GB** | agent bar | **Stand-behind · measured 40/40 · ~21 t/s** |
 | Mac Studio / high Mac mini (64–128G) | 64–128G | Unsloth **UD-IQ4_XS** or Bartowski **IQ4_XS** | unsloth / bartowski | **~58 / ~63 GB** | near-Q4 quality if engine OK | pointer + method; measure if host free |
-| Mac Studio 64G tight | ~64G | Unsloth **UD-IQ3_S** / **UD-Q3_K_M** | unsloth | **~48 / ~54 GB** | quality dip | pointer; smoke before promote |
-| MacBook / PC 48G | ~48G | Unsloth **UD-IQ3_XXS** / **UD-Q2_K_XL** | unsloth | **~44 / ~40 GB** | meaningful quality drop | research only unless ≥ official−2 |
+| Mac Studio 64G tight / Mac mini ~64G | ~64G | Unsloth **UD-IQ3_S** (first), **UD-Q3_K_M** | unsloth | **~48 / ~54 GB** | quality dip vs Q4 | **Spark same-harness IQ3_S 38/40** (ship-min met) · Mac measure still open |
+| MacBook / PC 48–64G | ~48–64G | **UD-IQ3_S** if RAM holds; else **UD-Q2_K_XL** research | unsloth | **~48 / ~40 GB** | usable only if OS+KV fit | pointer; IQ3_S gate-met on Spark not Mac |
 | PC workstation 64–96G CUDA | 64–96G | Bartowski **Q4_K_S** / **IQ4_XS** or Unsloth **UD-Q4_K_S** | bartowski / unsloth | **~69 / ~63 / ~69 GB** | solid if VRAM+RAM enough | pointer + CUDA note |
 | Laptop 16–32G | 16–32G | **No full Laguna SKU** | — | — | need distill / smaller base | **explicit non-fit** |
+| iPhone / iPad / Android phone·tablet | ~4–12G class | **No full Laguna SKU** | — | — | MoE weights alone ~40GB+ | **explicit non-fit** — SLM/distill only; quant≠phone |
 
 Sizes are **sum of GGUF shards** (HF live probe 2026-07-28). Runtime RAM ≫ disk; leave OS + KV headroom.
 
@@ -56,12 +57,24 @@ Else: keep under `research/` + optional card "community ladder" table with **unm
 | PC CUDA | laguna fork or upstream ≥ Laguna support | ngl defendable on 24GB+ VRAM only for *active* path; MoE still RAM-heavy |
 | PC ROCm / laptop iGPU | experimental | do not claim ship |
 
+## Phone / mobile (locked non-fit)
+
+**Quant success on Mac mini / MacBook / PC does not imply iPhone or Android.**
+
+- Full Laguna-S-2.1 is ~118B MoE. Smallest honest GGUF class we measured still **~45 Gi on disk** (UD-IQ3_S).
+- Mobile NPU/RAM envelopes are roughly **4–12 GB**, with OS + UI overhead.
+- No App Store / Play path claims for full weights.
+- Path if founder wants mobile later: **distill / SLM / on-device small model** — separate product, not this pack's quant ladder.
+- Do not market “quantized to phone” from desktop IQ3/IQ4 wins.
+
 ## What we will not say by Aug 3
 
 - "Runs on any MacBook" / 16GB laptop full Laguna
+- "Runs on iPhone / Android" for full Laguna (even quantized)
 - Replacing official Q4 as default without measure win
 - Bulk multi-quant LFS rehost of Unsloth tree into our HF model
 - Global HF top-10 from device count alone
+- Mac/PC numbers labeled as Spark
 
 ## Aug 3 pack shape
 

@@ -78,10 +78,11 @@ sha256sum -c SHA256SUMS
 | Default agent serve on 128 GB unified (Spark) | Poolside **Q4_K_M** | Stand-behind; measured agent_smoke 40/40 |
 | Higher fidelity, more RAM | Poolside **Q8_0** | Routed experts Q8, signal BF16 |
 | 64–96G Mac / PC (pointer) | Unsloth **UD-IQ4_XS** (~58 GB) or Bartowski **IQ4_XS** (~63 GB) | Third-party; re-run smoke; see device matrix |
-| 48–64G tight (pointer) | Unsloth **UD-IQ3_S** (~48 GB) | Quality dip expected |
+| 48–64G tight (measured SKU) | Unsloth **UD-IQ3_S** (~48 GB) | Spark same-harness **38/40** · pointer + delta · not headline |
 | Aggressive experiment | Unsloth **UD-Q2_K_XL** (~40 GB) | Research only until measured |
 | Speculative decode | + Poolside **DFlash-BF16** | Needs poolside `laguna` fork (`--spec-type draft-dflash`) |
 | 16–32G laptop / this Mac Studio 32G | **non-fit** for full Laguna-S-2.1 | Need distill / smaller base — do not claim |
+| iPhone / Android phone or tablet | **non-fit** for full Laguna | ~40GB+ even at IQ3; mobile NPU/RAM is 4–12G class — need SLM/distill, not this MoE |
 
 Pull by SKU id:
 
@@ -141,16 +142,17 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 
 | Host | Quant | Ctx | Gen tok/s | Smoke | RAM used | DFlash | Notes |
 |------|-------|-----|-----------|-------|----------|--------|-------|
-| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | engine `04b2b72` + isfinite patch · Hermes-class client |
+| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | **Headline** · engine `04b2b72` + isfinite · Hermes-class |
+| DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen ~41 t/s (tiny) | **38/40 (95%)** | ~46 G weights | not measured | **Not headline** · same-harness SKU · ship ≥38 met · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/) |
 
-Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json) · [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json)  
-Hermes-class suite live: **27/27** — [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)
+Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json) · [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json) · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/)  
+Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)
 
 ### Measured detail (2026-07-28)
 
 | Metric | Value |
 |--------|--------|
-| Quant | official `Q4_K_M` · sha256 `a8b55c75…` |
+| Quant (headline) | official `Q4_K_M` · sha256 `a8b55c75…` |
 | Engine | poolside llama.cpp `04b2b72` + `math.h`/`::isfinite` host patch |
 | Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
 | Host mem after load | ~96–99 Gi used of 121 Gi |
@@ -158,7 +160,7 @@ Hermes-class suite live: **27/27** — [`eval/hermes_agent_smoke/`](./eval/herme
 | hermes_agent_smoke v2 | **27/27 · 100%** (102.68 s, 2026-07-28) · `results/hermes_agent_smoke.json` |
 | Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
 | DFlash | not measured this run |
-| Multi-device SKUs | pointer track unlocked for Aug 3 — see `research/device-quant-matrix-aug3.md` (not Spark-headline) |
+| Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · sha256 `8a9ab3f8…` · **38/40 · 71s** on Spark (Q4 briefly stopped; **restored**) · fails `repair_04`/`long_06` on *stale* Spark runner (no sanitize); not claimed as weight regression · phone/tablet **non-fit** |
 
 ## What is **not** in this pack
 
@@ -185,5 +187,6 @@ Independent personal measurements on one DGX Spark. Not affiliated with, endorse
 ## Quant comparison (same-family)
 
 - Live scoreboard: [`research/quant-comparison-scoreboard-2026-07-28.md`](research/quant-comparison-scoreboard-2026-07-28.md)
-- Stand-behind: official Poolside **Q4_K_M** only until post-freeze.
-- Smaller Mac mini / MacBook / PC SKUs: only after this bar holds — see `research/post-freeze-smaller-device-path.md`.
+- Stand-behind: official Poolside **Q4_K_M** (headline) — IQ3_S is a measured smaller **pointer row**, not a default swap.
+- Mac mini / MacBook / PC: ladder in [`research/device-quant-matrix-aug3.md`](research/device-quant-matrix-aug3.md); IQ3_S ship-min met on Spark.
+- iPhone / Android: **explicit non-fit** for full Laguna — distill/SLM only.

@@ -1,0 +1,38 @@
+{
+  "sku_id": "unsloth-ud-iq3-s",
+  "repo": "unsloth/Laguna-S-2.1-GGUF",
+  "filename": "Laguna-S-2.1-UD-IQ3_S.gguf",
+  "path": "/home/hizrianraz/models/laguna-s-2.1/unsloth-ud-iq3-s/Laguna-S-2.1-UD-IQ3_S.gguf",
+  "bytes": 48428911520,
+  "sha256": "8a9ab3f8b3ff1723441cd251e873b295a7ef086d78dbae7515e5e27c8382b002",
+  "host": "dgx-spark",
+  "engine": "poolside llama.cpp laguna",
+  "alias": "local-laguna-iq3s",
+  "port": 8000,
+  "ctx": 8192,
+  "measured_at": "2026-07-28T20:10:58+0700",
+  "agent_smoke": {
+    "passed": 38,
+    "n": 40,
+    "pass_rate": 0.95,
+    "elapsed_s": 71.0,
+    "failed_ids": [
+      "repair_04",
+      "long_06"
+    ]
+  },
+  "promotion_gate": "official_minus_2",
+  "meets_ship_min_vs_q4_40": true,
+  "not_headline": true,
+  "headline_remains": "official Q4_K_M on Spark",
+  "harness_note": "agent_smoke run used Spark pack run_smoke.py WITHOUT sanitize_messages_for_server and WITHOUT any_of_tools KeyError judge (md5 c1a587c8\u2026). Those two closed-on-Q4 harness bugs explain repair_04 + long_06 fails exactly. End-to-end with this harness: 38/40. Does NOT prove IQ3 weights fail those cases; re-run with fixed local harness when GPU free. Ship gate \u226538/40 vs official 40 already met on measured end-to-end this runner snapshot.",
+  "local_fixed_harness_md5": "4b2fe7af940be448700ad3ae72f469c7",
+  "spark_runner_md5_at_measure": "c1a587c8a1b9c9b1ab54b8de1469a571",
+  "headline": false,
+  "phone_tablet": {
+    "full_laguna_iphone": "non-fit",
+    "full_laguna_android": "non-fit",
+    "reason": "118B MoE ~40GB+ weights even at aggressive GGUF; mobile NPU/RAM envelope is ~4\u201312GB class. Need distill/SLM, not full Laguna."
+  },
+  "updated_at": "2026-07-28T20:19:26+07:00"
+}

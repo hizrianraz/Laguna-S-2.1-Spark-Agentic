@@ -1,5 +1,5 @@
 {
-  "ts": 1785240774.865856,
+  "ts": 1785244989.469434,
   "stand_behind": {
     "repo_weights": "poolside/Laguna-S-2.1-GGUF",
     "file": "laguna-s-2.1-Q4_K_M.gguf",
@@ -239,5 +239,36 @@
     }
   ],
   "method": "same-harness agent_smoke + gen128 + bench_server; Spark-only headlines",
-  "top10_position": "Do not claim global top-10; win Laguna measured-agent / Spark pack cluster"
+  "top10_position": "Do not claim global top-10; win Laguna measured-agent / Spark pack cluster",
+  "sku_same_harness": {
+    "unsloth-ud-iq3-s": {
+      "repo": "unsloth/Laguna-S-2.1-GGUF",
+      "file": "Laguna-S-2.1-UD-IQ3_S.gguf",
+      "sha256": "8a9ab3f8b3ff1723441cd251e873b295a7ef086d78dbae7515e5e27c8382b002",
+      "bytes": 48428911520,
+      "host": "dgx-spark",
+      "agent_smoke": {
+        "passed": 38,
+        "n": 40,
+        "pass_rate": 0.95,
+        "elapsed_s": 71.0,
+        "failed_ids": [
+          "repair_04",
+          "long_06"
+        ]
+      },
+      "meets_ship_min_vs_q4_40": true,
+      "not_headline": true,
+      "evidence_dir": "results/sku_unsloth-ud-iq3-s",
+      "measured_at": "2026-07-28T20:10:58+07:00",
+      "phone_tablet_full_laguna": "non-fit",
+      "note": "Spark runner lacked sanitize/any_of_tools; shelf gate met; Q4 restored after window"
+    }
+  },
+  "device_fit": {
+    "mac_mini_macbook_pc_iq3_pointer": "unlocked_from_spark_sku_measure",
+    "iphone_android_full_laguna": "non-fit",
+    "reason_phone": "MoE weights ~45Gi even at IQ3_S; mobile ~4-12G class \u2014 need SLM/distill"
+  },
+  "updated_at_wib": "2026-07-28T20:23:09+07:00"
 }

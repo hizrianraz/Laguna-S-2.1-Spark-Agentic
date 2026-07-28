@@ -76,5 +76,21 @@ $HOME/src/llama.cpp-laguna/build/bin/llama-server \
 - Smaller-device path: [`research/post-freeze-smaller-device-path.md`](../research/post-freeze-smaller-device-path.md)
 - Machine: [`results/quant_comparison.json`](./quant_comparison.json)
 - Stand-behind remains official Q4_K_M on Spark.
-- Smaller third-party SKUs: **pointer + optional same-harness**; no server swap while live Q4 holds `:8000`.
 - Pull helper: `scripts/pull_sku.sh`
+
+### SKU same-harness: Unsloth UD-IQ3_S (not headline)
+
+| Field | Value |
+|-------|-------|
+| File | `unsloth/Laguna-S-2.1-GGUF` · `Laguna-S-2.1-UD-IQ3_S.gguf` |
+| sha256 | `8a9ab3f8b3ff1723441cd251e873b295a7ef086d78dbae7515e5e27c8382b002` |
+| bytes | 48428911520 (~45.1 Gi) |
+| Host / engine | Spark · same poolside laguna `04b2b72` |
+| Serve window | Q4 stopped briefly; IQ3 on `:8000` alias `local-laguna-iq3s`; **Q4 restored** after |
+| agent_smoke | **38/40 · 95% · 71.0 s** (2026-07-28 20:10 WIB) |
+| fails | `repair_04`, `long_06` |
+| Harness caveat | Spark pack `run_smoke.py` md5 `c1a587c8…` lacked `sanitize_messages_for_server` + `any_of_tools` judge (local fixed md5 `4b2fe7af…`). Same two fails were **harness-closed on Q4** earlier. IQ3 still meets ship gate ≥38/40 end-to-end on the runner that ran. |
+| Promotion | ship-min **met** · pointer + delta only · **not** default quant |
+| Phone / tablet | **full Laguna non-fit** (iPhone + Android) — need SLM/distill |
+
+Raw: [`results/sku_unsloth-ud-iq3-s/`](./sku_unsloth-ud-iq3-s/)

@@ -55,3 +55,8 @@ Full Laguna-S-2.1 does **not** fit 16–32G laptops — say so on the card.
 ## Authority
 
 Personal founder pack. Third-party quants stay at source; we point + measure.
+
+## Phone / tablet
+
+Full Laguna (even IQ3) is **non-fit** for iPhone and Android. Mac/PC quant success does not carry to mobile. Distill/SLM only.
+
