@@ -7,20 +7,34 @@ Promo: pack docs OK now · public trending/social still **2026-08-03 12:00 WIB**
 
 ## Bottom line
 
-Full **Laguna-S-2.1** (~118B MoE) does **not** fit every laptop.
-We ship a **honest ladder** of third-party GGUF *pointers* + same-harness deltas — not bulk rehost, not fake laptop miracle claims.
+Full **Laguna-S-2.1** (~118B MoE) does **not** fit founder Macs.
+
+**Founder Mac lock (2026-07-28):** MacBook Pro / Mac Studio in this house are **≤32G** (live Studio probe: M2 Max · **32G**).  
+That means: **no full Laguna weights on Mac**. Mac role = **client to Spark**, not weight host.
+
+We still publish a community ladder (48–64G+ boxes other people own) as *pointers* — never as “our Mac runs it.”
 
 | Device class | RAM (usable) | Prefer quant | Source | Total ~disk | Expect | Pack claim by Aug 3 |
 |--------------|--------------|--------------|--------|-------------|--------|---------------------|
 | DGX Spark GB10 | ~121 Gi | **official Q4_K_M** | poolside | **96.0 GB** | agent bar | **Stand-behind · measured 40/40 · ~21 t/s** |
-| Mac Studio / high Mac mini (64–128G) | 64–128G | Unsloth **UD-IQ4_XS** or Bartowski **IQ4_XS** | unsloth / bartowski | **~58 / ~63 GB** | near-Q4 quality if engine OK | pointer + method; measure if host free |
-| Mac Studio 64G tight / Mac mini ~64G | ~64G | Unsloth **UD-IQ3_S** (first), **UD-Q3_K_M** | unsloth | **~48 / ~54 GB** | quality dip vs Q4 | **Spark same-harness IQ3_S 38/40** (ship-min met) · Mac measure still open |
-| MacBook / PC 48–64G | ~48–64G | **UD-IQ3_S** if RAM holds; else **UD-Q2_K_XL** research | unsloth | **~48 / ~40 GB** | usable only if OS+KV fit | pointer; IQ3_S gate-met on Spark not Mac |
-| PC workstation 64–96G CUDA | 64–96G | Bartowski **Q4_K_S** / **IQ4_XS** or Unsloth **UD-Q4_K_S** | bartowski / unsloth | **~69 / ~63 / ~69 GB** | solid if VRAM+RAM enough | pointer + CUDA note |
-| Laptop 16–32G | 16–32G | **No full Laguna SKU** | — | — | need distill / smaller base | **explicit non-fit** |
-| iPhone / iPad / Android phone·tablet | ~4–12G class | **No full Laguna SKU** | — | — | MoE weights alone ~40GB+ | **explicit non-fit** — SLM/distill only; quant≠phone |
+| **Founder MacBook / Mac Studio (≤32G) · full S** | **≤32G** | **No full S weights** | — | — | OS + app already fill RAM | **Mac = OpenAI client → Spark :8000** · full-S weight non-fit |
+| **Founder Mac ≤32G · XS parallel** | **32G** (Studio live) | **XS Q4_K_M** (~18.9 Gi) | `poolside/Laguna-XS-2.1-GGUF` | **18.882 GiB** | disk candidate only | **separate model 33B-A3B** · **0 Mac smoke** · not S · see [`laguna-xs-2.1-mac-fit-2026-07-28.md`](./laguna-xs-2.1-mac-fit-2026-07-28.md) |
+| Community fat Mac / mini (64–128G) *others* | 64–128G | Unsloth **UD-IQ4_XS** or Bartowski **IQ4_XS** | unsloth / bartowski | **~58 / ~63 GB** | near-Q4 if engine OK | community pointer only · **not founder-measured** |
+| Community Mac/PC 48–64G *others* | ~48–64G | Unsloth **UD-IQ3_S** (first) | unsloth | **~48 GB** | quality dip | Spark same-harness IQ3_S **38/40** pointer · not Mac-local |
+| PC workstation 64–96G CUDA | 64–96G | Bartowski **Q4_K_S** / **IQ4_XS** / Unsloth **UD-Q4_K_S** | bartowski / unsloth | **~69 / ~63 / ~69 GB** | if VRAM+RAM enough | pointer + CUDA note |
+| Laptop 16–32G (any brand) full S | 16–32G | **No full S SKU** | — | — | distill / XS parallel | **full S non-fit** · XS is different product |
+| iPhone / iPad / Android phone·tablet | ~4–12G class | **No full Laguna-S SKU** | — | — | MoE weights alone ~40GB+ | **explicit non-fit** — bonsai/SLM only; see [`phone-bonsai-ios-android-2026-07-28.md`](./phone-bonsai-ios-android-2026-07-28.md) |
 
 Sizes are **sum of GGUF shards** (HF live probe 2026-07-28). Runtime RAM ≫ disk; leave OS + KV headroom.
+
+### Founder “Laguna Mac” definition
+
+| Phrase | Means | Does not mean |
+|--------|-------|---------------|
+| Laguna Mac (default) | Mac as **Hermes / OpenAI client** talking to Spark **S** | Full **S** weights in Mac unified memory |
+| Laguna Spark | Weight host + measured bar for **S** (Q4 40/40) | — |
+| Laguna XS on Mac | Separate **33B-A3B** track · Q4 ~19G candidate | A quant of S · measured ship · “S on Mac” |
+| Community 64G ladder | Docs for strangers with fat boxes running **S** quants | Founder hardware claim |
 
 ## Candidate IDs (pull scripts use these)
 
@@ -52,8 +66,9 @@ Else: keep under `research/` + optional card "community ladder" table with **unm
 
 | Host | Engine | Notes |
 |------|--------|-------|
-| Spark | poolside `llama.cpp` `laguna` + CUDA | default pack path |
-| Mac Metal | llama.cpp Metal **or** MLX port if available | Laguna ops may need laguna fork — test load first |
+| Spark | poolside `llama.cpp` `laguna` + CUDA | default pack path · **only weight host we stand behind** |
+| Founder Mac ≤32G | **no local llama-server for full Laguna** | client: `OPENAI_BASE_URL=http://<spark>:8000/v1` · Tailscale OK |
+| Community fat Mac Metal (64G+) | llama.cpp Metal **or** MLX if available | stranger path only; may need laguna fork — test load first |
 | PC CUDA | laguna fork or upstream ≥ Laguna support | ngl defendable on 24GB+ VRAM only for *active* path; MoE still RAM-heavy |
 | PC ROCm / laptop iGPU | experimental | do not claim ship |
 
@@ -69,29 +84,32 @@ Else: keep under `research/` + optional card "community ladder" table with **unm
 
 ## What we will not say by Aug 3
 
-- "Runs on any MacBook" / 16GB laptop full Laguna
+- "Runs on MacBook Pro / Mac Studio" without saying **≤32G = client only**
+- "Our Mac runs full Laguna" / any founder-Mac weight claim
+- "Runs on any MacBook" / 16–32G laptop full Laguna weights
 - "Runs on iPhone / Android" for full Laguna (even quantized)
 - Replacing official Q4 as default without measure win
 - Bulk multi-quant LFS rehost of Unsloth tree into our HF model
 - Global HF top-10 from device count alone
 - Mac/PC numbers labeled as Spark
+- IQ3_S / IQ4_XS as "Laguna Mac" headline (those are **community ≥48G**, not founder Mac)
 
 ## Aug 3 pack shape
 
 1. **Headline**: Spark official Q4_K_M measured row  
-2. **Device ladder**: this table on README + `research/device-quant-matrix-aug3.md`  
-3. **Scripts**: `scripts/pull_sku.sh <sku_id>`  
-4. **Measured smaller row(s)**: only if same-harness JSON exists under `results/sku_<id>/`  
-5. **Hermes-class suite**: live **27/27** on Q4 · `results/hermes_agent_smoke.json`  
+2. **Laguna Mac story**: Hermes/OpenAI **client → Spark** (copy-paste) · weight non-fit ≤32G in one line  
+3. **Community ladder**: 48–64G+ pointers only · no founder-Mac measure row  
+4. **Scripts**: `scripts/pull_sku.sh <sku_id>` (Spark / fat-box strangers)  
+5. **Measured smaller row(s)**: only if same-harness JSON under `results/sku_<id>/` (Spark today)  
+6. **Hermes-class suite**: live **27/27** on Q4 · `results/hermes_agent_smoke.json`  
 
 ## Schedule (accelerated)
 
 | When | Work |
 |------|------|
-| Jul 28–29 | Matrix + pull scripts + docs; Hermes v2 live on Q4; start 1–2 SKU downloads on Spark disk |
-| Jul 30 | Alternate-port smoke for IQ4_XS or IQ3_S **without** killing :8000 Q4 if possible |
-| Jul 31 | Mac path dry-run if RAM allows; stranger REPRODUCE |
-| Aug 1 | Buffer / second measure window |
+| Jul 28–29 | Matrix + pull scripts + docs; Hermes v2 live on Q4; IQ3_S pointer done |
+| Jul 30 | Card: Mac ≤32G client path + non-fit; stranger REPRODUCE |
+| Jul 31–Aug 1 | Buffer · no Mac weight chase |
 | Aug 2 18:00 | Freeze claims |
 | Aug 3 12:00 | Promo go-live |
 

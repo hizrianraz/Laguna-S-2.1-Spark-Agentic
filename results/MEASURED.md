@@ -77,6 +77,7 @@ $HOME/src/llama.cpp-laguna/build/bin/llama-server \
 - Machine: [`results/quant_comparison.json`](./quant_comparison.json)
 - Stand-behind remains official Q4_K_M on Spark.
 - Pull helper: `scripts/pull_sku.sh`
+- **Founder Mac lock:** MacBook Pro / Mac Studio = **≤32G** (this Studio M2 Max 32G). Full Laguna weights **non-fit**. Mac path = OpenAI/Hermes **client → Spark**, not local GGUF.
 
 ### SKU same-harness: Unsloth UD-IQ3_S (not headline)
 

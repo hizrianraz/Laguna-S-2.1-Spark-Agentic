@@ -75,14 +75,15 @@ sha256sum -c SHA256SUMS
 
 | Goal | Artifact | Notes |
 |------|----------|-------|
-| Default agent serve on 128 GB unified (Spark) | Poolside **Q4_K_M** | Stand-behind; measured agent_smoke 40/40 |
-| Higher fidelity, more RAM | Poolside **Q8_0** | Routed experts Q8, signal BF16 |
-| 64–96G Mac / PC (pointer) | Unsloth **UD-IQ4_XS** (~58 GB) or Bartowski **IQ4_XS** (~63 GB) | Third-party; re-run smoke; see device matrix |
-| 48–64G tight (measured SKU) | Unsloth **UD-IQ3_S** (~48 GB) | Spark same-harness **38/40** · pointer + delta · not headline |
+| Default agent serve on Spark (~121G) | Poolside **Q4_K_M** | **Stand-behind** · measured agent_smoke 40/40 · ~21 t/s |
+| **Founder MacBook / Mac Studio (≤32G) · full S** | **no local S weights** | **Laguna Mac = client** → Spark `http://<spark>:8000/v1` · S IQ3 ~48G alone > 32G RAM |
+| **Founder Mac ≤32G · XS parallel (not S)** | Poolside **XS** `Laguna-XS-2.1-Q4_K_M.gguf` (~18.9G) | **Separate 33B-A3B model** · disk candidate · **0 Mac smoke** · not a quant of S · see [`research/laguna-xs-2.1-mac-fit-2026-07-28.md`](./research/laguna-xs-2.1-mac-fit-2026-07-28.md) + dual roadmap |
+| Higher fidelity, more RAM (Spark) | Poolside **Q8_0** | Routed experts Q8, signal BF16 |
+| Community 64–96G box (pointer, not founder Mac) | Unsloth **UD-IQ4_XS** (~58 GB) or Bartowski **IQ4_XS** (~63 GB) | Third-party; strangers re-run smoke; see device matrix |
+| Community 48–64G tight (Spark-measured pointer) | Unsloth **UD-IQ3_S** (~48 GB) | Spark same-harness **38/40** · not headline · **not** a MacBook claim |
 | Aggressive experiment | Unsloth **UD-Q2_K_XL** (~40 GB) | Research only until measured |
 | Speculative decode | + Poolside **DFlash-BF16** | Needs poolside `laguna` fork (`--spec-type draft-dflash`) |
-| 16–32G laptop / this Mac Studio 32G | **non-fit** for full Laguna-S-2.1 | Need distill / smaller base — do not claim |
-| iPhone / Android phone or tablet | **non-fit** for full Laguna | ~40GB+ even at IQ3; mobile NPU/RAM is 4–12G class — need SLM/distill, not this MoE |
+| iPhone / Android phone or tablet | **non-fit** for full Laguna-S | ~40GB+ even at IQ3; mobile NPU/RAM is 4–12G class — need SLM/distill, not this MoE |
 
 Pull by SKU id:
 

@@ -1,0 +1,95 @@
+{
+  "schema": "laguna.xs_mac_track_lock/v1",
+  "status": "prepared_research",
+  "prepared_at_wib": "2026-07-28T21:20:00+07:00",
+  "track_id": "laguna-xs-2.1-mac-fit",
+  "model_family": "Laguna-XS-2.1",
+  "not_a_quant_of": "Laguna-S-2.1",
+  "base_repo": "poolside/Laguna-XS-2.1",
+  "base_sha": "205dc65dd4bda946c50da6b7522b215734fa107b",
+  "gguf_repo": "poolside/Laguna-XS-2.1-GGUF",
+  "gguf_sha": "1a37c0a5fb8c7a18e6106decb6be6327d1b63fa6",
+  "shape": {
+    "total_params": "33B",
+    "active_params": "3B",
+    "arch": "MoE"
+  },
+  "stand_behind_sku": {
+    "file": "Laguna-XS-2.1-Q4_K_M.gguf",
+    "bytes": 20274300032,
+    "gib": 18.882,
+    "sha256": "1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb",
+    "role": "mac_disk_candidate"
+  },
+  "non_fit_sku": {
+    "file": "Laguna-XS-2.1-BF16.gguf",
+    "bytes": 66930226304,
+    "gib": 62.334,
+    "sha256": "d1d99abe30c37749ec1b1ae2681cec74caa550ac6243d2ea70b61b1ff9d187ca",
+    "role": "non_fit_founder_mac"
+  },
+  "target_host": {
+    "class": "founder_mac_le_32g",
+    "live_studio": {
+      "model": "Mac14,13",
+      "ram_bytes": 34359738368,
+      "ram_gb": 32
+    },
+    "vendor_card_claim": "Mac with 36 GB RAM",
+    "fit_status": "disk_candidate_runtime_unproven"
+  },
+  "engine": {
+    "preferred": "poolsideai/llama.cpp branch laguna (Metal)",
+    "upstream_pr": "ggml-org/llama.cpp#25165",
+    "alt_unverified": "ollama pull laguna-xs-2.1",
+    "assume_stock_brew_llama": false
+  },
+  "measurement": {
+    "agent_smoke_local": null,
+    "hermes_smoke_local": null,
+    "tps_local": null,
+    "gate_before_any_claim": "same-harness agent_smoke on founder Mac + sha256 + host label"
+  },
+  "storage_policy": {
+    "prefer_pull_volume": "/Volumes/HFR WD_BLACK SN850X/models/laguna-xs-2.1",
+    "avoid_system_data_when_full": true,
+    "system_data_free_gi_at_prep": 40,
+    "do_not_pull_without_founder_go": true,
+    "do_not_pull_bf16_on_mac": true
+  },
+  "namespace": {
+    "notes_in_s_pack": "research/ only — not S freeze artifact",
+    "optional_future_surface": "hizrianraz/laguna-xs-2.1-mac (not created)",
+    "forbidden_aliases": [
+      "S on Mac",
+      "S-lite",
+      "S-Mac",
+      "Laguna Mac weights = S"
+    ]
+  },
+  "relation_to_s_pack": {
+    "s_repo": "hizrianraz/laguna-s-2.1-spark",
+    "s_weight_host": "dgx-spark-only",
+    "s_founder_mac": "client-only-no-local-weights",
+    "s_freeze_wib": "2026-08-02T18:00:00+07:00",
+    "s_launch_wib": "2026-08-03T12:00:00+07:00",
+    "xs_launch_coupling": false,
+    "xs_may_delay_s_freeze": false
+  },
+  "honest_language": {
+    "allowed": [
+      "XS Q4_K_M is official ~19G GGUF for Laguna-XS-2.1",
+      "founder Mac client still talks to Spark for full S",
+      "XS is a separate 33B-A3B model"
+    ],
+    "forbidden": [
+      "Laguna runs on Mac (unqualified)",
+      "S on Mac via XS",
+      "any unmeasured t/s or agent_smoke for XS",
+      "Poolside public benches as founder measured bar",
+      "BF16 / safetensors as Mac-local"
+    ]
+  },
+  "diy_requant": false,
+  "status_detail": "XS prep complete as research parallel. No weight pull. No smoke. No ship."
+}

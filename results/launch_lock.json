@@ -17,7 +17,17 @@
   "hermes_agent_smoke_elapsed_s": 102.68,
   "hermes_agent_smoke_at_wib": "2026-07-28T19:47:00+07:00",
   "multi_device_track": "unlocked_pointer_docs",
+  "weight_host": "dgx-spark-only",
+  "weight_host_lock": "2026-07-28-spark-only",
+  "founder_mac": "client-only-no-local-weights",
+  "founder_mac_ram_class_gb": 32,
   "diy_gguf": false,
   "branding": "personal-only",
-  "public_promo_before_launch": false
+  "public_promo_before_launch": false,
+  "xs_parallel_track": "prepared_research",
+  "xs_parallel_lock": "results/xs_mac_track_lock.json",
+  "xs_parallel_notes": "research/laguna-xs-2.1-mac-fit-2026-07-28.md",
+  "dual_roadmap": "research/roadmap-dual-s-and-xs-2026-07-28.md",
+  "xs_not_in_s_freeze": true,
+  "xs_not_a_quant_of_s": true
 }

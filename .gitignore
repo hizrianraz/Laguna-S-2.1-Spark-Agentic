@@ -14,3 +14,5 @@ results/*.json
 *.gguf
 .venv/
 .env
+!results/xs_mac_track_lock.json
+!results/MEASURED.md
