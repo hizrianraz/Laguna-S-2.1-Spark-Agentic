@@ -1,7 +1,7 @@
 {
   "repo_id": "hizrianraz/laguna-s-2.1-spark",
   "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
-  "commit": "7dca50a13f2c80490116006ee21573919ca9bf13",
+  "commit": "a7b23e8f1386b6b344ff0b6ac247c67a85024b13",
   "siblings": [
     ".gitattributes",
     ".gitignore",
@@ -16,6 +16,9 @@
     "docs/REPRODUCE.md",
     "eval/agent_smoke/cases.json",
     "eval/agent_smoke/run_smoke.py",
+    "eval/hermes_agent_smoke/README.md",
+    "eval/hermes_agent_smoke/cases.json",
+    "eval/hermes_agent_smoke/run_hermes_smoke.py",
     "hermes/README.md",
     "hermes/sample_client.py",
     "research/post-freeze-smaller-device-path.md",
@@ -28,6 +31,7 @@
     "results/hf_publish.json",
     "results/launch_lock.json",
     "results/measured.json",
+    "results/quant_comparison.json",
     "results/server_bench.json",
     "scripts/bench_server.py",
     "scripts/pull_official_gguf.sh",
@@ -36,14 +40,17 @@
   "private": false,
   "launch_locked": true,
   "launch_at_wib": "2026-08-03T12:00:00+07:00",
-  "latest_commit": "7dca50a13f2c80490116006ee21573919ca9bf13",
+  "latest_commit": "a7b23e8f1386b6b344ff0b6ac247c67a85024b13",
+  "local_git_head": "d6f356bba3ed02c5792ce5e3975e4e22d54cc174",
   "measured_json_on_hf": true,
   "agent_smoke_on_hf": true,
+  "hermes_v2_suite_on_hf": true,
+  "hermes_v2_results_on_hf": false,
   "headline": "40/40 agent_smoke \u00b7 ~21 tok/s gen128 \u00b7 official Q4_K_M",
   "live_reconfirm": {
     "pass": "40/40",
     "elapsed_s": 88.96,
     "gen128_tok_s": 21.016
   },
-  "refreshed_at_unix": 1785240844.396789
+  "refreshed_at_unix": 1785241704.672564
 }
