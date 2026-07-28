@@ -67,5 +67,13 @@
     "hermes_v2_elapsed_s": 102.68
   },
   "refreshed_at_unix": 1785245154.5385852,
-  "refreshed_at_wib": "2026-07-28T20:25:54+07:00"
+  "refreshed_at_wib": "2026-07-28T20:25:54+07:00",
+  "last_docs_sync_wib": "2026-07-28T21:33:30+07:00",
+  "last_docs_hf_commit": "593c20e8fa26d47ef89c5b7d5ac8f311c49e753f",
+  "last_docs_gh_commit": "3d54042",
+  "sibling_xs": {
+    "github": "https://github.com/hizrianraz/laguna-xs-2.1-mac",
+    "hf": "https://huggingface.co/hizrianraz/laguna-xs-2.1-mac",
+    "status": "prep_published_unmeasured"
+  }
 }
