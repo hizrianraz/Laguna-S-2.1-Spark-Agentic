@@ -24,5 +24,9 @@
     "scripts/pull_official_gguf.sh",
     "scripts/serve_spark.sh"
   ],
-  "private": false
+  "private": false,
+  "launch_locked": true,
+  "launch_at_wib": "2026-08-03T12:00:00+07:00",
+  "latest_commit": "bebc09aa213eda2ff1105800f322aefbfb7f57cb",
+  "measured_json_on_hf": true
 }
