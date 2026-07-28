@@ -1,7 +1,7 @@
 {
   "repo_id": "hizrianraz/laguna-s-2.1-spark",
   "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
-  "commit": "a7b23e8f1386b6b344ff0b6ac247c67a85024b13",
+  "commit": "87fc024c20ad85067c7224172a04ec0cdabee1ae",
   "siblings": [
     ".gitattributes",
     ".gitignore",
@@ -21,6 +21,8 @@
     "eval/hermes_agent_smoke/run_hermes_smoke.py",
     "hermes/README.md",
     "hermes/sample_client.py",
+    "research/agentic-quant-hermes-hf-trending-2026-07-28.md",
+    "research/device-quant-matrix-aug3.md",
     "research/post-freeze-smaller-device-path.md",
     "research/quant-comparison-scoreboard-2026-07-28.md",
     "results/.gitkeep",
@@ -33,24 +35,37 @@
     "results/measured.json",
     "results/quant_comparison.json",
     "results/server_bench.json",
+    "results/sku_unsloth-ud-iq3-s/README.md",
+    "results/sku_unsloth-ud-iq3-s/agent_smoke.json",
+    "results/sku_unsloth-ud-iq3-s/agent_smoke.log",
+    "results/sku_unsloth-ud-iq3-s/sku_meta.json",
     "scripts/bench_server.py",
     "scripts/pull_official_gguf.sh",
+    "scripts/pull_sku.sh",
     "scripts/serve_spark.sh"
   ],
   "private": false,
   "launch_locked": true,
   "launch_at_wib": "2026-08-03T12:00:00+07:00",
-  "latest_commit": "a7b23e8f1386b6b344ff0b6ac247c67a85024b13",
-  "local_git_head": "d6f356bba3ed02c5792ce5e3975e4e22d54cc174",
+  "latest_commit": "87fc024c20ad85067c7224172a04ec0cdabee1ae",
+  "local_git_head": "822f2382903877df0ef9bfd1cbe04770b06e4a1c",
   "measured_json_on_hf": true,
   "agent_smoke_on_hf": true,
+  "sku_iq3s_agent_smoke_on_hf": true,
+  "sku_iq3s_meta_on_hf": true,
+  "quant_comparison_on_hf": true,
+  "device_matrix_on_hf": true,
   "hermes_v2_suite_on_hf": true,
   "hermes_v2_results_on_hf": false,
-  "headline": "40/40 agent_smoke \u00b7 ~21 tok/s gen128 \u00b7 official Q4_K_M",
+  "headline": "40/40 agent_smoke \u00b7 ~21 tok/s gen128 \u00b7 official Q4_K_M \u00b7 hermes 27/27",
+  "sku_iq3s": "38/40 agent_smoke \u00b7 not headline \u00b7 Mac/PC pointer \u00b7 phone/android non-fit",
   "live_reconfirm": {
     "pass": "40/40",
     "elapsed_s": 88.96,
-    "gen128_tok_s": 21.016
+    "gen128_tok_s": 21.016,
+    "hermes_v2": "27/27",
+    "hermes_v2_elapsed_s": 102.68
   },
-  "refreshed_at_unix": 1785241704.672564
+  "refreshed_at_unix": 1785245154.5385852,
+  "refreshed_at_wib": "2026-07-28T20:25:54+07:00"
 }
