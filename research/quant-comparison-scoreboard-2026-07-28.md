@@ -13,10 +13,11 @@ Not a global HF top-10 claimsheet. Global trending needs downloads/likes/recency
 | Host | DGX Spark GB10 · 121 Gi |
 | Engine | poolside llama.cpp `04b2b72` laguna + isfinite patch |
 | Serve | `:8000` · ctx 8192 · ngl -1 · jinja · fa on · alias `local-laguna` |
-| Gen128 | **21.016 tok/s** · 128 tok · 6.091s |
-| Prefill marks | 2k→1.022s · 8k→1.521s (OK replies) |
-| agent_smoke | **40/40 (100%)** prior lock; live reconfirm this session |
-| hermes_agent_smoke v2 | **27/27 (100%)** · 102.68 s · `results/hermes_agent_smoke.json` |
+| Gen128 (authoritative) | **~21.47 tok/s** · multi suite · `results/MEASURED.md` · pack tip `bf82eab` |
+| Gen128 (earlier same-day stamp) | 21.016 tok/s · 128 tok · 6.091s — band sample only, **not** a second claim |
+| Prefill marks (measured multi) | 2k ~1.6s · 8k ~4.8s (server_bench_live) |
+| agent_smoke | **40/40 (100%)** · 84.86 s · temp 0.0 |
+| hermes_agent_smoke v2 | **27/27 (100%)** · 100.1 s · `results/hermes_agent_smoke.json` |
 
 ## Same-family GGUF landscape (HF metadata)
 
@@ -104,8 +105,8 @@ Do **not** claim DFlash speedup on this pack. Headline remains plain Q4 serve.
 
 ## Live bench stamp
 
-- gen_bench: `[{"label": "gen8_short", "prompt_tokens": 49, "completion_tokens": 4, "latency_s": 0.47, "tok_s": 8.505}, {"label": "gen128", "prompt_tokens": 55, "completion_tokens": 128, "latency_s": 6.091, "tok_s": 21.016}, {"label": "prefill_heavy_gen64", "prompt_tokens": 424, "completion_tokens": 4, "latency_s": 1.074, "tok_s": 3.724}]`
-- server_bench: `[{"mark": "2k", "latency_s": 1.022, "prompt_tokens": 836, "completion_tokens": 3, "completion_tok_s": 2.935, "content": "OK"}, {"mark": "8k", "latency_s": 1.521, "prompt_tokens": 3236, "completion_tokens": 3, "completion_tok_s": 1.973, "content": "OK"}]`
-- captured_unix: 1785240774.865332
+- **Authoritative multi suite (quote this):** gen128 **21.47** tok/s · smoke 40/40 · hermes 27/27 · pack tip `bf82eab` · `results/MEASURED.md` / `results/measured.json`
+- Earlier same-day band sample (not a second claim): gen_bench gen128 **21.016** · prefill 2k 1.022s / 8k 1.521s · unix 1785240774.865332
 - dflash_gen128_tok_s: 15.286 · decision DO_NOT_PROMOTE · 2026-07-29
+- Serve captain: `-c 8192 -ngl -1 --jinja -fa on --alias local-laguna` (SPARK serve blocks aligned 2026-07-29 post-jury fix)
 

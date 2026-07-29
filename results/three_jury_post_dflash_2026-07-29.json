@@ -1,0 +1,159 @@
+{
+  "schema": "laguna.three_jury/v2",
+  "packet_id": "three_jury_post_dflash_2026-07-29",
+  "revision": 2,
+  "built_at_wib": "2026-07-29T16:18:00+07:00",
+  "consult_mode": "manwe_three_seat_appellate_fix_if_not_go",
+  "tip_bind": {
+    "pack": "Laguna-S-2.1-Spark-Agentic",
+    "measure_pack_git_ref": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "engine_sha": "04b2b72",
+    "weight": "official poolside laguna-s-2.1-Q4_K_M.gguf",
+    "weight_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+    "live_health": "HEALTH_OK",
+    "live_serve_head": "llama-server ... --ctx-size 8192 -ngl -1 -fa on --jinja --alias local-laguna --metrics"
+  },
+  "prior_independent": {
+    "path": "results/three_jury_post_dflash_2026-07-29.json",
+    "revision": 1,
+    "overall": "PASS_CONTINUE_PREP",
+    "why_rev2": "composer/fable named gaps real: SPARK -ngl 99 drift + dual gen 21.016/21.47 + state tip-bind"
+  },
+  "fixes_this_rev": [
+    "SPARK.md primary serve, DFlash example, llama-bench: -ngl 99 → -ngl -1 + alias",
+    "research/quant-comparison-scoreboard-2026-07-28.md: 21.47 authoritative; 21.016 band-only",
+    "stranger_path_dry re-PASS after SPARK align",
+    "typo Augillis removed; claimed dual-claim closed"
+  ],
+  "evidence": {
+    "headline": {
+      "agent_smoke": "40/40",
+      "hermes_agent_smoke": "27/27",
+      "gen128_tok_s_authoritative": 21.47,
+      "gen128_tok_s_same_day_band_only": 21.016,
+      "quant": "Q4_K_M",
+      "paths": [
+        "results/agent_smoke.json",
+        "results/hermes_agent_smoke.json",
+        "results/measured.json",
+        "results/MEASURED.md",
+        "results/LAST_GREEN_PIN.md"
+      ]
+    },
+    "dflash": {
+      "decision": "DO_NOT_PROMOTE",
+      "gen128_tok_s": 15.286,
+      "delta_vs_baseline_pct": -28.8,
+      "prefill_2k_s": 2.253,
+      "prefill_8k_s": 5.556,
+      "path": "results/dflash_2026-07-29/"
+    },
+    "baseline_after_dflash": {
+      "health": "HEALTH_OK",
+      "path": "results/baseline_rehealth_2026-07-29.md",
+      "live_reprobe_wib": "2026-07-29T16:15:55+07:00"
+    },
+    "stranger_path": {
+      "status": "PASS",
+      "path": "results/stranger_path_dry_2026-07-29.md"
+    },
+    "freeze": {
+      "gate": "model_card_plus_lock_files",
+      "status": "filled",
+      "freeze_wib": "2026-08-02T18:00:00+07:00",
+      "hf_public_wib": "2026-08-03T12:00:00+07:00",
+      "decision_now": "continue_prep_not_freeze"
+    }
+  },
+  "claims_allowed": [
+    "Spark-measured agent_smoke 40/40 on official Q4_K_M",
+    "hermes_agent_smoke 27/27",
+    "~21.5 t/s gen128 plain Q4 serve on DGX Spark (authoritative multi suite 21.47)",
+    "official digest-bound Q4_K_M (no bare re-upload)"
+  ],
+  "claims_forbidden": [
+    "DFlash speedup on this pack",
+    "first/only Laguna quant",
+    "best universal tok/s",
+    "full Laguna on iPhone/Android",
+    "IQ3 as headline",
+    "global HF top-10 overall",
+    "quoting 21.016 as a second headline gen claim"
+  ],
+  "seats": {
+    "fable5_measure": {
+      "role": "measure integrity",
+      "status": "APPELLATE_CLEARED",
+      "verdict": "PASS",
+      "findings": [
+        "DFlash gen128 15.286 < plain ~21.5 → DO_NOT_PROMOTE forced by arithmetic",
+        "Baseline re-health HEALTH_OK; live Spark re-probe HEALTH_OK matching last-green flags",
+        "Dual gen closed: scoreboard points 21.47 as authoritative; 21.016 band-only",
+        "Headline smoke remains tip-bound to bf82eab measure pack"
+      ],
+      "blockers": [],
+      "caveats": [
+        "No full 40/40 re-smoke on post-rename tip this window"
+      ]
+    },
+    "sol56_serve": {
+      "role": "serve + captain surface",
+      "status": "APPELLATE_CLEARED",
+      "verdict": "PASS",
+      "findings": [
+        "Live ps flags match last-green pin",
+        "SPARK stranger serve + DFlash optional + llama-bench now use -ngl -1",
+        "DFlash not default path",
+        "Launch clock Aug 3 12:00 WIB personal surface only"
+      ],
+      "blockers": [],
+      "caveats": [
+        "XS HF still pending_open from rename receipt — S pack may ship without XS mirror"
+      ]
+    },
+    "composer25_pack": {
+      "role": "pack claims + stranger path",
+      "status": "APPELLATE_CLEARED",
+      "verdict": "PASS",
+      "findings": [
+        "rev1 gaps were real and are fixed this rev",
+        "Forbidden claims list explicit; dual-gen second-claim forbidden",
+        "Stranger dry PASS after SPARK fix",
+        "Analyze prompts ready under prompts/"
+      ],
+      "blockers": [],
+      "gaps_named": [
+        "GH commit+push of this fix must land before HF re-tip",
+        "Live stranger GPU re-run still not required before freeze if docs stay stable"
+      ]
+    }
+  },
+  "lorien_chair": {
+    "attempted_this_packet": false,
+    "prior": "results/three_jury_current_built_2026-07-29.json client_timeout_120s",
+    "semantics": "timeout≠fail; Manwë appellate completes three seats; Lórien chair not receipted as live JSON this tick"
+  },
+  "external_jury_prompts": {
+    "chatgpt": "prompts/chatgpt-analyze-laguna-s-2026-07-29.md",
+    "claude": "prompts/claude-analyze-laguna-s-2026-07-29.md",
+    "status": "ready_for_founder_paste",
+    "note": "Founder runs external models; replies become independent seats when pasted back"
+  },
+  "synthesis": {
+    "overall": "GO_PASS_CONTINUE_PREP",
+    "dflash": "DO_NOT_PROMOTE_LOCKED",
+    "headline_hold": "plain_Q4_K_M_official",
+    "next_unblocked": [
+      "git commit + push origin main",
+      "HF docs-only tip upload with SPARK + scoreboard + jury rev2 + stranger",
+      "founder paste ChatGPT + Claude prompts; return findings before freeze if any claim risk",
+      "T-3 polish only if external seats open a real gap"
+    ],
+    "still_blocked_without_founder": [
+      "moving freeze/HF public clock",
+      "promising DFlash",
+      "any trade/wire/sign/codename public"
+    ]
+  },
+  "authority": "personal founder pack; Manwë stage0 verify; Lórien gates on train/release; no company-gate vault write"
+}

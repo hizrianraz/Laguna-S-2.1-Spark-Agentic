@@ -87,13 +87,16 @@ Disk: Q4_K_M ≈ 90–96 GB logical (HF race); keep ≥200 GB free for download 
   -m $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
   --host 127.0.0.1 --port 8000 \
   --ctx-size 8192 \
-  -ngl 99 \
+  -ngl -1 \
   -fa on \
   --jinja \
+  --alias local-laguna \
   --metrics
 ```
 
-With DFlash (poolside fork):
+Headline claims use **`-ngl -1`** (offload all / last-green pin). Older notes with `-ngl 99` are not the measured captain path.
+
+With DFlash (poolside fork) — optional only; **DO_NOT_PROMOTE** on this pack:
 
 ```bash
 ./build/bin/llama-server \
@@ -101,7 +104,8 @@ With DFlash (poolside fork):
   -md $HOME/models/laguna-s-2.1/laguna-s-2.1-DFlash-BF16.gguf \
   --spec-type draft-dflash --spec-draft-n-max 7 \
   --host 127.0.0.1 --port 8000 \
-  --ctx-size 8192 -ngl 99 -fa on --jinja
+  --ctx-size 8192 -ngl -1 -fa on --jinja \
+  --alias local-laguna
 ```
 
 Check:
@@ -138,7 +142,7 @@ See `hermes/sample_client.py`.
 ```bash
 ./build/bin/llama-bench \
   -m $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
-  -ngl 99 -fa 1 \
+  -ngl -1 -fa 1 \
   -p 2048,8192 -n 128 \
   -b 512
 ```

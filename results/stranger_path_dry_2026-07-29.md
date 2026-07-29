@@ -20,15 +20,16 @@ This is a **doc + path integrity dry** against live tree + live pins.
 | 3 | CUDA arch `121` → `121a` note | PASS | SPARK build section |
 | 4 | Record engine `git rev-parse HEAD` | PASS | REPRODUCE step 3 → `results/engine_sha.txt` |
 | 5 | Weight download + revision pin | PASS | REPRODUCE lists GGUF rev `fc4e481…` + sha256 |
-| 6 | Serve flags match measured | **FIX DONE** | stranger path had `-ngl 99`; measured pin is `-ngl -1` — aligned below |
+| 6 | Serve flags match measured | **PASS** | SPARK default serve now `-ngl -1` + alias; REPRODUCE + README already aligned |
 | 7 | `/v1/models` health gate | PASS | REPRODUCE step 5 |
-| 8 | bench_server / llama-bench targets | PASS | steps 6–7 |
+| 8 | bench_server / llama-bench targets | PASS | steps 6–7; llama-bench uses `-ngl -1` |
 | 9 | agent_smoke 40 + optional hermes 27 | PASS | steps 8 / 8b |
 | 10 | Populate SPARK from files only | PASS | step 9 |
 | 11 | DIY gated | PASS | diy_gguf false + policy |
 | 12 | DFlash not default path | PASS | optional; DO_NOT_PROMOTE measured |
 | 13 | HF surface id correct | PASS | `hizrianraz/Laguna-S-2.1-Spark-Agentic` |
 | 14 | Scoreboard row distinguishes headline vs IQ3 pointer | PASS | README scoreboard |
+| 15 | Dual gen numbers | **PASS** | scoreboard names 21.47 authoritative vs 21.016 band-only |
 
 ## Exact REPRODUCE pins (copy)
 
@@ -54,9 +55,14 @@ Hardware            DGX Spark GB10 only
   --alias local-laguna
 ```
 
+## Jury fix this tick
+
+- SPARK primary serve / DFlash example / llama-bench: `-ngl 99` → **`-ngl -1`**
+- Scoreboard dual gen claim closed: quote **~21.47** only
+
 ## Verdict
 
-**DRY PASS** after serve-flag align (`-ngl -1`).
+**DRY PASS** — serve path+scoreboard dual-claim gaps closed.
 
 Remaining stranger risk: first-time CUDA build time + ~96GB weight pull — documented, not blockers of path correctness.
-HF push of card/tip still separate gate (freeze lock).
+HF tip re-upload after this fix is separate (docs-only).
