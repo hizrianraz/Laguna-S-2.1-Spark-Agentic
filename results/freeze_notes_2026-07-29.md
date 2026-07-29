@@ -30,10 +30,11 @@
 
 ## Still open before freeze day
 
-1. Optional DFlash status row final for scoreboard
-2. Stranger-path dry re-run
+1. ~~Optional DFlash status row final~~ → **done 2026-07-29 · DO_NOT_PROMOTE** (`results/dflash_2026-07-29/`)
+2. ~~Stranger-path dry re-run~~ → **DRY PASS** (`results/stranger_path_dry_2026-07-29.md`) · serve flag aligned to `-ngl -1`
 3. HF push of filled card + tip artifacts
 4. Clean pushed HEAD on freeze day
+5. Baseline serve re-health after DFlash teardown (restore launched 2026-07-29 15:40 WIB)
 
 ## Non-actions
 

@@ -46,3 +46,8 @@ Prefill-oriented server_bench (OK replies):
 
 ## Headline
 **40/40 agent_smoke · hermes 27/27 · ~21.47 t/s gen128 · Q4 live on Spark**
+
+## DFlash (optional, same day)
+- gen128 **15.286 t/s** · 2k 2.253s · 8k 5.556s
+- **DO_NOT_PROMOTE** vs pinned Q4 baseline
+- Evidence: `results/dflash_2026-07-29/` · pin: `results/LAST_GREEN_PIN.md`

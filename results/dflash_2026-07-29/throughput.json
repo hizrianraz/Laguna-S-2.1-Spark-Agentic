@@ -1,0 +1,38 @@
+{
+  "ts": 1785314162.0283267,
+  "mode": "dflash",
+  "spec": {
+    "type": "draft-dflash",
+    "n_max": 7,
+    "block_size": 16
+  },
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "local-laguna",
+  "rows": [
+    {
+      "label": "gen8_short",
+      "prompt_tokens": 48,
+      "completion_tokens": 3,
+      "latency_s": 0.483,
+      "tok_s": 6.212,
+      "content_head": "OK"
+    },
+    {
+      "label": "gen128",
+      "prompt_tokens": 58,
+      "completion_tokens": 128,
+      "latency_s": 8.374,
+      "tok_s": 15.286,
+      "content_head": "Speculative decoding is a model inference optimization technique that accelerates text generation by using a fast, light"
+    },
+    {
+      "label": "gen256",
+      "prompt_tokens": 61,
+      "completion_tokens": 256,
+      "latency_s": 14.762,
+      "tok_s": 17.342,
+      "content_head": "## Block-Diffusion vs EAGLE-3: Practical Serving Comparison\n\n### **Block-Diffusion Draft Models**\n\n**What it is:** Uses "
+    }
+  ],
+  "schema": "laguna.dflash_throughput/v1"
+}

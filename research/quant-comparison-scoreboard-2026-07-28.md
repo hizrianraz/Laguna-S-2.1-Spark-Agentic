@@ -87,9 +87,25 @@ Does **not** move public promo. Live Q4 restored on `:8000` after one brief IQ3 
 4. Never relabel Mac/PC numbers as Spark; never claim iPhone/Android for full Laguna.
 5. DIY imatrix only if it **beats** official/Unsloth on agent_smoke.
 
+## DFlash optional row (measured 2026-07-29) — **DO_NOT_PROMOTE**
+
+| Field | Value |
+|-------|-------|
+| Mode | Q4_K_M + `laguna-s-2.1-DFlash-BF16.gguf` · `--spec-type draft-dflash` |
+| Host | DGX Spark GB10 · engine `04b2b72` |
+| Gen128 | **15.286 tok/s** · 128 tok · 8.374s |
+| Prefill | 2k **2.253s** · 8k **5.556s** |
+| Metrics gen gauge | ~17.3 tok/s predicted |
+| Spec path | slots `speculative=true` · types `none,draft-dflash` |
+| Decision | **DO_NOT_PROMOTE** — slower than plain Q4 baseline (~21.5 t/s gen128) |
+| Evidence | `results/dflash_2026-07-29/` |
+
+Do **not** claim DFlash speedup on this pack. Headline remains plain Q4 serve.
+
 ## Live bench stamp
 
 - gen_bench: `[{"label": "gen8_short", "prompt_tokens": 49, "completion_tokens": 4, "latency_s": 0.47, "tok_s": 8.505}, {"label": "gen128", "prompt_tokens": 55, "completion_tokens": 128, "latency_s": 6.091, "tok_s": 21.016}, {"label": "prefill_heavy_gen64", "prompt_tokens": 424, "completion_tokens": 4, "latency_s": 1.074, "tok_s": 3.724}]`
 - server_bench: `[{"mark": "2k", "latency_s": 1.022, "prompt_tokens": 836, "completion_tokens": 3, "completion_tok_s": 2.935, "content": "OK"}, {"mark": "8k", "latency_s": 1.521, "prompt_tokens": 3236, "completion_tokens": 3, "completion_tok_s": 1.973, "content": "OK"}]`
 - captured_unix: 1785240774.865332
+- dflash_gen128_tok_s: 15.286 · decision DO_NOT_PROMOTE · 2026-07-29
 

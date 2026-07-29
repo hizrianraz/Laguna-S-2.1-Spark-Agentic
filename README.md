@@ -117,12 +117,12 @@ huggingface-cli download poolside/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
   --local-dir ~/models/laguna-s-2.1
 
-# 3) serve OpenAI-compatible
+# 3) serve OpenAI-compatible (flags match last-green pin)
 ./build/bin/llama-server \
   -m ~/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
   --host 127.0.0.1 --port 8000 \
-  --ctx-size 8192 -ngl 99 --jinja \
-  -fa on
+  --ctx-size 8192 -ngl -1 --jinja \
+  -fa on --alias local-laguna
 
 # 4) smoke (launch bar)
 cd /path/to/this/pack
@@ -162,7 +162,7 @@ Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval
 | agent_smoke | **40/40 · 100%** · **84.86 s** · temp **0.0** · runner `3bb81080…` |
 | hermes_agent_smoke v2 | **27/27 · 100%** · **100.1 s** · temp **0.0** · one-response · runner `20c1e52a…` |
 | Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
-| DFlash | not measured this run |
+| DFlash | measured 2026-07-29 · gen128 **15.286 t/s** · **DO_NOT_PROMOTE** (baseline ~21.5 wins) · `results/dflash_2026-07-29/` |
 | Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · **38/40 · 71s** on Spark · older runner — **not** claim as Q4 regression · phone/tablet **non-fit** |
 | Locks | diy_gguf **false** · weight_host **Spark-only** · founder Mac **client-only** · public promo only after **2026-08-03 12:00 WIB** · XS not in S freeze |
 

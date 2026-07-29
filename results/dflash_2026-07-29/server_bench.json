@@ -1,0 +1,24 @@
+{
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "local-laguna",
+  "mode": "dflash",
+  "rows": [
+    {
+      "mark": "2k",
+      "latency_s": 2.253,
+      "prompt_tokens": 836,
+      "completion_tokens": 3,
+      "completion_tok_s": 1.332,
+      "content": "OK"
+    },
+    {
+      "mark": "8k",
+      "latency_s": 5.556,
+      "prompt_tokens": 3236,
+      "completion_tokens": 3,
+      "completion_tok_s": 0.54,
+      "content": "OK"
+    }
+  ],
+  "ts": 1785314184.3951924
+}

@@ -1,0 +1,105 @@
+{
+  "date": "2026-07-29",
+  "host": "DGX Spark GB10",
+  "mode": "dflash",
+  "decision": "DO_NOT_PROMOTE",
+  "reason": "gen128 and prefill both slower than pinned Q4 baseline",
+  "baseline_pin": {
+    "gen128_tok_s": 21.47,
+    "agent_smoke": "40/40",
+    "hermes_v2": "27/27",
+    "engine": "04b2b72",
+    "weight": "laguna-s-2.1-Q4_K_M.gguf",
+    "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4"
+  },
+  "dflash_measure": {
+    "throughput": {
+      "ts": 1785314162.0283267,
+      "mode": "dflash",
+      "spec": {
+        "type": "draft-dflash",
+        "n_max": 7,
+        "block_size": 16
+      },
+      "base_url": "http://127.0.0.1:8000/v1",
+      "model": "local-laguna",
+      "rows": [
+        {
+          "label": "gen8_short",
+          "prompt_tokens": 48,
+          "completion_tokens": 3,
+          "latency_s": 0.483,
+          "tok_s": 6.212,
+          "content_head": "OK"
+        },
+        {
+          "label": "gen128",
+          "prompt_tokens": 58,
+          "completion_tokens": 128,
+          "latency_s": 8.374,
+          "tok_s": 15.286,
+          "content_head": "Speculative decoding is a model inference optimization technique that accelerates text generation by using a fast, light"
+        },
+        {
+          "label": "gen256",
+          "prompt_tokens": 61,
+          "completion_tokens": 256,
+          "latency_s": 14.762,
+          "tok_s": 17.342,
+          "content_head": "## Block-Diffusion vs EAGLE-3: Practical Serving Comparison\n\n### **Block-Diffusion Draft Models**\n\n**What it is:** Uses "
+        }
+      ],
+      "schema": "laguna.dflash_throughput/v1"
+    },
+    "server_bench": {
+      "base_url": "http://127.0.0.1:8000/v1",
+      "model": "local-laguna",
+      "mode": "dflash",
+      "rows": [
+        {
+          "mark": "2k",
+          "latency_s": 2.253,
+          "prompt_tokens": 836,
+          "completion_tokens": 3,
+          "completion_tok_s": 1.332,
+          "content": "OK"
+        },
+        {
+          "mark": "8k",
+          "latency_s": 5.556,
+          "prompt_tokens": 3236,
+          "completion_tokens": 3,
+          "completion_tok_s": 0.54,
+          "content": "OK"
+        }
+      ],
+      "ts": 1785314184.3951924
+    },
+    "metrics_snapshot": {
+      "prompt_tokens_seconds": 458.721,
+      "predicted_tokens_seconds": 17.288,
+      "n_decode_total": 188,
+      "tokens_predicted_total": 409
+    },
+    "props_notes": {
+      "speculative_default": "none",
+      "slot_speculative": true,
+      "slot_speculative_types": "none,draft-dflash",
+      "model_alias": "local-laguna",
+      "n_ctx": 8192
+    },
+    "ps_args_head": "/home/hizrianraz/src/llama.cpp-laguna/build/bin/llama-server -m /home/hizrianraz/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf -md /home/hizrianraz/models/laguna-s-2.1/laguna-s-2.1-DFlash-BF16.gguf --spec-type draft-dflash --spec-draft-n-max 7 --host 127.0.0.1 --port 8000 --ctx-size 8192 -ngl 99 -fa on --jinja --alias local-laguna --metrics"
+  },
+  "comparison": {
+    "gen128_dflash_tok_s": 15.286,
+    "gen128_baseline_tok_s": 21.47,
+    "gen128_delta_tok_s": -6.184,
+    "gen128_vs_baseline_pct": -28.8,
+    "prefill_2k_dflash_s": 2.253,
+    "prefill_8k_dflash_s": 5.556,
+    "prefill_2k_baseline_s": 1.597,
+    "prefill_8k_baseline_s": 4.78
+  },
+  "verdict": "DFlash DO_NOT_PROMOTE: gen128 15.286 t/s vs baseline 21.47 (-28.8%); 2k 2.253s vs ~1.6s; 8k 5.556s vs ~4.78s.",
+  "ts_unix": 1785314326.7548192
+}

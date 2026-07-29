@@ -174,7 +174,7 @@ Serve proven: `-c 8192 -ngl -1 --parallel 1 --alias local-laguna --jinja -fa on`
 |---------|-----------------|----------|------------|-------|
 | ctx 8k, ngl -1, fa on | 836 prompt → 1.83 s; 3236 prompt → 4.73 s | **~21.1** @ 128 gen | ~2–3.4 Gi process RSS | unified mem holds weights; quote **21 tok/s** gen |
 | gen8 short | — | ~7.8 | same | tiny completion noise floor |
-| ctx 8k + DFlash | unmeasured | — | — | optional next |
+| ctx 8k + DFlash (`draft-dflash`) | 2k 2.253s · 8k 5.556s | **15.286** @ 128 gen | higher (draft+target) | **DO_NOT_PROMOTE** vs plain ~21.5 · `results/dflash_2026-07-29/` |
 
 Agent-shaped (tool round-trips, see smoke):
 

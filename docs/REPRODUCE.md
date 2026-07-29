@@ -30,13 +30,25 @@ huggingface-cli download poolside/Laguna-S-2.1-GGUF \
 sha256sum -c SHA256SUMS
 ```
 
-5. Serve (`SPARK.md`), confirm `curl /v1/models` → 200.
+5. Serve with last-green flags (match `results/LAST_GREEN_PIN.md` / `SPARK.md`):
+
+```bash
+./build/bin/llama-server \
+  -m ~/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
+  --host 127.0.0.1 --port 8000 \
+  --ctx-size 8192 -ngl -1 -fa on --jinja \
+  --alias local-laguna --metrics
+```
+
+Confirm `curl -sf http://127.0.0.1:8000/v1/models` → 200.
+
 6. `llama-bench` @ prompt 2048 and 8192; save stdout to `results/llama_bench_q4km.txt`.
 7. `python scripts/bench_server.py --ctx-mark 2k --ctx-mark 8k`.
 8. `python eval/agent_smoke/run_smoke.py --out results/smoke_q4km.json`.
 8b. Optional Hermes-class: `python eval/hermes_agent_smoke/run_hermes_smoke.py --out results/hermes_agent_smoke.json`.
 9. Populate the tables in `SPARK.md` from those files only — never invent.
 10. Publish pack (docs + results + scripts). **Host GGUF binary only if you have a measured unique artifact**; otherwise ship digests + download commands (S5).
+11. Optional DFlash is **not** default. If tried on Spark, record with honesty — 2026-07-29 measure is **DO_NOT_PROMOTE** (`results/dflash_2026-07-29/`).
 
 ## Personal HF publish surface
 
