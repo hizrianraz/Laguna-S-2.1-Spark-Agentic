@@ -1,0 +1,101 @@
+{
+  "schema": "laguna.freeze_gate_receipt/v1",
+  "gate": "model_card_plus_lock_files",
+  "status": "filled",
+  "filled_at_wib": "2026-07-29T14:43:26+07:00",
+  "pack": "Laguna-S-2.1-Spark-Agentic",
+  "repo_id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+  "freeze_at_wib": "2026-08-02T18:00:00+07:00",
+  "launch_at_wib": "2026-08-03T12:00:00+07:00",
+  "decision": "gate_filled_continue_prep_not_freeze",
+  "measure_tip": {
+    "pack_git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "agent_smoke": "40/40",
+    "agent_smoke_elapsed_s": 84.86,
+    "hermes_agent_smoke": "27/27",
+    "hermes_elapsed_s": 100.1,
+    "quote_gen_tok_s": 21.47,
+    "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+    "engine": "poolsideai/llama.cpp 04b2b72",
+    "measured_at_wib": "2026-07-29T13:22:05+07:00",
+    "docs_note": "measure tip remains bf82eab; docs commit moves separately"
+  },
+  "model_card": {
+    "path": "README.md",
+    "sha256": "b1ef36a5edcc75fc8cbadd9aa0701f1cb3624a90114e9a72d73162f7e40a36d8",
+    "bytes": 10275,
+    "fields_filled": [
+      "HF YAML frontmatter",
+      "base identity pinned SHAs",
+      "official GGUF sha256 table",
+      "quant guide + Mac client-only",
+      "stranger path",
+      "scoreboard live tip 40/40 \u00b7 27/27 \u00b7 21.47 t/s",
+      "measured detail + locks",
+      "disclaimer + attribution"
+    ]
+  },
+  "lock_set": {
+    "LAUNCH_AUG3.md": {
+      "sha256": "175c38ccea42405ee3480d299fc3f4c0ef2c3129c3258910a6618034f9dc78a5",
+      "bytes": 5393
+    },
+    "results/launch_lock.json": {
+      "sha256": "330d839e77b00e445d4eba86e7525624e374affa15952973f322412d5d1e4f69",
+      "bytes": 2985
+    },
+    "results/MEASURED.md": {
+      "sha256": "480057b2999e498a88d29ece101dd363724523d10df59b09e979dfc3eb641062",
+      "bytes": 1668
+    },
+    "results/measured.json": {
+      "sha256": "878baffe0f8da0fdc756060d6c65a79177bdd61fb2476270907a0bc5aeb96380",
+      "bytes": 3008
+    },
+    "SHA256SUMS": {
+      "sha256": "ffa7d1c0e882b4c5deac5c748aa0654881351e735102d71a1471749ad6210b1c",
+      "bytes": 1253
+    },
+    "results/xs_mac_track_lock.json": {
+      "sha256": "dc2953263c7a3c7c7f732cbec50a648dd37a76a06a4e9d383c7a7d19743f2f9a",
+      "bytes": 3144
+    },
+    "results/freeze_readiness_2026-07-29_accel.json": {
+      "sha256": "a1011e2f002e03d96c283d3521a2ed19581d744723809cbd9788d1ee808ab962",
+      "bytes": 1504
+    },
+    "results/freeze_notes_2026-07-29.md": {
+      "sha256": "3b8494601350512707d3b6c932e7260643ac218ee6e5d7e0c0205e400e2257ff",
+      "bytes": 1182
+    },
+    "results/agent_smoke.json": {
+      "sha256": "587f51f3f7966d9c416e9fbab2a9fc70034106a875e4a18114dd31f2570dd67a",
+      "bytes": 20265
+    },
+    "results/hermes_agent_smoke.json": {
+      "sha256": "77391bbe135dffebff957392e18a0994027ec8eabb4bc2bd9acfa3d4ce3ffc05",
+      "bytes": 16560
+    }
+  },
+  "locks_held": {
+    "diy_gguf": false,
+    "weight_host": "dgx-spark-only",
+    "founder_mac": "client-only-no-local-weights",
+    "public_promo_before_launch": false,
+    "xs_not_in_s_freeze": true,
+    "branding": "personal-only"
+  },
+  "not_done_by_this_gate": [
+    "HF remote push of filled card",
+    "calendar freeze at Aug 2 18:00",
+    "public promo",
+    "XS Mac smoke",
+    "DFlash measure"
+  ],
+  "next": [
+    "optional DFlash scoreboard closeout",
+    "stranger-path dry",
+    "push filled card+locks to GH/HF when network ready",
+    "hold tip through Aug 2 18:00 freeze"
+  ]
+}

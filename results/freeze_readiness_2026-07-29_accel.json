@@ -1,0 +1,40 @@
+{
+  "schema": "laguna.freeze_readiness/v1",
+  "as_of_wib": "2026-07-29T14:43:26+07:00",
+  "pack": "Laguna-S-2.1-Spark-Agentic",
+  "freeze_at_wib": "2026-08-02T18:00:00+07:00",
+  "launch_at_wib": "2026-08-03T12:00:00+07:00",
+  "decision": "continue_prep_not_freeze",
+  "why": "Freeze clock is Aug 2 18:00. Model card + lock set now filled against live tip. Do not freeze early.",
+  "freeze_gate": "model_card_plus_lock_files",
+  "freeze_gate_status": "filled",
+  "measure_tip": {
+    "pack_git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "agent_smoke": "40/40",
+    "agent_smoke_elapsed_s": 84.86,
+    "hermes_agent_smoke": "27/27",
+    "hermes_elapsed_s": 100.1,
+    "quote_gen_tok_s": 21.47,
+    "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+    "engine": "poolsideai/llama.cpp 04b2b72",
+    "measured_at_wib": "2026-07-29T13:22:05+07:00"
+  },
+  "locks_held": {
+    "diy_gguf": false,
+    "weight_host": "dgx-spark-only",
+    "founder_mac": "client-only-no-local-weights",
+    "public_promo_before_launch": false,
+    "xs_not_in_s_freeze": true,
+    "branding": "personal-only"
+  },
+  "open_before_freeze": [
+    "optional DFlash scoreboard status final",
+    "stranger-path dry re-run before freeze",
+    "HF push of filled card + measured tip artifacts",
+    "final clean HEAD push on freeze day"
+  ],
+  "blockers_to_freeze_now": [
+    "not yet freeze clock (Aug 2 18:00 WIB)"
+  ],
+  "receipt": "results/freeze_gate_model_card_lock_set_2026-07-29.json"
+}

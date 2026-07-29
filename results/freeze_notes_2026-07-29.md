@@ -1,43 +1,43 @@
-# Freeze notes — 2026-07-29 (post-restore lock)
+# Freeze notes — 2026-07-29
 
-WIB night lock after Q4 restore + dual smoke reconfirm.
+## Gate
 
-## Headline (unchanged identity)
+- Freeze gate: **model_card + lock files**
+- Status: **FILLED** at `2026-07-29T14:43:26+07:00`
+- Receipt: `results/freeze_gate_model_card_lock_set_2026-07-29.json`
+- Freeze clock: still **2026-08-02 18:00 WIB** (do not freeze early)
+- HF go-live: **2026-08-03 12:00 WIB**
+
+## Live tip bound into card + locks
 
 | Field | Value |
 |-------|--------|
-| Stand-behind quant | **official Poolside Q4_K_M** |
-| Host | DGX Spark GB10 only (full S weights) |
-| agent_smoke | **40/40** · 97.79 s · temp **0.0** · ~23:55 WIB |
-| hermes_agent_smoke | **27/27** · 104.4 s · temp **0.0** · ~23:57 WIB |
-| Protocol | **one-response** (tools validated, not executed) |
-| Mac ≤32G | **client → Spark** · no local full-S weights |
-| Always | restore Q4 after any alt SKU |
+| Pack | `bf82eab` |
+| Q4 sha256 | `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
+| agent_smoke | 40/40 · 84.86s |
+| hermes v2 | 27/27 · 100.1s |
+| gen128 | ~21.47 t/s |
+| Engine | poolsideai/llama.cpp `04b2b72` |
 
-## Provenance (receipts)
+## Locks held
 
-- `results/agent_smoke.json` + `run_manifest` (runner SHA, cases SHA, host)
-- `results/hermes_agent_smoke.json` + `run_manifest`
-- `results/measured.json` · `results/MEASURED.md`
-- `results/hf_publish.json` refreshed (measurement lock; no weight re-upload this tick)
+- diy_gguf: false
+- weight_host: Spark-only
+- founder Mac: client-only (no local S)
+- public_promo_before_launch: false
+- XS: parallel, not in S freeze
+- branding: personal-only
 
-## Tooling closed this night
+## Still open before freeze day
 
-- `scripts/pull_official_gguf.sh` — fail-closed sha256 vs pack `SHA256SUMS`
-- Smoke runners — fail-closed checksums paths + `run_manifest` block
-- `.gitignore` — sku local dumps not auto-public; whitelist MEASURED + locks
+1. Optional DFlash status row final for scoreboard
+2. Stranger-path dry re-run
+3. HF push of filled card + tip artifacts
+4. Clean pushed HEAD on freeze day
 
-## IQ3 pointer honesty
+## Non-actions
 
-Unsloth UD-IQ3_S **38/40** on **older runner** (no sanitize / any_of_tools) · **not** headline · **not** founder-Mac claim · **not** Q4 runner-identical.
-
-## XS (sibling)
-
-Parallel pack `Laguna-XS-2.1-Mac-Agentic` · disk candidate only · **0 Mac smoke** · must not dilute S freeze.
-
-## Not claimed tonight
-
-- DFlash
-- HF weight re-upload
-- New public freeze package beyond clean main tip + receipts
-- XS load-fit or ship authority
+- No accidental freeze today
+- No public promo before Aug 3 12:00 WIB
+- No XS inside S freeze artifact
+- No re-bench required unless weights/runners change

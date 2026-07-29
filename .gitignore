@@ -12,6 +12,8 @@ results/*.json
 !results/quant_comparison.json
 !results/hermes_agent_smoke.json
 !results/xs_mac_track_lock.json
+!results/freeze_readiness_*.json
+!results/freeze_gate_model_card_lock_set_*.json
 !results/MEASURED.md
 !results/freeze_notes_*.md
 !results/dual_audit_consolidation_*.md

@@ -17,7 +17,7 @@ pipeline_tag: text-generation
 
 # Laguna-S-2.1-Spark-Agentic (personal)
 
-**Launch target: 2026-08-03 (WIB)** — see [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
+**Launch target: 2026-08-03 12:00 WIB** — see [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
 
 Personal DGX Spark agent-runtime pack for [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1) (118B-A8B MoE, agentic coding).
 
@@ -75,7 +75,7 @@ sha256sum -c SHA256SUMS
 
 | Goal | Artifact | Notes |
 |------|----------|-------|
-| Default agent serve on **S / Spark** (~121G) | Poolside **S Q4_K_M** | **Stand-behind** · measured agent_smoke 40/40 · hermes 27/27 · ~21 t/s |
+| Default agent serve on **S / Spark** (~121G) | Poolside **S Q4_K_M** | **Stand-behind** · measured agent_smoke 40/40 · hermes 27/27 · ~21.47 t/s |
 | **Founder MacBook / Mac Studio (≤32G) · full S** | **no local S weights** | **Laguna Mac = client → Spark** `http://<spark>:8000/v1` · S IQ3 ~48G alone > 32G RAM |
 | Higher fidelity, more RAM (Spark) | Poolside **S Q8_0** | Routed experts Q8, signal BF16 |
 | Community 64–96G box (pointer, not founder Mac) | Unsloth **UD-IQ4_XS** (~58 GB) or Bartowski **IQ4_XS** (~63 GB) | Third-party; strangers re-run smoke; see device matrix |
@@ -140,29 +140,31 @@ Smoke suite (launch bar) → [`eval/agent_smoke/`](./eval/agent_smoke/)
 Hermes-class smoke v2 → [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)  
 Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 
-## Scoreboard (Spark · freeze before Aug 3)
+## Scoreboard (Spark · freezes Aug 2 18:00 WIB)
 
-| Host | Quant | Ctx | Gen tok/s | Smoke | RAM used | DFlash | Notes |
-|------|-------|-----|-----------|-------|----------|--------|-------|
-| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.1** | **40/40 (100%)** | ~96–99 / 121 Gi | not measured | **Headline** · engine `04b2b72` + isfinite · Hermes-class |
-| DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen ~41 t/s (tiny) | **38/40 (95%)** | ~46 G weights | not measured | **Not headline** · older-runner SKU (no sanitize/any_of_tools) · ship ≥38 met · **not** Q4 runner-identical · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/) |
+| Host | Quant | Ctx | Gen tok/s | Smoke | Hermes v2 | Notes |
+|------|-------|-----|-----------|-------|-----------|-------|
+| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.47** | **40/40 (100%)** | **27/27** | **Headline** · engine `04b2b72` · pack tip `bf82eab` · 2026-07-29 13:22 WIB |
+| DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen ~41 t/s (tiny) | **38/40 (95%)** | — | **Not headline** · older-runner SKU (no sanitize/any_of_tools) · ship ≥38 met · **not** Q4 runner-identical · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/) |
 
 Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json) · [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json) · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/)  
 Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval/hermes_agent_smoke/)
 
-### Measured detail (2026-07-28)
+### Measured detail (live tip · 2026-07-29 13:22 WIB)
 
 | Metric | Value |
 |--------|--------|
-| Quant (headline) | official `Q4_K_M` · sha256 `a8b55c75…` |
-| Engine | poolside llama.cpp `04b2b72` + `math.h`/`::isfinite` host patch |
-| Gen throughput | **~21 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` |
-| Host mem after load | ~96–99 Gi used of 121 Gi |
-| agent_smoke | **40/40 · 100%** · post-restore **97.79 s** (~23:55 WIB) · prior 97.25 / ~88.96 s · temp **0.0** |
-| hermes_agent_smoke v2 | **27/27 · 100%** · post-restore **104.4 s** (~23:57 WIB) · prior 102.68 s · temp **0.0** · one-response · `results/hermes_agent_smoke.json` |
+| Quant (headline) | official `Q4_K_M` · sha256 `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
+| Engine | poolside llama.cpp `04b2b72` + Spark CUDA serve |
+| Pack git tip | `bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee` |
+| Gen throughput | **~21.47 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` (multi suite) |
+| Prefill OK | server_bench 2k 1.597s / 8k 4.78s |
+| agent_smoke | **40/40 · 100%** · **84.86 s** · temp **0.0** · runner `3bb81080…` |
+| hermes_agent_smoke v2 | **27/27 · 100%** · **100.1 s** · temp **0.0** · one-response · runner `20c1e52a…` |
 | Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
 | DFlash | not measured this run |
-| Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · sha256 `8a9ab3f8…` · **38/40 · 71s** on Spark (Q4 briefly stopped; **restored**) · fails `repair_04`/`long_06` on **older runner** md5 `c1a587c8…` (no sanitize / any_of_tools) — **not** same runner as post-fix Q4 40/40 · not claimed as weight regression · phone/tablet **non-fit** |
+| Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · **38/40 · 71s** on Spark · older runner — **not** claim as Q4 regression · phone/tablet **non-fit** |
+| Locks | diy_gguf **false** · weight_host **Spark-only** · founder Mac **client-only** · public promo only after **2026-08-03 12:00 WIB** · XS not in S freeze |
 
 ## What is **not** in this pack
 
@@ -170,6 +172,7 @@ Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval
 - No affiliate / org / company product claims
 - No fake benches — only fixed `agent_smoke` + `llama-bench` / server timings you can re-run
 - No off-Spark (rented cloud) numbers relabeled as Spark
+- No local S weights on founder Mac (≤32G) — Mac is client to Spark only
 
 ## Reproducible method
 
