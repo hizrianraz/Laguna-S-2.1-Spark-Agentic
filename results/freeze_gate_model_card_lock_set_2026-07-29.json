@@ -7,7 +7,7 @@
   "repo_id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
   "freeze_at_wib": "2026-08-02T18:00:00+07:00",
   "launch_at_wib": "2026-08-03T12:00:00+07:00",
-  "decision": "gate_filled_continue_prep_not_freeze",
+  "decision": "gate_filled_docs_rewritten_continue_prep_not_freeze",
   "measure_tip": {
     "pack_git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
     "agent_smoke": "40/40",
@@ -22,16 +22,18 @@
   },
   "model_card": {
     "path": "README.md",
-    "sha256": "4176b6c01a1cc563202063f8b239527be5f59fda2d61dfca024e344d2075ca9b",
-    "bytes": 11401,
+    "sha256": "9f2603efe7b292c7b7d01386a5d91779aeff089a1d9d6c8bd0bfbc30ecc2748e",
+    "bytes": 9691,
     "fields_filled": [
       "HF YAML frontmatter",
+      "professional table lead",
       "base identity pinned SHAs",
       "official GGUF sha256 table",
       "quant guide + Mac client-only",
       "stranger path",
       "scoreboard live tip 40/40 \u00b7 27/27 \u00b7 21.47 t/s",
       "measured detail + locks",
+      "scope boundaries",
       "disclaimer + attribution"
     ]
   },
@@ -95,8 +97,9 @@
     "hold tip through Aug 2 18:00 freeze"
   ],
   "xs_in_s_freeze": false,
-  "note": "S freeze lock_set is S-only. XS track (results/xs_mac_track_lock.json) is parallel research, not hashed into S freeze. Recompute sha256 of each lock_set member on freeze at clean pushed HEAD. Hashes below are interim post jury-fix; final freeze rehash still required at freeze gate.",
+  "note": "S freeze lock_set is S-only. XS track is parallel research, not hashed into S freeze. Hashes are interim after professional README rewrite; final freeze rehash still required at freeze gate on clean pushed HEAD. rehash_at_freeze remains true.",
   "rehash_at_freeze": true,
-  "rehashed_at_wib_doc": "2026-07-29T17:35:00+07:00",
-  "rehashed_at_wib": "2026-07-29T17:32:40+07:00"
+  "rehashed_at_wib_doc": "2026-07-29T18:21:21+07:00",
+  "rehashed_at_wib": "2026-07-29T18:21:21+07:00",
+  "rehash_reason": "professional README rewrite + interim lock_set rehash; final freeze rehash still required at Aug 2 18:00 WIB on clean pushed HEAD"
 }
