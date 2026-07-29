@@ -61,8 +61,8 @@ Re-smoke only if weights, runners, or serve flags change. Fresh same-harness gre
 |-----|------|-------|-----------|
 | T-6 | Jul 28 | Lock + HF gap close | measured JSON on HF, launch file live |
 | T-5 | Jul 29 | Smoke harden + freeze-gate fill | **DONE** — 40/40 · 27/27 · card+locks filled |
-| T-4 | Jul 30 | DFlash / serve sweep | one scoreboard row with DFlash status final for launch |
-| T-3 | Jul 31 | Card polish | stranger path re-run dry; REPRODUCE exact |
+| T-4 | Jul 30 | DFlash / serve sweep | **DONE early 2026-07-29** — DFlash **DO_NOT_PROMOTE** (15.286 vs ~21.5); baseline re-health HEALTH_OK; stranger dry PASS; scoreboard row live |
+| T-3 | Jul 31 | Card polish | stranger dry already PASS; optional card polish only |
 | T-2 | Aug 1 | Buffer / second measure | optional Unsloth abort/keep only if free |
 | T-1 | Aug 2 | Freeze 18:00 | final push; no claim changes after freeze |
 | T-0 | Aug 3 | Launch 12:00 | go-live receipt; 18:00 verify brief |
