@@ -1,94 +1,104 @@
 ---
 license: openmdw-1.1
-base_model: poolside/Laguna-S-2.1
-base_model_relation: quantized
+license_name: openmdw-1.1
+license_link: https://huggingface.co/poolside/Laguna-S-2.1/blob/main/LICENSE.md
+language:
+  - en
 tags:
+  - deployment-pack
+  - evaluation-pack
+  - runtime-pack
+  - laguna
+  - laguna-s
   - laguna-s-2.1
+  - poolside
   - moe
-  - gguf
-  - quantized
   - agentic-coding
   - coding
-  - code
   - tool-use
   - function-calling
   - agents
-  - agentic
   - dgx-spark
   - nvidia
+  - cuda
   - llama.cpp
   - openai-compatible
-  - hermes-class
   - measured
-  - cuda
-library_name: gguf
-pipeline_tag: text-generation
+  - reproducible
+  - not-a-model
 ---
 
 # Laguna-S-2.1-Spark-Agentic
 
-Measured **DGX Spark** runtime pack for
+**Measured DGX Spark deployment pack** for
 [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1)
 (118B total · ~8B active/token · MoE · agentic coding).
 
-## Download weights first (main download surface)
+> This repository is a **runtime / evaluation pack**, not a model checkpoint and not a re-quant.
+> Hugging Face may still list it under Models; treat it as a **runbook + harness + receipts**.
 
-→ **[hizrianraz/Laguna-S-2.1-GGUF](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF)**  
-File: `laguna-s-2.1-Q4_K_M.gguf` · ~89.4 GiB · official Poolside bytes
+## Positioning
 
-```bash
-hf download hizrianraz/Laguna-S-2.1-GGUF laguna-s-2.1-Q4_K_M.gguf --local-dir ~/models/laguna-s-2.1
-echo "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4  laguna-s-2.1-Q4_K_M.gguf" | (cd ~/models/laguna-s-2.1 && sha256sum -c -)
-```
+**Unique contribution:** proving how the **official** Poolside Q4_K_M behaves on a **single DGX Spark** — pinned engine, fail-closed digests, closed harness, honest negatives (DFlash).
 
-This pack is **not** the bulk weight host. It publishes **serve pins, digests, and agent smoke**.
+**Not coded as:** boutique quant producer, base-model trainer, or long-horizon agent reliability proof.
 
 | | |
 |--|--|
-| **Default quant** | Official Poolside `Q4_K_M` (mirrored) |
-| **Weights (default)** | [`hizrianraz/Laguna-S-2.1-GGUF`](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF) |
-| **Upstream GGUF** | [`poolside/Laguna-S-2.1-GGUF`](https://huggingface.co/poolside/Laguna-S-2.1-GGUF) |
-| **Weight host (measure)** | NVIDIA DGX Spark (GB10) |
-| **agent_smoke** | **40/40** |
-| **Launch** | 2026-08-03 12:00 WIB |
-| **Content freeze** | 2026-08-02 18:00 WIB |
+| **Role** | Flagship measured deployment recipe |
+| **Weights authority** | [poolside/Laguna-S-2.1-GGUF](https://huggingface.co/poolside/Laguna-S-2.1-GGUF) |
+| **Optional mirror** | [hizrianraz/Laguna-S-2.1-GGUF](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF) · byte-identical upstream · **not** re-quantized by this account |
+| **Default quant** | Official Poolside `Q4_K_M` · ~89.4 GiB |
+| **Host** | NVIDIA DGX Spark (GB10) |
+| **agent_smoke** | **40/40** tool-format / routing **regression smoke** (see honesty section) |
+| **Launch window** | 2026-08-03 12:00 WIB · freeze 2026-08-02 18:00 WIB |
 | **Affiliation** | Independent · not Poolside · not Nous Research |
-
-Sibling (separate model, not an S quant):
-[`Laguna-XS-2.1-Mac-Agentic`](https://huggingface.co/hizrianraz/Laguna-XS-2.1-Mac-Agentic) · weights [`Laguna-XS-2.1-GGUF`](https://huggingface.co/hizrianraz/Laguna-XS-2.1-GGUF)
 
 Launch calendar: [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
 
 ---
 
-## Why this pack
+## Download weights (authoritative = Poolside)
 
-Most GGUF pages ship weights only.
-This pack ships the **agent path**:
+Prefer upstream; mirror is convenience only:
 
-1. Pinned Spark serve settings that actually clear tool-use smoke
-2. Fixed harnesses you can re-run (no vibes)
-3. Official digests for fail-closed verify
-4. OpenAI-compatible client notes for Hermes-class / tool-agent stacks
+```bash
+# recommended
+hf download poolside/Laguna-S-2.1-GGUF laguna-s-2.1-Q4_K_M.gguf --local-dir ~/models/laguna-s-2.1
 
-Headline power on this surface means **agent fitness on a fixed harness**, not boutique re-quant names.
+# optional convenience mirror (same bytes)
+hf download hizrianraz/Laguna-S-2.1-GGUF laguna-s-2.1-Q4_K_M.gguf --local-dir ~/models/laguna-s-2.1
 
-**Strongest signal on this surface:** official Q4_K_M + pinned poolside `llama.cpp` laguna branch + **40/40 agent_smoke** and **27/27 hermes_agent_smoke** on DGX Spark — not an unmeasured boutique quant rename.
+echo "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4  laguna-s-2.1-Q4_K_M.gguf" \
+  | (cd ~/models/laguna-s-2.1 && sha256sum -c -)
+```
+
+This pack is **not** the bulk weight host. It publishes **serve pins, digests, and smoke harness**.
 
 ---
 
-## Highlights (measured tip)
+## Why this pack
+
+1. Pinned Spark serve settings that clear tool-format smoke
+2. Fixed harnesses you can re-run (no vibes)
+3. Official digests for fail-closed verify
+4. OpenAI-compatible client notes for tool-agent stacks
+5. Negative results retained (DFlash slower — do not promote)
+
+---
+
+## Highlights (measured tip · 2026-07-29 13:22 WIB)
 
 | Metric | Result |
 |--------|--------|
 | Host | NVIDIA DGX Spark (GB10) |
 | Quant | Official `laguna-s-2.1-Q4_K_M.gguf` |
 | Engine | `poolsideai/llama.cpp` @ `04b2b72` (branch `laguna`) |
-| Context | 8192 |
-| agent_smoke | **40/40** · 84.86 s · temp 0.0 |
-| hermes_agent_smoke v2 | **27/27** · 100.1 s · temp 0.0 |
-| Generation throughput | **~21.47 tok/s** @ 128 completion (sole headline) |
-| Measure tip | pack `bf82eab` · 2026-07-29 13:22 WIB |
+| Serve context flag | `-c 8192` |
+| agent_smoke | **40/40** · 84.86 s · temp 0.0 · **format/routing smoke** |
+| hermes_agent_smoke v2 | **27/27** · 100.1 s · temp 0.0 · **one-response; tools validated not executed** |
+| Generation throughput (sole short-gen headline) | **~21.47 tok/s** @ **128 completion** tokens (prompt 67) |
+| Measure tip | pack `bf82eab` |
 
 Artifacts:
 [`results/MEASURED.md`](./results/MEASURED.md) ·
@@ -96,9 +106,42 @@ Artifacts:
 [`results/agent_smoke.json`](./results/agent_smoke.json) ·
 [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json)
 
-Optional research expansion (does **not** replace freeze bars):
-Hermes-class Layer B v3 **35/35** · 137.56 s ·
-[`eval/hermes_agent_smoke/layer_b_v3_live_receipt.json`](./eval/hermes_agent_smoke/layer_b_v3_live_receipt.json)
+---
+
+## Honesty clock (read before quoting scores)
+
+### What 40/40 and 27/27 are
+
+Useful **tool-format and routing regression smokes** on a fixed case list.
+
+Receipt language (hermes suite): **tools validated, not executed**.
+
+### What they are not
+
+- Not long-horizon agent reliability
+- Not multi-turn tool-result continuation proof
+- Not exact argument-value / schema-hard proof for every case
+- Not SWE-bench / BFCL / Terminal-Bench substitutes
+
+### Bench label correction (server_bench marks)
+
+Recorded prefill marks were labeled **2k** / **8k** for convenience.
+Actual prompt token counts on the receipt:
+
+| Mark label | Actual `prompt_tokens` | Latency | Completion |
+|------------|------------------------|---------|------------|
+| `2k` | **836** | 1.597 s | 3 tokens ("OK") |
+| `8k` | **3236** | 4.78 s | 3 tokens ("OK") |
+
+Do **not** cite these as full 2K/8K filled-context prefill rates.
+
+### Generation headline limits
+
+- **~21.47 tok/s** is one short-gen point: **67 prompt / 128 completion** tokens
+- Same-day suite also logged gen8 ~10.6 t/s and gen256 ~21.9 t/s
+- Not a multi-seed soaked long-session figure; warm-rep / p50-p95 TTFT / peak RAM still to strengthen
+
+External signal bar (future, not claimed): BFCL V4 · τ-bench · Terminal-Bench 2.
 
 ---
 
@@ -117,11 +160,10 @@ cmake -B build -G "Unix Makefiles" \
   -DLLAMA_CURL=ON
 cmake --build build -j --target llama-server llama-cli llama-bench
 
-# 2) Weights — preferred mirror (official Q4 bytes) + fail-closed digest check
-huggingface-cli download hizrianraz/Laguna-S-2.1-GGUF \
+# 2) Weights — upstream first + fail-closed digest
+huggingface-cli download poolside/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
   --local-dir ~/models/laguna-s-2.1
-# Upstream alternative: poolside/Laguna-S-2.1-GGUF @ fc4e481289523cf7d0df668da6d1d391616141ca
 cp /path/to/this/pack/SHA256SUMS ~/models/laguna-s-2.1/
 (cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
 
@@ -132,7 +174,7 @@ cp /path/to/this/pack/SHA256SUMS ~/models/laguna-s-2.1/
   --ctx-size 8192 -ngl -1 --jinja \
   -fa on --alias local-laguna
 
-# 4) Launch-bar smoke — model id must match --alias
+# 4) Smoke — model id must match --alias
 cd /path/to/this/pack
 python eval/agent_smoke/run_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
@@ -157,7 +199,7 @@ python eval/hermes_agent_smoke/run_hermes_smoke.py \
 
 ## License
 
-Base model and derivatives: **OpenMDW-1.1** (Poolside).
+Base model and official GGUF: **OpenMDW-1.1** (Poolside).
 
 - Pack copy: [`LICENSE`](./LICENSE)
 - Upstream: https://huggingface.co/poolside/Laguna-S-2.1/blob/main/LICENSE
@@ -173,11 +215,10 @@ Retain notices. Pack scripts and eval harnesses are separate files with clear pr
 | Base model | `poolside/Laguna-S-2.1` |
 | Base revision | `00af5a51782109b587a3b3bbf11875e566036fa7` |
 | Architecture | 118B total · ~8B active/token · MoE |
-| Official GGUF repo (upstream) | `poolside/Laguna-S-2.1-GGUF` |
-| Preferred mirror | [`hizrianraz/Laguna-S-2.1-GGUF`](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF) |
+| Official GGUF (authority) | `poolside/Laguna-S-2.1-GGUF` |
+| Optional mirror | `hizrianraz/Laguna-S-2.1-GGUF` · **mirror only** |
 | GGUF revision (upstream pin) | `fc4e481289523cf7d0df668da6d1d391616141ca` |
 | Stand-behind quant | **official** `laguna-s-2.1-Q4_K_M.gguf` |
-| Optional denser | official `laguna-s-2.1-Q8_0.gguf` |
 | Engine | `poolsideai/llama.cpp` · branch `laguna` · [PR #25165](https://github.com/ggml-org/llama.cpp/pull/25165) |
 
 ### Official GGUF digests (HF LFS metadata)
@@ -192,54 +233,26 @@ Retain notices. Pack scripts and eval harnesses are separate files with clear pr
 
 Pack verify file (GNU 2-column, Q4 default): [`SHA256SUMS`](./SHA256SUMS)
 
-```bash
-cp /path/to/this/pack/SHA256SUMS ~/models/laguna-s-2.1/
-(cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
-# or: ./scripts/pull_official_gguf.sh
-```
-
 ---
 
 ## Which quant to pull
 
 | Goal | Artifact | Notes |
 |------|----------|-------|
-| **Default agent serve (Spark)** | Poolside **S Q4_K_M** | Headline · 40/40 · 27/27 · ~21.47 t/s |
+| **Default agent serve (Spark)** | Poolside **S Q4_K_M** | Headline smoke + short-gen |
 | Higher fidelity (Spark) | Poolside **S Q8_0** | More RAM |
-| Tighter Spark pointer | Unsloth **UD-IQ3_S** (~48 GB) | Spark **38/40** on older runner · **not** headline |
-| Smaller community box | Unsloth UD-IQ4_XS / Bartowski IQ4_XS | Third-party · re-run smoke |
 | Speculative decode experiment | + Poolside **DFlash-BF16** | Measured slower · **DO_NOT_PROMOTE** |
-| Full **S** on Mac with ≤32 GB RAM | **No local S weights** | Use Mac as **client → Spark** only |
-| Phone / tablet | **Non-fit** | Need SLM/distill, not this MoE |
+| Full **S** on Mac ≤32 GB RAM | **No local S weights** | Use Mac as **client → Spark** only |
 
-**XS is a separate model**, not an S quant.
-Mac-class XS notes: sibling pack + [`research/`](./research/).
-
-```bash
-./scripts/pull_sku.sh official-q4km
-./scripts/pull_sku.sh unsloth-ud-iq3-s    # pointer only
-```
-
-Device ladder: [`research/device-quant-matrix-aug3.md`](./research/device-quant-matrix-aug3.md)
-
-Do **not** claim “first quant”.
-Do **not** label third-party numbers as Spark-measured without same-harness JSON under `results/sku_*`.
-
-### Why official Q4_K_M for agents
-
-1. Poolside protects the **signal path** on official Q4 (imatrix + first-party chat template).
-2. Same digest → anyone can **reproduce** without trusting a third-party binary.
-3. Headline is **40/40 agent_smoke + 27/27 hermes-class** on that exact file.
-4. DIY / third-party only lands if it **beats** official on the **same** smoke runners, with method disclosure. Today: `diy_gguf: false`.
-
-Looking unique on HF alone is not a reason to re-quant.
+`diy_gguf: false`. Do **not** claim “first quant”. Mirror ≠ re-quant.
 
 ---
 
-## Hermes-class / tool-agent wiring
+## Tool-agent wiring (OpenAI-compatible)
 
-“Hermes-class” = OpenAI `chat.completions` + `tools` / `tool_calls` shape.
+OpenAI `chat.completions` + `tools` / `tool_calls` shape.
 **Not** a Nous Research product claim or endorsement.
+“Hermes-class” in older notes = that wire shape only.
 
 ```bash
 export OPENAI_BASE_URL=http://127.0.0.1:8000/v1   # /v1 required
@@ -255,7 +268,7 @@ python eval/hermes_agent_smoke/run_hermes_smoke.py \
   --out results/hermes_agent_smoke.json
 ```
 
-Agent loop contract:
+Agent loop contract (production agents; richer than current smoke):
 
 1. POST messages + tool schemas
 2. If `tool_calls` → execute **only** offered names → append `role=tool`
@@ -263,42 +276,20 @@ Agent loop contract:
 4. Sanitize invalid prior `function.arguments` JSON before re-send
 
 Config snippet: [`hermes/config.example.yaml`](./hermes/config.example.yaml)
-Full notes: [`hermes/README.md`](./hermes/README.md)
-
-Mac client pointing at Spark:
-
-```bash
-export OPENAI_BASE_URL=http://<spark-host>:8000/v1
-export OPENAI_API_KEY=sk-local
-export OPENAI_MODEL=local-laguna
-```
 
 ---
 
-## Scoreboard
+## Scoreboard (honest)
 
 Freeze clock: **2026-08-02 18:00 WIB** — no new claims after freeze without re-measure.
 
-| Host | Quant | Ctx | Gen tok/s | agent_smoke | hermes v2 | Role |
-|------|-------|-----|-----------|-------------|-----------|------|
-| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.47** | **40/40** | **27/27** | **Headline** · engine `04b2b72` · tip `bf82eab` |
-| DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen only | **38/40** | — | Pointer · older runner · not default |
+| Host | Quant | Ctx flag | Gen tok/s (128 compl.) | agent_smoke | hermes v2 | Role |
+|------|-------|----------|------------------------|-------------|-----------|------|
+| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.47** (short-gen) | **40/40 format smoke** | **27/27 validated-not-executed** | **Headline pack** · engine `04b2b72` · tip `bf82eab` |
 
-### Measured detail (2026-07-29 13:22 WIB)
+Ship minimum smoke ceiling historically used: **≥38/40** on this harness. Current: **40/40**.
 
-| Field | Value |
-|-------|--------|
-| Q4 sha256 | `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
-| Serve flags | `-c 8192 -ngl -1 --jinja -fa on --alias local-laguna` |
-| Gen headline | **~21.47 tok/s** @ 128 completion · multi suite in `results/measured.json` |
-| Prefill (server_bench) | 2k · 1.597 s · OK · / · 8k · 4.78 s · OK |
-| agent_smoke runner | `3bb81080…` |
-| hermes v2 runner | `20c1e52a…` |
-| Closed harness fails (not weights) | `repair_04` sanitize · `long_06` `any_of_tools` judge |
-| DFlash | gen128 **15.286 t/s** · **DO_NOT_PROMOTE** · [`results/dflash_2026-07-29/`](./results/dflash_2026-07-29/) |
-| Locks | diy_gguf **false** · weights **Spark-only** · Mac full-S **client-only** · public promo after **2026-08-03 12:00 WIB** · XS **not** in S freeze |
-
-Ship minimum smoke: **≥38/40**. Current measured: **40/40**.
+Mandate: strengthen with multi-seed, actual tool execution, arg-value checks, warm TTFT stats — not ship day scope unless left green after freeze.
 
 ---
 
@@ -306,18 +297,19 @@ Ship minimum smoke: **≥38/40**. Current measured: **40/40**.
 
 **In scope**
 
-- Measured Spark runtime pack
+- Measured Spark deployment packing
 - Official weight pointers + digests
-- Reproducible agent evaluation harness
+- Reproducible smoke harness + receipts
 
 **Out of scope**
 
-- Bare GGUF re-upload when official is the stand-behind artifact
-- Org / company product branding on this surface
+- Claiming this account quantized the weights
+- Classifying this docs pack as a loadable GGUF model in prose
+- Long-horizon agent SOTA claims from format smoke alone
 - Fake or off-host benches labeled as Spark
 - Local full-S weights on Mac hosts with ≤32 GB RAM
 - Public announce / trending push before **2026-08-03 12:00 WIB**
-- XS rows inside the S freeze lock set
+- Shipping unmeasured XS/Qwen30/DeepSeek as peer “models”
 
 ---
 
@@ -326,7 +318,8 @@ Ship minimum smoke: **≥38/40**. Current measured: **40/40**.
 | Component | Credit |
 |-----------|--------|
 | Model | Poolside Laguna S 2.1 © Poolside · OpenMDW-1.1 |
-| GGUF | Poolside official conversions |
+| GGUF | Poolside official conversions (authoritative) |
+| Optional mirror | Byte-identical copy for bandwidth convenience only |
 | Engine | poolsideai/llama.cpp `laguna` (+ upstream llama.cpp) |
 | Pack, measurements, smokes | Independent work by [hizrianraz](https://huggingface.co/hizrianraz) |
 
@@ -335,4 +328,4 @@ Ship minimum smoke: **≥38/40**. Current measured: **40/40**.
 Independent measurements on one DGX Spark.
 Not affiliated with, endorsed by, or representing Poolside or Nous Research.
 
-“Hermes-class” describes an OpenAI-compatible tool-calling runtime shape only — **not** a Nous endorsement.
+Updated local stage (Sol reframe): 2026-07-30 00:45 WIB

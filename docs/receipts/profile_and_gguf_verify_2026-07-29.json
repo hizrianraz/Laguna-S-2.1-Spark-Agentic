@@ -1,0 +1,106 @@
+{
+  "at_wib": "2026-07-29T23:57:51+07:00",
+  "steps": {
+    "profile_repo": {
+      "existed": true,
+      "sha": "4782f37ff0861043cbebaf810539ec5d273922e0"
+    },
+    "profile_readme": {
+      "repo": "hizrianraz/hizrianraz",
+      "commit": "4782f37ff0861043cbebaf810539ec5d273922e0",
+      "url": "https://huggingface.co/hizrianraz/hizrianraz"
+    },
+    "collection": {
+      "slug": "hizrianraz/laguna-measured-packs-official-q4-gguf-6a6a3110ad1c4397372a3ef6",
+      "url": "https://huggingface.co/collections/hizrianraz/laguna-measured-packs-official-q4-gguf-6a6a3110ad1c4397372a3ef6"
+    },
+    "collection_items": {
+      "added": [
+        "hizrianraz/Laguna-S-2.1-GGUF",
+        "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+        "hizrianraz/Laguna-XS-2.1-GGUF",
+        "hizrianraz/Laguna-XS-2.1-Mac-Agentic",
+        "hizrianraz/hizrianraz"
+      ],
+      "errors": []
+    }
+  },
+  "verify": {
+    "https://huggingface.co/hizrianraz": {
+      "status": 200,
+      "len": 158124,
+      "has_Laguna": true,
+      "has_40_40": false,
+      "has_quantized_by": false,
+      "has_why": false,
+      "has_ngl": false,
+      "has_sha_layerb": false
+    },
+    "https://huggingface.co/hizrianraz/hizrianraz": {
+      "status": 200,
+      "len": 114428,
+      "has_Laguna": true,
+      "has_40_40": true,
+      "has_quantized_by": true,
+      "has_why": false,
+      "has_ngl": true,
+      "has_sha_layerb": false
+    },
+    "https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF/raw/main/README.md": {
+      "status": 200,
+      "len": 4014,
+      "has_Laguna": true,
+      "has_40_40": true,
+      "has_quantized_by": true,
+      "has_why": true,
+      "has_ngl": true,
+      "has_sha_layerb": true
+    },
+    "https://huggingface.co/hizrianraz/Laguna-XS-2.1-GGUF/raw/main/README.md": {
+      "status": 200,
+      "len": 3877,
+      "has_Laguna": true,
+      "has_40_40": true,
+      "has_quantized_by": true,
+      "has_why": true,
+      "has_ngl": true,
+      "has_sha_layerb": false
+    },
+    "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic/resolve/main/docs/layer_b_v3.live_receipt.json": {
+      "error": "HTTP Error 404: Not Found"
+    },
+    "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic/resolve/main/results/layer_b_v3.live_receipt.json": {
+      "error": "HTTP Error 404: Not Found"
+    },
+    "https://huggingface.co/collections/hizrianraz/laguna-measured-packs-official-q4-gguf-6a6a3110ad1c4397372a3ef6": {
+      "status": 200,
+      "len": 98131,
+      "has_Laguna": true,
+      "has_40_40": false,
+      "has_quantized_by": false,
+      "has_why": false,
+      "has_ngl": false,
+      "has_sha_layerb": false
+    },
+    "https://github.com/hizrianraz": {
+      "status": 200,
+      "len": 250519,
+      "has_Laguna": true,
+      "has_40_40": true,
+      "has_quantized_by": false,
+      "has_why": false,
+      "has_ngl": false,
+      "has_sha_layerb": false
+    },
+    "https://raw.githubusercontent.com/hizrianraz/.github/main/profile/README.md": {
+      "status": 200,
+      "len": 4999,
+      "has_Laguna": true,
+      "has_40_40": true,
+      "has_quantized_by": false,
+      "has_why": false,
+      "has_ngl": false,
+      "has_sha_layerb": false
+    }
+  }
+}

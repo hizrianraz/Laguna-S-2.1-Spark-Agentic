@@ -1,0 +1,204 @@
+{
+  "schema": "laguna.freeze_readiness/v1",
+  "as_of_wib": "2026-07-30T02:16:20+07:00",
+  "pack": "Laguna-S-2.1-Spark-Agentic",
+  "freeze_at_wib": "2026-08-02T18:00:00+07:00",
+  "launch_at_wib": "2026-08-03T12:00:00+07:00",
+  "decision": "continue_prep_not_freeze",
+  "why": "Freeze clock is Aug 2 18:00 WIB. Measure tip still bf82eab 40/40\u00b727/27\u00b721.47. Sol honesty on WT+HF README; dual-ship locks only dirty-local. Triple desync (HEAD/WT/HF) blocks freeze; not an early freeze.",
+  "freeze_gate": "model_card_plus_lock_files",
+  "freeze_gate_status": "filled_interim_docs_dirty",
+  "measure_tip": {
+    "pack_git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "pack_git_short": "bf82eab",
+    "agent_smoke": "40/40",
+    "agent_smoke_elapsed_s": 84.86,
+    "hermes_agent_smoke": "27/27",
+    "hermes_elapsed_s": 100.1,
+    "quote_gen_tok_s": 21.47,
+    "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+    "engine": "poolsideai/llama.cpp 04b2b72",
+    "measured_at_wib": "2026-07-29T13:22:05+07:00"
+  },
+  "locks_held": {
+    "diy_gguf": false,
+    "weight_host": "dgx-spark-only",
+    "mac_le_32g": "client-only-no-local-weights",
+    "public_promo_before_launch": false,
+    "xs_not_in_s_freeze": true,
+    "branding": "personal-only"
+  },
+  "git": {
+    "docs_head": "f0ccd8e9a5f526714b5dae0f88641edded90b7a4",
+    "origin_main": "f0ccd8e9a5f526714b5dae0f88641edded90b7a4",
+    "head_eq_origin": true,
+    "dirty_lines": [
+      " M LAUNCH_AUG3.md",
+      " M NOTICE",
+      " M README.md",
+      " M results/MEASURED.md",
+      " M results/launch_lock.json",
+      "?? docs/receipts/"
+    ],
+    "dirty_count": 6
+  },
+  "surface_digest_matrix_sha12": {
+    "README.md": {
+      "head_sha12": "ac4e9a8f921f",
+      "wt_sha12": "c77b3cfa8a99",
+      "hf_sha12": "f8c79bf91ef8",
+      "head_eq_wt": false,
+      "wt_eq_hf": false,
+      "head_eq_hf": false
+    },
+    "LAUNCH_AUG3.md": {
+      "head_sha12": "3c7d2fff247c",
+      "wt_sha12": "c6c39112f1c0",
+      "hf_sha12": "c88279bfcbff",
+      "head_eq_wt": false,
+      "wt_eq_hf": false,
+      "head_eq_hf": false
+    },
+    "NOTICE": {
+      "head_sha12": "af04bf6915b1",
+      "wt_sha12": "ba5d7ef2db76",
+      "hf_sha12": "ba5d7ef2db76",
+      "head_eq_wt": false,
+      "wt_eq_hf": true,
+      "head_eq_hf": false
+    },
+    "results/MEASURED.md": {
+      "head_sha12": "9992ef1e618a",
+      "wt_sha12": "c1949eb1c7bd",
+      "hf_sha12": "c1949eb1c7bd",
+      "head_eq_wt": false,
+      "wt_eq_hf": true,
+      "head_eq_hf": false
+    },
+    "results/launch_lock.json": {
+      "head_sha12": "9ae0fdf72a93",
+      "wt_sha12": "3b0845992888",
+      "hf_sha12": "9ae0fdf72a93",
+      "head_eq_wt": false,
+      "wt_eq_hf": false,
+      "head_eq_hf": true
+    },
+    "SHA256SUMS": {
+      "head_sha12": "90e86226dde3",
+      "wt_sha12": "90e86226dde3",
+      "hf_sha12": "3dce2e409f8c",
+      "head_eq_wt": true,
+      "wt_eq_hf": false,
+      "head_eq_hf": false
+    }
+  },
+  "honesty_pins": {
+    "wt": {
+      "tools_validated_not_executed": true,
+      "format_routing_smoke": true,
+      "server_bench_token_honesty_836_3236": true,
+      "not_requant_mirror": true,
+      "diy_gguf_false": true,
+      "public_promo_false": false,
+      "no_manwe_codename": true,
+      "no_ainfera_brand_in_card": true
+    },
+    "hf": {
+      "tools_validated_not_executed": true,
+      "format_routing_smoke": true,
+      "server_bench_token_honesty_836_3236": true,
+      "not_requant_mirror": true,
+      "diy_gguf_false": true,
+      "public_promo_false": false,
+      "no_manwe_codename": true,
+      "no_ainfera_brand_in_card": true
+    }
+  },
+  "hf_surface": {
+    "s_pack": {
+      "id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "private": false,
+      "sha": "76ca21ff8fbb51503ea4b3df07f6ce361ef91763",
+      "n_files": 64,
+      "has_readme": true,
+      "has_launch_lock": true,
+      "has_measured_md": true,
+      "has_gguf_weights_in_pack": false
+    },
+    "gguf_mirror": {
+      "id": "hizrianraz/Laguna-S-2.1-GGUF",
+      "private": false,
+      "sha": "510501dace2ff4e559644934a44c177ff8bd9f15",
+      "n_files": 8,
+      "card": {
+        "base_model_relation": "quantized",
+        "body_not_requantized": true,
+        "quantized_by_unset_stated": true,
+        "mirror_only": true,
+        "q4_sha_pinned": true,
+        "sha12": "cee2c0662490"
+      },
+      "note": "base_model_relation=quantized is HF taxonomy only; body + tags assert byte-identical mirror / not re-quantized / quantized_by unset"
+    },
+    "parallel_private_held": {
+      "Laguna-XS-2.1-Mac-Agentic": true,
+      "Laguna-XS-2.1-GGUF": true,
+      "DeepSeek-V4-Flash-Spark-Agentic": true
+    },
+    "parallel_public": {
+      "Qwen3-Coder-Next-Spark-Agentic": {
+        "private": false,
+        "note": "dual Aug3 peer co-ship; public already"
+      }
+    },
+    "premature_promo_scan": "none_hit_local_patterns"
+  },
+  "ids": {
+    "pack_repo_id_lock": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+    "pack_repo_url_lock": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic",
+    "default_quant_lock": "hizrianraz/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
+    "default_quant_upstream_lock": "poolside/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
+    "q4_sha256_lock": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+    "measure_tip": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "docs_current_head": "f0ccd8e9a5f526714b5dae0f88641edded90b7a4",
+    "origin_main": "f0ccd8e9a5f526714b5dae0f88641edded90b7a4",
+    "hf_s_sha": "76ca21ff8fbb51503ea4b3df07f6ce361ef91763",
+    "hf_gguf_sha": "510501dace2ff4e559644934a44c177ff8bd9f15"
+  },
+  "claim_deltas_open": [
+    "README HEAD\u2260WT\u2260HF \u2014 commit+push WT honesty/dual before freeze rehash",
+    "LAUNCH_AUG3 dual-launch paragraph WT-only vs HF",
+    "launch_lock dual_aug3_* WT-only; HF==HEAD without dual",
+    "SHA256SUMS HF stale vs HEAD/WT",
+    "NOTICE+MEASURED: WT==HF, both ahead of HEAD (need commit so HEAD catches WT/HF)"
+  ],
+  "open_before_freeze": [
+    "commit dirty lock-set honesty/dual deltas on clean message",
+    "push commit to origin/main (GH)",
+    "HF push align: README + LAUNCH_AUG3 + launch_lock dual keys + SHA256SUMS (NOTICE/MEASURED already HF=WT)",
+    "rehash freeze lock_set on clean pushed HEAD at freeze clock",
+    "stranger-path dry re-run before freeze (prior dry exists 2026-07-29)",
+    "optional DFlash scoreboard final DO_NOT_PROMOTE held"
+  ],
+  "blockers_to_freeze_now": [
+    "dirty working tree vs origin (5 modified tracked + untracked docs/receipts/)",
+    "triple surface desync HEAD\u2260WT\u2260HF on README + LAUNCH_AUG3",
+    "launch_lock dual_aug3_* only on WT; HF still equals HEAD without dual",
+    "SHA256SUMS HEAD=WT but HF stale",
+    "not yet freeze clock (2026-08-02 18:00 WIB)"
+  ],
+  "not_a_freeze": true,
+  "not_gate_clearance": true,
+  "prior_receipts": [
+    "results/freeze_readiness_2026-07-29_accel.json",
+    "results/freeze_gate_model_card_lock_set_2026-07-29.json",
+    "results/pack_surfaces_execute_receipt.json",
+    "results/stranger_path_dry_2026-07-29.md"
+  ],
+  "next_safe_moves": [
+    "single coherent commit of dirty lock-set (no freeze)",
+    "git push origin main",
+    "HF upload matching files (card, LAUNCH, lock, SHA256SUMS)",
+    "hold promo; freeze only at Aug 2 18:00 on clean pushed HEAD"
+  ]
+}

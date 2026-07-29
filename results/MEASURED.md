@@ -1,5 +1,14 @@
 # Laguna-S-2.1 on DGX Spark — measured 2026-07-29
 
+
+## Claim boundaries (Sol reframe)
+
+- hermes protocol: **tools validated, not executed** (see measured.json)
+- agent_smoke / hermes scores = **format & routing regression smokes**, not long-horizon agent proof
+- server_bench marks labeled 2k/8k used prompts of **836** and **3236** tokens (not full 2k/8k packs)
+- gen headline ~21.47 t/s is **128 completion** tokens on a **67-token** prompt (single short-gen point)
+
+
 Independent Spark measurement note — multi-bench
 
 ## Stamp

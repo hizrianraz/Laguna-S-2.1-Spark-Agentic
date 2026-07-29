@@ -4,15 +4,15 @@ This pack documents independent Spark runtime measurements for poolside/Laguna-S
 under OpenMDW-1.1. See LICENSE.md and LICENSE (identical OpenMDW-1.1 text).
 
 Upstream model: poolside/Laguna-S-2.1
-Upstream GGUF: poolside/Laguna-S-2.1-GGUF
+Upstream GGUF (authoritative): poolside/Laguna-S-2.1-GGUF
+Optional byte-identical mirror: hizrianraz/Laguna-S-2.1-GGUF (not a re-quant; quantized_by unset)
 
 Original materials in this repository (SPARK.md measurement scaffolding,
-agent_smoke cases/runner, hermes sample client, scripts): independent work by
+agent_smoke cases/runner, sample client, scripts): independent work by
 hizrianraz for reproducibility.
 
-Weight binaries are not stored in this pack repo. Default download is the
-preferred mirror `hizrianraz/Laguna-S-2.1-GGUF` (official Poolside bytes);
-upstream alt `poolside/Laguna-S-2.1-GGUF`. Always verify via SHA256SUMS.
+Weight binaries are not stored in this pack repo. Always verify via SHA256SUMS.
+This pack is a deployment/evaluation surface, not a model checkpoint.
 
 If Modified Materials / custom code under OpenMDW §3.3 are later published
 as weight derivatives, update this NOTICE with the required Custom Code

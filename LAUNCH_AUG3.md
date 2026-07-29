@@ -4,6 +4,9 @@ Status: **LOCKED** · measure tip + model card + lock set filled `2026-07-29T14:
 Repo: https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic  
 Timezone: WIB (UTC+7)
 
+**Dual launch:** co-ships with `Qwen3-Coder-Next-Spark-Agentic` at the same go-live.  
+This pack remains the **sole flagship measured** claim (40/40). Qwen uses the same harness; no trade of S freeze quality.
+
 ## Freeze window
 
 | When | Action |
