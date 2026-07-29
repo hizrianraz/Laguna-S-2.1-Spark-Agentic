@@ -1,7 +1,10 @@
 {
   "repo_id": "hizrianraz/laguna-s-2.1-spark",
   "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
-  "commit": "09be17836f980a10c5e1da7deeddbb468f654219",
+  "commit": "bcb7892436909a2cd75dbaccb9326078da09b888",
+  "latest_commit": "bcb7892436909a2cd75dbaccb9326078da09b888",
+  "local_git_head": "7aae4cce316606a8df1f31254cbf11e2cf8fecd4",
+  "private": false,
   "siblings": [
     ".gitattributes",
     ".gitignore",
@@ -55,55 +58,17 @@
     "scripts/pull_sku.sh",
     "scripts/serve_spark.sh"
   ],
-  "private": false,
+  "n_files": 51,
   "launch_locked": true,
   "launch_at_wib": "2026-08-03T12:00:00+07:00",
-  "latest_commit": "09be17836f980a10c5e1da7deeddbb468f654219",
-  "local_git_head": "4592caa9d8a35acb61d31f64846145cadbb6754c",
   "measured_json_on_hf": true,
   "agent_smoke_on_hf": true,
+  "hermes_agent_smoke_on_hf": true,
   "sku_iq3s_agent_smoke_on_hf": true,
   "sku_iq3s_meta_on_hf": true,
   "quant_comparison_on_hf": true,
   "device_matrix_on_hf": true,
-  "hermes_v2_suite_on_hf": true,
-  "hermes_v2_results_on_hf": true,
-  "headline": "40/40 agent_smoke \u00b7 ~21 tok/s gen128 \u00b7 official Q4_K_M \u00b7 hermes 27/27",
-  "sku_iq3s": "38/40 agent_smoke \u00b7 not headline \u00b7 Mac/PC pointer \u00b7 phone/android non-fit",
-  "live_reconfirm": {
-    "pass": "40/40",
-    "elapsed_s": 88.96,
-    "gen128_tok_s": 21.016,
-    "hermes_v2": "27/27",
-    "hermes_v2_elapsed_s": 102.68
-  },
-  "refreshed_at_unix": 1785245154.5385852,
-  "refreshed_at_wib": "2026-07-29T00:19:29+07:00",
-  "last_docs_sync_wib": "2026-07-29T00:19:29+07:00",
-  "last_docs_hf_commit": "09be17836f980a10c5e1da7deeddbb468f654219",
-  "last_docs_gh_commit": "4592caa",
-  "sibling_xs": {
-    "github": "https://github.com/hizrianraz/laguna-xs-2.1-mac",
-    "hf": "https://huggingface.co/hizrianraz/laguna-xs-2.1-mac",
-    "status": "prep_published_unmeasured"
-  },
-  "repo": "hizrianraz/laguna-s-2.1-spark",
-  "note": "measurement lock refresh after Q4 restore; weights unchanged; no re-upload this tick",
-  "headline_quant": "Q4_K_M",
-  "stand_behind": "official Poolside Q4_K_M \u2014 always restore after alt SKU",
-  "agent_smoke": {
-    "pass": "40/40",
-    "elapsed_s": 97.79,
-    "artifact": "results/agent_smoke.json",
-    "wib": "2026-07-28T23:55"
-  },
-  "hermes_agent_smoke": {
-    "pass": "27/27",
-    "elapsed_s": 104.4,
-    "artifact": "results/hermes_agent_smoke.json",
-    "wib": "2026-07-28T23:57",
-    "protocol": "one-response"
-  },
-  "mac_rule": "founder Mac \u226432G = client\u2192Spark only; no local full-S weights; XS is parallel sibling pack",
-  "iq3_pointer": "Unsloth UD-IQ3_S 38/40 older-runner; not headline; not founder-Mac claim"
+  "spark_md_on_hf": true,
+  "updated_at_wib": "2026-07-29T12:43:02+07:00",
+  "note": "docs/receipts only; weights untouched; claim temp 0.0; 1M 0.7 chat-only"
 }
