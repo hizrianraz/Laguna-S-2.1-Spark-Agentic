@@ -1,6 +1,6 @@
 # SPARK.md — Laguna-S-2.1 on DGX Spark (GB10)
 
-Personal DGX Spark notes only.
+DGX Spark operator notes only.
 
 Hardware target: **NVIDIA DGX Spark only** (GB10, Grace+Blackwell, ~128 GB unified).  
 Do not run this pack’s claimed numbers on rented cloud hosts and relabel them as Spark.
@@ -238,4 +238,4 @@ If you measure vLLM on Spark, add a dated subsection here with image digest + to
 
 - Do **not** attribute rented-cloud jobs to this file.  
 - Do **not** mix non-local / third-party gateway base URLs into sample commands.  
-- Personal HF only for publish (`hizrianraz/*`).
+- HF handle only for publish (`hizrianraz/*`).
