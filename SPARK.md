@@ -34,7 +34,9 @@ export PATH=/usr/local/cuda/bin:$PATH
 export CUDA_HOME=/usr/local/cuda
 export CC=/usr/bin/gcc CXX=/usr/bin/g++ CUDAHOSTCXX=/usr/bin/g++
 
-git clone --branch laguna https://github.com/poolsideai/llama.cpp llama.cpp-laguna
+git clone https://github.com/poolsideai/llama.cpp llama.cpp-laguna
+cd llama.cpp-laguna
+git checkout 04b2b72cb54048ead292884adbe11f284e3ec950
 cd llama.cpp-laguna
 # pin when publishing numbers:
 # git rev-parse HEAD
@@ -176,17 +178,16 @@ Serve proven: `-c 8192 -ngl -1 --parallel 1 --alias local-laguna --jinja -fa on`
 
 | Setting | prefill latency | tg tok/s | server RSS | notes |
 |---------|-----------------|----------|------------|-------|
-| ctx 8k, ngl -1, fa on | 836 prompt → 1.83 s; 3236 prompt → 4.73 s | **~21.1** @ 128 gen | ~2–3.4 Gi process RSS | unified mem holds weights; quote **21 tok/s** gen |
-| gen8 short | — | ~7.8 | same | tiny completion noise floor |
-| ctx 8k + DFlash (`draft-dflash`) | 2k 2.253s · 8k 5.556s | **15.286** @ 128 gen | higher (draft+target) | **DO_NOT_PROMOTE** vs plain ~21.5 · `results/dflash_2026-07-29/` |
+| ctx 8k, ngl -1, fa on | 836 prompt → 1.597 s; 3236 prompt → 4.78 s | **~21.47** @ 128 gen | ~2–3.4 Gi process RSS | unified mem; **sole headline gen = 21.47** (`results/measured.json`) |
+| gen8 short | — | 10.612 | same | tiny completion noise floor — not a headline |
+| ctx 8k + DFlash (`draft-dflash`) | 2k 2.253s · 8k 5.556s | **15.286** @ 128 gen | higher (draft+target) | trial `-ngl 99` vs baseline `-ngl -1` · **DO_NOT_PROMOTE** still (gen+prefill slower) · `results/dflash_2026-07-29/` |
 
-Agent-shaped (tool round-trips, see smoke):
+Agent-shaped (tool round-trips, see smoke) — **live tip durations bind**:
 
 | Suite | quant | pass | n | notes |
 |-------|-------|------|---|-------|
-| agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | **post-restore 97.79 s** WIB ~23:55 · temp 0.0 · prior same-day 97.25 / 88.96 s · harness fixes: sanitize + any_of_tools |
-| hermes_agent_smoke v2 | Q4_K_M | **27/27 · 100%** | 27 | **post-restore 104.4 s** WIB ~23:57 · temp 0.0 · prior 102.68 s · one-response protocol · `results/hermes_agent_smoke.json` |
-
+| agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | **84.86 s** ·temp 0.0 · tip 2026-07-29 13:22 WIB · runner `3bb81080…` · older same-day restores ~88–98 s are historical only |
+| hermes_agent_smoke v2 | Q4_K_M | **27/27 · 100%** | 27 | **100.1 s** · temp 0.0 · same tip · one-response · runner `20c1e52a…` · `results/hermes_agent_smoke.json` |
 Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/hermes_agent_smoke.json`, `results/server_bench.json`.
 
 ## Agent-shaped benches

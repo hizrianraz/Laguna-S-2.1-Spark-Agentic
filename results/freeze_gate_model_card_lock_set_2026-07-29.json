@@ -22,8 +22,8 @@
   },
   "model_card": {
     "path": "README.md",
-    "sha256": "b1ef36a5edcc75fc8cbadd9aa0701f1cb3624a90114e9a72d73162f7e40a36d8",
-    "bytes": 10275,
+    "sha256": "4176b6c01a1cc563202063f8b239527be5f59fda2d61dfca024e344d2075ca9b",
+    "bytes": 11401,
     "fields_filled": [
       "HF YAML frontmatter",
       "base identity pinned SHAs",
@@ -37,36 +37,32 @@
   },
   "lock_set": {
     "LAUNCH_AUG3.md": {
-      "sha256": "175c38ccea42405ee3480d299fc3f4c0ef2c3129c3258910a6618034f9dc78a5",
-      "bytes": 5393
+      "sha256": "4904d7cd71ce5a2a72bb063f5ba98f8f60fea3b1f6594213f6e914e57777b079",
+      "bytes": 5676
     },
     "results/launch_lock.json": {
-      "sha256": "330d839e77b00e445d4eba86e7525624e374affa15952973f322412d5d1e4f69",
-      "bytes": 2985
+      "sha256": "b27870a88f396e1dd8aea98618980965e1053ea93e4df3b4c5174bbcf2b7dc0f",
+      "bytes": 3174
     },
     "results/MEASURED.md": {
-      "sha256": "480057b2999e498a88d29ece101dd363724523d10df59b09e979dfc3eb641062",
-      "bytes": 1668
+      "sha256": "18f67a17e00e5aa9c05d8f3d4ab17b77f41d9d7c2e1e53d2d64d79b428242a80",
+      "bytes": 1870
     },
     "results/measured.json": {
       "sha256": "878baffe0f8da0fdc756060d6c65a79177bdd61fb2476270907a0bc5aeb96380",
       "bytes": 3008
     },
     "SHA256SUMS": {
-      "sha256": "ffa7d1c0e882b4c5deac5c748aa0654881351e735102d71a1471749ad6210b1c",
-      "bytes": 1253
-    },
-    "results/xs_mac_track_lock.json": {
-      "sha256": "dc2953263c7a3c7c7f732cbec50a648dd37a76a06a4e9d383c7a7d19743f2f9a",
-      "bytes": 3144
+      "sha256": "90e86226dde3a830f91aaaa53437c631348d297be5e3a89fdfa87dd838f278b0",
+      "bytes": 355
     },
     "results/freeze_readiness_2026-07-29_accel.json": {
       "sha256": "a1011e2f002e03d96c283d3521a2ed19581d744723809cbd9788d1ee808ab962",
       "bytes": 1504
     },
     "results/freeze_notes_2026-07-29.md": {
-      "sha256": "3b8494601350512707d3b6c932e7260643ac218ee6e5d7e0c0205e400e2257ff",
-      "bytes": 1182
+      "sha256": "94071b175f983992a0de7d275deb25d1b2f8df2df959a9f04f8eab3771cf6e27",
+      "bytes": 2288
     },
     "results/agent_smoke.json": {
       "sha256": "587f51f3f7966d9c416e9fbab2a9fc70034106a875e4a18114dd31f2570dd67a",
@@ -97,5 +93,10 @@
     "stranger-path dry",
     "push filled card+locks to GH/HF when network ready",
     "hold tip through Aug 2 18:00 freeze"
-  ]
+  ],
+  "xs_in_s_freeze": false,
+  "note": "S freeze lock_set is S-only. XS track (results/xs_mac_track_lock.json) is parallel research, not hashed into S freeze. Recompute sha256 of each lock_set member on freeze at clean pushed HEAD. Hashes below are interim post jury-fix; final freeze rehash still required at freeze gate.",
+  "rehash_at_freeze": true,
+  "rehashed_at_wib_doc": "2026-07-29T17:35:00+07:00",
+  "rehashed_at_wib": "2026-07-29T17:32:40+07:00"
 }

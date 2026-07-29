@@ -15,7 +15,7 @@ if [[ ! -f "${SUMS}" ]]; then
   exit 2
 fi
 
-# Pack format: sha256  byte_size  filename  (3-column). Accept 2-col sha256sum too.
+# Pack format: GNU sha256sum 2-column (sha256  filename). Comments OK. awk accepts legacy 3-col too.
 expected="$(
   awk -v f="${FILE}" '
     $0 ~ /^[[:space:]]*#/ { next }

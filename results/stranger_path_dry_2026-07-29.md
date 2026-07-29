@@ -1,8 +1,9 @@
-# Stranger-path dry + REPRODUCE exact — 2026-07-29
+# Stranger-path dry + REPRODUCE exact — 2026-07-29 (jury-fix rev2)
 
 Intent: verify a newcomer can follow pack docs without founder brain.
 Full clone/rebuild of llama.cpp on Spark is **not** re-run here (engine already pinned `04b2b72`).
 This is a **doc + path integrity dry** against live tree + live pins.
+Label: **DRY / DOC PATH** — not a clean full rebuild receipt.
 
 ## Sources walked
 
@@ -15,21 +16,21 @@ This is a **doc + path integrity dry** against live tree + live pins.
 
 | # | Step | Status | Note |
 |---|------|--------|------|
-| 1 | License / OpenMDW accept before redistribute | PASS | stated in REPRODUCE step 1 |
-| 2 | Engine clone branch `laguna` | PASS | command present README + SPARK |
-| 3 | CUDA arch `121` → `121a` note | PASS | SPARK build section |
-| 4 | Record engine `git rev-parse HEAD` | PASS | REPRODUCE step 3 → `results/engine_sha.txt` |
-| 5 | Weight download + revision pin | PASS | REPRODUCE lists GGUF rev `fc4e481…` + sha256 |
-| 6 | Serve flags match measured | **PASS** | SPARK default serve now `-ngl -1` + alias; REPRODUCE + README already aligned |
-| 7 | `/v1/models` health gate | PASS | REPRODUCE step 5 |
-| 8 | bench_server / llama-bench targets | PASS | steps 6–7; llama-bench uses `-ngl -1` |
-| 9 | agent_smoke 40 + optional hermes 27 | PASS | steps 8 / 8b |
-| 10 | Populate SPARK from files only | PASS | step 9 |
-| 11 | DIY gated | PASS | diy_gguf false + policy |
-| 12 | DFlash not default path | PASS | optional; DO_NOT_PROMOTE measured |
+| 1 | License / OpenMDW accept before redistribute | PASS | REPRODUCE step 1 |
+| 2 | Engine clone + pin measured SHA `04b2b72` | PASS | README stranger path + `results/engine_sha.txt` |
+| 3 | CUDA arch `121` → `121a` note | PASS | BUILD_SPARK / SPARK |
+| 4 | Record engine `git rev-parse HEAD` | PASS | → `results/engine_sha.txt` |
+| 5 | Weight download + revision pin | PASS | GGUF rev `fc4e481…` + sha256 |
+| 6 | `SHA256SUMS` GNU 2-col + `sha256sum -c` | **PASS** | root `SHA256SUMS` is 2-col; `scripts/pull_official_gguf.sh` fail-closed |
+| 7 | Serve flags match measured | **PASS** | `-ngl -1` + `--alias local-laguna`; smoke uses `model=local-laguna` |
+| 8 | `/v1/models` health gate | PASS | REPRODUCE |
+| 9 | bench_server / llama-bench targets | PASS | llama-bench `-ngl -1` |
+| 10 | agent_smoke 40 + optional hermes 27 | PASS | steps present |
+| 11 | DIY gated | PASS | diy_gguf false |
+| 12 | DFlash not default; DO_NOT_PROMOTE | PASS | optional path + disclose |
 | 13 | HF surface id correct | PASS | `hizrianraz/Laguna-S-2.1-Spark-Agentic` |
-| 14 | Scoreboard row distinguishes headline vs IQ3 pointer | PASS | README scoreboard |
-| 15 | Dual gen numbers | **PASS** | scoreboard names 21.47 authoritative vs 21.016 band-only |
+| 14 | Scoreboard sole gen headline 21.47 | PASS | no 22.50 on launch surfaces |
+| 15 | S freeze lock_set excludes XS | PASS | xs dropped from S lock_set |
 
 ## Exact REPRODUCE pins (copy)
 
@@ -43,6 +44,7 @@ Q4_K_M sha256       a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f75
 Engine              github.com/poolsideai/llama.cpp branch laguna
 Engine measured SHA 04b2b72cb54048ead292884adbe11f284e3ec950
 Hardware            DGX Spark GB10 only
+Serve alias         local-laguna
 ```
 
 ## Stranger serve one-liner (aligned to last green)
@@ -55,14 +57,22 @@ Hardware            DGX Spark GB10 only
   --alias local-laguna
 ```
 
-## Jury fix this tick
+Smoke clients must call `model=local-laguna` (or empty/default that resolves to alias) — not a stale internal id like `laguna-q4`.
 
-- SPARK primary serve / DFlash example / llama-bench: `-ngl 99` → **`-ngl -1`**
-- Scoreboard dual gen claim closed: quote **~21.47** only
+## Jury fix this tick (rev2)
+
+- SHA256SUMS → GNU 2-column; `sha256sum -c` works from weight dir
+- Engine pin in stranger path (checkout `04b2b72…`)
+- Serve alias `local-laguna` + smoke model aligned
+- LAST_GREEN_PIN: dead `multi_throughput.json` pointer removed; evidence is MEASURED/measured.json
+- S lock_set: drop XS; rehash-at-freeze noted
+- LAUNCH: dropped 22.50 parenthetical; sole headline ~21.47
+- PATCH prose: host-measured (Spark/GNU 13.3)
+- Measure tip vs docs tip labeled
 
 ## Verdict
 
-**DRY PASS** — serve path+scoreboard dual-claim gaps closed.
+**DRY PASS (doc path)** — prior stranger FAIL items from dual seat closed on tree.
 
-Remaining stranger risk: first-time CUDA build time + ~96GB weight pull — documented, not blockers of path correctness.
-HF tip re-upload after this fix is separate (docs-only).
+Not claimed: full clean rebuild wall-clock on a cold stranger host.
+Remaining stranger cost: first-time CUDA build + ~96GB weight pull — documented, not path bugs.

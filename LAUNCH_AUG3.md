@@ -25,26 +25,25 @@ Timezone: Asia/Jakarta (WIB)
 6. agent_smoke headline honest:
    - Min ship: **≥38/40 (95%)**
    - **Current measured: 40/40 (100%)** · **84.86s** live tip 2026-07-29 13:22 WIB · pack `bf82eab`
-7. Gen throughput quote: **~21.47 tok/s** @ 128 completion (multi suite; pre-smoke gen128 22.50)
+7. Gen throughput quote (sole headline): **~21.47 tok/s** @ 128 completion from multi suite in `results/measured.json`
 8. Clear disclaimer: personal · not first quant · not Poolside/Nous affiliate
 9. No DIY GGUF unless it beats a scoreboard cell (default: **bind official only**)
 10. Launch receipt JSON written + card updated same day
-11. **Freeze gate filled:** model card + lock set (`results/freeze_gate_model_card_lock_set_2026-07-29.json`)
+11. **Freeze gate filled:** model card + **S-only** locks (`results/freeze_gate_model_card_lock_set_2026-07-29.json`) — XS lock is parallel research, not S freeze set
 
 ## Live tip (binding until weights/runners change)
 
 | Field | Value |
 |-------|--------|
-| Pack git | `bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee` |
+| Measure tip (provenance) | `bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee` — docs tip may advance after |
 | Engine | poolsideai/llama.cpp `04b2b72` |
 | Quant | official Q4_K_M · sha256 `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
 | agent_smoke | **40/40** · 84.86s · runner `3bb81080…` |
 | hermes v2 | **27/27** · 100.1s · runner `20c1e52a…` |
-| gen128 quote | **21.47 t/s** |
+| gen128 quote | **21.47 t/s** (do not headline short single-shot or pre-smoke spikes) |
 | Artifacts | `results/measured.json` · `MEASURED.md` · smokes |
 
 Re-smoke only if weights, runners, or serve flags change. Fresh same-harness green may refresh elapsed without claim change.
-
 ## Non-goals (hard)
 
 - Org / company product branding on this surface

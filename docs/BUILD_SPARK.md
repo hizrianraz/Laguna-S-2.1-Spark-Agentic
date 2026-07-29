@@ -10,11 +10,13 @@ cd ~/src/llama.cpp-laguna
 git checkout laguna   # pin: 04b2b72cb54048ead292884adbe11f284e3ec950
 ```
 
-## Patch (measured required on this host)
+## Patch (host-measured · Spark / GNU 13.3)
 
-`common/speculative.cpp` calls `std::isfinite`. On Spark GNU 13.3 that can fail even with `#include <cmath>` present depending on header order / libstdc++.
+`common/speculative.cpp` calls `std::isfinite`. On **this** Spark host (GNU 13.3) that can fail to compile even with `#include <cmath>` depending on header order / libstdc++.
 
-Measured fix that builds clean:
+This is a **local host build fix**, not an upstream laguna behavioral change and not part of the public claim surface. Apply only if stock checkout fails to build the same way.
+
+Measured fix that builds clean here:
 
 1. Ensure `#include <cmath>` and `#include <math.h>` near the top system includes.
 2. Replace the call site:
@@ -23,9 +25,12 @@ Measured fix that builds clean:
 // before
 if (!std::isfinite(v)) {
 
-// after (Spark / GNU 13.3)
+// after (Spark / GNU 13.3 host build)
 if (!::isfinite(static_cast<double>(v))) /* spark-isfinite-fix */ {
 ```
+
+Pin checkout **before** patching: `git checkout 04b2b72cb54048ead292884adbe11f284e3ec950`.  
+Record `git rev-parse HEAD` → pack `results/engine_sha.txt`.
 
 Do **not** treat a failed UI-asset HF fetch during build as fatal — `llama-server` still links; only the optional embedded UI may stay stale.
 

@@ -12,9 +12,9 @@
 | Gen128 | **~21.47 tok/s** |
 | agent_smoke | **40/40** · 84.86s · temp 0.0 |
 | hermes v2 | **27/27** · 100.1s · temp 0.0 |
-| Pack tip (measured) | `bf82eab` |
+| Measure tip (provenance) | `bf82eab` — not necessarily current docs tip |
 | Serve | `-c 8192 -ngl -1 --parallel 1 --alias local-laguna --jinja -fa on` |
-| Evidence | `results/MEASURED.md`, `results/launch_lock.json`, `results/multi_throughput.json` |
+| Evidence | `results/MEASURED.md`, `results/measured.json` (`throughput` + `quote_gen_tok_s`), `results/launch_lock.json`, `results/server_bench.json` |
 
 ## Explicit rejects
 

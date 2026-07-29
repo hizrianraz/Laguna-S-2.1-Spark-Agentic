@@ -65,10 +65,12 @@ You must retain notices, and if you ship Modified Materials with custom code und
 | `laguna-s-2.1-DFlash-BF16.gguf` | `2ee8aa30338d6599bc7a8ce008cc57c56f2c2b2fdc21f6db9ecda203c751bfd4` |
 | `laguna-s-2.1.imatrix` | `4a4f480f57a3251e3acfb1d35ffba64720662536135e4ca4f4d05b0732539be2` |
 
-Verify after download:
+Verify after download (from the directory that holds the GGUF; pack `SHA256SUMS` is GNU 2-column):
 
 ```bash
-sha256sum -c SHA256SUMS
+cp /path/to/this/pack/SHA256SUMS ~/models/laguna-s-2.1/
+(cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
+# or: ./scripts/pull_official_gguf.sh   # fail-closed helper
 ```
 
 ## Quant guide (what to pull)
@@ -102,20 +104,30 @@ Device ladder → [`research/device-quant-matrix-aug3.md`](./research/device-qua
 ## One-evening stranger path (S1)
 
 ```bash
-# 1) engine (poolside laguna fork)
-git clone --branch laguna https://github.com/poolsideai/llama.cpp
+# 1) engine (poolside laguna fork) — pin the measured commit
+git clone https://github.com/poolsideai/llama.cpp
 cd llama.cpp
+git checkout 04b2b72cb54048ead292884adbe11f284e3ec950
+# record: git rev-parse HEAD → results/engine_sha.txt on the pack
+# Spark/GNU 13.3 may need the isfinite patch in docs/BUILD_SPARK.md
 cmake -B build -G "Unix Makefiles" \
   -DCMAKE_BUILD_TYPE=Release \
   -DGGML_CUDA=ON \
-  -DCMAKE_CUDA_ARCHITECTURES=121 \
+  -DCMAKE_CUDA_ARCHITECTURES=121a \
   -DLLAMA_CURL=ON
 cmake --build build -j --target llama-server llama-cli llama-bench
 
-# 2) weights (official — do not re-host unless you have a measured delta)
+# 2) weights (official) — fail-closed digest check
+# Prefer pack helper (reads SHA256SUMS, downloads pinned rev):
+#   /path/to/this/pack/scripts/pull_official_gguf.sh
+# Or manual:
 huggingface-cli download poolside/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
+  --revision fc4e481289523cf7d0df668da6d1d391616141ca \
   --local-dir ~/models/laguna-s-2.1
+# run check FROM the weight dir (SHA256SUMS is 2-column gnu format):
+cp /path/to/this/pack/SHA256SUMS ~/models/laguna-s-2.1/
+(cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
 
 # 3) serve OpenAI-compatible (flags match last-green pin)
 ./build/bin/llama-server \
@@ -124,13 +136,16 @@ huggingface-cli download poolside/Laguna-S-2.1-GGUF \
   --ctx-size 8192 -ngl -1 --jinja \
   -fa on --alias local-laguna
 
-# 4) smoke (launch bar)
+# 4) smoke (launch bar) — model id must match --alias
 cd /path/to/this/pack
-python eval/agent_smoke/run_smoke.py --base-url http://127.0.0.1:8000/v1 --model laguna-q4
+python eval/agent_smoke/run_smoke.py \
+  --base-url http://127.0.0.1:8000/v1 \
+  --model local-laguna
 
 # 5) optional Hermes-class suite (v2; does not replace the 40-case bar)
 python eval/hermes_agent_smoke/run_hermes_smoke.py \
-  --base-url http://127.0.0.1:8000/v1 --model laguna-q4 \
+  --base-url http://127.0.0.1:8000/v1 \
+  --model local-laguna \
   --out results/hermes_agent_smoke.json
 ```
 
@@ -144,7 +159,7 @@ Measured run → [`results/MEASURED.md`](./results/MEASURED.md)
 
 | Host | Quant | Ctx | Gen tok/s | Smoke | Hermes v2 | Notes |
 |------|-------|-----|-----------|-------|-----------|-------|
-| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.47** | **40/40 (100%)** | **27/27** | **Headline** · engine `04b2b72` · pack tip `bf82eab` · 2026-07-29 13:22 WIB |
+| DGX Spark GB10 | official Q4_K_M | 8192 | **~21.47** | **40/40 (100%)** | **27/27** | **Headline** · engine `04b2b72` · measure tip `bf82eab` · 2026-07-29 13:22 WIB |
 | DGX Spark GB10 | Unsloth UD-IQ3_S | 8192 | short-gen ~41 t/s (tiny) | **38/40 (95%)** | — | **Not headline** · older-runner SKU (no sanitize/any_of_tools) · ship ≥38 met · **not** Q4 runner-identical · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/) |
 
 Snapshot JSONs: [`results/measured.json`](./results/measured.json) · [`results/server_bench.json`](./results/server_bench.json) · [`results/agent_smoke.json`](./results/agent_smoke.json) · [`results/hermes_agent_smoke.json`](./results/hermes_agent_smoke.json) · [`results/sku_unsloth-ud-iq3-s/`](./results/sku_unsloth-ud-iq3-s/)  
@@ -156,13 +171,13 @@ Hermes-class suite live: **27/27** on Q4 — [`eval/hermes_agent_smoke/`](./eval
 |--------|--------|
 | Quant (headline) | official `Q4_K_M` · sha256 `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
 | Engine | poolside llama.cpp `04b2b72` + Spark CUDA serve |
-| Pack git tip | `bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee` |
-| Gen throughput | **~21.47 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` (multi suite) |
+| Measure tip (provenance) | `bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee` — docs tip moves independently |
+| Gen throughput | **~21.47 tok/s** @ 128 completion · ctx 8192 · `-ngl -1 -fa on` (sole headline; multi suite in `results/measured.json`) |
 | Prefill OK | server_bench 2k 1.597s / 8k 4.78s |
 | agent_smoke | **40/40 · 100%** · **84.86 s** · temp **0.0** · runner `3bb81080…` |
 | hermes_agent_smoke v2 | **27/27 · 100%** · **100.1 s** · temp **0.0** · one-response · runner `20c1e52a…` |
 | Closed fails | harness: `repair_04` sanitize prior tool-args; `long_06` `any_of_tools` judge (not weights) |
-| DFlash | measured 2026-07-29 · gen128 **15.286 t/s** · **DO_NOT_PROMOTE** (baseline ~21.5 wins) · `results/dflash_2026-07-29/` |
+| DFlash | measured 2026-07-29 · gen128 **15.286 t/s** · **DO_NOT_PROMOTE** · served with `-ngl 99` (baseline pin `-ngl -1`; reject still holds on slower gen+prefill) · `results/dflash_2026-07-29/` |
 | Multi-device SKU (IQ3_S) | Unsloth UD-IQ3_S · **38/40 · 71s** on Spark · older runner — **not** claim as Q4 regression · phone/tablet **non-fit** |
 | Locks | diy_gguf **false** · weight_host **Spark-only** · founder Mac **client-only** · public promo only after **2026-08-03 12:00 WIB** · XS not in S freeze |
 

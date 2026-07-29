@@ -23,11 +23,25 @@ Personal reproducible method.
 4. Download official GGUF (not a DIY re-quant unless you will measure a real delta):
 
 ```bash
+# preferred: fail-closed helper (reads pack SHA256SUMS + pinned GGUF rev)
+./scripts/pull_official_gguf.sh
+
+# or manual download + GNU 2-column check from the weight directory:
 huggingface-cli download poolside/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
   --revision fc4e481289523cf7d0df668da6d1d391616141ca \
   --local-dir ~/models/laguna-s-2.1
-sha256sum -c SHA256SUMS
+cp SHA256SUMS ~/models/laguna-s-2.1/
+(cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
+```
+
+Engine pin before build (measured commit, not floating branch tip):
+
+```bash
+git clone https://github.com/poolsideai/llama.cpp ~/src/llama.cpp-laguna
+cd ~/src/llama.cpp-laguna
+git checkout 04b2b72cb54048ead292884adbe11f284e3ec950
+# optional host patch: docs/BUILD_SPARK.md (isfinite / GNU 13.3)
 ```
 
 5. Serve with last-green flags (match `results/LAST_GREEN_PIN.md` / `SPARK.md`):
@@ -40,15 +54,16 @@ sha256sum -c SHA256SUMS
   --alias local-laguna --metrics
 ```
 
-Confirm `curl -sf http://127.0.0.1:8000/v1/models` → 200.
+Confirm `curl -sf http://127.0.0.1:8000/v1/models` → 200.  
+Smoke / bench **`--model` must equal `--alias`** → `local-laguna`.
 
 6. `llama-bench` @ prompt 2048 and 8192; save stdout to `results/llama_bench_q4km.txt`.
 7. `python scripts/bench_server.py --ctx-mark 2k --ctx-mark 8k`.
-8. `python eval/agent_smoke/run_smoke.py --out results/smoke_q4km.json`.
-8b. Optional Hermes-class: `python eval/hermes_agent_smoke/run_hermes_smoke.py --out results/hermes_agent_smoke.json`.
+8. `python eval/agent_smoke/run_smoke.py --model local-laguna --out results/agent_smoke.json`.
+8b. Optional Hermes-class: `python eval/hermes_agent_smoke/run_hermes_smoke.py --model local-laguna --out results/hermes_agent_smoke.json`.
 9. Populate the tables in `SPARK.md` from those files only — never invent.
 10. Publish pack (docs + results + scripts). **Host GGUF binary only if you have a measured unique artifact**; otherwise ship digests + download commands (S5).
-11. Optional DFlash is **not** default. If tried on Spark, record with honesty — 2026-07-29 measure is **DO_NOT_PROMOTE** (`results/dflash_2026-07-29/`).
+11. Optional DFlash is **not** default. If tried on Spark, record with honesty — 2026-07-29 measure is **DO_NOT_PROMOTE** (`results/dflash_2026-07-29/`). Note: that trial used `-ngl 99` while baseline pin is `-ngl -1`; reject still holds (gen + prefill both slower).
 
 ## Personal HF publish surface
 

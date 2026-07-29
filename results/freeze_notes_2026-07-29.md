@@ -45,3 +45,11 @@
 - No XS inside S freeze artifact
 - No re-bench required unless weights/runners change
 - No DFlash speedup claim
+
+## 2026-07-29 jury-fix rev (post dual seat)
+
+- **S freeze lock_set is S-only.** Dropped `results/xs_mac_track_lock.json` from S `lock_set`.
+- XS remains parallel `prepared_research` under its own lock; **not** an S freeze hash input.
+- **Rehash at freeze:** on clean pushed HEAD (not dirty WT), recompute sha256 for every S lock_set member and stamp freeze gate. Docs tip may move; measure tip stays `bf82eab` until smoke/weights change.
+- Gen headline sole: **~21.47 tok/s** from multi suite in `results/measured.json`. No 22.50 on launch surfaces.
+- SHA256SUMS is GNU **2-column** for `sha256sum -c`.
