@@ -78,7 +78,7 @@
   "locks_held": {
     "diy_gguf": false,
     "weight_host": "dgx-spark-only",
-    "founder_mac": "client-only-no-local-weights",
+    "mac_le_32g": "client-only-no-local-weights",
     "public_promo_before_launch": false,
     "xs_not_in_s_freeze": true,
     "branding": "personal-only"

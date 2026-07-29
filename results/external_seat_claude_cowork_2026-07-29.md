@@ -33,4 +33,4 @@ Docs-only HF re-upload of XS `README.md` + `results/launch_lock.json` from GH ti
 6. freeze_gate hashes re-stamp at Aug 2
 7. dflash tidy + drop LAUNCH 22.50 parenthetical
 
-Full seat paste: founder Telegram 2026-07-29 (claude_cowork dual pack).
+Full seat paste: external channel 2026-07-29 (claude_cowork dual pack).

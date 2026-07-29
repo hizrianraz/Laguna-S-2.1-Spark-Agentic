@@ -1,10 +1,10 @@
 # Laguna-S-2.1 on DGX Spark — measured 2026-07-29
 
-personal Spark measurement note — accel multi-bench
+Independent Spark measurement note — multi-bench
 
 ## Stamp
 - When: **2026-07-29 13:22:05 UTC+07:00**
-- Host: `Hizrian-Razs-DGX-Spark`
+- Host: NVIDIA DGX Spark (GB10)
 - Pack git: `bf82eab` (bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee)
 - Headline quant: **Q4_K_M** (held)
 
@@ -40,7 +40,7 @@ Prefill-oriented server_bench (OK replies):
 ## Locks held
 - diy_gguf: false
 - weight_host: Spark-only
-- founder Mac: client-only
+- Mac full-S: client-only
 - public_promo_before_launch: false
 - XS not in S freeze
 

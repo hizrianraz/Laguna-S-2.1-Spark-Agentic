@@ -28,7 +28,7 @@ Confirmed ChatGPT + Claude both right, or one seat right with physical proof:
 6. **`.gitignore` deny `results/*.json`** with limited whitelist — placement receipts `three_jury_post_placement_2026-07-28.json` + `weight_placement_2026-07-28.json` exist on Mac + Synology + Spark **local only**, blocked from origin. Claude High on pushability stands.
 7. **Dirty S tree** @ 3ba4160: modified `.gitignore`, prompts; untracked `docs/WEIGHTS_LOCAL.md`, `prompts/_mirror/`, `results/hermes_agent_smoke.log`.
 8. **engine_sha.txt** says `#include <cmath>`; MEASURED + SPARK say `math.h` + `::isfinite`. Low but freeze-irrelevant only if canonical patch file is committed.
-9. **serve_spark.sh** defaults `0.0.0.0`; public JSONs paste `http://100.98.213.2:8000/v1`. Intentional vs scrub = founder call.
+9. **serve_spark.sh** defaults `0.0.0.0`; public JSONs paste `http://100.98.213.2:8000/v1`. Intentional vs scrub = operator call.
 10. **XS measured.json** honestly `unmeasured` / nulls. GREEN honesty (Claude).
 11. **XS hermes README** still has **"Measured (live Spark) 27/27"** block — S bleed. ChatGPT High stands.
 12. **Fixtures** carry Spark/S strings + "~21 tok/s" / "this host has ~21 tok/s" inside XS cases.json (byte-shared suite).
@@ -58,7 +58,7 @@ Confirmed ChatGPT + Claude both right, or one seat right with physical proof:
 |---|---|---|---|
 | X1 | Kill Spark 27/27 block in XS hermes README | High | "XS/Mac unmeasured" |
 | X2 | "stand-behind SKU" → disk candidate | High | README/locks |
-| X3 | Fixture / suite policy | High | Founder: synthetic-label vs neutral suite + dual rerun |
+| X3 | Fixture / suite policy | High | Operator: synthetic-label vs neutral suite + dual rerun |
 | X4 | Pin Mac-good engine SHA + Metal empty-out gate | High | Before any load |
 | X5 | serve_mac.sh `--jinja` + explicit binary | Med/High | Before measure |
 | X6 | Canonical B lock | Med | prep published; Q4 NAS only; no Mac load |
@@ -66,7 +66,7 @@ Confirmed ChatGPT + Claude both right, or one seat right with physical proof:
 
 ## Must-not (both audits agree)
 
-- Full S local on founder ≤32G Mac
+- Full S local on operator ≤32G Mac
 - XS renamed as S-lite / S quant / S-on-Mac
 - Transfer 40/40, 27/27, ~21 t/s to XS
 - Disk/SHA/startup = smoke
@@ -80,12 +80,12 @@ Confirmed ChatGPT + Claude both right, or one seat right with physical proof:
 |---|---|
 | Dirty WT / on-disk only files | Spark seat (ChatGPT covered) ✓ |
 | Live HF / PR #25165 merged / poolside sizes | GH seat (Claude covered) ✓ |
-| Engine commit for XS Metal | **Founder** |
-| Suite neutrality | **Founder** |
-| Placement receipts public? | **Founder** |
-| Stranger path: stock pin vs poolside fork required | **Founder** |
-| Tailnet IP + 0.0.0.0 + prompts on HF | **Founder** (hygiene) |
-| Mac RAM policy ≤32G if other machine exists | **Founder** |
+| Engine commit for XS Metal | **Operator** |
+| Suite neutrality | **Operator** |
+| Placement receipts public? | **Operator** |
+| Stranger path: stock pin vs poolside fork required | **Operator** |
+| Tailnet IP + 0.0.0.0 + prompts on HF | **Operator** (hygiene) |
+| Mac RAM policy ≤32G if other machine exists | **Operator** |
 
 ## Freeze clock vs this note
 

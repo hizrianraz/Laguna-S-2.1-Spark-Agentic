@@ -577,7 +577,7 @@
     "suite_version": 2,
     "generated_at_utc": "2026-07-29T06:08:57.571350+00:00",
     "host": {
-      "hostname": "Hizrian-Razs-DGX-Spark",
+      "hostname": "dgx-spark",
       "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
       "python": "3.12.3"
     },

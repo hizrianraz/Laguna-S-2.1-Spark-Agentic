@@ -130,7 +130,7 @@ def main() -> None:
     lines = [
         f"# Laguna-S-2.1 on DGX Spark — measured {day}",
         "",
-        "personal Spark measurement note — accel multi-bench",
+        "Spark measurement note — accel multi-bench",
         "",
         "## Stamp",
         f"- When: **{stamp}**",
@@ -177,7 +177,7 @@ def main() -> None:
         "## Locks held",
         "- diy_gguf: false",
         "- weight_host: Spark-only",
-        "- founder Mac: client-only",
+        "- Mac ≤32 GB: client-only",
         "- public_promo_before_launch: false",
         "- XS not in S freeze",
         "",

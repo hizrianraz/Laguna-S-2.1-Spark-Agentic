@@ -1799,11 +1799,11 @@
       "messages": [
         {
           "role": "system",
-          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. You must not invent org or product branding. Keep the pack label personal spark pack only."
+          "content": "You are a careful tool-using coding agent. Only call tools from the provided schema. Never invent tool names. When a tool is needed, emit proper tool calls. Prefer concise answers. You must not invent org or product branding. Keep the pack label independent spark pack only."
         },
         {
           "role": "user",
-          "content": "Write sandbox/brand.txt content 'personal spark pack' via write_file."
+          "content": "Write sandbox/brand.txt content 'independent spark pack' via write_file."
         }
       ],
       "tools": [

@@ -26,12 +26,12 @@
     "bytes": 66930226304,
     "gib": 62.334,
     "sha256": "d1d99abe30c37749ec1b1ae2681cec74caa550ac6243d2ea70b61b1ff9d187ca",
-    "role": "non_fit_founder_mac"
+    "role": "non_fit_mac_le_32g"
   },
   "target_host": {
-    "class": "founder_mac_le_32g",
+    "class": "mac_le_32g_le_32g",
     "live_studio": {
-      "model": "Mac14,13",
+      "model": "Apple Silicon Mac",
       "ram_bytes": 34359738368,
       "ram_gb": 32
     },
@@ -48,17 +48,17 @@
     "agent_smoke_local": null,
     "hermes_smoke_local": null,
     "tps_local": null,
-    "gate_before_any_claim": "same-harness agent_smoke on founder Mac + sha256 + host label"
+    "gate_before_any_claim": "same-harness agent_smoke on Mac \u226432 GB + sha256 + host label"
   },
   "storage_policy": {
-    "prefer_pull_volume": "/Volumes/HFR WD_BLACK SN850X/models/laguna-xs-2.1",
+    "prefer_pull_volume": "/path/to/external/models/laguna-xs-2.1",
     "avoid_system_data_when_full": true,
     "system_data_free_gi_at_prep": 40,
-    "do_not_pull_without_founder_go": true,
+    "do_not_pull_without_operator_go": true,
     "do_not_pull_bf16_on_mac": true
   },
   "namespace": {
-    "notes_in_s_pack": "research/ only — not S freeze artifact",
+    "notes_in_s_pack": "research/ only \u2014 not S freeze artifact",
     "optional_future_surface": "hizrianraz/Laguna-XS-2.1-Mac-Agentic (not created)",
     "forbidden_aliases": [
       "S on Mac",
@@ -70,7 +70,7 @@
   "relation_to_s_pack": {
     "s_repo": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
     "s_weight_host": "dgx-spark-only",
-    "s_founder_mac": "client-only-no-local-weights",
+    "s_mac_le_32g": "client-only-no-local-weights",
     "s_freeze_wib": "2026-08-02T18:00:00+07:00",
     "s_launch_wib": "2026-08-03T12:00:00+07:00",
     "xs_launch_coupling": false,
@@ -79,14 +79,14 @@
   "honest_language": {
     "allowed": [
       "XS Q4_K_M is official ~19G GGUF for Laguna-XS-2.1",
-      "founder Mac client still talks to Spark for full S",
+      "Mac \u226432 GB client still talks to Spark for full S",
       "XS is a separate 33B-A3B model"
     ],
     "forbidden": [
       "Laguna runs on Mac (unqualified)",
       "S on Mac via XS",
       "any unmeasured t/s or agent_smoke for XS",
-      "Poolside public benches as founder measured bar",
+      "Poolside public benches as independently measured bar",
       "BF16 / safetensors as Mac-local"
     ]
   },

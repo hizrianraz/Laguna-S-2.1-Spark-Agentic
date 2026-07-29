@@ -2,7 +2,7 @@
 
 **Inputs**
 - Claude cowork dual: `external_seat_claude_cowork_2026-07-29.md` (filed earlier)
-- ChatGPT dual: founder paste → `external_seat_chatgpt_2026-07-29.md`
+- ChatGPT dual: external paste → `external_seat_chatgpt_2026-07-29.md`
 - Manwë live HF re-probe after ChatGPT paste: XS README + lock **honest XS** (bleed closed)
 
 ## Joint verdict
@@ -16,7 +16,7 @@ Clocks unchanged: freeze **2026-08-02 18:00 WIB** · HF public **2026-08-03 12:0
 
 ## Agreement (both seats)
 
-1. Headline tuple holds: **40/40 · 27/27 · 21.47** on official Q4 · personal Spark pack.
+1. Headline tuple holds: **40/40 · 27/27 · 21.47** on official Q4 · independent Spark pack.
 2. DFlash stays **DO_NOT_PROMOTE**.
 3. Stranger path is **not** checkout-clean (checksum form · alias/model mismatch · dry skipped rebuild).
 4. Freeze gate receipt stale + **XS lock file inside S lock_set** must go before freeze.
@@ -54,18 +54,18 @@ Clocks unchanged: freeze **2026-08-02 18:00 WIB** · HF public **2026-08-03 12:0
 ### P0 — before any freeze talk
 
 1. **Stranger path executable**
-   - Fix SHA256SUMS consumer: either 2-col file for `sha256sum -c` **or** document `awk '{print $1, $3}'` / dedicated check script (3-col is intentional LFS+bytes format — **don't lie with bare -c**).
-   - README smoke: `--model local-laguna` to match serve alias (or document both).
-   - REPRODUCE/BUILD: pin checkout of engine `04b2b72` + named host patch.
-   - Re-label stranger receipt: **docs-dry**, not full stranger PASS, until clean clone path runs on Spark (GPU run = founder/Spark time, not required tonight if docs honest).
+ - Fix SHA256SUMS consumer: either 2-col file for `sha256sum -c` **or** document `awk '{print $1, $3}'` / dedicated check script (3-col is intentional LFS+bytes format — **don't lie with bare -c**).
+ - README smoke: `--model local-laguna` to match serve alias (or document both).
+ - REPRODUCE/BUILD: pin checkout of engine `04b2b72` + named host patch.
+ - Re-label stranger receipt: **docs-dry**, not full stranger PASS, until clean clone path runs on Spark (GPU run = operator/Spark time, not required tonight if docs honest).
 
 2. **Freeze manifest S-only + rehash after edits**
-   - Drop `results/xs_mac_track_lock.json` from S `lock_set`.
-   - Regenerate hashes on final doc set only at freeze window (not now as false “filled forever”).
+ - Drop `results/xs_mac_track_lock.json` from S `lock_set`.
+ - Regenerate hashes on final doc set only at freeze window (not now as false “filled forever”).
 
 3. **Dead evidence pointers**
-   - LAST_GREEN_PIN: remove `multi_throughput.json` **or** restore raw file from authoritative suite.
-   - Prefer point at existing measured/multi suite paths that actually exist.
+ - LAST_GREEN_PIN: remove `multi_throughput.json` **or** restore raw file from authoritative suite.
+ - Prefer point at existing measured/multi suite paths that actually exist.
 
 ### P1 — claim surface (same commit OK)
 

@@ -20,7 +20,7 @@
     "why_rev2": "composer/fable named gaps real: SPARK -ngl 99 drift + dual gen 21.016/21.47 + state tip-bind"
   },
   "fixes_this_rev": [
-    "SPARK.md primary serve, DFlash example, llama-bench: -ngl 99 → -ngl -1 + alias",
+    "SPARK.md primary serve, DFlash example, llama-bench: -ngl 99 \u2192 -ngl -1 + alias",
     "research/quant-comparison-scoreboard-2026-07-28.md: 21.47 authoritative; 21.016 band-only",
     "stranger_path_dry re-PASS after SPARK align",
     "typo Augillis removed; claimed dual-claim closed"
@@ -86,7 +86,7 @@
       "status": "APPELLATE_CLEARED",
       "verdict": "PASS",
       "findings": [
-        "DFlash gen128 15.286 < plain ~21.5 → DO_NOT_PROMOTE forced by arithmetic",
+        "DFlash gen128 15.286 < plain ~21.5 \u2192 DO_NOT_PROMOTE forced by arithmetic",
         "Baseline re-health HEALTH_OK; live Spark re-probe HEALTH_OK matching last-green flags",
         "Dual gen closed: scoreboard points 21.47 as authoritative; 21.016 band-only",
         "Headline smoke remains tip-bound to bf82eab measure pack"
@@ -108,7 +108,7 @@
       ],
       "blockers": [],
       "caveats": [
-        "XS HF still pending_open from rename receipt — S pack may ship without XS mirror"
+        "XS HF still pending_open from rename receipt \u2014 S pack may ship without XS mirror"
       ]
     },
     "composer25_pack": {
@@ -131,13 +131,13 @@
   "lorien_chair": {
     "attempted_this_packet": false,
     "prior": "results/three_jury_current_built_2026-07-29.json client_timeout_120s",
-    "semantics": "timeout≠fail; Manwë appellate completes three seats; Lórien chair not receipted as live JSON this tick"
+    "semantics": "timeout\u2260fail; Manw\u00eb appellate completes three seats; L\u00f3rien chair not receipted as live JSON this tick"
   },
   "external_jury_prompts": {
     "chatgpt": "prompts/chatgpt-analyze-laguna-s-2026-07-29.md",
     "claude": "prompts/claude-analyze-laguna-s-2026-07-29.md",
     "status": "ready_for_founder_paste",
-    "note": "Founder runs external models; replies become independent seats when pasted back"
+    "note": "Operator runs external models; replies become independent seats when pasted back"
   },
   "synthesis": {
     "overall": "GO_PASS_CONTINUE_PREP",
@@ -146,7 +146,7 @@
     "next_unblocked": [
       "git commit + push origin main",
       "HF docs-only tip upload with SPARK + scoreboard + jury rev2 + stranger",
-      "founder paste ChatGPT + Claude prompts; return findings before freeze if any claim risk",
+      "external paste ChatGPT + Claude prompts; return findings before freeze if any claim risk",
       "T-3 polish only if external seats open a real gap"
     ],
     "still_blocked_without_founder": [
@@ -155,5 +155,5 @@
       "any trade/wire/sign/codename public"
     ]
   },
-  "authority": "personal founder pack; Manwë stage0 verify; Lórien gates on train/release; no company-gate vault write"
+  "authority": "personal operator pack; Manw\u00eb stage0 verify; L\u00f3rien gates on train/release; no company-gate vault write"
 }

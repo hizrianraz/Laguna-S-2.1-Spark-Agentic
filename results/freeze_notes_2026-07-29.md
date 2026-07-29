@@ -23,7 +23,7 @@
 
 - diy_gguf: false
 - weight_host: Spark-only
-- founder Mac: client-only (no local S)
+- Mac ≤32 GB: client-only (no local S)
 - public_promo_before_launch: false
 - XS: parallel, not in S freeze
 - branding: personal-only

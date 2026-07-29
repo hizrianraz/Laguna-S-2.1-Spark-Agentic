@@ -1,6 +1,6 @@
 # Stranger-path dry + REPRODUCE exact — 2026-07-29 (jury-fix rev2)
 
-Intent: verify a newcomer can follow pack docs without founder brain.
+Intent: verify a newcomer can follow pack docs without operator brain.
 Full clone/rebuild of llama.cpp on Spark is **not** re-run here (engine already pinned `04b2b72`).
 This is a **doc + path integrity dry** against live tree + live pins.
 Label: **DRY / DOC PATH** — not a clean full rebuild receipt.
@@ -35,26 +35,26 @@ Label: **DRY / DOC PATH** — not a clean full rebuild receipt.
 ## Exact REPRODUCE pins (copy)
 
 ```
-Base model          poolside/Laguna-S-2.1
-Base revision       00af5a51782109b587a3b3bbf11875e566036fa7
-GGUF repo           poolside/Laguna-S-2.1-GGUF
-GGUF revision       fc4e481289523cf7d0df668da6d1d391616141ca
-Default weight      laguna-s-2.1-Q4_K_M.gguf
-Q4_K_M sha256       a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4
-Engine              github.com/poolsideai/llama.cpp branch laguna
+Base model poolside/Laguna-S-2.1
+Base revision 00af5a51782109b587a3b3bbf11875e566036fa7
+GGUF repo poolside/Laguna-S-2.1-GGUF
+GGUF revision fc4e481289523cf7d0df668da6d1d391616141ca
+Default weight laguna-s-2.1-Q4_K_M.gguf
+Q4_K_M sha256 a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4
+Engine github.com/poolsideai/llama.cpp branch laguna
 Engine measured SHA 04b2b72cb54048ead292884adbe11f284e3ec950
-Hardware            DGX Spark GB10 only
-Serve alias         local-laguna
+Hardware DGX Spark GB10 only
+Serve alias local-laguna
 ```
 
 ## Stranger serve one-liner (aligned to last green)
 
 ```bash
 ./build/bin/llama-server \
-  -m ~/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
-  --host 127.0.0.1 --port 8000 \
-  --ctx-size 8192 -ngl -1 --jinja -fa on \
-  --alias local-laguna
+ -m ~/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
+ --host 127.0.0.1 --port 8000 \
+ --ctx-size 8192 -ngl -1 --jinja -fa on \
+ --alias local-laguna
 ```
 
 Smoke clients must call `model=local-laguna` (or empty/default that resolves to alias) — not a stale internal id like `laguna-q4`.

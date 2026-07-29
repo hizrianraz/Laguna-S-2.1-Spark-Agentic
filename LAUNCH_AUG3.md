@@ -1,9 +1,8 @@
 # Laguna Spark HF launch lock — 2026-08-03
 
 Status: **LOCKED** · measure tip + model card + lock set filled `2026-07-29T14:43:26+07:00`  
-Owner: personal (hizrianraz)  
 Repo: https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic  
-Timezone: Asia/Jakarta (WIB)
+Timezone: WIB (UTC+7)
 
 ## Freeze window
 
@@ -26,7 +25,7 @@ Timezone: Asia/Jakarta (WIB)
    - Min ship: **≥38/40 (95%)**
    - **Current measured: 40/40 (100%)** · **84.86s** live tip 2026-07-29 13:22 WIB · pack `bf82eab`
 7. Gen throughput quote (sole headline): **~21.47 tok/s** @ 128 completion from multi suite in `results/measured.json`
-8. Clear disclaimer: personal · not first quant · not Poolside/Nous affiliate
+8. Clear disclaimer: independent · not first quant · not Poolside/Nous affiliate
 9. No DIY GGUF unless it beats a scoreboard cell (default: **bind official only**)
 10. Launch receipt JSON written + card updated same day
 11. **Freeze gate filled:** model card + **S-only** locks (`results/freeze_gate_model_card_lock_set_2026-07-29.json`) — XS lock is parallel research, not S freeze set
@@ -51,7 +50,7 @@ Re-smoke only if weights, runners, or serve flags change. Fresh same-harness gre
 - Side-quest models under this tag
 - Fake 100% smoke or unverified tok/s
 - X/public brand push beyond HF card before launch
-- Local S weights on founder Mac ≤32G
+- Local S weights on Apple Silicon ≤32 GB class
 - XS inside S freeze artifact
 
 ## Daily clock (WIB)
@@ -71,17 +70,16 @@ Re-smoke only if weights, runners, or serve flags change. Fresh same-harness gre
 Smoke gate clear: **40/40 measured** on tip `bf82eab`. Hold that bar through freeze; if a later re-run slips, ship last green with named fails (never invent).  
 
 If Spark down at launch: freeze last green MEASURED row; do not invent numbers.  
-If HF token dies: restore the personal Hugging Face write token from the local secret store only; never paste token in chat.
+If HF token dies: restore HF write token from local secret store only; never paste token in chat.
 
 ## Announce text (draft — edits OK)
 
-> Personal DGX Spark agent-runtime pack for Poolside Laguna-S-2.1: measured OpenAI-compatible serve, fixed agent smoke **40/40**, Hermes-class **27/27**, ~21.5 t/s @128, official Q4_K_M digests (no bare re-upload).  
+> Independent DGX Spark agent-runtime pack for Poolside Laguna-S-2.1: measured OpenAI-compatible serve, fixed agent smoke **40/40**, Hermes-class **27/27**, ~21.5 t/s @128, official Q4_K_M digests (no bare re-upload).  
 > https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic
 
 ## Authority
 
-Personal founder surface only. Docs/results may be pushed to this HF repo.  
-No company vault binding for this pack.
+Independent pack surface. Docs/results may be pushed to this HF repo.
 
 ## Quant compare + smaller-device path (Aug 3 accelerated)
 
@@ -91,7 +89,7 @@ No company vault binding for this pack.
 - Pull helper: `scripts/pull_sku.sh <sku_id>`
 - Headline remains Spark **official Q4_K_M** measured row
 - Smaller SKUs ship as **pointers + optional same-harness delta** — promote to scoreboard only at ≥ official−2
-- Founder Mac ≤32G: **client → Spark only** for full S; XS = parallel unmeasured track
+- Apple Silicon ≤32 GB: **client → Spark only** for full S; XS = parallel unmeasured track
 - No bulk third-party LFS rehost; no public promo before Aug 3 12:00 WIB
 
 ## Hermes-class smoke v2

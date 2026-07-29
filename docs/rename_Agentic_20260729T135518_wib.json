@@ -1,7 +1,7 @@
 {
   "event": "pack_full_rename_to_Agentic_TitleCase",
   "at_wib": "2026-07-29T13:55:18+07:00",
-  "host": "HizrianacStudio.localdomain",
+  "host": "local",
   "targets": {
     "S": {
       "display": "Laguna-S-2.1-Spark-Agentic",

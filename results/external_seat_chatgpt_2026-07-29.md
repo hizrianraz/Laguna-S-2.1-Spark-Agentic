@@ -2,7 +2,7 @@
 
 **Seat:** chatgpt (external adversarial, dual pack)
 **Evidence claimed:** local + GH + HF; not live Spark; not raw multi_throughput file
-**Ingested:** founder Telegram paste 2026-07-29 ~17:23 WIB
+**Ingested:** external review paste 2026-07-29 ~17:23 WIB
 **Manwë live re-probe after paste:** XS HF bleed already cleared (see dual synth)
 
 ## S verdict (seat)
@@ -68,7 +68,7 @@
 - local lock still has `stand_behind_sku` while disclaiming ship
 - “No weight pull” stale vs Synology placement receipt (storage ≠ Mac runtime)
 - Hermes fixture injects ~21 tok/s host assertion
-- Agent cases “personal spark pack” + SPARK.md refs
+- Agent cases “independent spark pack” + SPARK.md refs
 
 ## Confidence (seat)
 

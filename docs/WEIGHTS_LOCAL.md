@@ -12,9 +12,9 @@ Official: `poolside/Laguna-S-2.1-GGUF` · sha256 `a8b55c75714ea73fd90ec85de5defd
 
 Canonical serve path may stay `~/models/laguna-s-2.1/` with a symlink into this pack.
 
-## Mac ≤32G
+## Mac ≤32 GB class
 
-Full S weights: **do not** land on founder Mac. Client → Spark `:8000` only.
+Full S weights: **do not** land on ≤32 GB unified-memory Macs. Client → Spark `:8000` only.
 
 ## XS
 

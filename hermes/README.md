@@ -1,7 +1,5 @@
 # Hermes-class sample client
 
-Personal sample client for local Spark serve.
-
 OpenAI-compatible client notes for **Hermes-class / tool-agent** runtimes against
 local `llama-server` serving Laguna-S-2.1 on DGX Spark.
 
@@ -28,10 +26,10 @@ export OPENAI_MODEL=local-laguna
 python hermes/sample_client.py
 ```
 
-Mac client → Spark (no local S weights on ≤32G founder Mac):
+Remote client → Spark (no local full-S weights on ≤32 GB class machines):
 
 ```bash
-export OPENAI_BASE_URL=http://<spark-tailscale-ip>:8000/v1
+export OPENAI_BASE_URL=http://<spark-host>:8000/v1
 export OPENAI_API_KEY=sk-local
 export OPENAI_MODEL=local-laguna
 ```

@@ -1,8 +1,8 @@
 # Three-jury consult — post-DFlash (2026-07-29) · rev2 fix-pass
 
-**Packet:** `three_jury_post_dflash_2026-07-29`  
-**Mode:** Manwë three-seat appellate · fix-if-not-go  
-**Measure tip:** `bf82eab` · **Engine:** `04b2b72` · **Weight:** official Q4_K_M  
+**Packet:** `three_jury_post_dflash_2026-07-29`
+**Mode:** Manwë three-seat appellate · fix-if-not-go
+**Measure tip:** `bf82eab` · **Engine:** `04b2b72` · **Weight:** official Q4_K_M
 **Live Spark:** HEALTH_OK · flags match last-green (`-ngl -1` · jinja · fa on · alias local-laguna)
 
 ## Bottom line
@@ -46,8 +46,8 @@ Not re-queued this tick (prior timeout ≠ fail). Appellate stands.
 
 ## External
 - ChatGPT: `prompts/chatgpt-analyze-laguna-s-2026-07-29.md`
-- Claude: `prompts/claude-analyze-laguna-s-2026-07-29.md`  
-Founder paste → return findings become extra seats.
+- Claude: `prompts/claude-analyze-laguna-s-2026-07-29.md`
+Operator paste → return findings become extra seats.
 
 ## Allowed claims
 - Spark agent_smoke **40/40** official Q4_K_M
