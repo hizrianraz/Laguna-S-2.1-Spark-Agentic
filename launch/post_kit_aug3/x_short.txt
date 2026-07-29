@@ -1,0 +1,10 @@
+Laguna-S-2.1 on DGX Spark — agentic pack, not vibes.
+
+• Official Poolside Q4_K_M (mirrored)
+• agent_smoke 40/40
+• Serve pins + harness in-repo
+• Weights: hizrianraz/Laguna-S-2.1-GGUF
+• Pack: hizrianraz/Laguna-S-2.1-Spark-Agentic
+
+Mac pair: Laguna-XS-2.1-Mac-Agentic
+Independent · not Poolside · not Ainfera product
