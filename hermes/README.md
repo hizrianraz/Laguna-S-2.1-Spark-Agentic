@@ -127,7 +127,12 @@ python eval/hermes_agent_smoke/run_hermes_smoke.py \
 ```
 
 35 cases (= v2 27 + 8 long-horizon / denser repair).  
-**No public pass claim** until a live Spark JSON artifact exists.  
-Does **not** move freeze lock numbers.
+Live research measure **2026-07-29:** **35/35** in **137.56s** on official Q4 (temp 0).  
+Local artifact: `results/hermes_agent_smoke_layer_b_v3.json` (gitignored).  
+Tracked receipt: `eval/hermes_agent_smoke/layer_b_v3_live_receipt.json`.  
+DOES **not** move freeze lock numbers (v2 stays **27/27**).
+
+One-shot helper: `./scripts/measure_layer_b_v3.sh`  
+(If Spark serves loopback-only, tunnel: `ssh -L 18000:127.0.0.1:8000 spark`.)
 
 Not a Nous endorsement.

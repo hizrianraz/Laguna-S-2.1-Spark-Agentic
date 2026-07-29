@@ -10,7 +10,8 @@ provider:
   kind: openai_compatible
   # MUST include /v1 — bare :8000 returns 404 on /chat/completions paths
   base_url: "http://127.0.0.1:8000/v1"
-  # Tailscale founded client: "http://100.98.213.2:8000/v1" (Spark only; Mac = client)
+  # If Spark binds 0.0.0.0: Tailscale "http://100.98.213.2:8000/v1"
+  # If Spark binds 127.0.0.1 only: ssh -L 18000:127.0.0.1:8000 spark → "http://127.0.0.1:18000/v1"
   api_key: "sk-local" # llama-server ignores auth; keep a placeholder
   model: "local-laguna" # must match llama-server --alias
   timeout_s: 300
@@ -46,4 +47,4 @@ client_rules:
 smoke:
   agent_bar: "eval/agent_smoke/run_smoke.py  # 40 cases · launch bar"
   hermes_v2: "eval/hermes_agent_smoke/run_hermes_smoke.py  # 27 cases · measured tip"
-  hermes_layer_b_v3: "eval/hermes_agent_smoke/run_hermes_smoke.py --cases eval/hermes_agent_smoke/cases_layer_b_v3.json  # research only until live JSON"
+  hermes_layer_b_v3: "scripts/measure_layer_b_v3.sh  # research 35/35 live tip; not freeze bar"

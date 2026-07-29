@@ -190,7 +190,9 @@ Config snippet for OpenAI-compatible agent stacks: [`hermes/config.example.yaml`
 Full notes + failure matrix: [`hermes/README.md`](./hermes/README.md)
 
 Optional research expansion (not freeze bar):  
-`eval/hermes_agent_smoke/cases_layer_b_v3.json` (**35** cases) — live claim only after Spark measure file exists.
+`eval/hermes_agent_smoke/cases_layer_b_v3.json` (**35** = 27+8) — **live 35/35** · 137.56s · 2026-07-29 on official Q4.  
+Receipt: [`eval/hermes_agent_smoke/layer_b_v3_live_receipt.json`](./eval/hermes_agent_smoke/layer_b_v3_live_receipt.json).  
+Does **not** rewrite freeze lock (hermes stays **27/27** · agent_smoke **40/40**).
 
 ---
 

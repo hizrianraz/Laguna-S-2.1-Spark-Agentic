@@ -61,7 +61,7 @@ Re-smoke only if weights, runners, or serve flags change. Fresh same-harness gre
 | T-6 | Jul 28 | Lock + HF gap close | measured JSON on HF, launch file live |
 | T-5 | Jul 29 | Smoke harden + freeze-gate fill | **DONE** — 40/40 · 27/27 · card+locks filled |
 | T-4 | Jul 30 | DFlash / serve sweep | **DONE early 2026-07-29** — DFlash **DO_NOT_PROMOTE** (15.286 vs ~21.5); baseline re-health HEALTH_OK; stranger dry PASS; scoreboard row live |
-| T-3 | Jul 31 | Card polish | stranger dry already PASS; optional card polish only |
+| T-3 | Jul 31 | Card polish | **DONE early 2026-07-29** — Layer B live **35/35** research receipt; stale “no live claim” wording cleared; freeze bars untouched |
 | T-2 | Aug 1 | Buffer / second measure | optional Unsloth abort/keep only if free |
 | T-1 | Aug 2 | Freeze 18:00 | final push; no claim changes after freeze |
 | T-0 | Aug 3 | Launch 12:00 | go-live receipt; 18:00 verify brief |
@@ -100,6 +100,7 @@ No company vault binding for this pack.
 - Does **not** replace launch bar `agent_smoke` 40/40
 - **Measured tip 2026-07-29: 27/27** in 100.1s · artifact `results/hermes_agent_smoke.json`
 - Card lists **27/27 hermes_agent_smoke** alongside **40/40 agent_smoke**
+- Layer B research (**35** = 27+8): live **35/35** · 137.56s · 2026-07-29 · receipt `eval/hermes_agent_smoke/layer_b_v3_live_receipt.json` — **not** a freeze-bar field
 - **Public promo** (X / social / “top trending” push): still wait until **2026-08-03 12:00 WIB**
 
 ## Promo timing (lock)

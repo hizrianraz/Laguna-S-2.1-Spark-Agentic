@@ -188,6 +188,7 @@ Agent-shaped (tool round-trips, see smoke) — **live tip durations bind**:
 |-------|-------|------|---|-------|
 | agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | **84.86 s** ·temp 0.0 · tip 2026-07-29 13:22 WIB · runner `3bb81080…` · older same-day restores ~88–98 s are historical only |
 | hermes_agent_smoke v2 | Q4_K_M | **27/27 · 100%** | 27 | **100.1 s** · temp 0.0 · same tip · one-response · runner `20c1e52a…` · `results/hermes_agent_smoke.json` |
+| hermes Layer B v3 (research) | Q4_K_M | **35/35 · 100%** | 35 | **137.56 s** · 2026-07-29 · **not freeze bar** · receipt `eval/hermes_agent_smoke/layer_b_v3_live_receipt.json` |
 Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/hermes_agent_smoke.json`, `results/server_bench.json`.
 
 ## Agent-shaped benches
