@@ -1,0 +1,49 @@
+# Example OpenAI-compatible provider snippet for Hermes-class / tool-agent runtimes
+# against local Laguna-S-2.1 on DGX Spark.
+#
+# Language:
+#   - "Hermes-class" = OpenAI chat.completions + tools/tool_calls shape only
+#   - NOT a Nous Research endorsement or Hermes Agent product config
+#   - Map keys to your agent stack's real schema (names differ by product)
+
+provider:
+  kind: openai_compatible
+  # MUST include /v1 — bare :8000 returns 404 on /chat/completions paths
+  base_url: "http://127.0.0.1:8000/v1"
+  # Tailscale founded client: "http://100.98.213.2:8000/v1" (Spark only; Mac = client)
+  api_key: "sk-local" # llama-server ignores auth; keep a placeholder
+  model: "local-laguna" # must match llama-server --alias
+  timeout_s: 300
+  headers:
+    User-Agent: "laguna-spark-hermes-sample/0.1"
+
+serve_pin:
+  # Captain flags from results/LAST_GREEN_PIN.md / MEASURED.md
+  engine: "poolsideai/llama.cpp@04b2b72 (branch laguna)"
+  quant: "poolside/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf"
+  q4_sha256: "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4"
+  flags:
+    - "--ctx-size 8192"
+    - "-ngl -1"
+    - "--jinja" # required for Laguna tool/chat template
+    - "-fa on"
+    - "--alias local-laguna"
+    - "--parallel 1"
+
+sampling_agent:
+  # Agent smoke lock uses temp 0.0
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 512
+  tool_choice: auto
+
+client_rules:
+  - "Never execute a tool name absent from the offered schema"
+  - "function.arguments must be a JSON object string; repair/sanitize before re-send"
+  - "Append role=tool results, then continue the same multi-turn thread"
+  - "Prefer short final content after tools resolve"
+
+smoke:
+  agent_bar: "eval/agent_smoke/run_smoke.py  # 40 cases · launch bar"
+  hermes_v2: "eval/hermes_agent_smoke/run_hermes_smoke.py  # 27 cases · measured tip"
+  hermes_layer_b_v3: "eval/hermes_agent_smoke/run_hermes_smoke.py --cases eval/hermes_agent_smoke/cases_layer_b_v3.json  # research only until live JSON"

@@ -166,10 +166,12 @@ Sample client already at `hermes/sample_client.py` + `hermes/README.md`. Expand 
 - [x] Diagnose + fix `repair_04` / `long_06` (harness; not weights)
 - [x] Re-run smoke → **40/40**; MEASURED + measured.json from live files only
 - [x] Add `research/` brief (this file)
-- [ ] short public “Why official Q4 for agents” section on card
-- [ ] Hermes wiring page on card (copy-paste)
-- [ ] Tags + base_model relation clean
-- [ ] SHA pins + engine sha frozen
+- [x] short public “Why official Q4 for agents” section on card
+- [x] Hermes wiring page on card (copy-paste) + `hermes/config.example.yaml`
+- [x] Tags + base_model relation clean
+- [x] SHA pins + engine sha frozen (rehash lock_set at freeze on clean HEAD)
+- [x] Hermes Layer B harness cases (v3 35) — offline judges only until Spark live
+- [ ] Live Spark serve restore + optional Layer B v3 measure (harness research; freeze bar still 40/40 + 27/27)
 
 ### Launch hour
 1. Meaningful card revisiontimestamp (mod time spike)

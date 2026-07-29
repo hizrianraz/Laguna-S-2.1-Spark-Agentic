@@ -142,6 +142,56 @@ Device ladder: [`research/device-quant-matrix-aug3.md`](./research/device-quant-
 Do **not** claim “first quant”.  
 Do **not** label third-party numbers as Spark-measured without same-harness JSON under `results/sku_*`.
 
+### Why official Q4_K_M for agents
+
+Under launch lock, power is **agent fitness on a fixed harness**, not boutique re-quant names.
+
+1. Poolside protects the **signal path** on official Q4 (imatrix + first-party chat template).
+2. Same digest → strangers can **reproduce** without trusting a private pack-hosted binary.
+3. Our headline is **40/40 agent_smoke + 27/27 hermes-class** on that exact file — not a mystery mixtype.
+4. DIY / third-party only lands if it **beats** official by a clear margin on the **same** smoke runners, with method disclosure. Today: `diy_gguf: false`.
+
+Looking unique on HF alone is not a reason to re-quant.
+
+---
+
+## Hermes-class wiring (copy-paste)
+
+“Hermes-class” = OpenAI `chat.completions` + `tools` / `tool_calls` shape.  
+**Not** a Nous Research product claim or endorsement.
+
+```bash
+# Spark already serving with captain flags:
+#   -c 8192 -ngl -1 --jinja -fa on --alias local-laguna
+
+export OPENAI_BASE_URL=http://127.0.0.1:8000/v1   # /v1 required
+export OPENAI_API_KEY=sk-local
+export OPENAI_MODEL=local-laguna
+
+# Smoke probe (one shot, no tool execution)
+python hermes/sample_client.py
+
+# Launch-bar suites (temp 0)
+python eval/agent_smoke/run_smoke.py \
+  --base-url "$OPENAI_BASE_URL" --model local-laguna
+python eval/hermes_agent_smoke/run_hermes_smoke.py \
+  --base-url "$OPENAI_BASE_URL" --model local-laguna \
+  --out results/hermes_agent_smoke.json
+```
+
+Agent loop contract:
+
+1. POST messages + tool schemas  
+2. If `tool_calls` → execute **only** offered names → append `role=tool`  
+3. Repeat until final `content`  
+4. Sanitize invalid prior `function.arguments` JSON before re-send (see runner / sample notes)
+
+Config snippet for OpenAI-compatible agent stacks: [`hermes/config.example.yaml`](./hermes/config.example.yaml)  
+Full notes + failure matrix: [`hermes/README.md`](./hermes/README.md)
+
+Optional research expansion (not freeze bar):  
+`eval/hermes_agent_smoke/cases_layer_b_v3.json` (**35** cases) — live claim only after Spark measure file exists.
+
 ---
 
 ## Quick start (stranger path)
