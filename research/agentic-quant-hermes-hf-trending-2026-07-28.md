@@ -194,10 +194,10 @@ Sample client already at `hermes/sample_client.py` + `hermes/README.md`. Expand 
 
 ### P1 — Hermes power
 4. ~~`eval/hermes_agent_smoke/`~~ — **done:** freeze v2 **27** cases + **27/27** live tip
-5. ~~Multi-turn tool observation tests~~ — **done:** Layer B v3 (**35** = 27+8 long-horizon); offline judges green; live claim blocked on Spark serve
+5. ~~Multi-turn tool observation tests~~ — **done:** Layer B v3 (**35** = 27+8 long-horizon); offline judges green; **live 35/35 in 137.56s** (2026-07-29)
 6. ~~Card Hermes wiring + config~~ — **done:** README section + `hermes/config.example.yaml` + `hermes/README.md`
-7. Optional: side-measure Unsloth UD-Q4_K_XL on same harness (label third-party) — **post-serve**, never headline
-8. Live Spark restore → `scripts/measure_layer_b_v3.sh` (research artifact only; freeze bar unchanged)
+7. Optional: side-measure Unsloth UD-Q4_K_XL on same harness (label third-party) — optional, never headline
+8. ~~Live Spark restore → measure_layer_b_v3~~ — **done:** tunnel + `scripts/measure_layer_b_v3.sh` → 35/35; receipt `eval/hermes_agent_smoke/layer_b_v3_live_receipt.json`; freeze bar unchanged
 
 ### P2 — attention
 9. Launch-day parent discussions + collection
@@ -234,4 +234,4 @@ Sample client already at `hermes/sample_client.py` + `hermes/README.md`. Expand 
 | Top-10 **Laguna pack cluster** attention | Achievable with evidence card + launch distribution |
 | Top-10 **global HF trending** | Not a primary commit; side-effect only |
 
-Next single move: **restore Spark captain serve → run `scripts/measure_layer_b_v3.sh` (research only) — not a new quant. DIY still locked.**
+Next single move: **HF/card polish for Aug 3 only if needed — Layer B live is green (research). No DIY quant. Freeze bars stay 40/40 + hermes v2 27/27.**

@@ -1,0 +1,94 @@
+{
+  "event": "hermes_layer_b_v3_live_measure",
+  "status": "measured",
+  "claim_surface": "research_only",
+  "not_freeze_bar": true,
+  "do_not_rewrite_launch_lock": true,
+  "measured_at_wib": "2026-07-29T18:50:33+07:00",
+  "suite": "hermes_agent_smoke",
+  "version_hint": 3,
+  "passed": 35,
+  "n": 35,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "elapsed_s": 137.56,
+  "model": "local-laguna",
+  "base_url_note": "ssh -L 18000:127.0.0.1:8000 spark \u2192 Mac :18000 (Spark serve bound 127.0.0.1:8000)",
+  "weight": "laguna-s-2.1-Q4_K_M.gguf official poolside",
+  "engine_bin": "poolside llama.cpp laguna llama-server on DGX Spark",
+  "temperature": 0.0,
+  "cases_file": "eval/hermes_agent_smoke/cases_layer_b_v3.json",
+  "artifact_local": "results/hermes_agent_smoke_layer_b_v3.json",
+  "artifact_sha256": "7c7daf8e5e197cd89c046c2b7d24adbede558e89718debb88eecedce1df388bc",
+  "artifact_bytes": 20714,
+  "meets_ship_min": true,
+  "meets_ship_stretch": true,
+  "ship_min": 30,
+  "ship_stretch": 35,
+  "by_category": {
+    "terminal": {
+      "n": 3,
+      "passed": 3
+    },
+    "files": {
+      "n": 4,
+      "passed": 4
+    },
+    "web": {
+      "n": 2,
+      "passed": 2
+    },
+    "multi_tool": {
+      "n": 3,
+      "passed": 3
+    },
+    "multi_turn": {
+      "n": 6,
+      "passed": 6
+    },
+    "error_repair": {
+      "n": 3,
+      "passed": 3
+    },
+    "no_invented": {
+      "n": 3,
+      "passed": 3
+    },
+    "browser": {
+      "n": 1,
+      "passed": 1
+    },
+    "memory_cron": {
+      "n": 2,
+      "passed": 2
+    },
+    "args_strict": {
+      "n": 2,
+      "passed": 2
+    },
+    "safety": {
+      "n": 1,
+      "passed": 1
+    },
+    "long_horizon": {
+      "n": 5,
+      "passed": 5
+    }
+  },
+  "new_layer_b_ids": [
+    "long_01",
+    "long_02",
+    "long_03",
+    "long_04",
+    "long_05",
+    "repair_03",
+    "turn_05",
+    "turn_06"
+  ],
+  "freeze_bars_unchanged": {
+    "agent_smoke": "40/40",
+    "hermes_agent_smoke_v2": "27/27"
+  },
+  "diy_gguf": false,
+  "host": "dgx-spark-via-ssh-tunnel"
+}

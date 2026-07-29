@@ -38,7 +38,21 @@ v3 adds **long_horizon** (+ denser multi_turn / error_repair): tool→obs→next
 | Artifact | `results/hermes_agent_smoke.json` |
 | When | 2026-07-28/29 (see `results/launch_lock.json`) |
 
-v3 Layer B has **no live Spark claim** in this pack tip until a real run writes `results/hermes_agent_smoke_layer_b_v3.json`.
+## Measured (live Spark) — Layer B v3 research only
+
+| Field | Value |
+|-------|--------|
+| Result | **35/35 (100%)** on **v3** (=27+8) |
+| Elapsed | **137.56 s** |
+| Model id | `local-laguna` |
+| Weight | official `laguna-s-2.1-Q4_K_M.gguf` |
+| Path | Spark serve `127.0.0.1:8000` → SSH tunnel Mac `:18000` |
+| Temp | **0.0** |
+| Artifact (local, gitignored) | `results/hermes_agent_smoke_layer_b_v3.json` |
+| Receipt (tracked) | `layer_b_v3_live_receipt.json` |
+| When | 2026-07-29 ~18:49 WIB |
+
+**Not a freeze-bar move.** Do not rewrite `launch_lock.json` hermes fields from v3.
 
 ## Run
 

@@ -52,9 +52,13 @@ import json, os
 from pathlib import Path
 p = Path(os.environ["OUT"])
 d = json.loads(p.read_text())
-n = d.get("n_pass", d.get("passed", d.get("n_ok", "?")))
-t = d.get("n_total", d.get("total", "?"))
-if n == "?" and isinstance(d.get("cases"), list):
+n = d.get("passed", d.get("n_pass", d.get("n_ok", "?")))
+t = d.get("n", d.get("n_total", d.get("total", "?")))
+if (n == "?" or t == "?") and isinstance(d.get("results"), list):
+    cases = d["results"]
+    t = len(cases)
+    n = sum(1 for c in cases if c.get("pass") or c.get("ok") or c.get("passed"))
+elif (n == "?" or t == "?") and isinstance(d.get("cases"), list):
     cases = d["cases"]
     t = len(cases)
     n = sum(1 for c in cases if c.get("pass") or c.get("ok") or c.get("passed"))
