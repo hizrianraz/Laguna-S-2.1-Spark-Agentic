@@ -61,18 +61,20 @@ Notes:
 
 ## Weights
 
-Default stand-behind file (official, not re-uploaded unless delta exists):
+Default stand-behind file (official Poolside bytes via preferred mirror):
 
 ```bash
-huggingface-cli download poolside/Laguna-S-2.1-GGUF \
+# preferred: ./scripts/pull_official_gguf.sh
+huggingface-cli download hizrianraz/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
   --local-dir $HOME/models/laguna-s-2.1
+# upstream alt: poolside/Laguna-S-2.1-GGUF @ fc4e481289523cf7d0df668da6d1d391616141ca
 
 sha256sum $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf
 # expect a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4
 ```
 
-Optional DFlash draft:
+Optional DFlash draft (upstream only today):
 
 ```bash
 huggingface-cli download poolside/Laguna-S-2.1-GGUF \

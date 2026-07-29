@@ -31,19 +31,31 @@ Measured **DGX Spark** runtime pack for
 [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1)
 (118B total · ~8B active/token · MoE · agentic coding).
 
+## Download weights first (main download surface)
+
+→ **[hizrianraz/Laguna-S-2.1-GGUF](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF)**  
+File: `laguna-s-2.1-Q4_K_M.gguf` · ~89.4 GiB · official Poolside bytes
+
+```bash
+hf download hizrianraz/Laguna-S-2.1-GGUF laguna-s-2.1-Q4_K_M.gguf --local-dir ~/models/laguna-s-2.1
+echo "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4  laguna-s-2.1-Q4_K_M.gguf" | (cd ~/models/laguna-s-2.1 && sha256sum -c -)
+```
+
+This pack is **not** the bulk weight host. It publishes **serve pins, digests, and agent smoke**.
+
 | | |
 |--|--|
-| **Default quant** | Official Poolside `Q4_K_M` |
-| **Weight host** | NVIDIA DGX Spark (GB10) |
+| **Default quant** | Official Poolside `Q4_K_M` (mirrored) |
+| **Weights (default)** | [`hizrianraz/Laguna-S-2.1-GGUF`](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF) |
+| **Upstream GGUF** | [`poolside/Laguna-S-2.1-GGUF`](https://huggingface.co/poolside/Laguna-S-2.1-GGUF) |
+| **Weight host (measure)** | NVIDIA DGX Spark (GB10) |
+| **agent_smoke** | **40/40** |
 | **Launch** | 2026-08-03 12:00 WIB |
 | **Content freeze** | 2026-08-02 18:00 WIB |
 | **Affiliation** | Independent · not Poolside · not Nous Research |
 
-This pack publishes **serve pins, digests, and agent smoke results**.
-It does **not** re-host GGUF weights by default — pull official files from Poolside.
-
-Sibling research pack (separate model, not an S quant):
-[`Laguna-XS-2.1-Mac-Agentic`](https://huggingface.co/hizrianraz/Laguna-XS-2.1-Mac-Agentic)
+Sibling (separate model, not an S quant):
+[`Laguna-XS-2.1-Mac-Agentic`](https://huggingface.co/hizrianraz/Laguna-XS-2.1-Mac-Agentic) · weights [`Laguna-XS-2.1-GGUF`](https://huggingface.co/hizrianraz/Laguna-XS-2.1-GGUF)
 
 Launch calendar: [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
 
@@ -105,11 +117,11 @@ cmake -B build -G "Unix Makefiles" \
   -DLLAMA_CURL=ON
 cmake --build build -j --target llama-server llama-cli llama-bench
 
-# 2) Weights — official Q4 + fail-closed digest check
-huggingface-cli download poolside/Laguna-S-2.1-GGUF \
+# 2) Weights — preferred mirror (official Q4 bytes) + fail-closed digest check
+huggingface-cli download hizrianraz/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
-  --revision fc4e481289523cf7d0df668da6d1d391616141ca \
   --local-dir ~/models/laguna-s-2.1
+# Upstream alternative: poolside/Laguna-S-2.1-GGUF @ fc4e481289523cf7d0df668da6d1d391616141ca
 cp /path/to/this/pack/SHA256SUMS ~/models/laguna-s-2.1/
 (cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
 
@@ -161,8 +173,9 @@ Retain notices. Pack scripts and eval harnesses are separate files with clear pr
 | Base model | `poolside/Laguna-S-2.1` |
 | Base revision | `00af5a51782109b587a3b3bbf11875e566036fa7` |
 | Architecture | 118B total · ~8B active/token · MoE |
-| Official GGUF repo | `poolside/Laguna-S-2.1-GGUF` |
-| GGUF revision | `fc4e481289523cf7d0df668da6d1d391616141ca` |
+| Official GGUF repo (upstream) | `poolside/Laguna-S-2.1-GGUF` |
+| Preferred mirror | [`hizrianraz/Laguna-S-2.1-GGUF`](https://huggingface.co/hizrianraz/Laguna-S-2.1-GGUF) |
+| GGUF revision (upstream pin) | `fc4e481289523cf7d0df668da6d1d391616141ca` |
 | Stand-behind quant | **official** `laguna-s-2.1-Q4_K_M.gguf` |
 | Optional denser | official `laguna-s-2.1-Q8_0.gguf` |
 | Engine | `poolsideai/llama.cpp` · branch `laguna` · [PR #25165](https://github.com/ggml-org/llama.cpp/pull/25165) |

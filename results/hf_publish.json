@@ -10,7 +10,7 @@
     ".gitignore",
     "LAUNCH_AUG3.md",
     "LICENSE.md",
-    "LICENSE.openmdw-1.1.txt",
+    "LICENSE",
     "NOTICE",
     "README.md",
     "SHA256SUMS",
@@ -111,5 +111,10 @@
     "LAUNCH_AUG3.md"
   ],
   "upload_return": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic/commit/57aa78584ad62ed5c75c0cf8b158aebb70b26da8",
-  "jury_overall": "GO_PASS_CONTINUE_PREP"
+  "jury_overall": "GO_PASS_CONTINUE_PREP",
+  "local_polish_pending_push": true,
+  "local_polish_note": "2026-07-29: remove bad WordPress LICENSE.openmdw-1.1.txt; add LICENSE; preferred GGUF mirror default_quant; docs polish. Not pushed.",
+  "local_polish_at_wib": "2026-07-29T21:59:45+07:00",
+  "default_quant": "hizrianraz/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
+  "default_quant_upstream": "poolside/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf"
 }

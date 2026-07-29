@@ -8,7 +8,8 @@ Weights live under `models/` (and optionally `weights/`). Never commit `*.gguf`.
 models/laguna-s-2.1-Q4_K_M.gguf
 ```
 
-Official: `poolside/Laguna-S-2.1-GGUF` · sha256 `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` · ~89.4 GiB
+Preferred mirror: `hizrianraz/Laguna-S-2.1-GGUF` (official Poolside bytes)
+Upstream: `poolside/Laguna-S-2.1-GGUF` · sha256 `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` · ~89.4 GiB
 
 Canonical serve path may stay `~/models/laguna-s-2.1/` with a symlink into this pack.
 

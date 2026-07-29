@@ -48,9 +48,12 @@ download() {
 
 case "$SKU" in
   official-q4km)
-    REV="${LAGUNA_GGUF_REV:-fc4e481289523cf7d0df668da6d1d391616141ca}"
+    # Preferred mirror hosts official Poolside bytes. Override:
+    #   LAGUNA_GGUF_REPO=poolside/Laguna-S-2.1-GGUF LAGUNA_GGUF_REV=fc4e481289523cf7d0df668da6d1d391616141ca
+    REPO="${LAGUNA_GGUF_REPO:-hizrianraz/Laguna-S-2.1-GGUF}"
+    REV="${LAGUNA_GGUF_REV:-main}"
     OUT="$DEST_ROOT/official-q4km"
-    download poolside/Laguna-S-2.1-GGUF "$REV" laguna-s-2.1-Q4_K_M.gguf "$OUT"
+    download "$REPO" "$REV" laguna-s-2.1-Q4_K_M.gguf "$OUT"
     ;;
   unsloth-ud-q4k-xl)
     REV=main

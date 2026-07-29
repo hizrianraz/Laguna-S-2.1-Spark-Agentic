@@ -4,10 +4,12 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SUMS="${LAGUNA_SHA256SUMS:-${ROOT}/SHA256SUMS}"
-REV="${LAGUNA_GGUF_REV:-fc4e481289523cf7d0df668da6d1d391616141ca}"
+# Preferred mirror = our GGUF host (official Poolside bytes). Override to force upstream.
+REPO="${LAGUNA_GGUF_REPO:-hizrianraz/Laguna-S-2.1-GGUF}"
+# Revision: main on our mirror; pin upstream with LAGUNA_GGUF_REV when REPO=poolside/...
+REV="${LAGUNA_GGUF_REV:-main}"
 FILE="${1:-laguna-s-2.1-Q4_K_M.gguf}"
 DEST="${LAGUNA_MODEL_DIR:-$HOME/models/laguna-s-2.1}"
-REPO="poolside/Laguna-S-2.1-GGUF"
 URL="https://huggingface.co/${REPO}/resolve/${REV}/${FILE}"
 
 if [[ ! -f "${SUMS}" ]]; then

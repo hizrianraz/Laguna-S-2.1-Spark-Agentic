@@ -8,8 +8,9 @@ Personal reproducible method.
 |------|--------|
 | Base model | `poolside/Laguna-S-2.1` |
 | Base revision | `00af5a51782109b587a3b3bbf11875e566036fa7` |
-| Official GGUF repo | `poolside/Laguna-S-2.1-GGUF` |
-| GGUF revision | `fc4e481289523cf7d0df668da6d1d391616141ca` |
+| Official GGUF repo (upstream) | `poolside/Laguna-S-2.1-GGUF` |
+| Preferred mirror | `hizrianraz/Laguna-S-2.1-GGUF` |
+| GGUF revision (upstream pin) | `fc4e481289523cf7d0df668da6d1d391616141ca` |
 | Default weight | `laguna-s-2.1-Q4_K_M.gguf` |
 | Q4_K_M sha256 | `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
 | Engine | `github.com/poolsideai/llama.cpp` branch `laguna` |
@@ -27,10 +28,14 @@ Personal reproducible method.
 ./scripts/pull_official_gguf.sh
 
 # or manual download + GNU 2-column check from the weight directory:
-huggingface-cli download poolside/Laguna-S-2.1-GGUF \
+huggingface-cli download hizrianraz/Laguna-S-2.1-GGUF \
   laguna-s-2.1-Q4_K_M.gguf \
-  --revision fc4e481289523cf7d0df668da6d1d391616141ca \
   --local-dir ~/models/laguna-s-2.1
+# Upstream alternative:
+# huggingface-cli download poolside/Laguna-S-2.1-GGUF \
+#   laguna-s-2.1-Q4_K_M.gguf \
+#   --revision fc4e481289523cf7d0df668da6d1d391616141ca \
+#   --local-dir ~/models/laguna-s-2.1
 cp SHA256SUMS ~/models/laguna-s-2.1/
 (cd ~/models/laguna-s-2.1 && sha256sum -c SHA256SUMS)
 ```

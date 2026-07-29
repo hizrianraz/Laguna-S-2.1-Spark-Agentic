@@ -21,7 +21,7 @@ provider:
 serve_pin:
   # Captain flags from results/LAST_GREEN_PIN.md / MEASURED.md
   engine: "poolsideai/llama.cpp@04b2b72 (branch laguna)"
-  quant: "poolside/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf"
+  quant: "hizrianraz/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf"  # official Poolside bytes; upstream alt poolside/Laguna-S-2.1-GGUF
   q4_sha256: "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4"
   flags:
     - "--ctx-size 8192"
