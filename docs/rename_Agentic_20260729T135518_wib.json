@@ -1,0 +1,30 @@
+{
+  "event": "pack_full_rename_to_Agentic_TitleCase",
+  "at_wib": "2026-07-29T13:55:18+07:00",
+  "host": "HizrianacStudio.localdomain",
+  "targets": {
+    "S": {
+      "display": "Laguna-S-2.1-Spark-Agentic",
+      "github": "https://github.com/hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "hf": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "local_dir": "/Users/hizrianraz/code/hizrianraz/Laguna-S-2.1-Spark-Agentic"
+    },
+    "XS": {
+      "display": "Laguna-XS-2.1-Mac-Agentic",
+      "github": "https://github.com/hizrianraz/Laguna-XS-2.1-Mac-Agentic",
+      "hf": "https://huggingface.co/hizrianraz/Laguna-XS-2.1-Mac-Agentic",
+      "local_dir": "/Users/hizrianraz/code/hizrianraz/Laguna-XS-2.1-Mac-Agentic"
+    }
+  },
+  "unchanged": [
+    "weight filenames (laguna-s-2.1-Q4*, Laguna-XS-2.1-Q4*)",
+    "upstream poolside model ids",
+    "default quant Q4_K_M",
+    "public_promo_before_launch=false",
+    "weight_host Spark-only for S"
+  ],
+  "old_ids_redirect": {
+    "hf_old_resolve_to_new": true,
+    "note": "HF move keeps old kebab ids resolving to new Title-Case repos"
+  }
+}
