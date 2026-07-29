@@ -33,7 +33,7 @@ Unsloth UD-IQ3_S **38/40** on **older runner** (no sanitize / any_of_tools) · *
 
 ## XS (sibling)
 
-Parallel pack `laguna-xs-2.1-mac` · disk candidate only · **0 Mac smoke** · must not dilute S freeze.
+Parallel pack `Laguna-XS-2.1-Mac-Agentic` · disk candidate only · **0 Mac smoke** · must not dilute S freeze.
 
 ## Not claimed tonight
 

@@ -1,11 +1,11 @@
 {
-  "event": "laguna-s-2.1-spark-hf-launch",
+  "event": "Laguna-S-2.1-Spark-Agentic-hf-launch",
   "status": "locked",
   "locked_at_wib": "2026-07-28T18:00:00+07:00",
   "launch_at_wib": "2026-08-03T12:00:00+07:00",
   "freeze_at_wib": "2026-08-02T18:00:00+07:00",
-  "repo_id": "hizrianraz/laguna-s-2.1-spark",
-  "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
+  "repo_id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+  "url": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic",
   "default_quant": "poolside/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
   "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
   "ship_min_smoke": "38/40",
@@ -26,7 +26,7 @@
   "public_promo_before_launch": false,
   "xs_parallel_track": "prepared_research",
   "xs_parallel_lock": "results/xs_mac_track_lock.json",
-  "xs_parallel_notes": "research/laguna-xs-2.1-mac-fit-2026-07-28.md",
+  "xs_parallel_notes": "research/Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md",
   "dual_roadmap": "research/roadmap-dual-s-and-xs-2026-07-28.md",
   "xs_not_in_s_freeze": true,
   "xs_not_a_quant_of_s": true

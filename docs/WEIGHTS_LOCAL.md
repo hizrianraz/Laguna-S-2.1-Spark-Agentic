@@ -18,4 +18,4 @@ Full S weights: **do not** land on founder Mac. Client → Spark `:8000` only.
 
 ## XS
 
-Separate pack `laguna-xs-2.1-mac/models/` — not this tree.
+Separate pack `Laguna-XS-2.1-Mac-Agentic/models/` — not this tree.

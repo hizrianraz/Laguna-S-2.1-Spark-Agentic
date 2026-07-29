@@ -1,24 +1,23 @@
 {
-  "base_url": "http://100.98.213.2:8000/v1",
+  "base_url": "http://127.0.0.1:8000/v1",
   "model": "local-laguna",
   "rows": [
     {
       "mark": "2k",
-      "latency_s": 1.022,
+      "latency_s": 1.597,
       "prompt_tokens": 836,
       "completion_tokens": 3,
-      "completion_tok_s": 2.935,
+      "completion_tok_s": 1.878,
       "content": "OK"
     },
     {
       "mark": "8k",
-      "latency_s": 1.521,
+      "latency_s": 4.78,
       "prompt_tokens": 3236,
       "completion_tokens": 3,
-      "completion_tok_s": 1.973,
+      "completion_tok_s": 0.628,
       "content": "OK"
     }
   ],
-  "ts": 1785240797.71028,
-  "note": "prefill-oriented OK replies"
+  "ts": 1785305345.2721028
 }

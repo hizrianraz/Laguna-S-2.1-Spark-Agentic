@@ -7,7 +7,7 @@ Not a global HF top-10 claimsheet. Global trending needs downloads/likes/recency
 
 | Field | Value |
 |-------|-------|
-| Pack | `hizrianraz/laguna-s-2.1-spark` |
+| Pack | `hizrianraz/Laguna-S-2.1-Spark-Agentic` |
 | Weights | official `poolside/Laguna-S-2.1-GGUF` · `laguna-s-2.1-Q4_K_M.gguf` |
 | sha256 | `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4` |
 | Host | DGX Spark GB10 · 121 Gi |

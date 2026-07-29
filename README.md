@@ -15,7 +15,7 @@ library_name: gguf
 pipeline_tag: text-generation
 ---
 
-# Laguna-S-2.1 · DGX Spark pack (personal)
+# Laguna-S-2.1-Spark-Agentic (personal)
 
 **Launch target: 2026-08-03 (WIB)** — see [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
 
@@ -84,7 +84,7 @@ sha256sum -c SHA256SUMS
 | Speculative decode | + Poolside **DFlash-BF16** | Needs poolside `laguna` fork (`--spec-type draft-dflash`) |
 | iPhone / Android phone or tablet | **non-fit** for full Laguna-S | ~40GB+ even at IQ3; mobile NPU/RAM is 4–12G class — need SLM/distill, not this MoE |
 
-**XS is parallel, not an S quant.** Founder Mac ≤32G XS disk candidate = Poolside `Laguna-XS-2.1-Q4_K_M.gguf` (~18.9G) · separate 33B-A3B · **0 Mac smoke** · see [`research/laguna-xs-2.1-mac-fit-2026-07-28.md`](./research/laguna-xs-2.1-mac-fit-2026-07-28.md) + dual roadmap.
+**XS is parallel, not an S quant.** Founder Mac ≤32G XS disk candidate = Poolside `Laguna-XS-2.1-Q4_K_M.gguf` (~18.9G) · separate 33B-A3B · **0 Mac smoke** · see [`research/Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md`](./research/Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md) + dual roadmap.
 
 Pull by SKU id:
 

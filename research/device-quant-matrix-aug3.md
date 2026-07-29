@@ -18,7 +18,7 @@ We still publish a community ladder (48–64G+ boxes other people own) as *point
 |--------------|--------------|--------------|--------|-------------|--------|---------------------|
 | DGX Spark GB10 | ~121 Gi | **official Q4_K_M** | poolside | **96.0 GB** | agent bar | **Stand-behind · measured 40/40 · ~21 t/s** |
 | **Founder MacBook / Mac Studio (≤32G) · full S** | **≤32G** | **No full S weights** | — | — | OS + app already fill RAM | **Mac = OpenAI client → Spark :8000** · full-S weight non-fit |
-| **Founder Mac ≤32G · XS parallel** | **32G** (Studio live) | **XS Q4_K_M** (~18.9 Gi) | `poolside/Laguna-XS-2.1-GGUF` | **18.882 GiB** | disk candidate only | **separate model 33B-A3B** · **0 Mac smoke** · not S · see [`laguna-xs-2.1-mac-fit-2026-07-28.md`](./laguna-xs-2.1-mac-fit-2026-07-28.md) |
+| **Founder Mac ≤32G · XS parallel** | **32G** (Studio live) | **XS Q4_K_M** (~18.9 Gi) | `poolside/Laguna-XS-2.1-GGUF` | **18.882 GiB** | disk candidate only | **separate model 33B-A3B** · **0 Mac smoke** · not S · see [`Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md`](./Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md) |
 | Community fat Mac / mini (64–128G) *others* | 64–128G | Unsloth **UD-IQ4_XS** or Bartowski **IQ4_XS** | unsloth / bartowski | **~58 / ~63 GB** | near-Q4 if engine OK | community pointer only · **not founder-measured** |
 | Community Mac/PC 48–64G *others* | ~48–64G | Unsloth **UD-IQ3_S** (first) | unsloth | **~48 GB** | quality dip | Spark same-harness IQ3_S **38/40** pointer · not Mac-local |
 | PC workstation 64–96G CUDA | 64–96G | Bartowski **Q4_K_S** / **IQ4_XS** / Unsloth **UD-Q4_K_S** | bartowski / unsloth | **~69 / ~63 / ~69 GB** | if VRAM+RAM enough | pointer + CUDA note |

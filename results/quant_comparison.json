@@ -4,7 +4,7 @@
     "repo_weights": "poolside/Laguna-S-2.1-GGUF",
     "file": "laguna-s-2.1-Q4_K_M.gguf",
     "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
-    "pack": "hizrianraz/laguna-s-2.1-spark"
+    "pack": "hizrianraz/Laguna-S-2.1-Spark-Agentic"
   },
   "live_gen": {
     "rows": [

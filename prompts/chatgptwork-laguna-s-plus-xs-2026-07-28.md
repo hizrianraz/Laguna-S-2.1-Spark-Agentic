@@ -11,10 +11,10 @@ You are an external technical analyst. Advisory only.
 
 ## Two tracks (never merge)
 
-### Track A — Laguna-S-2.1 Spark pack (stand-behind)
-- Personal pack HF: https://huggingface.co/hizrianraz/laguna-s-2.1-spark
-- Local: `~/code/hizrianraz/laguna-s-2.1-spark`
-- Mirrors: Synology `/Volumes/home/hizrianraz/laguna-s-2.1-spark` · Spark `~/hizrianraz/laguna-s-2.1-spark`
+### Track A — Laguna-S-2.1-Spark-Agentic pack (stand-behind)
+- Personal pack HF: https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic
+- Local: `~/code/hizrianraz/Laguna-S-2.1-Spark-Agentic`
+- Mirrors: Synology `/Volumes/home/hizrianraz/Laguna-S-2.1-Spark-Agentic` · Spark `~/hizrianraz/Laguna-S-2.1-Spark-Agentic`
 - Base: poolside/Laguna-S-2.1 (118B-A8B MoE)
 - Weight host lock: **DGX Spark only**
 - Founder Mac ≤32G: **client only** for full S — no local full-S weights
@@ -28,8 +28,8 @@ You are an external technical analyst. Advisory only.
 - DIY GGUF: false unless measured win
 - Three-jury post-placement: **all_go** for analysis continue only
 
-### Track B — Laguna-XS-2.1 Mac ≤32G candidate (parallel, unmeasured)
-- Separate pack: `~/code/hizrianraz/laguna-xs-2.1-mac` (+ Synology/Spark trees)
+### Track B — Laguna-XS-2.1-Mac-Agentic ≤32G candidate (parallel, unmeasured)
+- Separate pack: `~/code/hizrianraz/Laguna-XS-2.1-Mac-Agentic` (+ Synology/Spark trees)
 - Base: https://huggingface.co/poolside/Laguna-XS-2.1  
   sha `205dc65dd4bda946c50da6b7522b215734fa107b`
 - Shape: **33B total · 3B active** MoE (NOT a quant of S)

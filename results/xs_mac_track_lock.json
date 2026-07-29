@@ -2,7 +2,7 @@
   "schema": "laguna.xs_mac_track_lock/v1",
   "status": "prepared_research",
   "prepared_at_wib": "2026-07-28T21:20:00+07:00",
-  "track_id": "laguna-xs-2.1-mac-fit",
+  "track_id": "Laguna-XS-2.1-Mac-Agentic-fit",
   "model_family": "Laguna-XS-2.1",
   "not_a_quant_of": "Laguna-S-2.1",
   "base_repo": "poolside/Laguna-XS-2.1",
@@ -59,7 +59,7 @@
   },
   "namespace": {
     "notes_in_s_pack": "research/ only — not S freeze artifact",
-    "optional_future_surface": "hizrianraz/laguna-xs-2.1-mac (not created)",
+    "optional_future_surface": "hizrianraz/Laguna-XS-2.1-Mac-Agentic (not created)",
     "forbidden_aliases": [
       "S on Mac",
       "S-lite",
@@ -68,7 +68,7 @@
     ]
   },
   "relation_to_s_pack": {
-    "s_repo": "hizrianraz/laguna-s-2.1-spark",
+    "s_repo": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
     "s_weight_host": "dgx-spark-only",
     "s_founder_mac": "client-only-no-local-weights",
     "s_freeze_wib": "2026-08-02T18:00:00+07:00",

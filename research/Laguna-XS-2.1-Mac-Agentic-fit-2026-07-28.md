@@ -104,7 +104,7 @@ Do **not** pull BF16 on this Mac.
 
 | Item | Owner |
 |------|--------|
-| `hizrianraz/laguna-s-2.1-spark` freeze/launch | **Roadmap A only** |
+| `hizrianraz/Laguna-S-2.1-Spark-Agentic` freeze/launch | **Roadmap A only** |
 | XS Mac notes | this file + `xs_mac_track_lock.json` |
 | multi_device_track | S community pointers; XS is **extra parallel** |
 | XS may delay S freeze | **no** |

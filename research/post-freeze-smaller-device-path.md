@@ -36,7 +36,7 @@ Do **not** call XS “S on Mac”.
 |--------------|-----|-----------|--------|--------------|
 | DGX Spark | ~121G | Official **S** Q4_K_M (~96G) | poolside laguna CUDA | **stand-behind measured** |
 | **Founder Mac · full S** | **≤32G** | **no full S weights** | Hermes / curl → Spark | **Laguna Mac = client** |
-| **Founder Mac · XS parallel** | **32G** | official **XS** Q4_K_M (~18.9G) | laguna Metal / Ollama? | **research** · 0 smoke · see [`laguna-xs-2.1-mac-fit-2026-07-28.md`](./laguna-xs-2.1-mac-fit-2026-07-28.md) |
+| **Founder Mac · XS parallel** | **32G** | official **XS** Q4_K_M (~18.9G) | laguna Metal / Ollama? | **research** · 0 smoke · see [`Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md`](./Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md) |
 | Community workstation 64–128G | 64–128G | **S** UD-Q4_K_XL / IQ4_XS | CUDA / Metal | stranger pointer only |
 | Community Mac/PC 48–64G | 48–64G | **S** UD-IQ3_S (Spark 38/40) | Metal/CUDA | stranger pointer; not founder Mac |
 | Laptop 16–24G full S | 16–24G | no full S | — | distill / bonsai / or XS separate |

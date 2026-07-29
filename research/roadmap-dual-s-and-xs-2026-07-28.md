@@ -11,7 +11,7 @@ Two roadmaps. One is never a rename of the other.
 | Host | **DGX Spark only** (weights) | Founder Mac ≤32G (weights candidate) |
 | Default SKU | official S Q4_K_M ~96G | official XS Q4_K_M ~18.9G |
 | Measured bar today | 40/40 + hermes 27/27 · ~21 t/s | **none** (disk evidence only) |
-| Pack / freeze | `hizrianraz/laguna-s-2.1-spark` · freeze Aug 2 18:00 · launch Aug 3 12:00 WIB | research parallel; optional later `laguna-xs-*` surface |
+| Pack / freeze | `hizrianraz/Laguna-S-2.1-Spark-Agentic` · freeze Aug 2 18:00 · launch Aug 3 12:00 WIB | research parallel; optional later `laguna-xs-*` surface |
 | Founder Mac role for S | **client → Spark :8000** | n/a |
 | Coupling | — | **must not** delay or dilute A |
 
@@ -51,7 +51,7 @@ Two roadmaps. One is never a rename of the other.
 - Host: Studio 32G live vs vendor “36G” gap noted
 - Engine: poolside laguna fork / PR #25165 risk
 - Locks: `results/xs_mac_track_lock.json`
-- Notes: `research/laguna-xs-2.1-mac-fit-2026-07-28.md`
+- Notes: `research/Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md`
 - Matrix row + definition table updated
 
 ### Ordered next (founder-gated each step)
@@ -94,7 +94,7 @@ Two roadmaps. One is never a rename of the other.
 | `results/launch_lock.json` | A |
 | `results/MEASURED.md` · smoke JSON | A |
 | `results/xs_mac_track_lock.json` | B |
-| `research/laguna-xs-2.1-mac-fit-2026-07-28.md` | B |
+| `research/Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md` | B |
 | `research/device-quant-matrix-aug3.md` | A+B (labeled rows) |
 | `research/post-freeze-smaller-device-path.md` | A + community; B pointer |
 | `research/roadmap-dual-s-and-xs-2026-07-28.md` | A+B (this file) |

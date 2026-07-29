@@ -1,6 +1,6 @@
 {
-  "ts": 1785231990.7463834,
-  "host": "dgx-spark",
+  "ts": 1785306125.3880131,
+  "host": "Hizrian-Razs-DGX-Spark",
   "engine": "poolsideai/llama.cpp 04b2b72",
   "model": "laguna-s-2.1-Q4_K_M.gguf",
   "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
@@ -14,87 +14,93 @@
     "jinja": true,
     "fa": "on"
   },
-  "mem": {
-    "host_total_gi": 121,
-    "used_after_smoke_gi_approx": 96,
-    "available_gi_approx": 25,
-    "server_rss_ki_post": 2054584
-  },
   "throughput": [
     {
-      "label": "gen8_short",
-      "prompt_tokens": 49,
+      "prompt_tokens": 46,
       "completion_tokens": 4,
-      "latency_s": 0.47,
-      "tok_s": 8.505
+      "latency_s": 0.377,
+      "tok_s": 10.612,
+      "label": "gen8_short"
     },
     {
-      "label": "gen128",
-      "prompt_tokens": 55,
+      "prompt_tokens": 67,
       "completion_tokens": 128,
-      "latency_s": 6.091,
-      "tok_s": 21.016
+      "latency_s": 5.962,
+      "tok_s": 21.47,
+      "label": "gen128"
     },
     {
-      "label": "prefill_heavy_gen64",
-      "prompt_tokens": 424,
-      "completion_tokens": 4,
-      "latency_s": 1.074,
-      "tok_s": 3.724
+      "prompt_tokens": 59,
+      "completion_tokens": 247,
+      "latency_s": 11.288,
+      "tok_s": 21.881,
+      "label": "gen256"
     }
   ],
-  "quote_gen_tok_s": 21.016,
+  "quote_gen_tok_s": 21.47,
+  "gen128_pre_smoke": {
+    "label": "gen128",
+    "prompt_tokens": 67,
+    "completion_tokens": 128,
+    "latency_s": 5.69,
+    "tok_s": 22.497,
+    "temp": 0.0,
+    "model": "local-laguna",
+    "ts": 1785305130.4795225
+  },
   "agent_smoke": {
     "pass": "40/40",
-    "elapsed_s": 97.79,
+    "elapsed_s": 84.86,
     "temperature": 0.0,
     "model": "local-laguna",
     "base_url": "http://127.0.0.1:8000/v1",
     "host": "Hizrian-Razs-DGX-Spark",
     "out": "results/agent_smoke.json",
+    "runner_sha256": "3bb81080879ddf78d3d6295e333c78b1ecc1d84ba5a9e9dc19a0e677f54da48f",
     "run_manifest_schema": "laguna.run_manifest/v1",
-    "lock_note": "post-restore 2026-07-28 ~23:55 WIB"
+    "lock_note": "accel multi-bench 2026-07-29T13:22:05.385271+07:00"
   },
-  "ts_agent_smoke_rerun": 1785240797.710043,
-  "server_bench_live": {
-    "base_url": "http://100.98.213.2:8000/v1",
-    "model": "local-laguna",
-    "rows": [
-      {
-        "mark": "2k",
-        "latency_s": 1.022,
-        "prompt_tokens": 836,
-        "completion_tokens": 3,
-        "completion_tok_s": 2.935,
-        "content": "OK"
-      },
-      {
-        "mark": "8k",
-        "latency_s": 1.521,
-        "prompt_tokens": 3236,
-        "completion_tokens": 3,
-        "completion_tok_s": 1.973,
-        "content": "OK"
-      }
-    ],
-    "ts": 1785240608.512297
-  },
-  "ts_live_bench": 1785240797.710044,
-  "schema": "laguna.measured/v1",
-  "updated_at_wib": "2026-07-29T00:10:29+07:00",
-  "headline_quant": "Q4_K_M",
   "hermes_agent_smoke": {
     "pass": "27/27",
-    "elapsed_s": 104.4,
+    "elapsed_s": 100.1,
     "temperature": 0.0,
     "model": "local-laguna",
     "base_url": "http://127.0.0.1:8000/v1",
     "host": "Hizrian-Razs-DGX-Spark",
     "out": "results/hermes_agent_smoke.json",
+    "runner_sha256": "20c1e52a8a22306b81309c08984d6875cfff46e7382a46b674c1a6345030293b",
     "run_manifest_schema": "laguna.run_manifest/v1",
     "protocol": "one-response protocol; tools validated not executed",
-    "lock_note": "post-restore 2026-07-28 ~23:57 WIB",
-    "runner_path_note": "post-restore receipt stamped helper path; runners now accept runner_path override for next smoke"
+    "lock_note": "accel multi-bench 2026-07-29T13:22:05.385271+07:00"
   },
-  "headline": "40/40 agent_smoke \u00b7 official Q4_K_M \u00b7 hermes 27/27"
+  "server_bench_live": {
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "local-laguna",
+    "rows": [
+      {
+        "mark": "2k",
+        "latency_s": 1.597,
+        "prompt_tokens": 836,
+        "completion_tokens": 3,
+        "completion_tok_s": 1.878,
+        "content": "OK"
+      },
+      {
+        "mark": "8k",
+        "latency_s": 4.78,
+        "prompt_tokens": 3236,
+        "completion_tokens": 3,
+        "completion_tok_s": 0.628,
+        "content": "OK"
+      }
+    ],
+    "ts": 1785305345.2721028
+  },
+  "git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+  "git_status_line": "## main...origin/main",
+  "schema": "laguna.measured/v1",
+  "updated_at_wib": "2026-07-29T13:22:05.385271+07:00",
+  "headline_quant": "Q4_K_M",
+  "headline": "40/40 agent_smoke \u00b7 official Q4_K_M \u00b7 hermes 27/27 \u00b7 gen128 ~21.47 t/s",
+  "accel_run_id": "20260729T132205+0700"
 }

@@ -1,4 +1,4 @@
-# Reproducible method — Laguna-S-2.1 Spark pack
+# Reproducible method — Laguna-S-2.1-Spark-Agentic pack
 
 Personal reproducible method.
 
@@ -41,7 +41,7 @@ sha256sum -c SHA256SUMS
 ## Personal HF publish surface
 
 - User: `hizrianraz` (personal)
-- Repo id: `hizrianraz/laguna-s-2.1-spark`
+- Repo id: `hizrianraz/Laguna-S-2.1-Spark-Agentic`
 - Card framing: personal measurements only; no org product claims
 
 ## DIY quant policy

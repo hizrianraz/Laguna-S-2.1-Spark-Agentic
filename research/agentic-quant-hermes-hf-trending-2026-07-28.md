@@ -1,7 +1,7 @@
 # Deep research — agentic quant + Hermes fit + HF trending
 
 Date: 2026-07-28 18:47 WIB  
-Scope: personal `hizrianraz/laguna-s-2.1-spark` pack only  
+Scope: personal `hizrianraz/Laguna-S-2.1-Spark-Agentic` pack only  
 Locks: launch_lock `diy_gguf=false`, official Q4_K_M only, min smoke 38/40, freeze 2026-08-02 18:00 WIB, launch 2026-08-03 12:00 WIB
 
 ## Bottom line
@@ -15,7 +15,7 @@ Locks: launch_lock `diy_gguf=false`, official Q4_K_M only, min smoke 38/40, free
 ### Our surface
 | Asset | State |
 |-------|--------|
-| HF `hizrianraz/laguna-s-2.1-spark` | **0 likes, 0 downloads**, public, created today |
+| HF `hizrianraz/Laguna-S-2.1-Spark-Agentic` | **0 likes, 0 downloads**, public, created today |
 | Stand-behind weight | official `laguna-s-2.1-Q4_K_M.gguf` sha `a8b55c75…` |
 | agent_smoke v1 | **40/40 (100%)** · 97.25s (2026-07-28 19:00 WIB); prior 38/40 was harness not weights |
 | Claim style | personal measurements · digests · no bare GGUF re-upload |

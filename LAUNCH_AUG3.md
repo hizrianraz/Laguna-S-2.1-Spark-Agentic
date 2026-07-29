@@ -2,7 +2,7 @@
 
 Status: **LOCKED**  
 Owner: personal (hizrianraz)  
-Repo: https://huggingface.co/hizrianraz/laguna-s-2.1-spark  
+Repo: https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic  
 Timezone: Asia/Jakarta (WIB)
 
 ## Freeze window
@@ -17,7 +17,7 @@ Timezone: Asia/Jakarta (WIB)
 
 ## Launch definition of done (all required)
 
-1. HF model public: `hizrianraz/laguna-s-2.1-spark`
+1. HF model public: `hizrianraz/Laguna-S-2.1-Spark-Agentic`
 2. Card shows fixed scoreboard row for Spark + official Q4_K_M
 3. Official digests in `SHA256SUMS` match LFS metadata
 4. Stranger path works: pull official Q4 → serve → smoke
@@ -60,7 +60,7 @@ If HF token dies: restore the personal Hugging Face write token from the local s
 ## Announce text (draft — edits OK)
 
 > Personal DGX Spark agent-runtime pack for Poolside Laguna-S-2.1: measured OpenAI-compatible serve, fixed agent smoke, official Q4_K_M digests (no bare re-upload).  
-> https://huggingface.co/hizrianraz/laguna-s-2.1-spark
+> https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic
 
 ## Authority
 

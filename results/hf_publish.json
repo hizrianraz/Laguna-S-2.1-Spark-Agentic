@@ -1,6 +1,6 @@
 {
-  "repo_id": "hizrianraz/laguna-s-2.1-spark",
-  "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
+  "repo_id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+  "url": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic",
   "commit": "c7119cc36be98d74a0a8818b5944d05a166c6ddd",
   "latest_commit": "c7119cc36be98d74a0a8818b5944d05a166c6ddd",
   "local_git_head": "9b7a45770f9ef9aa1d5f357d98b4c1485b706c65",
@@ -30,7 +30,7 @@
     "prompts/claudecowork-laguna-s-plus-xs-2026-07-28.md",
     "research/agentic-quant-hermes-hf-trending-2026-07-28.md",
     "research/device-quant-matrix-aug3.md",
-    "research/laguna-xs-2.1-mac-fit-2026-07-28.md",
+    "research/Laguna-XS-2.1-Mac-Agentic-fit-2026-07-28.md",
     "research/phone-bonsai-ios-android-2026-07-28.md",
     "research/post-freeze-smaller-device-path.md",
     "research/quant-comparison-scoreboard-2026-07-28.md",

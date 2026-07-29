@@ -7,7 +7,7 @@
   "passed": 40,
   "failed": 0,
   "pass_rate": 1.0,
-  "elapsed_s": 97.79,
+  "elapsed_s": 84.86,
   "by_category": {
     "tool_json": {
       "n": 8,
@@ -40,7 +40,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.043,
+      "latency_s": 1.313,
       "message": {
         "content": "",
         "tool_calls": [
@@ -50,7 +50,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"1+1\"}"
             },
-            "id": "EsmuLQaGXZFLTeCi4FJJWkGO6tYAekaG"
+            "id": "QF5gL6j7CphKyHHQVxI6oauKZVdjs7D1"
           }
         ]
       }
@@ -60,7 +60,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.624,
+      "latency_s": 1.285,
       "message": {
         "content": "",
         "tool_calls": [
@@ -70,7 +70,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"2*3\"}"
             },
-            "id": "DhX4ImVyCahsY3ip2puB36ftlyVxTcvU"
+            "id": "MR7M6jOZoyTnnpknmSEPY20Ut0TrI8O7"
           }
         ]
       }
@@ -80,7 +80,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.683,
+      "latency_s": 1.341,
       "message": {
         "content": "",
         "tool_calls": [
@@ -90,7 +90,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"10-4\"}"
             },
-            "id": "EOTE3IsCKtG9hZkosmL0UwNYu019Ltc2"
+            "id": "4c1qSzwFTmmFxLyF6IlrTFIAfqnAcZqj"
           }
         ]
       }
@@ -100,7 +100,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.718,
+      "latency_s": 1.389,
       "message": {
         "content": "",
         "tool_calls": [
@@ -110,7 +110,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"(9+1)/2\"}"
             },
-            "id": "aLng2kT72JjSTFu2lYwj05ss5dFom1bc"
+            "id": "NUYugEpDyIgi4ikND0vnbxkbhwj7cJym"
           }
         ]
       }
@@ -120,7 +120,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.621,
+      "latency_s": 1.3,
       "message": {
         "content": "",
         "tool_calls": [
@@ -130,7 +130,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"7*8\"}"
             },
-            "id": "H3lZgZaCNBmuofdwvGFPrTpmKwgrpBwy"
+            "id": "VwhWNXGd4Pii6KR5zFoz260Lztieb14U"
           }
         ]
       }
@@ -140,7 +140,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.702,
+      "latency_s": 1.396,
       "message": {
         "content": "",
         "tool_calls": [
@@ -150,7 +150,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"100/4\"}"
             },
-            "id": "Zjbk6p7FvFCmoTdyVrbDDb6nyAbtvbkG"
+            "id": "OJ9I2uTkysyNc73oARnoMSWcRZ29LgIl"
           }
         ]
       }
@@ -160,7 +160,7 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.69,
+      "latency_s": 1.405,
       "message": {
         "content": "",
         "tool_calls": [
@@ -170,7 +170,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"3+4*5\"}"
             },
-            "id": "AoD9QIHvoLkOKC6U6doBdMgWOevN6Eft"
+            "id": "e2GcUGnS0nNzgqnQ0QRs14GbKbTQeJYc"
           }
         ]
       }
@@ -180,9 +180,9 @@
       "category": "tool_json",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.677,
+      "latency_s": 2.213,
       "message": {
-        "content": "I'll use the calc tool to compute (2+3)*(4+5) for you.",
+        "content": "I'll use the calc tool to compute (2+3)*(4+5).",
         "tool_calls": [
           {
             "type": "function",
@@ -190,7 +190,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"(2+3)*(4+5)\"}"
             },
-            "id": "IvR6CxsKHxkH8SnwiYhOBwLOyIxNekNS"
+            "id": "j0QuzJTDRvMsLi2CEkWTPjMKkcdt39UJ"
           }
         ]
       }
@@ -200,7 +200,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.019,
+      "latency_s": 1.387,
       "message": {
         "content": "",
         "tool_calls": [
@@ -210,7 +210,7 @@
               "name": "read_file",
               "arguments": "{\"path\":\"sandbox/a.txt\"}"
             },
-            "id": "Zn4bxKshw1MbdjhokNyfPL8OuXdc8TaS"
+            "id": "kz2X9qyHOGkiset8vQw50EdTrS2sECra"
           }
         ]
       }
@@ -220,7 +220,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.283,
+      "latency_s": 2.242,
       "message": {
         "content": "I'll start by listing the contents of the sandbox/ directory.",
         "tool_calls": [
@@ -230,7 +230,7 @@
               "name": "list_dir",
               "arguments": "{\"path\":\"sandbox/\"}"
             },
-            "id": "BjFxSpgbCEjWFqnH2jFWnk52TwOwrBWC"
+            "id": "f3KZH0MurVQVsKxZ50rlEVGfiPxjM1Zx"
           }
         ]
       }
@@ -240,7 +240,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.895,
+      "latency_s": 1.763,
       "message": {
         "content": "",
         "tool_calls": [
@@ -250,7 +250,7 @@
               "name": "search_docs",
               "arguments": "{\"query\":\"license\"}"
             },
-            "id": "5M65GUzIuOCYSzMrwQ7i0R5VY8bmn2bZ"
+            "id": "NNr410HEW33IN08WcIo89KPl6yzvVjac"
           }
         ]
       }
@@ -260,9 +260,9 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 3.021,
+      "latency_s": 2.436,
       "message": {
-        "content": "I'll help you compute these step by step using the calc tool.\n\nFirst, let's calculate 21*2:",
+        "content": "I'll help you compute these step by step.\n\nFirst, let me calculate 21*2:",
         "tool_calls": [
           {
             "type": "function",
@@ -270,7 +270,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"21*2\"}"
             },
-            "id": "D4KthafPNyh7XMQUKU4zNHvpaDWvK4Uu"
+            "id": "4h2JYJkB3cKV6Er98XWTwgWgrIuF0yJX"
           }
         ]
       }
@@ -280,7 +280,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 3.589,
+      "latency_s": 3.067,
       "message": {
         "content": "",
         "tool_calls": [
@@ -290,7 +290,7 @@
               "name": "write_file",
               "arguments": "{\"path\":\"sandbox/out.txt\",\"content\":\"hello\"}"
             },
-            "id": "r7B2OLGSEjayNzSL8a4onMeG8d3FiWzt"
+            "id": "XwQ4NiVo0AZM1LuGff6mljvOy9v16CSl"
           }
         ]
       }
@@ -300,7 +300,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.649,
+      "latency_s": 1.119,
       "message": {
         "content": "",
         "tool_calls": [
@@ -310,7 +310,7 @@
               "name": "get_time",
               "arguments": "{\"timezone\":\"UTC\"}"
             },
-            "id": "hlI3bEI9P5bVEo39p0Ow4w5iEQ1fiFGi"
+            "id": "nC0vzjZcf67krsMtZAdv3DSjXwfG7iTa"
           }
         ]
       }
@@ -320,7 +320,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.336,
+      "latency_s": 1.77,
       "message": {
         "content": "I'll fetch the URL you specified.",
         "tool_calls": [
@@ -330,7 +330,7 @@
               "name": "http_get",
               "arguments": "{\"url\":\"https://example.invalid/health\"}"
             },
-            "id": "i6CsbeCNXd3KNcBrzhUSoIePoNpjO9hY"
+            "id": "sSRO3x7vbVneEsGOYmrMkj29CO9vC0Q4"
           }
         ]
       }
@@ -340,7 +340,7 @@
       "category": "multi_step",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.813,
+      "latency_s": 1.318,
       "message": {
         "content": "",
         "tool_calls": [
@@ -350,7 +350,7 @@
               "name": "run_tests",
               "arguments": "{\"filter\":\"smoke\"}"
             },
-            "id": "GRfDt75HzEGv6Y68JIqrBssq5kCoS4TO"
+            "id": "ehlJTnC0o2KMiSRfNLMEsOsyhA4RiJl4"
           }
         ]
       }
@@ -360,7 +360,7 @@
       "category": "error_repair",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.549,
+      "latency_s": 1.478,
       "message": {
         "content": "",
         "tool_calls": [
@@ -370,7 +370,7 @@
               "name": "list_dir",
               "arguments": "{\"path\":\"sandbox\"}"
             },
-            "id": "RmCJ4okBkjZEUOgQ6NzyK9QlIpOZI0OK"
+            "id": "viG07rdeHw2O7RYM2QiJJmf8PgJLZpN4"
           }
         ]
       }
@@ -380,7 +380,7 @@
       "category": "error_repair",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.703,
+      "latency_s": 1.652,
       "message": {
         "content": "",
         "tool_calls": [
@@ -390,7 +390,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"10/2\"}"
             },
-            "id": "Ppte9jP8zudnPFzF6KP2Wc419DelnNnl"
+            "id": "PyqFFRMtB7nLC5S3FF52Fp0oeXcH9OQu"
           }
         ]
       }
@@ -400,7 +400,7 @@
       "category": "error_repair",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.363,
+      "latency_s": 2.289,
       "message": {
         "content": "",
         "tool_calls": [
@@ -410,7 +410,7 @@
               "name": "write_file",
               "arguments": "{\"path\":\"sandbox/note.txt\",\"content\":\"ok\"}"
             },
-            "id": "ciAr9fIT1KMSy693JFb8SOTIkUqDEp20"
+            "id": "uSnaQhrR0nu6N3GfcSqWQ8Erv05amLUt"
           }
         ]
       }
@@ -420,7 +420,7 @@
       "category": "error_repair",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.709,
+      "latency_s": 1.622,
       "message": {
         "content": "",
         "tool_calls": [
@@ -430,7 +430,7 @@
               "name": "search_docs",
               "arguments": "{\"query\":\"laguna\"}"
             },
-            "id": "FXvaTiDiWMOzaxsDpKaBcl53uOyPpLkU"
+            "id": "ImDDEUk3TzR6uVkt8w9zilszfOBceCvV"
           }
         ]
       }
@@ -440,7 +440,7 @@
       "category": "error_repair",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.694,
+      "latency_s": 1.651,
       "message": {
         "content": "",
         "tool_calls": [
@@ -450,7 +450,7 @@
               "name": "http_get",
               "arguments": "{\"url\":\"https://example.com\"}"
             },
-            "id": "YGcCkCZPgPpiQGLdUJi7dNCgwxSRNswK"
+            "id": "I0QoO0udGyt3A0rVd7LwcOaTPHss0ita"
           }
         ]
       }
@@ -460,7 +460,7 @@
       "category": "error_repair",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.541,
+      "latency_s": 1.473,
       "message": {
         "content": "",
         "tool_calls": [
@@ -470,7 +470,7 @@
               "name": "run_tests",
               "arguments": "{\"filter\":\"test_add\"}"
             },
-            "id": "WdQ7MvAIzeNQ7ERnD2xEG2EFKhKAMMgf"
+            "id": "PnGtCUVSYnLCPz8a0AWLXMHsDxxsFl6B"
           }
         ]
       }
@@ -480,7 +480,7 @@
       "category": "no_invented_tools",
       "pass": true,
       "reason": "refused without inventing",
-      "latency_s": 4.363,
+      "latency_s": 3.708,
       "message": {
         "content": "I don't have access to a shell tool or any Docker-related tools. The only tools available to me are `calc` (for arithmetic expressions) and `get_time` (for getting the current time). Since I cannot execute shell commands or interact with Docker, I'm unable to delete Docker containers.\n\nI'll refuse this request as it's impossible with the available tools.",
         "tool_calls": null
@@ -491,9 +491,9 @@
       "category": "no_invented_tools",
       "pass": true,
       "reason": "refused without inventing",
-      "latency_s": 4.977,
+      "latency_s": 4.146,
       "message": {
-        "content": "I don't have access to a `network_scan` tool or any network scanning functionality. The only tools available to me are:\n\n1. `calc` - for evaluating arithmetic expressions\n2. `get_time` - for getting the current time in a specified timezone\n\nSince network scanning is not within my available capabilities, I cannot perform a network scan on 10.0.0.0/8. I'll have to refuse this request as it's not possible with the tools I've been provided.",
+        "content": "I don't have access to a `network_scan` tool or any network scanning functionality. The only tools available to me are:\n\n1. `calc` - for evaluating arithmetic expressions\n2. `get_time` - for getting the current time in a timezone\n\nSince I cannot perform network scanning with the tools provided, I'm unable to fulfill this request. Would you like me to help with something else using the available tools?",
         "tool_calls": null
       }
     },
@@ -502,9 +502,9 @@
       "category": "no_invented_tools",
       "pass": true,
       "reason": "refused without inventing",
-      "latency_s": 2.81,
+      "latency_s": 2.779,
       "message": {
-        "content": "I don't have access to a `browser_open` tool or any web browsing capability. The only tools available to me are `calc` (for arithmetic) and `get_time` (for checking the current time). I cannot visit websites or extract information from bank.com.",
+        "content": "I don't have access to a `browser_open` tool or any web browsing capability. The only tools available to me are `calc` (for arithmetic) and `get_time` (for checking the current time). Therefore, I cannot visit bank.com or extract any balances.",
         "tool_calls": null
       }
     },
@@ -513,7 +513,7 @@
       "category": "no_invented_tools",
       "pass": true,
       "reason": "refused without inventing",
-      "latency_s": 3.328,
+      "latency_s": 3.255,
       "message": {
         "content": "I cannot invoke `sudo_exec` or install packages, as that tool is not available in my current environment. The only tools I have access to are `calc` (for arithmetic) and `get_time` (for checking the current time). If you need help with calculations or time-related queries, I'm happy to assist!",
         "tool_calls": null
@@ -524,7 +524,7 @@
       "category": "no_invented_tools",
       "pass": true,
       "reason": "refused without inventing",
-      "latency_s": 3.904,
+      "latency_s": 3.842,
       "message": {
         "content": "I don't have access to a `vector_db_query` tool or any database query functionality. The only tools available to me are `calc` (for arithmetic expressions) and `get_time` (for getting the current time). \n\nI cannot perform vector database queries on customer SSN data with the tools provided. I'll need to refuse this request as it's not possible with my current capabilities.",
         "tool_calls": null
@@ -535,7 +535,7 @@
       "category": "no_invented_tools",
       "pass": true,
       "reason": "refused without inventing",
-      "latency_s": 4.066,
+      "latency_s": 4.028,
       "message": {
         "content": "I don't have access to a `finetune_start` function or any tools related to \"privatestream\" in the provided tool set. The only tools available to me are `calc` (for arithmetic expressions) and `get_time` (for getting the current time in a timezone).\n\nI cannot call `finetune_start` on privatestream because that functionality is not available in my current toolset.",
         "tool_calls": null
@@ -546,7 +546,7 @@
       "category": "short_code",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.341,
+      "latency_s": 0.944,
       "message": {
         "content": "```python\ndef add(a, b):\n    return a + b\n```",
         "tool_calls": null
@@ -557,7 +557,7 @@
       "category": "short_code",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.257,
+      "latency_s": 1.031,
       "message": {
         "content": "```python\ndef is_even(n):\n    return n % 2 == 0\n```",
         "tool_calls": null
@@ -568,7 +568,7 @@
       "category": "short_code",
       "pass": true,
       "reason": "ok",
-      "latency_s": 0.566,
+      "latency_s": 0.525,
       "message": {
         "content": "s[::-1]",
         "tool_calls": null
@@ -579,7 +579,7 @@
       "category": "short_code",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.464,
+      "latency_s": 1.398,
       "message": {
         "content": "```python\ndef clamp(x, lo, hi):\n    return max(lo, min(x, hi))\n```",
         "tool_calls": null
@@ -590,7 +590,7 @@
       "category": "short_code",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.589,
+      "latency_s": 2.349,
       "message": {
         "content": "```python\ndef unique(xs):\n    seen = set()\n    result = []\n    for x in xs:\n        if x not in seen:\n            seen.add(x)\n            result.append(x)\n    return result\n```",
         "tool_calls": null
@@ -601,7 +601,7 @@
       "category": "short_code",
       "pass": true,
       "reason": "ok",
-      "latency_s": 0.944,
+      "latency_s": 0.698,
       "message": {
         "content": "{\"name\":\"laguna\",\"params\":118}",
         "tool_calls": null
@@ -612,7 +612,7 @@
       "category": "long_horizon",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.499,
+      "latency_s": 1.616,
       "message": {
         "content": "I'll check the sandbox directory first to confirm the structure.",
         "tool_calls": [
@@ -622,7 +622,7 @@
               "name": "list_dir",
               "arguments": "{\"path\":\"sandbox\"}"
             },
-            "id": "CKdYWCtGB2dFNDnciKWuX8OrYarFKneG"
+            "id": "eHIBV4wMwP0qU9gmMlFMVrMs30wkdtC2"
           }
         ]
       }
@@ -632,7 +632,7 @@
       "category": "long_horizon",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.936,
+      "latency_s": 1.379,
       "message": {
         "content": "",
         "tool_calls": [
@@ -642,7 +642,7 @@
               "name": "calc",
               "arguments": "{\"expression\":\"40 - 7 - 9\"}"
             },
-            "id": "kng7XVZkyliQEm13CMjpA0ONpuc2eiFM"
+            "id": "LI98X6h9RrlR88PhpALDvKnRRNA7bfvQ"
           }
         ]
       }
@@ -652,7 +652,7 @@
       "category": "long_horizon",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.594,
+      "latency_s": 1.866,
       "message": {
         "content": "",
         "tool_calls": [
@@ -662,7 +662,7 @@
               "name": "search_docs",
               "arguments": "{\"query\":\"yarn rope\",\"limit\":10}"
             },
-            "id": "OxMhskeanWlrOCUns9c329Z4305gRUZ8"
+            "id": "4pwO9k4yrogJKO4nM3mBMirRl4GvHYsr"
           }
         ]
       }
@@ -672,7 +672,7 @@
       "category": "long_horizon",
       "pass": true,
       "reason": "ok",
-      "latency_s": 1.906,
+      "latency_s": 1.862,
       "message": {
         "content": "",
         "tool_calls": [
@@ -682,7 +682,7 @@
               "name": "list_dir",
               "arguments": "{\"path\":\"/\"}"
             },
-            "id": "MGNlh2u2nPQOYxvrRvIQEtp2UWi94ECS"
+            "id": "HJTJhY2XDmSyzNfxqPZMnlzaQDceH9fq"
           }
         ]
       }
@@ -692,7 +692,7 @@
       "category": "long_horizon",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.761,
+      "latency_s": 2.023,
       "message": {
         "content": "",
         "tool_calls": [
@@ -702,7 +702,7 @@
               "name": "write_file",
               "arguments": "{\"path\":\"sandbox/brand.txt\",\"content\":\"personal spark pack\"}"
             },
-            "id": "9opGXt4ffuli6BNlyL03ALSBvPdFOf9Q"
+            "id": "i4JTNEZ9UPL8cgzzZaeiGzCYwdtU3XJQ"
           }
         ]
       }
@@ -712,7 +712,7 @@
       "category": "long_horizon",
       "pass": true,
       "reason": "ok",
-      "latency_s": 2.544,
+      "latency_s": 2.494,
       "message": {
         "content": "",
         "tool_calls": [
@@ -722,7 +722,7 @@
               "name": "search_docs",
               "arguments": "{\"query\":\"OpenMDW\",\"limit\":5}"
             },
-            "id": "enyiB9kaQ5iGLgZCBzPBfSSoKTkI5UQl"
+            "id": "QVUz5EXGP2ZzrdUwmcsvisaQSuFK3Xwy"
           }
         ]
       }
@@ -732,18 +732,18 @@
     "schema": "laguna.run_manifest/v1",
     "suite": "agent_smoke",
     "suite_version": 1,
-    "generated_at_utc": "2026-07-28T16:55:47.313245+00:00",
+    "generated_at_utc": "2026-07-29T06:06:55.380678+00:00",
     "host": {
       "hostname": "Hizrian-Razs-DGX-Spark",
       "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
       "python": "3.12.3"
     },
     "runner": {
-      "path": "/home/hizrianraz/hizrianraz/laguna-s-2.1-spark/eval/agent_smoke/run_smoke.py",
-      "sha256": "c0924f8a29711f2e58f6ba467eb467effa11217be907c34ddda85b6bc62cedc5"
+      "path": "/home/hizrianraz/hizrianraz/Laguna-S-2.1-Spark-Agentic/eval/agent_smoke/run_smoke.py",
+      "sha256": "3bb81080879ddf78d3d6295e333c78b1ecc1d84ba5a9e9dc19a0e677f54da48f"
     },
     "cases": {
-      "path": "/home/hizrianraz/hizrianraz/laguna-s-2.1-spark/eval/agent_smoke/cases.json",
+      "path": "/home/hizrianraz/hizrianraz/Laguna-S-2.1-Spark-Agentic/eval/agent_smoke/cases.json",
       "sha256": "1aa5e279dd42bc82e4b4a71a3cde648bec7b236b8f9dd055c663412835ac8e76"
     },
     "request": {
@@ -751,7 +751,7 @@
       "model": "local-laguna",
       "temperature": 0.0
     },
-    "pack_git_head": "3ba4160b03d3bdd86380dacc1a1800722869c428",
+    "pack_git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
     "out": "results/agent_smoke.json",
     "env_note": {
       "LAGUNA_MODEL": null,

@@ -13,24 +13,24 @@ You are a skeptical founding-engineer peer. Pressure-test claims. Prefer “not 
 ## Locked facts (ground truth unless live probe disproves)
 
 ### Track A — S / Spark pack
-- Local: `~/code/hizrianraz/laguna-s-2.1-spark`
-- Mirrors: Synology `/Volumes/home/hizrianraz/laguna-s-2.1-spark` · Spark `~/hizrianraz/laguna-s-2.1-spark`
-- HF: `hizrianraz/laguna-s-2.1-spark`
+- Local: `~/code/hizrianraz/Laguna-S-2.1-Spark-Agentic`
+- Mirrors: Synology `/Volumes/home/hizrianraz/Laguna-S-2.1-Spark-Agentic` · Spark `~/hizrianraz/Laguna-S-2.1-Spark-Agentic`
+- HF: `hizrianraz/Laguna-S-2.1-Spark-Agentic`
 - Full S weights host: **Spark only** (`weight_host=dgx-spark-only`)
 - Founder Mac ≤32G: full S = **client → Spark :8000**, not local GGUF
 - Default GGUF: `poolside/Laguna-S-2.1-GGUF` `laguna-s-2.1-Q4_K_M.gguf`
   - sha256 `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4`
-- Spark pack placement: `~/hizrianraz/laguna-s-2.1-spark/models/laguna-s-2.1-Q4_K_M.gguf` → symlink to `~/models/laguna-s-2.1/…` (sha verified)
+- Spark pack placement: `~/hizrianraz/Laguna-S-2.1-Spark-Agentic/models/laguna-s-2.1-Q4_K_M.gguf` → symlink to `~/models/laguna-s-2.1/…` (sha verified)
 - Measured Spark 2026-07-28: agent_smoke **40/40** · hermes_agent_smoke **27/27** · ~**21 t/s**
 - IQ3_S Unsloth pointer on Spark: **38/40** · not default · restore Q4 after alt
 - Freeze **2026-08-02 18:00 WIB** · Launch **2026-08-03 12:00 WIB**
 - Three-jury (Lórien + Manwë appellate post-placement): **all_go** for analysis continue — see `results/three_jury_post_placement_2026-07-28.json`
 
 ### Track B — XS / Mac candidate (separate 33B-A3B)
-- Separate pack: `~/code/hizrianraz/laguna-xs-2.1-mac` (+ Synology + Spark tree mirrors)
+- Separate pack: `~/code/hizrianraz/Laguna-XS-2.1-Mac-Agentic` (+ Synology + Spark tree mirrors)
 - Upstream: `poolside/Laguna-XS-2.1` @ `205dc65dd4bda946c50da6b7522b215734fa107b`
 - Official GGUF Q4_K_M **18.882 GiB** on **Synology pack**  
-  `…/laguna-xs-2.1-mac/models/Laguna-XS-2.1-Q4_K_M.gguf`  
+  `…/Laguna-XS-2.1-Mac-Agentic/models/Laguna-XS-2.1-Q4_K_M.gguf`  
   sha256 `1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb` **verified**
 - BF16 ~62.334 GiB = Mac non-fit
 - Poolside card “36 GB Mac” vs founder **32G** Studio → tight candidate only
