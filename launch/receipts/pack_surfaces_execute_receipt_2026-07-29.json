@@ -1,0 +1,77 @@
+{
+  "event": "pack_surfaces_execute_all",
+  "completed_at_wib": "2026-07-29T23:55:00+07:00",
+  "public_promo_before_launch": false,
+  "diy_gguf": false,
+  "items": [
+    {
+      "id": "DeepSeek-V4-Flash-Spark-Agentic",
+      "role": "card_only_hold",
+      "local": "/Users/hizrianraz/synology_shared/hizrianraz/DeepSeek-V4-Flash-Spark-Agentic",
+      "github": "https://github.com/hizrianraz/DeepSeek-V4-Flash-Spark-Agentic",
+      "hf": "https://huggingface.co/hizrianraz/DeepSeek-V4-Flash-Spark-Agentic",
+      "gh_sha": "0198e52",
+      "hf_sha": "08c30a0ad4d1",
+      "hold_scripts_verified": true,
+      "weights": "none",
+      "measure": "unmeasured"
+    },
+    {
+      "id": "Qwen3-Coder-Next-Spark-Agentic",
+      "role": "probe_card_s_quality",
+      "local": "/Users/hizrianraz/synology_shared/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "github": "https://github.com/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "hf": "https://huggingface.co/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "gh_sha": "3f82136",
+      "hf_sha": "0927dad968d9",
+      "weights_on_spark": "Q4_K_M ~45.1 GiB official",
+      "measure": "unmeasured_harness_ready",
+      "sha256sums": true
+    },
+    {
+      "id": "Qwen3-Coder-30B-A3B-Mac-Agentic",
+      "role": "mac_skeleton",
+      "local": "/Users/hizrianraz/synology_shared/hizrianraz/Qwen3-Coder-30B-A3B-Mac-Agentic",
+      "github": "https://github.com/hizrianraz/Qwen3-Coder-30B-A3B-Mac-Agentic",
+      "hf": "https://huggingface.co/hizrianraz/Qwen3-Coder-30B-A3B-Mac-Agentic",
+      "gh_sha": "3288d5e",
+      "hf_sha": "e7efc803f6a9",
+      "weights": "none_in_repo",
+      "measure": "unmeasured"
+    },
+    {
+      "id": "Laguna-S-post_kit_aug3",
+      "role": "launch_post_draft_hold",
+      "path": "/Users/hizrianraz/synology_shared/hizrianraz/Laguna-S-2.1-Spark-Agentic/launch/post_kit_aug3",
+      "github_commit": "ee6ad09",
+      "publish_earliest_wib": "2026-08-03T12:00:00+07:00",
+      "public_promo_before_launch": false
+    },
+    {
+      "id": "family_matrix",
+      "role": "local_draft",
+      "paths": [
+        "/Users/hizrianraz/synology_shared/hizrianraz/FAMILY_MATRIX_AUG3.md",
+        "/Users/hizrianraz/synology_shared/hizrianraz/hf_collection_draft_aug3.json",
+        "/Users/hizrianraz/code/hizrianraz/manwe/vault/personal/agentic-family-matrix-2026-07-29.md"
+      ],
+      "hf_collection_created": false,
+      "reason": "hold_publicize_until_launch"
+    }
+  ],
+  "locks_honored": [
+    "diy_gguf=false",
+    "public_promo_before_launch=false",
+    "S primary ship only on 08-03",
+    "DS hold scripts refuse without HOLD_RELEASE",
+    "no bulk weights in git",
+    "no Manw\u00eb codename on public surfaces",
+    "personal branding only"
+  ],
+  "not_done": [
+    "HF collection create (deferred to launch)",
+    "public social post (HOLD until 08-03 12:00 WIB)",
+    "DeepSeek/Qwen/30B agent_smoke measured runs",
+    "any DS peer GGUF pull"
+  ]
+}
