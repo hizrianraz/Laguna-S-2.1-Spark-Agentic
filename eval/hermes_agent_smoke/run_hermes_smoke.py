@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Hermes-class agent_smoke v2 runner for Laguna OpenAI-compatible servers.
+"""Hermes-class agent_smoke runner for Laguna OpenAI-compatible servers.
 
-Reuses agent_smoke judges + prior-tool-arg sanitization.
-Suite is named hermes_agent_smoke — branding is tool-agent family shape only,
-not a Nous Research endorsement.
+Default cases.json = freeze v2 (27). Pass --cases cases_layer_b_v3.json for
+Layer B long-horizon expansion (35). Reuses agent_smoke judges + prior-tool-arg
+sanitization. Branding is tool-agent family shape only — not a Nous endorsement.
 """
 
 from __future__ import annotations

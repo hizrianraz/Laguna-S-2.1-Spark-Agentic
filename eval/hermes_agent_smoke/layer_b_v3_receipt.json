@@ -1,0 +1,74 @@
+{
+  "event": "hermes_agent_smoke_layer_b_v3",
+  "status": "cases_shipped_offline_judges_ok_no_live_claim",
+  "at_wib": "2026-07-29T18:34:00+07:00",
+  "suite": "hermes_agent_smoke",
+  "version": 3,
+  "layer": "B_long_horizon",
+  "cases_file": "eval/hermes_agent_smoke/cases_layer_b_v3.json",
+  "cases_sha256": "829fd838a83a73cf3f5d05310491a51420fdae7fa7618b1d62d4da444f4fa5e1",
+  "n_total": 35,
+  "n_parent_v2": 27,
+  "n_new": 8,
+  "new_ids": [
+    "long_01",
+    "long_02",
+    "long_03",
+    "long_04",
+    "long_05",
+    "repair_03",
+    "turn_05",
+    "turn_06"
+  ],
+  "by_category_v3": {
+    "terminal": 3,
+    "files": 4,
+    "web": 2,
+    "multi_tool": 3,
+    "multi_turn": 6,
+    "error_repair": 3,
+    "no_invented": 3,
+    "browser": 1,
+    "memory_cron": 2,
+    "args_strict": 2,
+    "safety": 1,
+    "long_horizon": 5
+  },
+  "ship_min_v3": 30,
+  "ship_stretch_v3": 35,
+  "parent_v2_frozen": {
+    "cases_file": "eval/hermes_agent_smoke/cases.json",
+    "n": 27,
+    "measured": "27/27",
+    "artifact": "results/hermes_agent_smoke.json",
+    "launch_lock_fields_untouched": true
+  },
+  "runner": {
+    "path": "eval/hermes_agent_smoke/run_hermes_smoke.py",
+    "change": "none_required",
+    "note": "--cases already selects alternate suite file; judges reused from eval/agent_smoke/run_smoke.py"
+  },
+  "protocol": "one-response; tools validated not executed",
+  "offline_judge": {
+    "status": "pass",
+    "synthetic_pass_all_new": true,
+    "negative_long_01_wrong_tool": "expected fail ok"
+  },
+  "live_spark_run": {
+    "status": "not_run_this_tip",
+    "blocked_reason": "no claim without curl-backed serve + results/hermes_agent_smoke_layer_b_v3.json",
+    "recommended_out": "results/hermes_agent_smoke_layer_b_v3.json"
+  },
+  "freeze_policy": {
+    "aug3_claim_bar": "unchanged",
+    "agent_smoke_headline": "40/40",
+    "hermes_v2_claim": "27/27",
+    "v3_not_in_lock_set": true,
+    "do_not_rewrite_launch_lock_from_v3": true
+  },
+  "retrain": {
+    "status": "parked",
+    "note": "full agentic SFT / multi-node is post-freeze decision packet; Layer B is harness only"
+  },
+  "branding": "personal hermes-class tool shape only — not Nous product claim"
+}
