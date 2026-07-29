@@ -129,7 +129,7 @@ See `hermes/sample_client.py`.
 | 2k smoke | `--ctx-size 2048` | quick agent_smoke / latency |
 | 8k default agent | `--ctx-size 8192` | multi-step tools |
 | 256k card default | `--ctx-size 262144` | long horizon (needs RAM headroom) |
-| 1M native | `--ctx-size 1048576 --rope-scaling yarn --rope-scale 128 --yarn-orig-ctx 8192` | quality may drop; temp 0.7 top_p 0.95 |
+| 1M native | `--ctx-size 1048576 --rope-scaling yarn --rope-scale 128 --yarn-orig-ctx 8192` | quality may drop · **chat-only** sampling example temp 0.7 top_p 0.95 · **not** agent/smoke claim default (claims use temp **0.0**) |
 
 ## Measure — tok/s + memory
 
