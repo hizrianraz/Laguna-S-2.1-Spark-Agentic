@@ -60,7 +60,16 @@ python eval/hermes_agent_smoke/run_hermes_smoke.py \
 
 Optional: `--limit N`, `--ids term_01,long_01`, `--temperature 0`.
 
+One-shot helper (fail-closed if serve down; does not start GPU):
+
+```bash
+./scripts/measure_layer_b_v3.sh
+# OPENAI_BASE_URL=http://<spark>:8000/v1 ./scripts/measure_layer_b_v3.sh
+```
+
 Offline judge dry-run (no server): load `agent_smoke.judge` against synthetic tool_calls (see receipt).
+
+Static result browser (local file drop): [`../smoke_viewer.html`](../smoke_viewer.html).
 
 ## Protocol honesty
 

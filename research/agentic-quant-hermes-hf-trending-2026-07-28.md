@@ -193,20 +193,21 @@ Sample client already at `hermes/sample_client.py` + `hermes/README.md`. Expand 
 3. ~~Re-smoke~~ — **40/40 · 97.25s · 2026-07-28 19:00 WIB**; official Q4 only
 
 ### P1 — Hermes power
-4. `eval/hermes_agent_smoke/` 20 cases (names only inspired by tool categories; no Hermes trademark claim)
-5. Multi-turn tool observation tests
-6. Card section + config snippet for Hermes local provider
-7. Optional: side-measure Unsloth UD-Q4_K_XL on same harness (label third-party)
+4. ~~`eval/hermes_agent_smoke/`~~ — **done:** freeze v2 **27** cases + **27/27** live tip
+5. ~~Multi-turn tool observation tests~~ — **done:** Layer B v3 (**35** = 27+8 long-horizon); offline judges green; live claim blocked on Spark serve
+6. ~~Card Hermes wiring + config~~ — **done:** README section + `hermes/config.example.yaml` + `hermes/README.md`
+7. Optional: side-measure Unsloth UD-Q4_K_XL on same harness (label third-party) — **post-serve**, never headline
+8. Live Spark restore → `scripts/measure_layer_b_v3.sh` (research artifact only; freeze bar unchanged)
 
 ### P2 — attention
-8. Launch-day parent discussions + collection
-9. Spark chalkboard clip / blog (personal)
-10. Space JSON explorer
+9. Launch-day parent discussions + collection
+10. Spark chalkboard clip / blog (personal)
+11. ~~Space JSON explorer~~ — **done local static:** `eval/smoke_viewer.html` (drop measured JSON; no network)
 
 ### P3 — post-launch research (not launch blocker)
-11. Agentic imatrix corpus design
-12. Ablate Q5_K_M / spine-protect only if P0 saturation and DIY gate opens
-13. DFlash speculative path on Spark if measured tok/s gain on agent loops
+12. Agentic imatrix corpus design
+13. Ablate Q5_K_M / spine-protect only if P0 saturation and DIY gate opens
+14. DFlash speculative path on Spark if measured tok/s gain on agent loops
 
 ## What not to do
 - Re-upload 68–96GB GGUF bare (S5 + lock)
@@ -233,4 +234,4 @@ Sample client already at `hermes/sample_client.py` + `hermes/README.md`. Expand 
 | Top-10 **Laguna pack cluster** attention | Achievable with evidence card + launch distribution |
 | Top-10 **global HF trending** | Not a primary commit; side-effect only |
 
-Next single move: **P0 close the two smoke fails and wire Hermes multi-turn sample — not a new quant.**
+Next single move: **restore Spark captain serve → run `scripts/measure_layer_b_v3.sh` (research only) — not a new quant. DIY still locked.**

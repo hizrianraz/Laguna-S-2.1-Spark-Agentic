@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laguna agent smoke viewer (static)</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --mut:#8b949e; --ok:#3fb950; --bad:#f85149; --line:#30363d; }
+    body { margin:0; font:14px/1.45 ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--fg); }
+    header { padding:16px 20px; border-bottom:1px solid var(--line); }
+    h1 { margin:0 0 6px; font-size:18px; }
+    .mut { color:var(--mut); }
+    main { padding:16px 20px 40px; max-width:1100px; }
+    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:10px 0 16px; }
+    input[type=file], button, select { background:var(--card); color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+    button { cursor:pointer; }
+    .stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 12px; min-width:110px; }
+    .stat b { display:block; font-size:18px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--mut); font-weight:600; }
+    tr.pass td.id { color:var(--ok); }
+    tr.fail td.id { color:var(--bad); }
+    code { font:12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    pre { white-space:pre-wrap; background:#0a0e14; border:1px solid var(--line); border-radius:8px; padding:10px; max-height:220px; overflow:auto; }
+    .disc { margin-top:18px; font-size:12px; color:var(--mut); }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Laguna agent / hermes-class smoke viewer</h1>
+  <div class="mut">Static local viewer · drop a measured JSON · no network · not a Nous endorsement</div>
+</header>
+<main>
+  <div class="row">
+    <input id="file" type="file" accept="application/json,.json" />
+    <select id="filter">
+      <option value="all">all</option>
+      <option value="fail">fails only</option>
+      <option value="pass">passes only</option>
+    </select>
+    <button id="clear" type="button">clear</button>
+  </div>
+  <div class="row" id="stats"></div>
+  <div id="meta" class="mut"></div>
+  <table>
+    <thead><tr><th>id</th><th>ok</th><th>judge / note</th><th>detail</th></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <p class="disc">
+    Personal measurement helper for pack artifacts under <code>results/</code>
+    (<code>agent_smoke.json</code>, <code>hermes_agent_smoke.json</code>, Layer B v3 when live).
+    Freeze claims remain whatever <code>launch_lock.json</code> records — this page never invents scores.
+  </p>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let DATA = null;
+
+function casesFrom(doc) {
+  if (!doc) return [];
+  if (Array.isArray(doc.cases)) return doc.cases;
+  if (Array.isArray(doc.results)) return doc.results;
+  if (Array.isArray(doc.items)) return doc.items;
+  return [];
+}
+
+function isPass(c) {
+  if (typeof c.pass === 'boolean') return c.pass;
+  if (typeof c.ok === 'boolean') return c.ok;
+  if (typeof c.passed === 'boolean') return c.passed;
+  if (c.status) return String(c.status).toLowerCase() === 'pass';
+  return false;
+}
+
+function render() {
+  const tbody = $('tbody');
+  const stats = $('stats');
+  const meta = $('meta');
+  tbody.innerHTML = '';
+  stats.innerHTML = '';
+  meta.textContent = '';
+  if (!DATA) return;
+  const all = casesFrom(DATA);
+  const mode = $('filter').value;
+  const rows = all.filter(c => {
+    const p = isPass(c);
+    if (mode === 'fail') return !p;
+    if (mode === 'pass') return p;
+    return true;
+  });
+  const nPass = all.filter(isPass).length;
+  const nFail = all.length - nPass;
+  const mk = (label, val) => {
+    const d = document.createElement('div');
+    d.className = 'stat';
+    d.innerHTML = `<b>${val}</b><span class="mut">${label}</span>`;
+    return d;
+  };
+  stats.append(
+    mk('total', all.length),
+    mk('pass', nPass),
+    mk('fail', nFail),
+    mk('rate', all.length ? `${(100*nPass/all.length).toFixed(1)}%` : '—')
+  );
+  const bits = [];
+  for (const k of ['suite','model','base_url','temperature','elapsed_s','created_at','when','runner_sha']) {
+    if (DATA[k] != null) bits.push(`${k}=${DATA[k]}`);
+  }
+  meta.textContent = bits.join(' · ');
+  for (const c of rows) {
+    const tr = document.createElement('tr');
+    const ok = isPass(c);
+    tr.className = ok ? 'pass' : 'fail';
+    const id = c.id || c.case_id || c.name || '—';
+    const note = c.judge || c.reason || c.message || c.error || '';
+    const detail = c.detail || c.tool_calls || c.response || c.raw || c;
+    tr.innerHTML = `<td class="id"><code>${id}</code></td>
+      <td>${ok ? 'pass' : 'FAIL'}</td>
+      <td>${String(note).slice(0,240)}</td>
+      <td><pre></pre></td>`;
+    tr.querySelector('pre').textContent = typeof detail === 'string' ? detail : JSON.stringify(detail, null, 2).slice(0, 4000);
+    tbody.appendChild(tr);
+  }
+}
+
+$('file').addEventListener('change', async (e) => {
+  const f = e.target.files && e.target.files[0];
+  if (!f) return;
+  DATA = JSON.parse(await f.text());
+  render();
+});
+$('filter').addEventListener('change', render);
+$('clear').addEventListener('click', () => { DATA=null; $('file').value=''; render(); });
+</script>
+</body>
+</html>
