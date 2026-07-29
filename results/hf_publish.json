@@ -1,9 +1,9 @@
 {
   "repo_id": "hizrianraz/laguna-s-2.1-spark",
   "url": "https://huggingface.co/hizrianraz/laguna-s-2.1-spark",
-  "commit": "bcb7892436909a2cd75dbaccb9326078da09b888",
-  "latest_commit": "bcb7892436909a2cd75dbaccb9326078da09b888",
-  "local_git_head": "7aae4cce316606a8df1f31254cbf11e2cf8fecd4",
+  "commit": "bf4a83e88b03edbec66b47986a5b7e21839d2828",
+  "latest_commit": "bf4a83e88b03edbec66b47986a5b7e21839d2828",
+  "local_git_head": "add01cda4edc40f8246e333069a71f168347a129",
   "private": false,
   "siblings": [
     ".gitattributes",
@@ -69,6 +69,9 @@
   "quant_comparison_on_hf": true,
   "device_matrix_on_hf": true,
   "spark_md_on_hf": true,
-  "updated_at_wib": "2026-07-29T12:43:02+07:00",
-  "note": "docs/receipts only; weights untouched; claim temp 0.0; 1M 0.7 chat-only"
+  "updated_at_wib": "2026-07-29T12:45:36+07:00",
+  "note": "docs/receipts only; weights untouched; claim temp 0.0; 1M 0.7 chat-only; spark HEAD synced",
+  "spark_host_git_head": "add01cd",
+  "spark_serve_alias": "local-laguna",
+  "q4_path": "/home/hizrianraz/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf"
 }
