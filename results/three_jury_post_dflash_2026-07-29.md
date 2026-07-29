@@ -2,7 +2,7 @@
 
 **Packet:** `three_jury_post_dflash_2026-07-29`  
 **Mode:** Manwë three-seat appellate + external ChatGPT/Claude prompts ready  
-**Measure tip:** `bf82eab` · **Engine:** `04b2b72` · **Weight:** official Q4_K_M
+**Docs tip:** `4e6496a` · **Measure tip:** `bf82eab` · **Engine:** `04b2b72` · **Weight:** official Q4_K_M
 
 ## Bottom line
 
