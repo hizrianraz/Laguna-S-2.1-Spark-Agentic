@@ -1,0 +1,28 @@
+{
+  "schema": "saqs.collection_pointer/v1",
+  "version": "v1.0.0-aug3",
+  "written_at_wib": "2026-07-30T16:21:28+07:00",
+  "draft": true,
+  "create_before_launch": false,
+  "publicize_not_before_wib": "2026-08-03T12:00:00+07:00",
+  "working_title": "Three Frontier Coding Models on One DGX Spark",
+  "subtitle": "role-specialized leaders \u00b7 one Spark Agentic Quant Standard",
+  "slug_existing_may_reuse": "hizrianraz/dgx-spark-agentic-deployment-packs-6a6a3110ad1c4397372a3ef6",
+  "order_packs": [
+    "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+    "hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+    "hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic"
+  ],
+  "reap25_canonical": {
+    "public_id": "DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+    "legacy_redirect": "DeepSeek-V4-Flash-Spark-Agentic",
+    "peer_artifact": "twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF",
+    "serve_default": "TYPE40_only",
+    "dual_download_default": false,
+    "dspark_means": "deepseek_speculative_decoding_module_NOT_dgx_spark",
+    "status": "experimental_unmeasured_hold"
+  },
+  "public_promo_before_launch": false,
+  "linked_space_required_at_list": true,
+  "note": "Pointer only \u2014 collection not publicized by this push."
+}

@@ -55,4 +55,18 @@ if [[ "${got}" != "${expected}" ]]; then
   exit 3
 fi
 
-echo "OK sha256 match ${FILE}"
+# provenance receipt + downloader marker (serve does not require it yet — sha is laws)
+bytes="$(wc -c < "${FILE}" | tr -d ' ')"
+marker="PULL_COMPLETE_${FILE}"
+{
+  echo "file=${FILE}"
+  echo "repo=${REPO}"
+  echo "rev=${REV}"
+  echo "sha256=${got}"
+  echo "bytes=${bytes}"
+  echo "expected_sha256=${expected}"
+  echo "status=pull_complete"
+  echo "diy_gguf=false"
+  echo "written_at=$(date -Iseconds 2>/dev/null || date)"
+} | tee "${marker}"
+echo "OK sha256 match ${FILE} · marker=${marker}"

@@ -1,0 +1,75 @@
+{
+  "schema": "saqs.release_manifest/v1",
+  "version": "v1.0.0-aug3",
+  "written_at_wib": "2026-07-30T16:21:28+07:00",
+  "phase": "pre_freeze_docs_bind",
+  "public_promo_before_launch": false,
+  "promote": false,
+  "note": "No promote. Docs/scripts/receipt bind only. Smoke != headline. verifier != gate clearance.",
+  "freeze_wib": "2026-08-02T18:00:00+07:00",
+  "list_wib": "2026-08-03T12:00:00+07:00",
+  "standard": "SPARK_AGENTIC_QUANT_STANDARD.md",
+  "diy_gguf": false,
+  "saqs_residency": {
+    "free_gib_min": 12,
+    "peak_nonswap_gib_max": 112
+  },
+  "members": [
+    {
+      "pack_id": "Laguna-S-2.1-Spark-Agentic",
+      "repo_id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "hf_url": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "gh_url": "https://github.com/hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "git_head_pre_commit": "ca922723a3901482a800e45c635a8381a8f495a3",
+      "role": "flagship_long_horizon_repo_maintenance",
+      "port": 8000,
+      "aug3_class": "measured_rc_official_nvfp4_dflash",
+      "canonical_artifact": "poolside/Laguna-S-2.1-NVFP4",
+      "gguf_default": "hizrianraz/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
+      "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+      "claim_class": "measured_path_if_gates",
+      "native_protocol": "poolside_v1"
+    },
+    {
+      "pack_id": "Qwen3-Coder-Next-Spark-Agentic",
+      "repo_id": "hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "hf_url": "https://huggingface.co/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "gh_url": "https://github.com/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "git_head_pre_commit": "e54d98890cc177a46bb53ac82dbadf6679a9337f",
+      "role": "interactive_coding_throughput",
+      "port": 8001,
+      "aug3_class": "quality_fp8_profile",
+      "canonical_artifact": "Qwen/Qwen3-Coder-Next-FP8",
+      "gguf_default": null,
+      "q4_sha256": null,
+      "claim_class": "co_ship_probe_fp8_quality_unshipped_until_gate",
+      "native_protocol": "qwen3_coder_non_thinking"
+    },
+    {
+      "pack_id": "DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+      "repo_id": "hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+      "hf_url": "https://huggingface.co/hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+      "gh_url": "https://github.com/hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+      "git_head_pre_commit": "0e7a1ef56b6de1dc8bd17d8e735ab1cadbba9da9",
+      "role": "experimental_long_context_investigation",
+      "port": 8002,
+      "aug3_class": "experimental_reap25_pulsar_preview",
+      "canonical_artifact": "twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF",
+      "gguf_default": "TYPE40_only",
+      "q4_sha256": null,
+      "claim_class": "co_list_scaffold_unmeasured_no_hero_without_freeze_gate",
+      "native_protocol": "encoding_dsv4_via_pulsar"
+    }
+  ],
+  "honesty": [
+    "smoke_neq_headline",
+    "verifier_neq_gate_clearance",
+    "evidence_bind_neq_gate",
+    "DSpark_neq_DGX_Spark",
+    "packs_not_finetune_not_quantized_relation",
+    "public_promo_before_launch_false",
+    "no_promote_this_push"
+  ],
+  "source_triple_lock_schema": "family.triple_aug3_lock/v4",
+  "source_triple_lock_updated": "2026-07-30T14:05:00+07:00"
+}

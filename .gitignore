@@ -34,3 +34,8 @@ prompts/_mirror/
 
 !results/triple_aug3_lock.json
 !results/RECEIPT_INDEX.json
+
+!results/RELEASE_MANIFEST.json
+!results/supervisor_stub.json
+!results/collection_pointer_aug3.json
+!results/family_jury_receipt_2026-07-30.json

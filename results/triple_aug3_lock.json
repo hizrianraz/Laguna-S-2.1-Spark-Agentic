@@ -1,6 +1,6 @@
 {
   "schema": "family.triple_aug3_lock/v4",
-  "updated_at_wib": "2026-07-30T13:46:00+07:00",
+  "updated_at_wib": "2026-07-30T14:05:00+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
   "list_wib": "2026-08-03T12:00:00+07:00",
   "launch_wib": "2026-08-03T12:00:00+07:00",
@@ -194,7 +194,7 @@
       "status": "after_launch",
       "at_wib": "2026-07-30T14:01:00+07:00",
       "rule": "No Qwen agent-cal NVFP4 workstream before freeze. Preview only until SAQS. Start after Aug 3 launch.",
-      "day0_claim": "FP8 quality path only — not NVFP4 speed"
+      "day0_claim": "FP8 quality path only \u2014 not NVFP4 speed"
     },
     "day0_surface": {
       "status": "packs_only",
@@ -209,6 +209,5 @@
       "qwen": "co_ship_probe_fp8_quality_unshipped_until_gate",
       "deepseek": "co_list_scaffold_unmeasured_no_hero_without_freeze_gate"
     }
-  },
-  "updated_at_wib": "2026-07-30T14:05:00+07:00"
+  }
 }
