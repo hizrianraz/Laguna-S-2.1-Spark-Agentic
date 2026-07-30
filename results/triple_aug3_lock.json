@@ -1,6 +1,6 @@
 {
   "schema": "family.triple_aug3_lock/v6",
-  "updated_at_wib": "2026-07-30T19:57:24+07:00",
+  "updated_at_wib": "2026-07-30T19:57:32+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
   "list_wib": "2026-08-03T12:00:00+07:00",
   "launch_wib": "2026-08-03T12:00:00+07:00",
@@ -133,9 +133,9 @@
   "co_list_posture_default": "CO_LIST_NON_RUNNABLE_until_junior_harden",
   "git_tips_at_write": {
     "profile": "3304605d356e46e8248b771632da1cf36de1e9b0",
-    "laguna": "76e00c90ea84b0e66122c6882aab85e1757a1cc4",
-    "qwen": "deccd81bf4cbab9596c567627e1f4d5707b4e316",
-    "deepseek": "3afb209da6b3344feadf4850f4badc5b5c13562e",
-    "note": "LOCAL commits only \u2014 not pushed to origin/HF. Freeze still BLOCKED."
+    "laguna": "384b43b7e60e8f4d06d0b0540b952c1a150b393b",
+    "qwen": "857069867253da2e718574f3699cd48fedf0fadf",
+    "deepseek": "746a966ed184defaa58768d6b7018ec63682fb43",
+    "note": "LOCAL commits only \u2014 not pushed. Freeze BLOCKED."
   }
 }
