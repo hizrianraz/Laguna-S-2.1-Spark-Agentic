@@ -1,6 +1,6 @@
 {
   "schema": "family.triple_aug3_lock/v6",
-  "updated_at_wib": "2026-07-30T19:33:06+07:00",
+  "updated_at_wib": "2026-07-30T19:57:24+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
   "list_wib": "2026-08-03T12:00:00+07:00",
   "launch_wib": "2026-08-03T12:00:00+07:00",
@@ -8,7 +8,7 @@
   "standard": "SPARK_AGENTIC_QUANT_STANDARD.md",
   "a3_path": "local_rewrite_no_origin_no_hf_push",
   "positioning": {
-    "north_star": "Three role-specialized personal packs on one DGX Spark — one measured runnable (Laguna Q4), two co-list juniors (Qwen FP8 preview, DeepSeek REAP25 scaffold)",
+    "north_star": "Three role-specialized personal packs on one DGX Spark \u2014 one measured runnable (Laguna Q4), two co-list juniors (Qwen FP8 preview, DeepSeek REAP25 scaffold)",
     "not_day0_label": "all_three_strongest",
     "innovation": "honest_measured_repro_on_128GB + secure_deploy + independent_receipt_bind",
     "not_identical_wrappers": true,
@@ -23,7 +23,7 @@
         "BAN_BEST_LONG_HORIZON",
         "BAN_DEEPSEEK_DEFAULT_HERO_CTA"
       ],
-      "note": "Raw ban phrases intentionally not stored as literals — codes only. Story surfaces must not reintroduce the ban-list English strings."
+      "note": "Raw ban phrases intentionally not stored as literals \u2014 codes only. Story surfaces must not reintroduce the ban-list English strings."
     }
   },
   "promo_window": {
@@ -36,7 +36,7 @@
     "deepseek_hero_status": "no_hero_default",
     "deepseek_hero_requires": "freeze_explicit_HERO_flip_plus_dated_measure_receipt",
     "deepseek_hero_calendar_slot_if_reopened": "2026-08-05T20:00:00+07:00",
-    "note": "likes7d rolling 7d — waves overlap without same-day CTA collision; DeepSeek default NO_HERO (cta null)"
+    "note": "likes7d rolling 7d \u2014 waves overlap without same-day CTA collision; DeepSeek default NO_HERO (cta null)"
   },
   "public_promo_before_launch": false,
   "diy_gguf": false,
@@ -132,9 +132,10 @@
   ],
   "co_list_posture_default": "CO_LIST_NON_RUNNABLE_until_junior_harden",
   "git_tips_at_write": {
-    "laguna": "a394d00fe4eabf7da6ccf6a5145d46ee65bb0cb9",
-    "qwen": "a1ef94c914a507752b791855feca17db7748eba2",
-    "ds": "521426118e4a7eea537bc0a1b3b8d5941cce546a",
-    "profile": "47c9077d1bb9d1dcad6ca819653453569883fbea"
+    "profile": "3304605d356e46e8248b771632da1cf36de1e9b0",
+    "laguna": "76e00c90ea84b0e66122c6882aab85e1757a1cc4",
+    "qwen": "deccd81bf4cbab9596c567627e1f4d5707b4e316",
+    "deepseek": "3afb209da6b3344feadf4850f4badc5b5c13562e",
+    "note": "LOCAL commits only \u2014 not pushed to origin/HF. Freeze still BLOCKED."
   }
 }
