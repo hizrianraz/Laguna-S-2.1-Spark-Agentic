@@ -34,6 +34,19 @@ tags:
 
 # Laguna-S-2.1-Spark-Agentic
 
+## Parameters
+
+| | |
+|--|--|
+| **Total** | **~118B** (HF count 117.56B BF16) |
+| **Active / token** | **~8B** |
+| **Arch** | MoE · `LagunaForCausalLM` · 256 experts (top-10) + 1 shared |
+| **Source** | [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1) |
+| **This pack** | **runtime only** — no weights here |
+
+> HF sidebar **Parameters** badge stays empty on purpose (no checkpoint in this repo).
+> Use the table above for size. Full detail: [Model parameters](#model-parameters-upstream--not-this-pack).
+
 **Measured DGX Spark deployment pack** for
 [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1)
 (118B total · ~8B active/token · MoE · agentic coding).
