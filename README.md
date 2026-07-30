@@ -4,6 +4,10 @@ license_name: openmdw-1.1
 license_link: https://huggingface.co/poolside/Laguna-S-2.1/blob/main/LICENSE.md
 language:
   - en
+base_model:
+  - poolside/Laguna-S-2.1
+  - poolside/Laguna-S-2.1-GGUF
+pipeline_tag: text-generation
 tags:
   - deployment-pack
   - evaluation-pack
@@ -74,6 +78,20 @@ echo "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4  laguna-s
 ```
 
 This pack is **not** the bulk weight host. It publishes **serve pins, digests, and smoke harness**.
+
+---
+
+## Model tree
+
+```text
+poolside/Laguna-S-2.1                 ← base (official)
+├── poolside/Laguna-S-2.1-GGUF        ← official GGUF authority
+├── hizrianraz/Laguna-S-2.1-GGUF      ← byte-identical mirror (not re-quant)
+└── hizrianraz/Laguna-S-2.1-Spark-Agentic  ← this pack (runtime · measured)
+```
+
+HF **Model tree** = README YAML `base_model` → `poolside/Laguna-S-2.1` + `poolside/Laguna-S-2.1-GGUF`.
+This pack is **not** a checkpoint.
 
 ---
 
