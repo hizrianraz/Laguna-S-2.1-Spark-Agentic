@@ -1,0 +1,171 @@
+{
+  "schema": "saqs.three_jury_post_push_sync/v1",
+  "packet_id": "three_jury_post_push_sync_2026-07-30",
+  "at_wib": "2026-07-30T21:35:09+07:00",
+  "consult_mode": "manwe_three_seat_appellate_lorien_not_present_docs_only",
+  "honesty": "jury_receipt_neq_gate_clearance \u00b7 not_a_ship_vote \u00b7 not_freeze_clearance \u00b7 not_launch_go",
+  "locks_in_force": {
+    "diy_gguf": false,
+    "promo_pre": false,
+    "dflash": "DO_NOT_PROMOTE",
+    "deepseek_rename": "founder_only",
+    "smoke_neq_headline": true,
+    "sot": "synology SAQS.md",
+    "launch_wib": "2026-08-03T12:00:00+07:00",
+    "freeze_wib": "2026-08-02T18:00:00+07:00"
+  },
+  "just_done": {
+    "push_gh": {
+      "Laguna-S-2.1-Spark-Agentic": "6444fc2",
+      "Qwen3-Coder-Next-Spark-Agentic": "39311f2",
+      "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "240c7c0",
+      "note": "P0 honesty/serve gates pushed to origin/main"
+    },
+    "hf_docs_sync": {
+      "Laguna-S-2.1-Spark-Agentic": "a46f99e6bc3fb755df69169c3017e7ac5b6614f5",
+      "Qwen3-Coder-Next-Spark-Agentic": "0fdbfb9178b97f604b49cfa5ab523c3a6a7112b0",
+      "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "a99a952e46a5ea76750f4f9d3fd33050fbef07c7",
+      "weights_uploaded": false,
+      "receipt": "results/hf_docs_sync_2026-07-30.json"
+    },
+    "promote": "NOT_RUN_LOCKED"
+  },
+  "gguf_already_downloaded_why": {
+    "Laguna-S-2.1-Q4_K_M": {
+      "where": "spark:~/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf",
+      "size": "90G",
+      "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+      "when_wib": "2026-07-28T15:27:50 \u2192 15:55:03",
+      "evidence": "spark:~/models/laguna-s-2.1/download.log + sha256_q4km.txt",
+      "why": "Pulled once for Spark agent_smoke / last-green serve captain. Mirror HF hizrianraz/Laguna-S-2.1-GGUF already hosts same digest; no re-download needed.",
+      "status": "COMPLETE \u00b7 pin matches RELEASE + SHA256SUMS"
+    },
+    "Laguna-XS-2.1-Q4_K_M": {
+      "where": "Laguna-XS-2.1-Mac-Agentic/models/Laguna-XS-2.1-Q4_K_M.gguf",
+      "size_bytes": 20274300032,
+      "sha256": "1ac7079101fca5a6df8c5a7523a3c30ea7d1c0e4b1258090e7d6d4039287f6cb",
+      "when_epoch": 1785252426.592767,
+      "evidence": "models/.cache/huggingface/download/*.metadata + live shasum",
+      "why": "HF hub download into pack models/ for Mac-Agentic path (Jul 28). Same digest as poolside + hizrianraz XS-GGUF pin. Not a new pull this session.",
+      "status": "COMPLETE \u00b7 pin matches SHA256SUMS"
+    },
+    "not_redownloading_because": [
+      "digests already pin-match official/poolside and local SHA256SUMS",
+      "diy_gguf=false \u2014 no rebuild / no re-upload of weights",
+      "promo_pre=false \u2014 promote path closed; local weights only for measure/serve"
+    ]
+  },
+  "seats": {
+    "Fable5_measure": {
+      "verdict": "PASS_HOLD",
+      "why": "S Q4 pin intact a8b55c75; XS pin 1ac70791 live-verified. No new measure this tick. DFlash still slower than plain \u2192 DO_NOT_PROMOTE stands. Smoke\u2260headline.",
+      "allowed_now": [
+        "no full re-smoke required for docs tip",
+        "keep measure tip-bound"
+      ],
+      "blocked": [
+        "promote any new SKU",
+        "claim new t/s without fresh probe"
+      ]
+    },
+    "Sol5_6_serve": {
+      "verdict": "PASS_HOLD",
+      "why": "P0 serve gates lands on GH+HF docs: Laguna Q4 SHA fail-closed, Qwen FP8 hardened, DeepSeek llama serve hard-disabled. Live captain re-probe not run this tick \u2014 next idle window only.",
+      "allowed_now": [
+        "Spark last-green captain unchanged until deliberate re-health"
+      ],
+      "blocked": [
+        "hero launch on DeepSeek",
+        "IQ3 headline serve"
+      ]
+    },
+    "Composer2_5_pack_claims": {
+      "verdict": "PASS_CONTINUE_PREP",
+      "why": "GH P0 tips pushed; HF docs-only tips re-synced; zero weight siblings on packs. GGUF mirrors already carry Q4 blobs (S public, XS private). Forbidden-claim surface tightened by P0.",
+      "allowed_now": [
+        "docs/honesty polish",
+        "XS private pack HF re-tip when GH dirty and ready",
+        "external jury paste when operator free",
+        "campaign checklist under promo_pre=false"
+      ],
+      "blocked": [
+        "public_promo / promo_pre true",
+        "diy_gguf true",
+        "treat this as freeze or launch clearance",
+        "DeepSeek rename without founder"
+      ]
+    },
+    "Lorien_chair": {
+      "status": "NOT_PRESENT",
+      "rule": "timeout_fail_open_docs_only \u2014 no authority expansion"
+    }
+  },
+  "overall": "GO_PASS_CONTINUE_PREP",
+  "promote_decision": "DO_NOT_PROMOTE",
+  "promote_rationale": [
+    "promo_pre=false lock",
+    "diy_gguf=false lock",
+    "not freeze day (freeze 2026-08-02 18:00 WIB)",
+    "DFlash DO_NOT_PROMOTE arithmetic still binds sibling promo temptation",
+    "jury_receipt \u2260 gate clearance"
+  ],
+  "next_ordered": [
+    {
+      "id": "N1",
+      "action": "Optional: commit remaining publish receipts + family jury packet to GH (docs)",
+      "owner": "manwe",
+      "gate": "none \u2014 docs only"
+    },
+    {
+      "id": "N2",
+      "action": "External jury paste (ChatGPT + Claude analyze prompts) when operator bandwidth",
+      "owner": "founder_or_manwe_draft",
+      "gate": "attention only \u2014 findings become extra seats, not auto-clear"
+    },
+    {
+      "id": "N3",
+      "action": "Spark last-green re-health probe only if idle (no scope change)",
+      "owner": "manwe_via_spark",
+      "gate": "idle GPU + no fight with freeze pack work"
+    },
+    {
+      "id": "N4",
+      "action": "XS Mac-Agentic: keep private; HF docs re-tip only if local tip ahead of f38d432",
+      "owner": "manwe",
+      "gate": "XS stays non-hero until measured agent_smoke exists"
+    },
+    {
+      "id": "N5",
+      "action": "DeepSeek paper/preflight only \u2014 no GPU train/release; rename=founder",
+      "owner": "manwe",
+      "gate": "NO_HERO + founder rename lock"
+    },
+    {
+      "id": "N6",
+      "action": "Hold all public_promo / weight promote until freeze window evidence pack",
+      "owner": "all",
+      "gate": "promo_pre stays false until founder opens"
+    }
+  ],
+  "founder_decision_needed": [
+    {
+      "id": "D1",
+      "ask": "Open external jury paste tonight, or hold until T-3 polish window?",
+      "default_if_silent": "hold \u2014 no freeze risk; docs tip already live"
+    },
+    {
+      "id": "D2",
+      "ask": "XS GGUF stay private through launch, or schedule public after card lock?",
+      "default_if_silent": "stay private (current)"
+    }
+  ],
+  "forbidden_claims_still": [
+    "DFlash speedup",
+    "first/only Laguna quant",
+    "best universal tok/s",
+    "full Laguna phone",
+    "IQ3 headline",
+    "global HF top-10",
+    "DeepSeek hero"
+  ]
+}
