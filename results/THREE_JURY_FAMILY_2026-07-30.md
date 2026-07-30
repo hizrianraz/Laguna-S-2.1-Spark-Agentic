@@ -1,5 +1,9 @@
 # Three-jury — family campaign (2026-07-30)
 
+> **Superseded historical packet.** Current CTA and evidence authority lives in
+> `results/RELEASE_MANIFEST.json` and `results/triple_aug3_lock.json`; candidate
+> calendar slots below are not promotion authorization.
+
 **Overall:** `PASS_CONTINUE_PREP` · all_go=true
 **Mode:** Manwë three-seat appellate (Lórien chair **timeout** after health-ok; single attempt, no retry)
 **Built:** 2026-07-30T15:21:39+07:00
@@ -19,7 +23,7 @@
 
 - Freeze: **2026-08-02 18:00 WIB**
 - List all three: **2026-08-03 12:00 WIB**
-- Heroes: Laguna **08-03 20:00** · Qwen **08-04 20:00** · DeepSeek **08-05 20:00** (DeepSeek needs evidence gate by freeze)
+- Historical candidate slots at this snapshot: Laguna **08-03 20:00** · Qwen **08-04 20:00** · DeepSeek **08-05 20:00**. **None is current CTA authorization.**
 
 ## Seats
 

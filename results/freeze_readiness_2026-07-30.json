@@ -1,6 +1,14 @@
 {
   "schema": "laguna.freeze_readiness/v1",
   "as_of_wib": "2026-07-30T02:16:20+07:00",
+  "historical_snapshot": true,
+  "superseded_at_wib": "2026-07-30T22:03:51+07:00",
+  "superseded_by": [
+    "results/RELEASE_MANIFEST.json",
+    "results/launch_lock.json",
+    "results/hf_publish.json"
+  ],
+  "current_status_note": "Retained as an early-day audit receipt only; all hashes, dirty-tree counts, and HF tips below are historical.",
   "pack": "Laguna-S-2.1-Spark-Agentic",
   "freeze_at_wib": "2026-08-02T18:00:00+07:00",
   "launch_at_wib": "2026-08-03T12:00:00+07:00",

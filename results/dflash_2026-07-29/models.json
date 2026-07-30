@@ -1,1 +1,9 @@
-
+{
+  "schema": "laguna.dflash_models_probe/v1",
+  "measured_at_wib": "2026-07-29",
+  "captured": false,
+  "models": [],
+  "status": "historical_probe_not_captured",
+  "decision": "DO_NOT_PROMOTE",
+  "note": "The historical file was empty. No /v1/models response is claimed; DFlash rejection is supported by measured.json, throughput.json, and server_bench.json."
+}

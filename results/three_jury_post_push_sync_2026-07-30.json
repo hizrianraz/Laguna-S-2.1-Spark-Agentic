@@ -2,6 +2,14 @@
   "schema": "saqs.three_jury_post_push_sync/v1",
   "packet_id": "three_jury_post_push_sync_2026-07-30",
   "at_wib": "2026-07-30T21:35:09+07:00",
+  "historical_snapshot": true,
+  "superseded_at_wib": "2026-07-30T22:03:51+07:00",
+  "superseded_by": [
+    "results/RELEASE_MANIFEST.json",
+    "results/triple_aug3_lock.json",
+    "results/hf_publish.json"
+  ],
+  "current_status_note": "The tips and sync statements below describe the 21:35 snapshot only. A later launch-hardening candidate is uncommitted and unsynced; do not use this packet as current publication or gate status.",
   "consult_mode": "manwe_three_seat_appellate_lorien_not_present_docs_only",
   "honesty": "jury_receipt_neq_gate_clearance \u00b7 not_a_ship_vote \u00b7 not_freeze_clearance \u00b7 not_launch_go",
   "locks_in_force": {

@@ -1,34 +1,25 @@
 {
-  "schema": "saqs.supervisor_stub/v1",
-  "version": "v1.0.0-aug3",
-  "written_at_wib": "2026-07-30T16:21:28+07:00",
-  "status": "stub_not_runtime",
-  "purpose": "Family co-list supervisor placeholder \u2014 does not orchestrate promote or hero CTA",
-  "ports": {
-    "laguna": 8000,
-    "qwen": 8001,
-    "deepseek": 8002
-  },
-  "rules": [
-    "never_steal_laguna_8000_without_MEASURE_WINDOW",
-    "deepseek_hold_until_HOLD_RELEASE_and_freeze_gate",
-    "qwen_day0_fp8_quality_only_not_nvfp4_speed",
-    "public_promo_before_launch_false",
-    "promote_is_founder_gated_not_this_stub"
-  ],
-  "health_probe_defaults": {
-    "laguna": "http://127.0.0.1:8000/v1/models",
-    "qwen_fp8": "http://127.0.0.1:8001/v1/models",
-    "deepseek": "http://127.0.0.1:8002/v1/models"
-  },
-  "residency": {
-    "free_gib_min": 12,
-    "peak_nonswap_gib_max": 112
-  },
+  "schema": "laguna.supervisor_reference/v2",
+  "written_at_wib": "2026-07-30T22:59:36+07:00",
+  "status": "INERT_REFERENCE_ONLY",
+  "authority_scope": "Laguna-S-2.1-Spark-Agentic only",
+  "is_runtime": false,
+  "is_orchestrator": false,
+  "family_state_authority": "external",
+  "laguna_endpoint": "http://127.0.0.1:8000/v1",
+  "candidate_status": "READY_FOR_FREEZE_REVIEW",
+  "clock_status": "BLOCKED_until_2026-08-02_freeze_attestation",
+  "historical_measured_path": true,
+  "verified_runnable_day0": false,
+  "current_v2_re_smoked": false,
+  "path_safety_proven": false,
+  "target_launch_receipt_present": false,
   "not_implemented": [
+    "runtime_launch",
+    "weight_pull",
+    "source_path_attestation",
     "auto_failover",
     "auto_promote",
-    "hero_cta_scheduler",
-    "weight_pull_orchestration"
+    "hero_scheduling"
   ]
 }

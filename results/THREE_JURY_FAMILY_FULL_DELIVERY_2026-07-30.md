@@ -1,6 +1,6 @@
 # Three-jury family full delivery — 2026-07-30
 
-**Composite:** PASS_WITH_GATES · three packs FULLY_DELIVERED_PREP
+**Composite:** SUPERSEDED family planning record — not current launch authority. Use each pack's `results/RELEASE_MANIFEST.json`.
 **Mode:** Manwë three-seat appellate · chair **not** co-signed
 **Built:** 2026-07-30T18:33:26+07:00
 
@@ -22,9 +22,9 @@
 
 | Pack | Delivery | Jury | Tip | Class |
 |------|----------|------|-----|-------|
-| Laguna-S | FULLY_DELIVERED_PREP | PASS_WITH_GATES | measure bf82eab / docs b82d33d | flagship measured |
-| Qwen3 | FULLY_DELIVERED_PREP | PASS_WITH_GATES | 9849410 | FP8 probe preview |
-| DeepSeek REAP25 | FULLY_DELIVERED_PREP | PASS_WITH_GATES | 00e0c6f NO_HERO | scaffold experimental |
+| Laguna-S | historical preparation record | superseded | measure bf82eab / docs b82d33d | historical measured path |
+| Qwen3 | historical preparation record | superseded | 9849410 | FP8 probe preview |
+| DeepSeek REAP25 | historical preparation record | superseded | 00e0c6f NO_HERO | scaffold experimental |
 
 ## All gate asks (jury)
 

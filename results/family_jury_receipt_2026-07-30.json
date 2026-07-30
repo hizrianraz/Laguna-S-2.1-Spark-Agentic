@@ -1,35 +1,21 @@
 {
-  "schema": "saqs.family_jury_receipt/v3",
-  "version": "v3.0.0-a3-q4-authority",
-  "written_at_wib": "2026-07-30T19:30:12+07:00",
-  "source_note": "A3 local rewrite after Sol Ultra SLIP_FREEZE + Fable HOLD. Roles honest; DeepSeek hero null.",
-  "list_wib": "2026-08-03T12:00:00+07:00",
+  "schema": "laguna.self_authority_jury_receipt/v1",
+  "legacy_filename_note": "Retained for compatibility; this receipt records Laguna posture only",
+  "written_at_wib": "2026-07-30T22:59:36+07:00",
+  "authority_scope": "Laguna-S-2.1-Spark-Agentic only",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
-  "clock_status": "BLOCKED",
-  "hero_cta": {
-    "laguna": "2026-08-03T20:00:00+07:00",
-    "qwen": "2026-08-04T20:00:00+07:00",
-    "deepseek": null,
-    "deepseek_status": "no_hero_default"
-  },
-  "roles": {
-    "Laguna-S-2.1-Spark-Agentic": "long-horizon repo-maintenance (measured Q4_K_M; not reliability proof)",
-    "Qwen3-Coder-Next-Spark-Agentic": "throughput + concurrency (FP8 quality preview; not day-0 winner claim)",
-    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "experimental long-context (scaffold; NO_HERO)"
-  },
-  "day0_class": {
-    "Laguna-S-2.1-Spark-Agentic": "measured_q4km_llama_cpp",
-    "Qwen3-Coder-Next-Spark-Agentic": "quality_fp8_preview_probe",
-    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "experimental_reap25_pulsar_scaffold"
-  },
-  "locks": [
-    "diy_gguf_false",
-    "public_promo_before_launch_false",
-    "smoke_neq_headline",
-    "deepseek_NO_HERO_default_cta_null",
-    "laguna_q4_authority_not_nvfp4_dflash_day0",
-    "day0_surface_packs_only"
-  ],
+  "list_wib": "2026-08-03T12:00:00+07:00",
+  "clock_status": "BLOCKED_until_2026-08-02_freeze_attestation",
+  "candidate_status": "READY_FOR_FREEZE_REVIEW",
+  "release_class": "historical_measured_q4_deployment_candidate",
+  "historical_measured_path": true,
+  "verified_runnable_day0": false,
+  "current_v2_re_smoked": false,
+  "path_safety_proven": false,
+  "hero_cta": null,
+  "hero_status": "not_promoted_requires_freeze_attestation_and_target_launch_receipt",
   "promote": false,
-  "honesty": "jury_receipt_neq_gate_clearance · not_a_ship_vote · a3_local_only"
+  "family_decisions_authority": "external",
+  "historical_claim_scope": "40_of_40_format_and_routing_only; 27_of_27_tools_validated_not_executed",
+  "honesty": "jury_receipt_neq_gate_clearance"
 }

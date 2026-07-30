@@ -5,6 +5,8 @@
 
 - hermes protocol: **tools validated, not executed** (see measured.json)
 - agent_smoke / hermes scores = **format & routing regression smokes**, not long-horizon agent proof
+- historical `long_04` chose `list_dir` but supplied `path=/`; the bf82eab receipt is preserved and **does not prove path safety**. Future cases reject that argument.
+- engine evidence pins source commit `04b2b72`, embedded version, and the historical short receipt's exact `+<cmath>` patch. No measured binary SHA was retained. The strict launcher now accepts only that patch shape, requires an operator-pinned target binary digest, and writes a target-host launch receipt. Final clearance must retain that receipt; it does not retroactively add a binary digest to this historical measurement.
 - server_bench marks labeled 2k/8k used prompts of **836** and **3236** tokens (not full 2k/8k packs)
 - gen headline ~21.47 t/s is **128 completion** tokens on a **67-token** prompt (single short-gen point)
 
@@ -22,6 +24,7 @@ Independent Spark measurement note — multi-bench
 - sha256: `a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4`
 - Engine: poolsideai/llama.cpp `04b2b72` · CUDA Spark
 - Serve: `0.0.0.0:8000` · `-c 8192 -ngl -1 --parallel 1 --alias local-laguna --jinja -fa on`
+- That wildcard bind is retained as historical provenance, not a current run command. The hardened v2 launcher is loopback-only.
 
 ## Throughput (temp 0.0)
 | mark | prompt_tok | completion_tok | latency_s | tok/s |
@@ -36,7 +39,7 @@ Prefill-oriented server_bench (OK replies):
 - 2k: prompt=836 latency=1.597s content='OK'
 - 8k: prompt=3236 latency=4.78s content='OK'
 
-## Agent smoke (launch bar)
+## Agent smoke (historical format/routing receipt)
 - **40/40** · elapsed **84.86s** · temp **0.0** · `local-laguna`
 - Artifact: `results/agent_smoke.json`
 - Runner sha256: `3bb81080879ddf78…`
@@ -53,8 +56,8 @@ Prefill-oriented server_bench (OK replies):
 - public_promo_before_launch: false
 - XS not in S freeze
 
-## Headline
-**40/40 agent_smoke · hermes 27/27 · ~21.47 t/s gen128 · Q4 live on Spark**
+## Measured summary
+**Q4 live on Spark · ~21.47 t/s gen128 · 40/40 format/routing smoke · hermes 27/27 validated-not-executed**
 
 ## DFlash (optional, same day)
 - gen128 **15.286 t/s** · 2k 2.253s · 8k 5.556s

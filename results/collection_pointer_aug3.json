@@ -5,8 +5,8 @@
   "draft": true,
   "create_before_launch": false,
   "publicize_not_before_wib": "2026-08-03T12:00:00+07:00",
-  "working_title": "Three Frontier Coding Models on One DGX Spark",
-  "subtitle": "role-specialized leaders \u00b7 one Spark Agentic Quant Standard",
+  "working_title": "DGX Spark Coding-Model Work: Measured, Preview, and HOLD",
+  "subtitle": "Laguna historical measured path \u00b7 Qwen Preview \u00b7 DeepSeek docs-only HOLD",
   "slug_existing_may_reuse": "hizrianraz/dgx-spark-agentic-deployment-packs-6a6a3110ad1c4397372a3ef6",
   "order_packs": [
     "hizrianraz/Laguna-S-2.1-Spark-Agentic",
@@ -23,6 +23,6 @@
     "status": "experimental_unmeasured_hold"
   },
   "public_promo_before_launch": false,
-  "linked_space_required_at_list": true,
+  "linked_space_required_at_list": false,
   "note": "Pointer only \u2014 collection not publicized by this push."
 }

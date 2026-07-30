@@ -1,6 +1,6 @@
 # Laguna full delivery — 2026-07-30
 
-**Status:** FULLY_DELIVERED_PREP · flagship measured
+**Status:** SUPERSEDED planning record — not current launch authority. Current source is `READY_FOR_FREEZE_REVIEW`, blocked on the 2026-08-02 attestation and reviewed target receipt.
 
 ## Tips
 

@@ -1,29 +1,28 @@
 # Spark Agentic Quant Standard (SAQS)
 
-Updated: 2026-07-30 19:40 WIB  
-Pack tree copy: 2026-07-30T21:10:42+07:00 (identical binder; root SoT remains portfolio `/SPARK_AGENTIC_QUANT_STANDARD.md` until freeze rehash)  
-Status: **working standard** — binds release claims; smoke scores are not headlines  
-Authority companions: `triple_aug3_lock.json` v6 · `FAMILY_MATRIX_AUG3.md` · `CAMPAIGN_AUG3_5.md`
+Updated: 2026-07-30
+Status: **working claim standard, not a certification** — smoke scores are not headlines
+Canonical public copy: this file; each pack carries an identical copy and its own `results/triple_aug3_lock.json`.
 
 ## Defensible innovation
 
 Quantization cannot make an upstream model smarter.
 
-What is defensible:
+What this family is trying to make defensible:
 
-> Secure deployment and independent reproduction of role-specialized agent packs  
-> per 128 GB DGX Spark — retention measured only under this standard.
+> Reproducible, evidence-labeled deployment profiles for one 128 GB DGX Spark.
+> Security, retention, and specialization are claims only after their named gates pass.
 
-Not: three near-identical “\*-Agentic” wrappers.  
-Yes: three **role-specialized** packs measured under **one public standard**.
+Day 0 is not three equally measured models: Laguna is measured, Qwen is Preview,
+and DeepSeek is an unmeasured HOLD scaffold.
 
-## Three role-specialized packs (day-0 authority)
+## Three evidence classes (day-0 authority)
 
 | Role | Public pack (today) | Canonical day-0 Spark artifact | Specialization (honest) |
 |------|---------------------|--------------------------------|-------------------------|
-| Flagship measured path | `Laguna-S-2.1-Spark-Agentic` | Official Poolside **Q4_K_M** GGUF + llama.cpp **04b2b72** (~36 GiB). DFlash **DO_NOT_PROMOTE**. NVFP4 = post-launch measured track only ([poolside/Laguna-S-2.1-NVFP4](https://huggingface.co/poolside/Laguna-S-2.1-NVFP4) is **not** day-0 flagship) | Repo-maintenance agent runbook — format/routing measured; **not** long-horizon agent reliability proof |
-| Interactive coder | `Qwen3-Coder-Next-Spark-Agentic` | Quality: [Qwen/Qwen3-Coder-Next-FP8](https://huggingface.co/Qwen/Qwen3-Coder-Next-FP8) (~75 GiB). Speed: **agent-calibrated** NVFP4 (~44 GiB) only after SAQS pass | Interactive coding **throughput** (quality FP8 day-0) |
-| Experimental reasoner | `DeepSeek-V4-Flash-REAP25-Spark-Agentic` | [twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF](https://huggingface.co/twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF) (~85 GiB) | Experimental **long-context investigation** — **NO_HERO default** |
+| Flagship measured path | `Laguna-S-2.1-Spark-Agentic` | Official Poolside **Q4_K_M** GGUF + llama.cpp **04b2b72** (~96.0 GB / ~89.4 GiB). DFlash **DO_NOT_PROMOTE**. NVFP4 is post-launch only. | Repo-maintenance deployment target; format/routing measured; **not** long-horizon reliability proof |
+| Interactive-coding Preview | `Qwen3-Coder-Next-Spark-Agentic` | [Qwen/Qwen3-Coder-Next-FP8](https://huggingface.co/Qwen/Qwen3-Coder-Next-FP8) (~75 GiB), pinned and single-residency only | Historical 2/2 API/chat availability probe; no day-0 throughput, concurrency, retention, or tool-success claim |
+| Experimental research pointer | `DeepSeek-V4-Flash-REAP25-Spark-Agentic` | [twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF](https://huggingface.co/twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF) (~85 GiB), absent under HOLD | Unmeasured, non-runnable day 0, **NO_HERO** |
 
 ### DeepSeek naming (critical)
 
@@ -36,7 +35,7 @@ Yes: three **role-specialized** packs measured under **one public standard**.
 
 - Legacy id `DeepSeek-V4-Flash-Spark-Agentic` = redirect stub only.
 - Cards must never imply untouched official DeepSeek-V4-Flash on one Spark.
-- Loader: **llama-server / GGUF only** — refuse vLLM/transformers for TYPE40.
+- Loader: pinned **`ds4-server` only**. TYPE40 is not loadable by llama.cpp, Ollama, vLLM, or Transformers.
 
 ## Release unit under test
 
@@ -48,8 +47,9 @@ checkpoint + tokenizer/template + runtime + parser + agent scaffold + security p
 
 Same scaffold, task budget, tool schemas, and seeds for reference vs quantized variants.
 
-Smoke (`40/40`, `2/2`, hermes `27/27`) = **tool-format / routing regression only**.  
-**Never** headline agent benchmarks. **Never** invent retention % from smoke.
+Laguna `40/40` and Hermes `27/27` are format/routing regression receipts with
+documented scope limits. Qwen `2/2` is API/chat availability only. DeepSeek has
+zero measured executions. **Never** convert any of them into agent benchmarks or retention percentages.
 
 ## Public battery (shared)
 
@@ -69,7 +69,11 @@ Protocol:
 - Report **pass@1** and **repeat reliability**
 - Benchmark tasks **strictly outside** any calibration corpus
 
-## Hard release gates
+## Future SAQS certification targets
+
+These are certification targets for later comparative claims. They are **not**
+claims that the Aug 3 Preview/HOLD entries have passed, and they are not a reason
+to relabel missing evidence as measured.
 
 | Axis | Hard gate |
 |------|-----------|
@@ -114,7 +118,7 @@ Keep eval tasks outside calibration.
 
 - **`diy_gguf: false` remains** for Laguna GGUF mirrors — host / pin **official** GGUF only; continue no claiming “first quant”.
 - **Laguna day-0** = official **Q4_K_M** path. Never promote NVFP4+DFlash as day-0 flagship RC.
-- **Agent-calibrated NVFP4** (Qwen speed lane) is a **named exception track**: only ship as our quant repo after SAQS gates + license clarity — **default Aug 3 = FP8 quality, NVFP4 = technical preview / hold**.
+- **Agent-calibrated NVFP4** (Qwen speed lane) is a **named exception track**: only ship as our quant repo after SAQS gates + license clarity — **default Aug 3 = official FP8 Preview; NVFP4 = post-launch hold / exception track**.
 
 ## Native protocols — not one forced Hermes template
 
@@ -149,7 +153,7 @@ Each model manifest pins:
 
 Security defaults:
 
-- Bind **127.0.0.1** — never 0.0.0.0
+- Bind **127.0.0.1** by default; any LAN exposure requires explicit opt-in and authentication
 - Real random API token
 - Inference process ≠ tool-execution process
 - Workspace-only filesystem sandbox
@@ -187,10 +191,10 @@ Working North Star (post-gate):
 
 | Model | Aug 3 class | Notes |
 |-------|-------------|-------|
-| Laguna S | **Measured path** on official **Q4_K_M** + llama.cpp **04b2b72** (smoke ≠ headline; not long-horizon proof) | Flagship hero Aug 3 20:00 · DFlash DO_NOT_PROMOTE · NVFP4 post-launch only |
-| Qwen3-Coder-Next | **Quality FP8** profile; NVFP4 agent-cal = **tech preview** until SAQS | Hero Aug 4 iff pinned path + closed-loop + mem/context |
-| DeepSeek REAP25 | **Explicit experimental / HOLD** (Pulsar + REAP25 + native encoding) | **NO_HERO default** (`hero_cta: null`); Aug 5 only if freeze re-opens |
+| Laguna S | **Measured path** on official **Q4_K_M** + llama.cpp **04b2b72** (smoke ≠ headline; not long-horizon proof) | Flagship hero candidate Aug 3 20:00 only after explicit freeze clearance · DFlash DO_NOT_PROMOTE · NVFP4 post-launch only |
+| Qwen3-Coder-Next | Official FP8 **Preview**; historical 2/2 API/chat probe only; NVFP4 post-launch | `hero_cta: null` until a dated `:8001` remeasurement and explicit gate |
+| DeepSeek REAP25 | **Experimental / HOLD**, TYPE40 absent, pinned `ds4-server` path not yet validated | **NO_HERO** (`hero_cta: null`) |
 
-Sequential promote Aug 3–5 and likes7d overlap stay as in `CAMPAIGN_AUG3_5.md`.
+Listing all three does not authorize sequential promotion. Each CTA requires its own explicit gate.
 
 honesty: smoke ≠ headline · verifier ≠ gate clearance · local rewrite ≠ freeze clearance

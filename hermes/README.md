@@ -15,23 +15,31 @@ local `llama-server` serving Laguna-S-2.1 on DGX Spark.
 
 ```text
 base_url = http://127.0.0.1:8000/v1
-api_key  = sk-local          # llama-server ignores; keep placeholder
+api_key  = $OPENAI_API_KEY   # same random secret as server-side LAGUNA_API_KEY
 model    = local-laguna      # must match llama-server --alias
 ```
 
 ```bash
 export OPENAI_BASE_URL=http://127.0.0.1:8000/v1
-export OPENAI_API_KEY=sk-local
+export OPENAI_API_KEY="$LAGUNA_API_KEY"
 export OPENAI_MODEL=local-laguna
-python hermes/sample_client.py
+/usr/bin/python3 -I -S hermes/sample_client.py
 ```
 
 Remote client → Spark (no local full-S weights on ≤32 GB class machines):
 
+- `serve_spark.sh` is loopback-only and rejects every direct remote bind.
+- Use an SSH tunnel for the simple remote-client case.
+- Treat any TLS proxy or tailnet gateway as a separate surface requiring its own audit.
+
 ```bash
-export OPENAI_BASE_URL=http://<spark-host>:8000/v1
-export OPENAI_API_KEY=sk-local
+ssh -N -L 127.0.0.1:8000:127.0.0.1:8000 spark-user@spark-host
+
+# In a second local terminal:
+export OPENAI_BASE_URL=http://127.0.0.1:8000/v1
+export OPENAI_API_KEY='<same-random-secret-configured-on-spark>'
 export OPENAI_MODEL=local-laguna
+/usr/bin/python3 -I -S hermes/sample_client.py
 ```
 
 Stack-agnostic YAML sketch: [`config.example.yaml`](./config.example.yaml)
@@ -97,40 +105,49 @@ Captain serve flags (must match last-green):
 | model id mismatch | request model must match `--alias` (`local-laguna`) |
 | slow / OOM agent loops | ctx 8192 agent day-to-day; do not jump to 256k without FSM |
 
-## Hermes-class smoke v2 (freeze bar companion)
+## Hermes-class smoke v4 (current hardened, unmeasured)
 
 ```bash
-python eval/hermes_agent_smoke/run_hermes_smoke.py \
+export OPENAI_API_KEY="$LAGUNA_API_KEY"
+/usr/bin/python3 -I -S eval/hermes_agent_smoke/run_hermes_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
   --model local-laguna \
-  --temperature 0 \
-  --out results/hermes_agent_smoke.json
+  --temperature 0
 ```
 
-27 fixed cases (terminal/files/web multi-turn + repair).  
+27 hardened cases (terminal/files/web multi-turn + repair).
 See `eval/hermes_agent_smoke/README.md`.  
 **One-response protocol** on most cases — tools validated, not executed.  
-Claim temp **0.0**. Measured tip: **27/27**.
+Temperature is fixed at **0.0**. This v4 catalog is **unmeasured** at SHA-256
+`748f152eb8ceeedb4f04bef336263519bf5739f4e5e3027f3ec56d5ae080ad89`.
+The historical **27/27** belongs only to locked v2 catalog SHA-256
+`3275a4a570007fa8f948764a6873e055dc5a4a5ff257a1edc8bc342a02a8ddfc`
+and `results/hermes_agent_smoke.json`; it does not transfer to v4. The command
+above writes a new receipt and does not overwrite historical evidence.
 
-Does **not** replace the launch-bar **agent_smoke 40/40**.
+Does **not** replace the historical **agent_smoke 40/40 format/routing** receipt.
 
 ## Layer B research suite (optional)
 
 ```bash
-python eval/hermes_agent_smoke/run_hermes_smoke.py \
-  --base-url http://127.0.0.1:8000/v1 \
-  --model local-laguna \
-  --cases eval/hermes_agent_smoke/cases_layer_b_v3.json \
-  --out results/hermes_agent_smoke_layer_b_v3.json
+LAGUNA_LAYER_B_OUT="results/hermes_agent_smoke_layer_b_v3_$(date -u +%Y%m%dT%H%M%SZ).json" \
+  ./scripts/measure_layer_b_v3.sh
 ```
 
-35 cases (= v2 27 + 8 long-horizon / denser repair).  
-Live research measure **2026-07-29:** **35/35** in **137.56s** on official Q4 (temp 0).  
-Local artifact: `results/hermes_agent_smoke_layer_b_v3.json` (gitignored).  
-Tracked receipt: `eval/hermes_agent_smoke/layer_b_v3_live_receipt.json`.  
-DOES **not** move freeze lock numbers (v2 stays **27/27**).
+35 cases (27 parent-shaped + 8 long-horizon / denser repair). The current helper
+catalog is **unmeasured diagnostic-only** at SHA-256
+`0502e626d92fa6845bfb66da87c877f86c4e05f19b30d1fe5d264c88277d9ceb`.
+The historical **35/35** in **137.56s** belongs only to the older catalog SHA-256
+`829fd838a83a73cf3f5d05310491a51420fdae7fa7618b1d62d4da444f4fa5e1`.
+It does **not** transfer to the current bytes or move the locked v2 freeze score.
 
 One-shot helper: `./scripts/measure_layer_b_v3.sh`  
-(If Spark serves loopback-only, tunnel: `ssh -L 18000:127.0.0.1:8000 spark`.)
+(For a remote Spark, keep the helper on local port 8000 with
+`ssh -N -L 8000:127.0.0.1:8000 spark`.)
+
+Historical receipt path fields are labels from the machine that produced the
+receipt, not selectors for current files. Score identity is bound to the suite
+version and catalog SHA-256 above; never reattach a historical score by matching
+only a filename such as `cases.json` or a receipt path.
 
 Not a Nous endorsement.

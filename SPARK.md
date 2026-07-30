@@ -11,7 +11,7 @@ Do not run this pack’s claimed numbers on rented cloud hosts and relabel them 
 |------|--------|
 | Repo | `github.com/poolsideai/llama.cpp` branch `laguna` |
 | Commit | `04b2b72cb54048ead292884adbe11f284e3ec950` |
-| Host patch | `common/speculative.cpp`: `math.h` + `::isfinite` (GNU 13.3) |
+| Host patch | `common/speculative.cpp`: exact `+#include <cmath>` only · patched source SHA-256 `3952ed9f…f48b9` |
 | CUDA arch | `121a` (GB10) |
 | Bin version string | `version: 1 (04b2b72)` |
 
@@ -30,14 +30,18 @@ Do not run this pack’s claimed numbers on rented cloud hosts and relabel them 
 ## Build (CUDA, aarch64)
 
 ```bash
+LAGUNA_PACK_ROOT="$(pwd)"  # run from the deployment-pack root
+export LAGUNA_ENGINE="$HOME/src/llama.cpp-laguna"
 export PATH=/usr/local/cuda/bin:$PATH
 export CUDA_HOME=/usr/local/cuda
 export CC=/usr/bin/gcc CXX=/usr/bin/g++ CUDAHOSTCXX=/usr/bin/g++
 
-git clone https://github.com/poolsideai/llama.cpp llama.cpp-laguna
-cd llama.cpp-laguna
-git checkout 04b2b72cb54048ead292884adbe11f284e3ec950
-cd llama.cpp-laguna
+git clone https://github.com/poolsideai/llama.cpp "$LAGUNA_ENGINE"
+cd "$LAGUNA_ENGINE"
+git checkout --detach 04b2b72cb54048ead292884adbe11f284e3ec950
+# Apply the exact measured +<cmath>-only compatibility patch from
+# docs/BUILD_SPARK.md before compiling. Other patch shapes are not accepted by
+# the strict launch profile.
 # pin when publishing numbers:
 # git rev-parse HEAD
 
@@ -47,10 +51,11 @@ cmake -B build -G "Unix Makefiles" \
   -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
   -DCMAKE_CUDA_HOST_COMPILER=/usr/bin/g++ \
   -DGGML_CUDA=ON \
-  -DCMAKE_CUDA_ARCHITECTURES=121 \
+  -DCMAKE_CUDA_ARCHITECTURES=121a \
   -DLLAMA_CURL=ON
 
 cmake --build build -j"$(nproc)" --target llama-server llama-cli llama-bench
+cd "$LAGUNA_PACK_ROOT"
 ```
 
 Notes:
@@ -61,90 +66,128 @@ Notes:
 
 ## Weights
 
-Default stand-behind file (official Poolside bytes via preferred mirror):
+Default stand-behind file (official Poolside bytes at an immutable upstream revision):
 
 ```bash
-# preferred: ./scripts/pull_official_gguf.sh
-huggingface-cli download hizrianraz/Laguna-S-2.1-GGUF \
-  laguna-s-2.1-Q4_K_M.gguf \
-  --local-dir $HOME/models/laguna-s-2.1
-# upstream alt: poolside/Laguna-S-2.1-GGUF @ fc4e481289523cf7d0df668da6d1d391616141ca
+# required launch path: immutable upstream pull + atomic SHA verification
+for trusted_root in "$HOME/src" "$HOME/models" "$HOME/.local/state"; do
+  [[ ! -L "$trusted_root" ]] || { echo "symlinked root: $trusted_root" >&2; exit 2; }
+  install -d -m 700 -- "$trusted_root"
+done
 
-sha256sum $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf
-# expect a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4
+: "${LAGUNA_EXPECT_PACK_REVISION:?set the authorized 40-hex Hub commit}"
+export LAGUNA_EXPECT_PACK_REVISION
+export LAGUNA_EXPECT_LAUNCHER_SHA256="547ccf1f6f6cbae3fff15995ff4fecccbb876c3f6d5e015f6ab6a622ed9d4c2f"
+printf '%s  %s\n' "$LAGUNA_EXPECT_LAUNCHER_SHA256" scripts/serve_spark.sh | sha256sum -c -
+./scripts/pull_official_gguf.sh
 ```
+
+Direct `hf download --local-dir` is not an equivalent launch path because it
+bypasses the strict destination, lock, hardlink/symlink, and no-clobber gates.
 
 Optional DFlash draft (upstream only today):
 
 ```bash
-huggingface-cli download poolside/Laguna-S-2.1-GGUF \
+hf download poolside/Laguna-S-2.1-GGUF \
   laguna-s-2.1-DFlash-BF16.gguf \
-  --local-dir $HOME/models/laguna-s-2.1
+  --revision fc4e481289523cf7d0df668da6d1d391616141ca \
+  --local-dir $HOME/research/laguna-dflash
 ```
 
-Disk: Q4_K_M ≈ 90–96 GB logical (HF race); keep ≥200 GB free for download + KV headroom.
+That research directory is never accepted by `serve_spark.sh` and cannot mint
+launch authority.
+
+Disk: Q4_K_M is exactly **96,031,829,760 bytes** (~96.0 GB / ~89.4 GiB);
+keep ≥200 GB free when staging optional research artifacts and runtime headroom.
 
 ## Serve — OpenAI endpoint
 
 ```bash
-./build/bin/llama-server \
-  -m $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
-  --host 127.0.0.1 --port 8000 \
-  --ctx-size 8192 \
-  -ngl -1 \
-  -fa on \
-  --jinja \
-  --alias local-laguna \
-  --metrics
+for trusted_root in "$HOME/src" "$HOME/models" "$HOME/.local/state"; do
+  [[ ! -L "$trusted_root" ]] || { echo "symlinked root: $trusted_root" >&2; exit 2; }
+  install -d -m 700 -- "$trusted_root"
+done
+
+: "${LAGUNA_EXPECT_PACK_REVISION:?set the authorized 40-hex Hub commit}"
+export LAGUNA_EXPECT_PACK_REVISION
+export LAGUNA_EXPECT_LAUNCHER_SHA256="547ccf1f6f6cbae3fff15995ff4fecccbb876c3f6d5e015f6ab6a622ed9d4c2f"
+printf '%s  %s\n' "$LAGUNA_EXPECT_LAUNCHER_SHA256" scripts/serve_spark.sh | sha256sum -c -
+
+# Phase 1: hash only. Inspect/approve the binary before exporting its digest.
+engine_pin_output="$(LAGUNA_PRINT_RUNTIME_PINS=1 ./scripts/serve_spark.sh)"
+printf '%s\n' "$engine_pin_output"
+export LAGUNA_EXPECT_ENGINE_SHA256="$(printf '%s\n' "$engine_pin_output" | awk -F= '$1=="LAGUNA_EXPECT_ENGINE_SHA256"{print $2}')"
+[[ "$LAGUNA_EXPECT_ENGINE_SHA256" =~ ^[0-9a-f]{64}$ ]] || exit 2
+unset engine_pin_output
+
+# Phase 2: hash-gated ldd. Inspect the complete manifest before binding it.
+dso_pin_output="$(LAGUNA_PRINT_RUNTIME_PINS=2 ./scripts/serve_spark.sh)"
+printf '%s\n' "$dso_pin_output"
+export LAGUNA_EXPECT_DSO_MANIFEST_SHA256="$(printf '%s\n' "$dso_pin_output" | awk -F= '$1=="LAGUNA_EXPECT_DSO_MANIFEST_SHA256"{print $2}')"
+[[ "$LAGUNA_EXPECT_DSO_MANIFEST_SHA256" =~ ^[0-9a-f]{64}$ ]] || exit 2
+unset dso_pin_output
+
+export LAGUNA_API_KEY="$(openssl rand -hex 32)"
+export OPENAI_API_KEY="$LAGUNA_API_KEY"
+./scripts/serve_spark.sh
 ```
+
+The launcher verifies the exact engine revision and measured `+<cmath>` patch,
+the operator-pinned engine binary and resolved dynamic-library closure, Q4 bytes
+and SHA-256, exact DGX Spark/GB10/arm64 identity, a host-wide launch lock,
+absence of another model server, available memory for the model plus a 12 GiB
+reserve, zero existing swap use, port availability, rejection of both absent
+and wrong bearer tokens, positive-token protected readiness, and exact
+`/v1/models` identity before declaring the server ready. The model and binary
+are loaded through already-verified file descriptors. It writes a
+mode-0600, no-clobber target-host launch receipt under `$HOME/.local/state/laguna/`
+by default. The receipt binds the operator-declared immutable pack revision and
+the independently pinned launcher digest. It is not self-clearing: compare both
+values with the authorized Hub commit during independent review, then retain the
+receipt. It does not refresh the historical smoke or clear the freeze alone.
 
 Headline claims use **`-ngl -1`** (offload all / last-green pin). Older notes with `-ngl 99` are not the measured captain path.
 
-With DFlash (poolside fork) — optional only; **DO_NOT_PROMOTE** on this pack:
-
-```bash
-./build/bin/llama-server \
-  -m $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
-  -md $HOME/models/laguna-s-2.1/laguna-s-2.1-DFlash-BF16.gguf \
-  --spec-type draft-dflash --spec-draft-n-max 7 \
-  --host 127.0.0.1 --port 8000 \
-  --ctx-size 8192 -ngl -1 -fa on --jinja \
-  --alias local-laguna
-```
+The historical DFlash experiment is **DO_NOT_PROMOTE** and intentionally has no
+runnable launch command here. Any future investigation must use a separate,
+authenticated research launcher and a new receipt; it must not replace the
+Q4 launch captain or reuse its claims.
 
 Check:
 
 ```bash
-curl -s http://127.0.0.1:8000/v1/models | head
-curl -s http://127.0.0.1:8000/v1/chat/completions \
+curl --disable --noproxy '*' -s --config <(printf 'header = "Authorization: Bearer %s"\n' "$OPENAI_API_KEY") \
+  http://127.0.0.1:8000/v1/models | head
+curl --disable --noproxy '*' -s http://127.0.0.1:8000/v1/chat/completions \
+  --config <(printf 'header = "Authorization: Bearer %s"\n' "$OPENAI_API_KEY") \
   -H 'Content-Type: application/json' \
-  -d '{"model":"laguna","messages":[{"role":"user","content":"ping"}],"max_tokens":16}'
+  -d '{"model":"local-laguna","messages":[{"role":"user","content":"ping"}],"max_tokens":16}'
 ```
 
 Point Hermes-class agents at:
 
 ```text
 base_url = http://127.0.0.1:8000/v1
-api_key  = sk-local   # unused by llama-server; placeholder
+api_key  = $OPENAI_API_KEY   # same value as server-side LAGUNA_API_KEY
 ```
 
 See `hermes/sample_client.py`.
 
-### Context presets
+### Context profiles
 
-| Preset | flags | use |
-|--------|-------|-----|
-| 2k smoke | `--ctx-size 2048` | quick agent_smoke / latency |
-| 8k default agent | `--ctx-size 8192` | multi-step tools |
-| 256k card default | `--ctx-size 262144` | long horizon (needs RAM headroom) |
-| 1M native | `--ctx-size 1048576 --rope-scaling yarn --rope-scale 128 --yarn-orig-ctx 8192` | quality may drop · **chat-only** sampling example temp 0.7 top_p 0.95 · **not** agent/smoke claim default (claims use temp **0.0**) |
+| Profile | status | use |
+|---------|--------|-----|
+| 8k (`--ctx-size 8192`) | **strict measured launcher** | the only context accepted by `serve_spark.sh` |
+| 2k (`--ctx-size 2048`) | unmeasured research only | requires a separate launcher and new receipt |
+| 256k (`--ctx-size 262144`) | unmeasured research only | requires capacity/quality validation, separate launcher, and new receipt |
+| 1M (`--ctx-size 1048576 ...`) | upstream capability research only | no runnable preset or pack claim; requires separate capacity/quality work |
 
 ## Measure — tok/s + memory
 
 ### llama-bench (prompt+gen)
 
 ```bash
-./build/bin/llama-bench \
+"$LAGUNA_ENGINE/build/bin/llama-bench" \
   -m $HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf \
   -ngl -1 -fa 1 \
   -p 2048,8192 -n 128 \
@@ -154,10 +197,9 @@ See `hermes/sample_client.py`.
 ### Server wall-clock (agent-shaped)
 
 ```bash
-python scripts/bench_server.py \
+/usr/bin/python3 -I -S scripts/bench_server.py \
   --base-url http://127.0.0.1:8000/v1 \
-  --ctx-mark 2k --ctx-mark 8k \
-  --out results/server_bench.json
+  --ctx-mark 2k --ctx-mark 8k
 ```
 
 ### Memory
@@ -182,47 +224,53 @@ Serve proven: `-c 8192 -ngl -1 --parallel 1 --alias local-laguna --jinja -fa on`
 |---------|-----------------|----------|------------|-------|
 | ctx 8k, ngl -1, fa on | 836 prompt → 1.597 s; 3236 prompt → 4.78 s | **~21.47** @ 128 gen | ~2–3.4 Gi process RSS | unified mem; **sole headline gen = 21.47** (`results/measured.json`) |
 | gen8 short | — | 10.612 | same | tiny completion noise floor — not a headline |
-| ctx 8k + DFlash (`draft-dflash`) | 2k 2.253s · 8k 5.556s | **15.286** @ 128 gen | higher (draft+target) | trial `-ngl 99` vs baseline `-ngl -1` · **DO_NOT_PROMOTE** still (gen+prefill slower) · `results/dflash_2026-07-29/` |
+| ctx 8k + DFlash (`draft-dflash`) | 2k mark/836 actual: 2.253s · 8k mark/3,236 actual: 5.556s | **15.286** @ 128 gen | higher (draft+target) | trial `-ngl 99` vs baseline `-ngl -1` · **DO_NOT_PROMOTE** still (gen+prefill slower) · `results/dflash_2026-07-29/` |
 
-Agent-shaped (tool round-trips, see smoke) — **live tip durations bind**:
+Format/routing regression suites — **historical tip durations bind; tools are not executed**:
 
 | Suite | quant | pass | n | notes |
 |-------|-------|------|---|-------|
-| agent_smoke v1 (launch bar) | Q4_K_M | **40/40 · 100%** | 40 | **84.86 s** ·temp 0.0 · tip 2026-07-29 13:22 WIB · runner `3bb81080…` · older same-day restores ~88–98 s are historical only |
-| hermes_agent_smoke v2 | Q4_K_M | **27/27 · 100%** | 27 | **100.1 s** · temp 0.0 · same tip · one-response · runner `20c1e52a…` · `results/hermes_agent_smoke.json` |
-| hermes Layer B v3 (research) | Q4_K_M | **35/35 · 100%** | 35 | **137.56 s** · 2026-07-29 · **not freeze bar** · receipt `eval/hermes_agent_smoke/layer_b_v3_live_receipt.json` |
+| agent_smoke v1 (historical receipt) | Q4_K_M | **40/40 · 100%** | 40 | **84.86 s** · temp 0.0 · format/routing only · `long_04 path=/` means path safety not proven · tip `bf82eab` |
+| hermes_agent_smoke historical v2 | Q4_K_M | **27/27 · 100%** | 27 | **100.1 s** · catalog `3275a4a…a8ddfc` · one-response · locked `results/hermes_agent_smoke.json` |
+| hermes_agent_smoke hardened v4 | — | **unmeasured** | 27 | current catalog `748f152e…0ad89`; suite-only future run, never release clearance |
+| hermes Layer B historical v3 (research) | Q4_K_M | **35/35 · 100%** | 35 | **137.56 s** · catalog `829fd838…fa5e1` · **not freeze bar** |
+| hermes Layer B current v3 diagnostic | — | **unmeasured** | 35 | catalog `0502e626…7d9ceb`; helper uses loopback port 8000 |
 Raw: `results/MEASURED.md`, `results/measured.json`, `results/agent_smoke.json`, `results/hermes_agent_smoke.json`, `results/server_bench.json`.
 
 ## Agent-shaped benches
 
 Not MMLU. Fixed suites under `eval/`:
 
-**v1 — launch bar** (`eval/agent_smoke/`, 40 cases):
+**v1 historical receipt / v2 current future cases** (`eval/agent_smoke/`, 40 cases):
 
 1. **tool JSON** — emit valid tool call objects only from the offered schema  
 2. **multi-step** — 2–4 tool hops before final answer  
 3. **error repair** — recover from tool error payloads  
 4. **no invented tools** — refuse / answer without calling names not in schema  
 5. **short code** — small pure functions, exact stdout  
-6. **long-horizon** — sticky constraints across turns  
+6. **long-horizon-shaped prompts** — not proof of long-horizon reliability
 
-**v2 — Hermes-class** (`eval/hermes_agent_smoke/`, 27 cases):
+**v4 hardened — Hermes-class** (`eval/hermes_agent_smoke/`, 27 cases, unmeasured):
 
 Terminal / files / web / multi_tool / multi_turn / error_repair / no_invented / browser / memory_cron / args_strict / safety.  
 OpenAI tool shape only — not a Nous endorsement.
 
 ```bash
-python eval/agent_smoke/run_smoke.py \
+/usr/bin/python3 -I -S eval/agent_smoke/run_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
-  --model local-laguna \
-  --out results/agent_smoke.json
+  --model local-laguna
 
-python eval/hermes_agent_smoke/run_hermes_smoke.py \
+/usr/bin/python3 -I -S eval/hermes_agent_smoke/run_hermes_smoke.py \
   --base-url http://127.0.0.1:8000/v1 \
   --model local-laguna \
-  --temperature 0 \
-  --out results/hermes_agent_smoke.json
+  --temperature 0
 ```
+
+The dated `bf82eab` receipt files are historical authority and must not be
+overwritten by a future run. Historical receipt path fields are labels, not
+current file selectors: score identity is bound to the recorded catalog hash.
+The v2 27/27 and historical Layer B 35/35 do not transfer to current v4/Layer B
+bytes merely because filenames match.
 
 Claim temperature **0.0**. Both suites are **one-response** (tools validated, not executed).
 

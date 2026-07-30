@@ -2,13 +2,15 @@
 # Format: GNU sha256sum (2-column) so `sha256sum -c SHA256SUMS` works from the
 # directory that holds the weight file(s). Byte sizes are comments only.
 #
-# DAY-0 AUTHORITY (A3 / Q4 authority lock):
-#   artifact = laguna-s-2.1-Q4_K_M.gguf (official Poolside bytes via mirror)
+# HISTORICAL MEASURED ARTIFACT AUTHORITY (not current-source clearance):
+#   artifact = poolside/Laguna-S-2.1-GGUF@fc4e481289523cf7d0df668da6d1d391616141ca/laguna-s-2.1-Q4_K_M.gguf
 #   q4_sha256 below is the serve-authority bind
-#   engine_pin = 04b2b72 (poolside/llama.cpp-laguna)
-#   measured: format/routing smoke 40/40 · hermes 27/27 · ~21.47 t/s gen128
-#   NOT day-0: NVFP4, DFlash (DO_NOT_PROMOTE), long-horizon reliability headline
-#   smoke ≠ agent headline · diy_gguf=false
+#   engine_pin = 04b2b72cb54048ead292884adbe11f284e3ec950 (poolsideai/llama.cpp)
+#   historical measured path = true; current hardened v2 was not re-smoked
+#   measured: format/routing-only 40/40 · Hermes tools validated-not-executed 27/27
+#   single short-gen point: ~21.47 t/s at 67 prompt / 128 completion tokens
+#   path_safety_proven=false · verified_runnable_day0=false · diy_gguf=false
+#   NOT launch authority: NVFP4, DFlash, long-horizon reliability, hero promotion
 #
-# Q4_K_M · ~89.4 GiB · 95993903904 bytes
+# Q4_K_M · ~96.0 GB / ~89.4 GiB · 96031829760 bytes
 a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4  laguna-s-2.1-Q4_K_M.gguf

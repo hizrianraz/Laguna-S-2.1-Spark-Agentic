@@ -8,7 +8,7 @@ results/*.json
 !results/agent_smoke.json
 !results/hf_publish.json
 !results/launch_lock.json
-!results/launch_receipt.json
+!results/launch_receipt_aug3.json
 !results/quant_comparison.json
 !results/hermes_agent_smoke.json
 !results/xs_mac_track_lock.json

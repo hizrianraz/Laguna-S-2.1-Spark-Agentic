@@ -1,0 +1,135 @@
+schema: saqs.pack_runtime/v1
+pack_id: Laguna-S-2.1-Spark-Agentic
+pack_kind: deployment_runtime_pack
+weights_in_pack: false
+
+artifact:
+  authority: poolside/Laguna-S-2.1-GGUF
+  revision: fc4e481289523cf7d0df668da6d1d391616141ca
+  filename: laguna-s-2.1-Q4_K_M.gguf
+  sha256: a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4
+  bytes: 96031829760
+  diy_gguf: false
+  optional_byte_identical_mirror: hizrianraz/Laguna-S-2.1-GGUF
+  optional_byte_identical_mirror_revision: 510501dace2ff4e559644934a44c177ff8bd9f15
+
+engine:
+  repository: poolsideai/llama.cpp
+  revision: 04b2b72cb54048ead292884adbe11f284e3ec950
+  branch: laguna
+  binary: build/bin/llama-server
+  tracked_patch_policy:
+    - common/speculative.cpp:+cmath_only
+  patched_source_sha256: 3952ed9f2a415661d17cdedf4ebca4cccfb2d2a883a0e8b939b0bf1e0c1f48b9
+  binary_sha256: null
+  binary_sha256_env: LAGUNA_EXPECT_ENGINE_SHA256
+  binary_sha256_required_for_serve: true
+  dynamic_dependency_manifest_sha256: null
+  dynamic_dependency_manifest_sha256_env: LAGUNA_EXPECT_DSO_MANIFEST_SHA256
+  dynamic_dependency_manifest_sha256_required_for_serve: true
+  runtime_pin_discovery_env: LAGUNA_PRINT_RUNTIME_PINS
+  identity_scope: pinned_source_revision_plus_exact_measured_patch_plus_operator_pinned_binary_and_dynamic_dependency_manifest
+
+install:
+  pull_script: scripts/pull_official_gguf.sh
+  serve_script: scripts/serve_spark.sh
+  model_dir_env: LAGUNA_MODEL_DIR
+  allowed_model_root_env: LAGUNA_ALLOWED_MODEL_ROOT
+  model_path_env: LAGUNA_MODEL
+  engine_dir_env: LAGUNA_ENGINE
+  allowed_engine_root_env: LAGUNA_ALLOWED_ENGINE_ROOT
+  allowed_state_root_env: LAGUNA_ALLOWED_STATE_ROOT
+
+pack_source:
+  immutable_revision_env: LAGUNA_EXPECT_PACK_REVISION
+  immutable_revision_required_for_serve: true
+  launcher: scripts/serve_spark.sh
+  launcher_sha256: 547ccf1f6f6cbae3fff15995ff4fecccbb876c3f6d5e015f6ab6a622ed9d4c2f
+  launcher_sha256_env: LAGUNA_EXPECT_LAUNCHER_SHA256
+  launcher_sha256_required_for_serve: true
+  target_receipt_schema: saqs.spark_launch_receipt/v3
+  independent_revision_and_launcher_match_required_for_clearance: true
+
+serve:
+  host: 127.0.0.1
+  port: 8000
+  alias: local-laguna
+  context: 8192
+  gpu_layers: -1
+  parallel: 1
+  jinja: true
+  flash_attention: true
+  api_key_env: LAGUNA_API_KEY
+  health_path: /v1/models
+  protected_probe_path: /v1/chat/completions
+  protected_probe_max_tokens: 1
+  health_timeout_s: 900
+
+security:
+  loopback_default: true
+  direct_lan_supported_by_launcher: false
+  external_tunnel_or_tls_proxy_requires_separate_audit: true
+  wildcard_bind_forbidden: true
+  allowed_bind_hosts:
+    - 127.0.0.1
+    - localhost
+  api_key_required: true
+  bearer_auth_is_not_transport_encryption: true
+  api_key_server_argv_exposure: false
+  api_key_file_mode: "0600"
+  api_key_file_removed_after_health: true
+  absent_bearer_must_be_rejected: true
+  wrong_bearer_must_be_rejected: true
+  protected_probe_requires_positive_token_usage: true
+  model_sha_required: true
+  model_and_binary_bound_by_open_file_descriptor: true
+  engine_revision_required: true
+  engine_patch_whitelist_required: true
+  dynamic_dependency_manifest_required: true
+  clean_loader_environment_required: true
+  single_model_residency_required: true
+  hostwide_user_launch_lock_required: true
+  target_identity_dgx_spark_gb10_arm64_required: true
+  nvidia_compute_process_inventory_required_pre_and_post_health: true
+  port_preflight_required: true
+  post_start_health_required: true
+  target_launch_receipt_required_for_clearance: true
+  target_launch_receipt_default_dir: $HOME/.local/state/laguna
+  target_launch_receipt_reviewed_pack_path: results/launch_receipt_aug3.json
+  target_launch_receipt_self_clears_freeze: false
+
+residency:
+  target: NVIDIA_DGX_Spark_GB10_128GB
+  model_bytes: 96031829760
+  reserve_gib_after_model: 12
+  reserve_enforced_pre_and_post_health: true
+  peak_non_swapped_gib_soak_target: 112
+  peak_target_enforced_by_launcher: false
+  swap_used_bytes_max_pre_and_post_health: 0
+
+sampling_agent:
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 512
+  tool_choice: auto
+
+evidence:
+  measure_tip: bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee
+  agent_smoke: 40/40 format-routing only
+  hermes_agent_smoke: 27/27 tools-validated-not-executed
+  gen128_tok_s: 21.47
+  historical_smoke_receipt: results/agent_smoke.json
+  measured_summary: results/MEASURED.md
+  launch_lock: results/launch_lock.json
+  standard: SPARK_AGENTIC_QUANT_STANDARD.md
+  standard_sha256: 23cce7468f69d3fa716c491c6ffe62d5f4de3062c046276aa36c554ce665499a
+
+claims:
+  smoke_is_headline: false
+  long_horizon_reliability_proven: false
+  dflash_status: DO_NOT_PROMOTE
+  nvfp4_day0: false
+  public_promo_before_launch: false
+  family_listing_at_wib: "2026-08-03T12:00:00+07:00"
+  laguna_hero_candidate_at_wib: "2026-08-03T20:00:00+07:00"
+  laguna_hero_requires_explicit_clearance: true

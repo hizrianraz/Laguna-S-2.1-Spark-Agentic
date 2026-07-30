@@ -15,7 +15,7 @@
 
 ## Numbers (do not invent beyond these)
 
-- Headline Q4: 40/40 · hermes 27/27 · **21.47 t/s** gen128 · measure tip `bf82eab` · eng `04b2b72`
+- Historical measured Q4 tuple: 40/40 format/routing · hermes 27/27 tools-not-executed · **21.47 t/s** gen128 · measure tip `bf82eab` · eng `04b2b72`
 - DFlash: 15.286 t/s gen128 · **not** ship
 
 ## Still open (freeze path)

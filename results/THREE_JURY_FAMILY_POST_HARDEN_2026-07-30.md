@@ -1,5 +1,10 @@
 # Three-jury — family post-harden (2026-07-30)
 
+> **Superseded historical packet (18:00 WIB).** Current authority is
+> `results/RELEASE_MANIFEST.json` + `results/triple_aug3_lock.json`: no hero CTA
+> is authorized before its explicit gate, and root `config.yaml` is the SAQS
+> runtime manifest. The tips and calendar below describe this earlier jury only.
+
 **Overall:** `PASS_CONTINUE_PREP` · all_go=true
 **Mode:** three-seat appellate (chair **not co-signed**)
 **Built:** 2026-07-30T18:00:45.587682+07:00
@@ -19,7 +24,7 @@
 
 - Freeze: **2026-08-02 18:00 WIB**
 - List all three: **2026-08-03 12:00 WIB**
-- Heroes: Laguna **08-03 20:00** · Qwen **08-04 20:00** · DeepSeek **08-05 20:00**
+- Historical candidate slots at this snapshot: Laguna **08-03 20:00** · Qwen **08-04 20:00** · DeepSeek **08-05 20:00**. **None is current CTA authorization.**
 
 ## Seats
 
@@ -49,7 +54,7 @@
 
 ### Composer-2.5 pack → GO_CONTINUE_PREP_WITH_NAMED_GAP
 - README honesty blocks on all 4 packs: smoke!=headline, launch class, no campaign CTA.
-- hermes/config.yaml is a real install contract on S/Q/DS (schema ainfera.pack_install/v1).
+- Superseded contract note: current packs use root `config.yaml` with a `saqs.*` schema; `hermes/config.yaml` is compatibility-only.
 - XS scorer parity with S without inventing install manifest (XS parked Mac).
 - Commit messages scoped; no promo language in harden set.
 

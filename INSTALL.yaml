@@ -1,8 +1,26 @@
-# Install manifest pointer for Laguna-S-2.1-Spark-Agentic
-# Real runtime defaults: hermes/config.yaml
-# Example docs snippet: hermes/config.example.yaml
-schema: ainfera.pack_install_pointer/v1
-config: hermes/config.yaml
+# Install pointer for the Laguna deployment/runtime pack.
+# Download this file together with config.yaml and the referenced scripts.
+schema: saqs.pack_install_pointer/v1
+config: config.yaml
 pack: Laguna-S-2.1-Spark-Agentic
 diy_gguf: false
 weights_in_git: false
+required_files:
+  - config.yaml
+  - SHA256SUMS
+  - LICENSE
+  - NOTICE
+  - SPARK.md
+  - docs/BUILD_SPARK.md
+  - SPARK_AGENTIC_QUANT_STANDARD.md
+  - results/engine_sha.txt
+  - scripts/pull_official_gguf.sh
+  - scripts/serve_spark.sh
+evidence_files:
+  - results/MEASURED.md
+  - results/launch_lock.json
+required_operator_pins:
+  pack_revision_env: LAGUNA_EXPECT_PACK_REVISION
+  launcher_sha256_env: LAGUNA_EXPECT_LAUNCHER_SHA256
+  launcher_sha256: 547ccf1f6f6cbae3fff15995ff4fecccbb876c3f6d5e015f6ab6a622ed9d4c2f
+  independent_receipt_source_match_required: true

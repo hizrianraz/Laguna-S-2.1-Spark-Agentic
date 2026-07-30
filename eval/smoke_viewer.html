@@ -77,8 +77,8 @@ function render() {
   const tbody = $('tbody');
   const stats = $('stats');
   const meta = $('meta');
-  tbody.innerHTML = '';
-  stats.innerHTML = '';
+  tbody.replaceChildren();
+  stats.replaceChildren();
   meta.textContent = '';
   if (!DATA) return;
   const all = casesFrom(DATA);
@@ -94,7 +94,12 @@ function render() {
   const mk = (label, val) => {
     const d = document.createElement('div');
     d.className = 'stat';
-    d.innerHTML = `<b>${val}</b><span class="mut">${label}</span>`;
+    const valueNode = document.createElement('b');
+    const labelNode = document.createElement('span');
+    labelNode.className = 'mut';
+    valueNode.textContent = String(val);
+    labelNode.textContent = String(label);
+    d.append(valueNode, labelNode);
     return d;
   };
   stats.append(
@@ -115,11 +120,20 @@ function render() {
     const id = c.id || c.case_id || c.name || '—';
     const note = c.judge || c.reason || c.message || c.error || '';
     const detail = c.detail || c.tool_calls || c.response || c.raw || c;
-    tr.innerHTML = `<td class="id"><code>${id}</code></td>
-      <td>${ok ? 'pass' : 'FAIL'}</td>
-      <td>${String(note).slice(0,240)}</td>
-      <td><pre></pre></td>`;
-    tr.querySelector('pre').textContent = typeof detail === 'string' ? detail : JSON.stringify(detail, null, 2).slice(0, 4000);
+    const idCell = document.createElement('td');
+    idCell.className = 'id';
+    const idCode = document.createElement('code');
+    idCode.textContent = String(id);
+    idCell.appendChild(idCode);
+    const statusCell = document.createElement('td');
+    statusCell.textContent = ok ? 'pass' : 'FAIL';
+    const noteCell = document.createElement('td');
+    noteCell.textContent = String(note).slice(0, 240);
+    const detailCell = document.createElement('td');
+    const pre = document.createElement('pre');
+    pre.textContent = typeof detail === 'string' ? detail : JSON.stringify(detail, null, 2).slice(0, 4000);
+    detailCell.appendChild(pre);
+    tr.append(idCell, statusCell, noteCell, detailCell);
     tbody.appendChild(tr);
   }
 }

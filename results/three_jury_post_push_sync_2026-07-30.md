@@ -1,5 +1,10 @@
 # Three-jury — post push/sync (2026-07-30)
 
+> **Historical 21:35 WIB snapshot.** Superseded by
+> `results/RELEASE_MANIFEST.json`, `results/triple_aug3_lock.json`, and
+> `results/hf_publish.json`. The later launch-hardening candidate is not yet
+> committed or synced; the tips below are not current gate status.
+
 **Packet:** `three_jury_post_push_sync_2026-07-30`
 **Mode:** Manwë three-seat appellate · Lórien not present · docs-only fail-open
 **At:** 2026-07-30T21:35:09+07:00

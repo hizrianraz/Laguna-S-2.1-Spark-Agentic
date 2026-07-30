@@ -10,9 +10,10 @@ provider:
   kind: openai_compatible
   # MUST include /v1 — bare :8000 returns 404 on /chat/completions paths
   base_url: "http://127.0.0.1:8000/v1"
-  # If Spark binds 0.0.0.0: Tailscale "http://100.98.213.2:8000/v1"
-  # If Spark binds 127.0.0.1 only: ssh -L 18000:127.0.0.1:8000 spark → "http://127.0.0.1:18000/v1"
-  api_key: "sk-local" # llama-server ignores auth; keep a placeholder
+  # The audited launcher is loopback-only. For a remote client, prefer:
+  # ssh -L 18000:127.0.0.1:8000 spark → "http://127.0.0.1:18000/v1"
+  # A TLS proxy or tailnet gateway is a separate surface requiring its own audit.
+  api_key_env: "OPENAI_API_KEY" # same secret as server-side LAGUNA_API_KEY
   model: "local-laguna" # must match llama-server --alias
   timeout_s: 300
   headers:
@@ -21,7 +22,7 @@ provider:
 serve_pin:
   # Captain flags from results/LAST_GREEN_PIN.md / MEASURED.md
   engine: "poolsideai/llama.cpp@04b2b72 (branch laguna)"
-  quant: "hizrianraz/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf"  # official Poolside bytes; upstream alt poolside/Laguna-S-2.1-GGUF
+  quant: "poolside/Laguna-S-2.1-GGUF@fc4e481289523cf7d0df668da6d1d391616141ca:laguna-s-2.1-Q4_K_M.gguf"
   q4_sha256: "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4"
   flags:
     - "--ctx-size 8192"
@@ -30,6 +31,7 @@ serve_pin:
     - "-fa on"
     - "--alias local-laguna"
     - "--parallel 1"
+    - "--api-key-file <mode-0600-ephemeral-file>" # scripts/serve_spark.sh creates/removes it
 
 sampling_agent:
   # Agent smoke lock uses temp 0.0
@@ -45,6 +47,6 @@ client_rules:
   - "Prefer short final content after tools resolve"
 
 smoke:
-  agent_bar: "eval/agent_smoke/run_smoke.py  # 40 cases · launch bar"
+  agent_bar: "eval/agent_smoke/run_smoke.py  # 40 cases · historical format/routing regression bar"
   hermes_v2: "eval/hermes_agent_smoke/run_hermes_smoke.py  # 27 cases · measured tip"
   hermes_layer_b_v3: "scripts/measure_layer_b_v3.sh  # research 35/35 live tip; not freeze bar"

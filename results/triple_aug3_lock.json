@@ -1,158 +1,49 @@
 {
-  "schema": "family.triple_aug3_lock/v6",
-  "updated_at_wib": "2026-07-30T21:10:42+07:00",
+  "schema": "laguna.self_authority_launch_lock/v1",
+  "legacy_filename_note": "triple_aug3_lock.json is retained for compatibility; this copy authorizes Laguna only",
+  "authority_scope": "Laguna-S-2.1-Spark-Agentic only",
+  "updated_at_wib": "2026-07-30T22:59:36+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
   "list_wib": "2026-08-03T12:00:00+07:00",
-  "launch_wib": "2026-08-03T12:00:00+07:00",
-  "clock_status": "BLOCKED_until_story_matches_q4_authority_and_ban_phrase_clear",
-  "standard": "SPARK_AGENTIC_QUANT_STANDARD.md",
-  "a3_path": "origin_tip_resync_p0_local_no_promote",
-  "positioning": {
-    "north_star": "Three role-specialized personal packs on one DGX Spark — one measured runnable (Laguna Q4), two co-list juniors (Qwen FP8 preview, DeepSeek REAP25 scaffold)",
-    "not_day0_label": "all_three_strongest",
-    "innovation": "honest_measured_repro_on_128GB + secure_deploy + independent_receipt_bind",
-    "not_identical_wrappers": true,
-    "claim_bans": {
-      "codes": [
-        "BAN_MAX_AGENTIC_RETAINED",
-        "BAN_GE97_AGENTIC_RETENTION",
-        "BAN_LONG_HORIZON_PROVEN",
-        "BAN_NVFP4_DFLASH_DAY0_FLAGSHIP",
-        "BAN_THROUGHPUT_WINNER_WITHOUT_GATE",
-        "BAN_40_40_SAFETY_OR_RELIABILITY_FROM_FORMAT_SMOKE",
-        "BAN_BEST_LONG_HORIZON",
-        "BAN_DEEPSEEK_DEFAULT_HERO_CTA"
-      ],
-      "note": "Raw ban phrases intentionally not stored as literals — codes only. Story surfaces must not reintroduce the ban-list English strings."
+  "hero_review_not_before_wib": "2026-08-03T20:00:00+07:00",
+  "clock_status": "BLOCKED_until_2026-08-02_freeze_attestation",
+  "candidate_status": "READY_FOR_FREEZE_REVIEW",
+  "family_release_authority": "external",
+  "standard_sha256": "23cce7468f69d3fa716c491c6ffe62d5f4de3062c046276aa36c554ce665499a",
+  "pack": {
+    "pack_id": "Laguna-S-2.1-Spark-Agentic",
+    "role": "historical_measured_q4_deployment_candidate",
+    "hero_cta": null,
+    "hero_status": "not_promoted_requires_freeze_attestation_and_target_launch_receipt",
+    "source_candidate": true,
+    "historical_measured_path": true,
+    "runnable_day0": false,
+    "runnable_status": "not_verified_on_current_v2_source_and_target_host",
+    "current_v2_re_smoked": false,
+    "path_safety_proven": false,
+    "target_launch_receipt": null,
+    "artifact": {
+      "repository": "poolside/Laguna-S-2.1-GGUF",
+      "revision": "fc4e481289523cf7d0df668da6d1d391616141ca",
+      "filename": "laguna-s-2.1-Q4_K_M.gguf",
+      "sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
+      "bytes": 96031829760
+    },
+    "historical_evidence": {
+      "measure_tip": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+      "agent_smoke": "40/40 historical format/routing only",
+      "agent_smoke_receipt_sha256": "5fa770888a4fa247a742bef9618c1ca1b59c4c7ac7932d570abb6dac8e2501d1",
+      "hermes_v2": "27/27 tools validated, not executed",
+      "hermes_v2_receipt_sha256": "1c55e61e24ddf12065d2762fb5389dd834affb48eb8a2ba437d85ecf34e36c94",
+      "gen128_tokens_per_second": 21.47
     }
   },
-  "promo_window": {
-    "mode": "list_all_day0_promote_sequential_after_hold_lift",
-    "timezone": "WIB",
-    "day0_list_all_three": "2026-08-03T12:00:00+07:00",
-    "laguna_hero_cta": "2026-08-03T20:00:00+07:00",
-    "qwen_hero_cta": "2026-08-04T20:00:00+07:00",
-    "deepseek_hero_cta": null,
-    "deepseek_hero_status": "no_hero_default",
-    "deepseek_hero_requires": "freeze_explicit_HERO_flip_plus_dated_measure_receipt",
-    "deepseek_hero_calendar_slot_if_reopened": "2026-08-05T20:00:00+07:00",
-    "note": "likes7d rolling 7d — waves overlap without same-day CTA collision; DeepSeek default NO_HERO (cta null)"
-  },
-  "public_promo_before_launch": false,
-  "diy_gguf": false,
-  "diy_gguf_scope": "Laguna_GGUF_mirrors_host_official_only",
-  "agent_cal_nvfp4_track": "exception_after_SAQS_not_default_aug3",
-  "download_claim_policy": "no_high_download_claim_until_repo_hosts_needed_artifact",
-  "pack_class_default": "deployment_runtime_pack_no_weights",
-  "repo_layers": [
-    "checkpoint_if_weights",
-    "deployment_pack",
-    "evaluation_dataset"
-  ],
-  "members": [
-    {
-      "pack_id": "Laguna-S-2.1-Spark-Agentic",
-      "role": "long_horizon_repo_maintenance",
-      "port": 8000,
-      "wave": "day0_flagship",
-      "aug3_class": "measured_q4km_llama_cpp",
-      "day0_authority": "official_Q4_K_M",
-      "canonical_artifact": "hizrianraz/Laguna-S-2.1-GGUF:laguna-s-2.1-Q4_K_M.gguf",
-      "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
-      "engine_pin": "04b2b72",
-      "engine_tree": "poolside/llama.cpp-laguna",
-      "measured_tip": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
-      "measured_receipts": {
-        "format_routing_smoke": "40/40",
-        "hermes_agent_smoke": "27/27",
-        "gen128_tok_s": 21.47
-      },
-      "claim_class": "measured_format_routing_smoke_not_long_horizon_reliability_proof",
-      "not_day0": [
-        "poolside/Laguna-S-2.1-NVFP4",
-        "DFlash",
-        "long_horizon_agent_reliability_headline"
-      ],
-      "dflash_status": "DO_NOT_PROMOTE",
-      "nvfp4_status": "post_launch_track_only",
-      "native_protocol": "poolside_v1",
-      "runnable_day0": true,
-      "measure_tip_short": "bf82eab",
-      "docs_tip_at_write": "a098697babe9b44192767935dc49f9453354e6e2",
-      "docs_tip_short": "a098697",
-      "tip_split_note": "measure tip sticks at bf82eab (smoke/weights unchanged); docs tip moves with builds"
-    },
-    {
-      "pack_id": "Qwen3-Coder-Next-Spark-Agentic",
-      "role": "interactive_coding_throughput_concurrency",
-      "port": 8001,
-      "wave": "day1_hero_preview",
-      "aug3_class": "quality_fp8_preview_probe",
-      "canonical_artifact": "Qwen/Qwen3-Coder-Next-FP8",
-      "fp8_revision_pin": "da6e2ed27304dd39abadd9c82ef50e8de67bdd4c",
-      "fp8_shard_count": 40,
-      "claim_class": "preview_probe_fp8_quality_format_routing_2of2_not_tool_reliability_not_throughput_winner_until_gate",
-      "native_protocol": "qwen3_coder_non_thinking",
-      "runnable_day0": false,
-      "runnable_requires": [
-        "40_shard_sha_bind_on_pull",
-        "vllm_image_digest_pin_or_allow_floating_breakglass",
-        "max_num_seqs_default_1",
-        "gpu_mem_util_default_0_85",
-        "no_trust_remote_code_default",
-        "residency_precheck"
-      ],
-      "nvfp4_day0": false,
-      "docs_tip_at_write": "a0b5bbe813e33ea96deae2365700e8bd02c5fbbe",
-      "docs_tip_short": "a0b5bbe"
-    },
-    {
-      "pack_id": "DeepSeek-V4-Flash-REAP25-Spark-Agentic",
-      "role": "experimental_long_context_investigation",
-      "port": 8002,
-      "wave": "co_list_scaffold_no_hero",
-      "aug3_class": "experimental_reap25_pulsar_scaffold",
-      "canonical_artifact": "twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF",
-      "serve_artifact": "TYPE40_only",
-      "claim_class": "co_list_scaffold_unmeasured_no_hero",
-      "hero_status": "no_hero_default",
-      "hero_cta": null,
-      "recommended_default": "no_hero",
-      "native_protocol": "encoding_dsv4_via_pulsar_label_not_binary_proof",
-      "binary_honesty": "ds4_server_intended__pack_llama_server_provisional_not_pulsar_product_binary",
-      "runnable_day0": false,
-      "d_spark_neq_dgx_spark": true,
-      "full_official_one_spark": "no_fit_approx_155GiB",
-      "docs_tip_at_write": "4a0f47476ee5cdd0d10fabf40429634cec6c52b7",
-      "docs_tip_short": "4a0f474",
-      "intended_runtime": "ds4-server",
-      "llama_server_path": "provisional_hard_disabled_unless_DS4_LLAMA_PROVISIONAL"
-    }
-  ],
-  "honesty": [
-    "smoke_neq_headline",
-    "verifier_neq_gate_clearance",
-    "evidence_bind_neq_gate",
-    "DSpark_neq_DGX_Spark",
-    "packs_not_finetune_not_quantized_relation",
-    "public_promo_before_launch_false",
-    "diy_gguf_false",
-    "deepseek_hero_cta_null",
-    "laguna_q4_authority_not_nvfp4_dflash_day0",
-    "format_smoke_neq_long_horizon_reliability",
-    "measure_tip_neq_docs_tip",
-    "qwen_probe_2of2_neq_tool_reliability",
-    "deepseek_ds4_server_intended_llama_provisional",
-    "public_saqs_in_pack_trees",
-    "no_promote_this_write"
-  ],
-  "co_list_posture_default": "CO_LIST_NON_RUNNABLE_until_junior_harden",
-  "git_tips_at_write": {
-    "Laguna-S-2.1-Spark-Agentic": "a098697babe9b44192767935dc49f9453354e6e2",
-    "Qwen3-Coder-Next-Spark-Agentic": "a0b5bbe813e33ea96deae2365700e8bd02c5fbbe",
-    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "4a0f47476ee5cdd0d10fabf40429634cec6c52b7",
-    "profile": "3304605d356e46e8248b771632da1cf36de1e9b0",
-    "measure_tip_laguna": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
-    "note": "git_tips = docs/origin HEAD at write; Laguna measure tip remains bf82eab until remeasure"
-  }
+  "freeze_attestation_required": [
+    "final_repository_and_metadata_validation",
+    "canonical_standard_digest_confirmation",
+    "audited_source_path_gates",
+    "operator_target_host_quiescence_confirmation",
+    "target_launch_receipt_with_engine_binary_digest",
+    "authorized_remote_head_and_file_set_verification"
+  ]
 }

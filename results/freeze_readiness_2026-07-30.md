@@ -1,5 +1,9 @@
 # Freeze readiness — Laguna-S — 2026-07-30T02:16:20+07:00
 
+> **Historical 02:16 WIB snapshot.** Its hashes, dirty-tree counts, and HF tips
+> are superseded by `results/RELEASE_MANIFEST.json`, `results/launch_lock.json`,
+> and `results/hf_publish.json`; do not use this receipt as current status.
+
 **Decision: continue_prep_not_freeze**
 
 Not a freeze. Not gate clearance.

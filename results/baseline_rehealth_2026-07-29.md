@@ -15,7 +15,7 @@
 ## Decision
 
 **Baseline last-green restored and verified.**  
-Headline pin unchanged: Q4 · 40/40 · hermes 27/27 · **~21.47 t/s** gen128.
+Historical measured pin unchanged: Q4 · 40/40 format/routing · hermes 27/27 tools-not-executed · **~21.47 t/s** gen128.
 
 ## Non-actions
 
