@@ -61,11 +61,24 @@ if [[ "${HOST}" != "127.0.0.1" && "${HOST}" != "localhost" && "${EXPOSE_LAN:-0}"
   exit 3
 fi
 
+
+# Engine pin bind (A3) — evidence receipt, not gate clearance
+ENGINE_PIN="${LAGUNA_ENGINE_PIN:-04b2b72}"
+if [[ "${SKIP_ENGINE_PIN_CHECK:-0}" != "1" ]]; then
+  ver_out="$("${BIN}/llama-server" --version 2>&1 || true)"
+  if ! grep -qiE "$ENGINE_PIN|laguna" <<<"$ver_out"; then
+    # Soft warn if binary lacks git sha in --version; still print expected pin
+    echo "WARN: engine pin check — expected near $ENGINE_PIN; got: $(echo "$ver_out" | head -1)" >&2
+    echo "  set SKIP_ENGINE_PIN_CHECK=1 only after intentional engine swap + new measure" >&2
+  fi
+  echo "engine_pin_expected=${ENGINE_PIN}"
+fi
+
 # Evidence bind honesty — engine/model hash receipt is not gate clearance
 echo "engine=$("${BIN}/llama-server" --version 2>&1 | head -1)"
 echo "model=${MODEL}"
 echo "listen=${HOST}:${PORT} ctx=${CTX} ngl=${NGL} alias=${ALIAS}"
-echo "honesty=evidence_bind_neq_gate · smoke_neq_headline · residency peak≤112GiB non-swap (soak receipt)"
+echo "honesty=evidence_bind_neq_gate · smoke_neq_headline · q4_authority_not_nvfp4_dflash · residency peak≤112GiB non-swap (soak receipt) · engine_pin=04b2b72"
 
 exec "${BIN}/llama-server" \
   -m "${MODEL}" \

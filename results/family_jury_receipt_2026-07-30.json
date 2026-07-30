@@ -1,30 +1,35 @@
 {
-  "schema": "saqs.family_jury_receipt/v1",
-  "version": "v1.0.0-aug3",
-  "written_at_wib": "2026-07-30T16:21:28+07:00",
-  "source_markdown": "results/THREE_JURY_FAMILY_2026-07-30.md",
-  "source_sha256": "324a7ded03223dc37a55ad643944683fa51a5fbe9e8c7f3c67f4186e15b7d2f3",
-  "source_bytes": 2713,
-  "source_note": "Local jury/placement markdown may remain gitignored; this receipt is the pushable family pointer.",
+  "schema": "saqs.family_jury_receipt/v3",
+  "version": "v3.0.0-a3-q4-authority",
+  "written_at_wib": "2026-07-30T19:30:12+07:00",
+  "source_note": "A3 local rewrite after Sol Ultra SLIP_FREEZE + Fable HOLD. Roles honest; DeepSeek hero null.",
   "list_wib": "2026-08-03T12:00:00+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
+  "clock_status": "BLOCKED",
   "hero_cta": {
     "laguna": "2026-08-03T20:00:00+07:00",
     "qwen": "2026-08-04T20:00:00+07:00",
-    "deepseek": "2026-08-05T20:00:00+07:00 iff freeze gate"
+    "deepseek": null,
+    "deepseek_status": "no_hero_default"
   },
   "roles": {
-    "Laguna-S-2.1-Spark-Agentic": "long-horizon repo-maintenance",
-    "Qwen3-Coder-Next-Spark-Agentic": "throughput + concurrency (FP8 quality day-0)",
-    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "experimental long-context (hold)"
+    "Laguna-S-2.1-Spark-Agentic": "long-horizon repo-maintenance (measured Q4_K_M; not reliability proof)",
+    "Qwen3-Coder-Next-Spark-Agentic": "throughput + concurrency (FP8 quality preview; not day-0 winner claim)",
+    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "experimental long-context (scaffold; NO_HERO)"
+  },
+  "day0_class": {
+    "Laguna-S-2.1-Spark-Agentic": "measured_q4km_llama_cpp",
+    "Qwen3-Coder-Next-Spark-Agentic": "quality_fp8_preview_probe",
+    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "experimental_reap25_pulsar_scaffold"
   },
   "locks": [
     "diy_gguf_false",
     "public_promo_before_launch_false",
     "smoke_neq_headline",
-    "deepseek_REAP25_canonical_old_redirect",
+    "deepseek_NO_HERO_default_cta_null",
+    "laguna_q4_authority_not_nvfp4_dflash_day0",
     "day0_surface_packs_only"
   ],
   "promote": false,
-  "honesty": "jury_receipt_neq_gate_clearance \u00b7 not_a_ship_vote"
+  "honesty": "jury_receipt_neq_gate_clearance · not_a_ship_vote · a3_local_only"
 }

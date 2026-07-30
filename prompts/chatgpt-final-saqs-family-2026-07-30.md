@@ -145,12 +145,14 @@ From Laguna `results/launch_lock.json` + measure KEEP:
 
 ## SAQS story (must survive stranger read)
 
-> Maximum agentic capability retained per 128 GB DGX Spark, with secure deployment and independent reproduction.
+> Secure deploy + independent reproduction of role-specialized packs on one 128 GB DGX Spark.  
+> Retention % only after SAQS side-by-side study — never a day-0 label.
 
 Not: three near-identical `*-Agentic` wrappers.  
-Yes: three **role-specialized** leaders under **one public standard**.
+Yes: three **role-specialized** packs under **one public standard**.
 
-Quantization cannot make upstream smarter. Smoke is regression, not marketing.
+Day-0 authority: Laguna **Q4_K_M** measured path · Qwen FP8 preview · DeepSeek REAP25 scaffold NO_HERO.  
+NVFP4+DFlash is **not** day-0 flagship. Quantization cannot make upstream smarter. Smoke is regression, not marketing.
 
 Public battery (shared; **do not claim scores not in evidence**): BFCL V4, Terminal-Bench 2.0, DeepSWE / SWE-rebench slice, τ-bench, RULER 8K–128K, AgentDojo + coding safety.
 

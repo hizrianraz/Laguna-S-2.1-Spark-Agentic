@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Pull official Poolside GGUF (not a DIY requant). Verify sha256 against pack SHA256SUMS — fail closed.
+# DAY-0 AUTHORITY: Q4_K_M only · sha in SHA256SUMS · diy_gguf=false · NVFP4/DFlash not day-0 serve path
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
