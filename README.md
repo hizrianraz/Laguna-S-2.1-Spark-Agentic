@@ -5,6 +5,7 @@ license_link: https://huggingface.co/poolside/Laguna-S-2.1/blob/main/LICENSE.md
 language:
   - en
 pipeline_tag: text-generation
+base_model: poolside/Laguna-S-2.1
 tags:
   - deployment-pack
   - evaluation-pack
@@ -41,8 +42,9 @@ tags:
 | **Source** | [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1) |
 | **This pack** | **runtime only** — no weights here |
 
-> HF sidebar **Parameters** badge stays empty on purpose (no checkpoint in this repo).
-> Use the table above for size. Full detail: [Model parameters](#model-parameters-upstream--not-this-pack).
+> HF native **Parameters** badge stays empty (no checkpoint in this repo) — size is the table above.
+> Native **Model tree** appears via YAML `base_model` for discoverability; pack is still runbook-only.
+> Full detail: [Model parameters](#model-parameters-upstream--not-this-pack).
 
 **Measured DGX Spark deployment pack** for
 [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1)
@@ -100,14 +102,15 @@ poolside/Laguna-S-2.1                 ← base (official)
 └── hizrianraz/Laguna-S-2.1-Spark-Agentic  ← this pack (runtime · measured)
 ```
 
-HF deploy-pack cards **omit** YAML `base_model` so Hub does **not** attach `base_model:finetune` / quantized tree relation. Upstream cited in prose + links only.
-This pack is **not** a checkpoint. No `library_name: gguf`. No `base_model_relation: quantized`.
+**Findability:** YAML `base_model: poolside/Laguna-S-2.1` is set so this pack appears under the upstream **Model tree** on Hub.
+Hub may auto-tag the edge as `finetune`/`derived` — that is a **catalog label only**. This pack is **not** a finetune, adapter, merge, or quantized checkpoint; it hosts **no weights**.
+No `library_name: gguf`. No `base_model_relation: quantized`.
 
 ---
 
 ## Model parameters (upstream · not this pack)
 
-This repo hosts **no checkpoint weights**, so the HF sidebar **Parameters** widget stays empty by design.
+This repo hosts **no checkpoint weights**, so the HF native **Parameters** badge stays empty by design. Size = table above. Native **Model tree** is enabled via `base_model` for findability only.
 Sizes below are copied from the upstream base — not re-counted here.
 
 | Field | Value | Source |
@@ -372,3 +375,5 @@ Independent measurements on one DGX Spark.
 Not affiliated with, endorsed by, or representing Poolside or Nous Research.
 
 Updated local stage (Sol reframe): 2026-07-30 00:45 WIB
+
+Updated: 2026-07-30 — founder-auth base_model YAML for Hub tree findability · not a checkpoint · no quantized relation
