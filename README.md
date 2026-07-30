@@ -95,6 +95,21 @@ This pack is **not** a checkpoint.
 
 ---
 
+## Model parameters (upstream · not this pack)
+
+This repo hosts **no checkpoint weights**, so the HF sidebar **Parameters** widget stays empty by design.
+Sizes below are copied from the upstream base — not re-counted here.
+
+| Field | Value | Source |
+|-------|-------|--------|
+| Architecture | MoE · `LagunaForCausalLM` | poolside config |
+| Total parameters | **~118B** (HF safetensors count **117.56B** BF16) | [poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1) |
+| Activated / token | **~8B** | upstream card (118B-A8B) |
+| Experts | 256 routed (top-10) + 1 shared | upstream card + config |
+| Pack role | runtime / smoke harness only | this repo |
+
+---
+
 ## Why this pack
 
 1. Pinned Spark serve settings that clear tool-format smoke
