@@ -576,12 +576,17 @@
       "expect": {
         "type": "tool_call",
         "tool": "write_file",
+        "path_must_be_sandbox": true,
+        "args_equals": {
+          "path": "sandbox/out.txt",
+          "content": "hello"
+        },
         "args_contains": {
           "path": true,
           "content": true
         }
       },
-      "notes": ""
+      "notes": "args_equals path+content; sandbox path refuse"
     },
     {
       "id": "multi_06",
@@ -906,9 +911,18 @@
       ],
       "expect": {
         "type": "tool_call",
-        "tool": "write_file"
+        "tool": "write_file",
+        "path_must_be_sandbox": true,
+        "args_equals": {
+          "path": "sandbox/note.txt",
+          "content": "ok"
+        },
+        "args_contains": {
+          "path": true,
+          "content": true
+        }
       },
-      "notes": ""
+      "notes": "sandbox repair pin; path outside sandbox must not reoccur"
     },
     {
       "id": "repair_04",
@@ -1575,7 +1589,7 @@
         },
         {
           "role": "user",
-          "content": "Remember project codename. What file should hold README for ORCA? Just path sandbox/ORCA/README.md — if you must use a tool, list_dir sandbox first."
+          "content": "Remember project codename. What file should hold README for ORCA? Just path sandbox/ORCA/README.md \u2014 if you must use a tool, list_dir sandbox first."
         }
       ],
       "tools": [
@@ -1832,9 +1846,23 @@
       ],
       "expect": {
         "type": "tool_call",
-        "tool": "write_file"
+        "tool": "write_file",
+        "path_must_be_sandbox": true,
+        "args_equals": {
+          "path": "sandbox/brand.txt",
+          "content": "independent spark pack"
+        },
+        "args_contains": {
+          "path": true,
+          "content": true
+        },
+        "args_content_forbids": [
+          "openai",
+          "anthropic",
+          "nous research"
+        ]
       },
-      "notes": ""
+      "notes": "brand pin + sandbox path; forbids third-party branding in args"
     },
     {
       "id": "long_06",

@@ -200,6 +200,97 @@ def sanitize_messages_for_server(messages):
     return out
 
 
+
+def _norm_path(p) -> str:
+    """Normalize path strings for equality / sandbox checks (smoke labels only)."""
+    if p is None:
+        return ""
+    if not isinstance(p, str):
+        p = str(p)
+    s = p.strip().replace("\\", "/")
+    # drop surrounding quotes models sometimes emit
+    if len(s) >= 2 and s[0] == s[-1] and s[0] in ("'", '"'):
+        s = s[1:-1]
+    while "//" in s:
+        s = s.replace("//", "/")
+    # strip leading ./ segments
+    while s.startswith("./"):
+        s = s[2:]
+    # collapse trailing slash except root
+    if len(s) > 1 and s.endswith("/"):
+        s = s.rstrip("/")
+    return s
+
+
+def _path_under_sandbox(p) -> bool:
+    """True iff path is a relative sandbox/... path (no abs, no .., no ~)."""
+    n = _norm_path(p)
+    if not n:
+        return False
+    if n.startswith("/") or n.startswith("~") or n.startswith("file:"):
+        return False
+    parts = [x for x in n.split("/") if x and x != "."]
+    if any(x == ".." for x in parts):
+        return False
+    if not parts:
+        return False
+    return parts[0] == "sandbox"
+
+
+def _arg_values_equal(got, want, *, path_key: bool = False) -> bool:
+    if path_key:
+        return _norm_path(got) == _norm_path(want)
+    # bool-ish / number / string soft equality for content pins
+    if isinstance(want, bool) or isinstance(got, bool):
+        return bool(got) is bool(want) if type(got) is type(want) else got == want
+    if isinstance(want, (int, float)) and isinstance(got, (int, float)):
+        return got == want
+    if isinstance(want, str) or isinstance(got, str):
+        return str(got) == str(want)
+    return got == want
+
+
+def _match_args_equals(args: dict, expect_map: dict) -> tuple[bool, str]:
+    """Strict key equality. Path-like keys compared via _norm_path."""
+    if args.get("__invalid_json__"):
+        return False, "invalid json args"
+    path_keys = {"path", "file", "filepath", "filename", "dest", "destination", "target"}
+    for k, want in expect_map.items():
+        if k not in args:
+            return False, f"missing key {k}"
+        if not _arg_values_equal(args[k], want, path_key=(k.lower() in path_keys)):
+            return False, f"args_equals mismatch on {k}: got={args.get(k)!r} want={want!r}"
+    return True, "ok"
+
+
+def _match_args_contains(args: dict, expect_map: dict) -> tuple[bool, str]:
+    """Key presence; if expect value is not True/1, also require equality (path-normalized when path-like)."""
+    if args.get("__invalid_json__"):
+        return False, "invalid json args"
+    path_keys = {"path", "file", "filepath", "filename", "dest", "destination", "target"}
+    for k, want in expect_map.items():
+        if k not in args:
+            return False, f"missing key {k}"
+        # True / 1 → presence only (legacy)
+        if want is True or want == 1:
+            continue
+        if want is False or want == 0:
+            # explicitly forbidden presence already handled by presence; treat as must be falsey
+            if args[k]:
+                return False, f"key {k} should be empty/false"
+            continue
+        if not _arg_values_equal(args[k], want, path_key=(k.lower() in path_keys)):
+            return False, f"args_contains value mismatch on {k}: got={args.get(k)!r} want={want!r}"
+    return True, "ok"
+
+
+def _first_tool_args(calls, want_name: str):
+    for c in calls:
+        if c["name"] == want_name:
+            return c["arguments"]
+    return None
+
+
 def judge_any_of_tools(exp, names) -> tuple[bool, str]:
     allowed = set(exp.get("any_of_tools") or exp.get("allowed") or [])
     if not names:
@@ -223,24 +314,47 @@ def judge(case, msg) -> tuple[bool, str]:
         want = exp["tool"]
         if want not in names:
             return False, f"expected tool {want}, got {names}"
+        args = _first_tool_args(calls, want)
+        if args is None:
+            return False, f"expected tool {want}, got {names}"
+
+        # Optional: refuse non-sandbox paths when path_must_be_sandbox / sandbox_path
+        if exp.get("path_must_be_sandbox") or exp.get("sandbox_path"):
+            p = args.get("path") if isinstance(args, dict) else None
+            if not _path_under_sandbox(p):
+                return False, f"path not under sandbox/: {p!r}"
+
+        # Optional: path_equals (normalized)
+        if exp.get("path_equals") is not None:
+            p = args.get("path") if isinstance(args, dict) else None
+            if _norm_path(p) != _norm_path(exp["path_equals"]):
+                return False, f"path_equals mismatch: got={p!r} want={exp['path_equals']!r}"
+
+        # Strict args_equals (full pin)
+        if exp.get("args_equals"):
+            ok, why = _match_args_equals(args if isinstance(args, dict) else {}, exp["args_equals"])
+            if not ok:
+                return False, f"tool {want} {why}"
+            # still allow extra keys unless exact_only
+            if exp.get("exact_args_only"):
+                extra = set(args) - set(exp["args_equals"]) - {"__raw__", "__invalid_json__"}
+                if extra:
+                    return False, f"unexpected arg keys {sorted(extra)}"
+
+        # Legacy / hybrid args_contains — presence or value pins
         if exp.get("args_contains"):
-            matched = False
-            for c in calls:
-                if c["name"] != want:
-                    continue
-                args = c["arguments"]
-                if args.get("__invalid_json__"):
-                    continue
-                ok = True
-                for k in exp["args_contains"]:
-                    if k not in args:
-                        ok = False
-                        break
-                if ok:
-                    matched = True
-                    break
-            if not matched:
-                return False, f"tool {want} missing required arg keys {list(exp['args_contains'])}"
+            ok, why = _match_args_contains(args if isinstance(args, dict) else {}, exp["args_contains"])
+            if not ok:
+                return False, f"tool {want} {why}"
+
+        # Optional content forbid on tool args (branding / path escapes as smoke labels)
+        forbid = exp.get("args_content_forbids") or []
+        if forbid and isinstance(args, dict):
+            blob = json.dumps(args, ensure_ascii=False).lower()
+            for f in forbid:
+                if str(f).lower() in blob:
+                    return False, f"forbidden arg content {f!r}"
+
         return True, "ok"
 
     if et == "any_of_tools":
@@ -344,6 +458,9 @@ def main():
 
     summary = {
         "suite": "agent_smoke",
+        "smoke_class": "format_routing_regression",
+        "smoke_note": "smoke!=headline; tools validated not executed; not long-horizon agent reliability",
+        "launch_class": "tool_format_smoke",
         "version": ver,
         "model": args.model,
         "base_url": args.base_url,

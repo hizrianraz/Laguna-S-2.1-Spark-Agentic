@@ -1,0 +1,8 @@
+# Install manifest pointer for Laguna-S-2.1-Spark-Agentic
+# Real runtime defaults: hermes/config.yaml
+# Example docs snippet: hermes/config.example.yaml
+schema: ainfera.pack_install_pointer/v1
+config: hermes/config.yaml
+pack: Laguna-S-2.1-Spark-Agentic
+diy_gguf: false
+weights_in_git: false

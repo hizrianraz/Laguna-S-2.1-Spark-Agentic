@@ -32,6 +32,23 @@ tags:
 
 # Laguna-S-2.1-Spark-Agentic
 
+<!-- ainfera:honesty-block -->
+## Honesty / launch class
+
+- **Pack:** `Laguna-S-2.1-Spark-Agentic`
+- **Launch class:** format/routing smoke + local serve
+- **Smoke ≠ headline:** agent_smoke validates tool-call *format/routing* on a live local endpoint. It is **not** a long-horizon reliability score, not a public leaderboard claim, and not gate clearance by itself.
+- **Verifier ≠ gate clearance:** a green smoke receipt is evidence of the smoke suite only.
+- **diy_gguf:** false — public OS path uses official/peer published artifacts only.
+- **Weights:** not in git. Pull scripts write outside the pack tree.
+- **Loopback default:** serve binds `127.0.0.1` unless `EXPOSE_LAN=1`.
+- **No public promo / campaign CTA** before measured launch windows.
+- **Smoke cases:** 40 (see `eval/agent_smoke/`).
+- **Default port:** `8000` (does not steal Laguna `:8000` unless pack *is* Laguna-S).
+- **Engine:** llama-server (poolside/laguna fork?) — see pack scripts
+
+
+
 ## Parameters
 
 | | |
