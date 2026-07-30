@@ -1,11 +1,11 @@
 {
   "schema": "saqs.release_manifest/v2",
   "version": "v1.0.0-aug3-q4-authority",
-  "written_at_wib": "2026-07-30T19:30:12+07:00",
-  "phase": "pre_freeze_local_a3_rewrite",
+  "written_at_wib": "2026-07-30T21:10:42+07:00",
+  "phase": "pre_freeze_p0_origin_tip_resync",
   "public_promo_before_launch": false,
   "promote": false,
-  "note": "No promote. Local A3 rewrite only — no origin/HF push in this step. Smoke != headline. verifier != gate clearance. Laguna day-0 = Q4_K_M measured, not NVFP4+DFlash.",
+  "note": "No promote. P0 origin-tip resync + SAQS pack publish + serve harden. Smoke != headline. verifier != gate clearance. Laguna day-0 = Q4_K_M measured tip bf82eab; docs tip may differ. DeepSeek serve hard-disabled (ds4-server intended).",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
   "list_wib": "2026-08-03T12:00:00+07:00",
   "clock_status": "BLOCKED",
@@ -21,7 +21,10 @@
       "repo_id": "hizrianraz/Laguna-S-2.1-Spark-Agentic",
       "hf_url": "https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic",
       "gh_url": "https://github.com/hizrianraz/Laguna-S-2.1-Spark-Agentic",
-      "git_head_local": "a394d00fe4eabf7da6ccf6a5145d46ee65bb0cb9",
+      "git_head": "a098697babe9b44192767935dc49f9453354e6e2",
+      "git_head_short": "a098697",
+      "measure_tip": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+      "measure_tip_short": "bf82eab",
       "role": "long_horizon_repo_maintenance",
       "port": 8000,
       "aug3_class": "measured_q4km_llama_cpp",
@@ -34,14 +37,16 @@
       "native_protocol": "poolside_v1",
       "runnable_day0": true,
       "dflash_status": "DO_NOT_PROMOTE",
-      "nvfp4_status": "post_launch_track_only"
+      "nvfp4_status": "post_launch_track_only",
+      "serve_sha_fail_closed": true
     },
     {
       "pack_id": "Qwen3-Coder-Next-Spark-Agentic",
       "repo_id": "hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
       "hf_url": "https://huggingface.co/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
       "gh_url": "https://github.com/hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
-      "git_head_local": "a1ef94c914a507752b791855feca17db7748eba2",
+      "git_head": "a0b5bbe813e33ea96deae2365700e8bd02c5fbbe",
+      "git_head_short": "a0b5bbe",
       "role": "interactive_coding_throughput_concurrency",
       "port": 8001,
       "aug3_class": "quality_fp8_preview_probe",
@@ -49,16 +54,19 @@
       "fp8_revision_pin": "da6e2ed27304dd39abadd9c82ef50e8de67bdd4c",
       "gguf_default": null,
       "q4_sha256": null,
-      "claim_class": "preview_probe_fp8_quality_not_throughput_winner_until_gate",
+      "claim_class": "preview_probe_fp8_quality_format_routing_2of2_not_tool_reliability_not_throughput_winner_until_gate",
       "native_protocol": "qwen3_coder_non_thinking",
-      "runnable_day0": false
+      "runnable_day0": false,
+      "gpu_mem_util_default": 0.85,
+      "vllm_image_floating_latest": "fail_closed_unless_ALLOW_FLOATING_VLLM_IMAGE_or_digest"
     },
     {
       "pack_id": "DeepSeek-V4-Flash-REAP25-Spark-Agentic",
       "repo_id": "hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
       "hf_url": "https://huggingface.co/hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
       "gh_url": "https://github.com/hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
-      "git_head_local": "521426118e4a7eea537bc0a1b3b8d5941cce546a",
+      "git_head": "4a0f47476ee5cdd0d10fabf40429634cec6c52b7",
+      "git_head_short": "4a0f474",
       "role": "experimental_long_context_investigation",
       "port": 8002,
       "aug3_class": "experimental_reap25_pulsar_scaffold",
@@ -68,6 +76,8 @@
       "claim_class": "co_list_scaffold_unmeasured_no_hero",
       "hero_cta": null,
       "hero_status": "no_hero_default",
+      "intended_runtime": "ds4-server",
+      "llama_server_path": "hard_disabled_unless_HOLD_RELEASE_and_DS4_LLAMA_PROVISIONAL",
       "native_protocol": "encoding_dsv4_via_pulsar_label_not_binary_proof",
       "runnable_day0": false
     }
@@ -81,9 +91,20 @@
     "public_promo_before_launch_false",
     "no_promote_this_write",
     "laguna_q4_authority_not_nvfp4_dflash_day0",
+    "laguna_measure_tip_bf82eab_docs_tip_separates",
     "deepseek_hero_cta_null",
-    "local_a3_neq_origin_push"
+    "deepseek_ds4_server_intended",
+    "origin_tips_not_zombie_legacy_measure_hash",
+    "saqs_published_in_pack_trees"
   ],
   "source_triple_lock_schema": "family.triple_aug3_lock/v6",
-  "source_triple_lock_updated": "2026-07-30T19:30:12+07:00"
+  "source_triple_lock_updated": "2026-07-30T21:10:42+07:00",
+  "git_tips_at_write": {
+    "Laguna-S-2.1-Spark-Agentic": "a098697babe9b44192767935dc49f9453354e6e2",
+    "Qwen3-Coder-Next-Spark-Agentic": "a0b5bbe813e33ea96deae2365700e8bd02c5fbbe",
+    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "4a0f47476ee5cdd0d10fabf40429634cec6c52b7",
+    "profile": "3304605d356e46e8248b771632da1cf36de1e9b0",
+    "measure_tip_laguna": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "note": "git_tips = docs/origin HEAD at write; Laguna measure tip remains bf82eab until remeasure"
+  }
 }

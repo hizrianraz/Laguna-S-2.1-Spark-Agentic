@@ -87,6 +87,7 @@ tags:
 | **Launch window** | 2026-08-03 12:00 WIB · freeze 2026-08-02 18:00 WIB |
 | **Affiliation** | Independent · not Poolside · not Nous Research |
 
+Standard (SAQS): [`SPARK_AGENTIC_QUANT_STANDARD.md`](./SPARK_AGENTIC_QUANT_STANDARD.md)  
 Launch calendar: [`LAUNCH_AUG3.md`](./LAUNCH_AUG3.md)
 
 ---

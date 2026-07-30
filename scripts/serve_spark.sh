@@ -74,11 +74,33 @@ if [[ "${SKIP_ENGINE_PIN_CHECK:-0}" != "1" ]]; then
   echo "engine_pin_expected=${ENGINE_PIN}"
 fi
 
+# Fail-closed official Q4_K_M digest (SAQS) — measure tip sticks at bf82eab
+EXPECTED_Q4_SHA256="${LAGUNA_Q4_SHA256:-a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4}"
+if [[ "${SKIP_MODEL_SHA_CHECK:-0}" != "1" ]]; then
+  if command -v sha256sum >/dev/null 2>&1; then
+    got="$(sha256sum "${MODEL}" | awk '{print $1}')"
+  elif command -v shasum >/dev/null 2>&1; then
+    got="$(shasum -a 256 "${MODEL}" | awk '{print $1}')"
+  else
+    echo "FAIL-CLOSED: no sha256sum/shasum — cannot verify MODEL digest" >&2
+    exit 3
+  fi
+  if [[ "${got}" != "${EXPECTED_Q4_SHA256}" ]]; then
+    echo "FAIL-CLOSED: MODEL sha256 mismatch" >&2
+    echo "  got:      ${got}" >&2
+    echo "  expected: ${EXPECTED_Q4_SHA256}" >&2
+    echo "  model:    ${MODEL}" >&2
+    echo "  override only with SKIP_MODEL_SHA_CHECK=1 after intentional weight swap + new measure" >&2
+    exit 3
+  fi
+  echo "model_sha256_ok=${got}"
+fi
+
 # Evidence bind honesty — engine/model hash receipt is not gate clearance
 echo "engine=$("${BIN}/llama-server" --version 2>&1 | head -1)"
 echo "model=${MODEL}"
 echo "listen=${HOST}:${PORT} ctx=${CTX} ngl=${NGL} alias=${ALIAS}"
-echo "honesty=evidence_bind_neq_gate · smoke_neq_headline · q4_authority_not_nvfp4_dflash · residency peak≤112GiB non-swap (soak receipt) · engine_pin=04b2b72"
+echo "honesty=evidence_bind_neq_gate · smoke_neq_headline · q4_authority_not_nvfp4_dflash · residency peak≤112GiB non-swap (soak receipt) · engine_pin=04b2b72 · measure_tip=bf82eab · model_sha_fail_closed"
 
 exec "${BIN}/llama-server" \
   -m "${MODEL}" \

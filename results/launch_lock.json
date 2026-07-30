@@ -27,7 +27,7 @@
   "hermes_agent_smoke_artifact": "results/hermes_agent_smoke.json",
   "hermes_agent_smoke_runner_sha256": "20c1e52a8a22306b81309c08984d6875cfff46e7382a46b674c1a6345030293b",
   "quote_gen_tok_s": 21.47,
-  "quote_gen_label": "gen128 @ 128 completion \u00b7 measured.json multi suite",
+  "quote_gen_label": "gen128 @ 128 completion · measured.json multi suite",
   "measured_json": "results/measured.json",
   "measured_md": "results/MEASURED.md",
   "multi_device_track": "unlocked_pointer_docs",
@@ -44,7 +44,10 @@
   "dual_aug3_peer": "Qwen3-Coder-Next-Spark-Agentic",
   "dual_aug3_role": "flagship_measured_sole_claim",
   "dual_aug3_peer_role": "co_ship_measure_track_until_receipt",
-  "dual_aug3_ports": {"s": 8000, "qwen_default": 8001},
+  "dual_aug3_ports": {
+    "s": 8000,
+    "qwen_default": 8001
+  },
   "dual_aug3_family_matrix": "../FAMILY_MATRIX_AUG3.md",
   "xs_parallel_track": "prepared_research",
   "xs_parallel_lock": "results/xs_mac_track_lock.json",
@@ -66,7 +69,9 @@
   ],
   "measure_pack_git_head": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
   "measure_pack_git_short": "bf82eab",
-  "docs_pack_git_head_at_fill": "8ccc4536f4628791bd5fcb20e2e69e0e0bd187f4",
+  "docs_pack_git_head_at_fill": "a098697babe9b44192767935dc49f9453354e6e2",
   "docs_note": "measure tip sticks at bf82eab (smoke/weights unchanged); docs tip moves with builds. S freeze lock_set is S-only; XS parallel track is separate prepared_research pointer, not a freeze hash input. Rehash lock_set artifacts at freeze on clean pushed HEAD.",
-  "lock_set_policy": "s_only_rehash_at_freeze"
+  "lock_set_policy": "s_only_rehash_at_freeze",
+  "docs_tip_short": "a098697",
+  "updated_at_wib_p0": "2026-07-30T21:10:42+07:00"
 }

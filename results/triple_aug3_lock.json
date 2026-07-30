@@ -1,14 +1,14 @@
 {
   "schema": "family.triple_aug3_lock/v6",
-  "updated_at_wib": "2026-07-30T19:57:32+07:00",
+  "updated_at_wib": "2026-07-30T21:10:42+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
   "list_wib": "2026-08-03T12:00:00+07:00",
   "launch_wib": "2026-08-03T12:00:00+07:00",
   "clock_status": "BLOCKED_until_story_matches_q4_authority_and_ban_phrase_clear",
   "standard": "SPARK_AGENTIC_QUANT_STANDARD.md",
-  "a3_path": "local_rewrite_no_origin_no_hf_push",
+  "a3_path": "origin_tip_resync_p0_local_no_promote",
   "positioning": {
-    "north_star": "Three role-specialized personal packs on one DGX Spark \u2014 one measured runnable (Laguna Q4), two co-list juniors (Qwen FP8 preview, DeepSeek REAP25 scaffold)",
+    "north_star": "Three role-specialized personal packs on one DGX Spark — one measured runnable (Laguna Q4), two co-list juniors (Qwen FP8 preview, DeepSeek REAP25 scaffold)",
     "not_day0_label": "all_three_strongest",
     "innovation": "honest_measured_repro_on_128GB + secure_deploy + independent_receipt_bind",
     "not_identical_wrappers": true,
@@ -23,7 +23,7 @@
         "BAN_BEST_LONG_HORIZON",
         "BAN_DEEPSEEK_DEFAULT_HERO_CTA"
       ],
-      "note": "Raw ban phrases intentionally not stored as literals \u2014 codes only. Story surfaces must not reintroduce the ban-list English strings."
+      "note": "Raw ban phrases intentionally not stored as literals — codes only. Story surfaces must not reintroduce the ban-list English strings."
     }
   },
   "promo_window": {
@@ -36,7 +36,7 @@
     "deepseek_hero_status": "no_hero_default",
     "deepseek_hero_requires": "freeze_explicit_HERO_flip_plus_dated_measure_receipt",
     "deepseek_hero_calendar_slot_if_reopened": "2026-08-05T20:00:00+07:00",
-    "note": "likes7d rolling 7d \u2014 waves overlap without same-day CTA collision; DeepSeek default NO_HERO (cta null)"
+    "note": "likes7d rolling 7d — waves overlap without same-day CTA collision; DeepSeek default NO_HERO (cta null)"
   },
   "public_promo_before_launch": false,
   "diy_gguf": false,
@@ -61,7 +61,7 @@
       "q4_sha256": "a8b55c75714ea73fd90ec85de5defdc0b8d88ca0ad2108343cdd8fc22f7583e4",
       "engine_pin": "04b2b72",
       "engine_tree": "poolside/llama.cpp-laguna",
-      "measured_tip": "a394d00fe4eabf7da6ccf6a5145d46ee65bb0cb9",
+      "measured_tip": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
       "measured_receipts": {
         "format_routing_smoke": "40/40",
         "hermes_agent_smoke": "27/27",
@@ -76,7 +76,11 @@
       "dflash_status": "DO_NOT_PROMOTE",
       "nvfp4_status": "post_launch_track_only",
       "native_protocol": "poolside_v1",
-      "runnable_day0": true
+      "runnable_day0": true,
+      "measure_tip_short": "bf82eab",
+      "docs_tip_at_write": "a098697babe9b44192767935dc49f9453354e6e2",
+      "docs_tip_short": "a098697",
+      "tip_split_note": "measure tip sticks at bf82eab (smoke/weights unchanged); docs tip moves with builds"
     },
     {
       "pack_id": "Qwen3-Coder-Next-Spark-Agentic",
@@ -87,17 +91,20 @@
       "canonical_artifact": "Qwen/Qwen3-Coder-Next-FP8",
       "fp8_revision_pin": "da6e2ed27304dd39abadd9c82ef50e8de67bdd4c",
       "fp8_shard_count": 40,
-      "claim_class": "preview_probe_fp8_quality_not_throughput_winner_until_gate",
+      "claim_class": "preview_probe_fp8_quality_format_routing_2of2_not_tool_reliability_not_throughput_winner_until_gate",
       "native_protocol": "qwen3_coder_non_thinking",
       "runnable_day0": false,
       "runnable_requires": [
         "40_shard_sha_bind_on_pull",
-        "vllm_image_digest_pin",
+        "vllm_image_digest_pin_or_allow_floating_breakglass",
         "max_num_seqs_default_1",
+        "gpu_mem_util_default_0_85",
         "no_trust_remote_code_default",
         "residency_precheck"
       ],
-      "nvfp4_day0": false
+      "nvfp4_day0": false,
+      "docs_tip_at_write": "a0b5bbe813e33ea96deae2365700e8bd02c5fbbe",
+      "docs_tip_short": "a0b5bbe"
     },
     {
       "pack_id": "DeepSeek-V4-Flash-REAP25-Spark-Agentic",
@@ -112,10 +119,14 @@
       "hero_cta": null,
       "recommended_default": "no_hero",
       "native_protocol": "encoding_dsv4_via_pulsar_label_not_binary_proof",
-      "binary_honesty": "poolside_laguna_llama_server_fork_not_pulsar_product_binary",
+      "binary_honesty": "ds4_server_intended__pack_llama_server_provisional_not_pulsar_product_binary",
       "runnable_day0": false,
       "d_spark_neq_dgx_spark": true,
-      "full_official_one_spark": "no_fit_approx_155GiB"
+      "full_official_one_spark": "no_fit_approx_155GiB",
+      "docs_tip_at_write": "4a0f47476ee5cdd0d10fabf40429634cec6c52b7",
+      "docs_tip_short": "4a0f474",
+      "intended_runtime": "ds4-server",
+      "llama_server_path": "provisional_hard_disabled_unless_DS4_LLAMA_PROVISIONAL"
     }
   ],
   "honesty": [
@@ -128,14 +139,20 @@
     "diy_gguf_false",
     "deepseek_hero_cta_null",
     "laguna_q4_authority_not_nvfp4_dflash_day0",
-    "format_smoke_neq_long_horizon_reliability"
+    "format_smoke_neq_long_horizon_reliability",
+    "measure_tip_neq_docs_tip",
+    "qwen_probe_2of2_neq_tool_reliability",
+    "deepseek_ds4_server_intended_llama_provisional",
+    "public_saqs_in_pack_trees",
+    "no_promote_this_write"
   ],
   "co_list_posture_default": "CO_LIST_NON_RUNNABLE_until_junior_harden",
   "git_tips_at_write": {
+    "Laguna-S-2.1-Spark-Agentic": "a098697babe9b44192767935dc49f9453354e6e2",
+    "Qwen3-Coder-Next-Spark-Agentic": "a0b5bbe813e33ea96deae2365700e8bd02c5fbbe",
+    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": "4a0f47476ee5cdd0d10fabf40429634cec6c52b7",
     "profile": "3304605d356e46e8248b771632da1cf36de1e9b0",
-    "laguna": "384b43b7e60e8f4d06d0b0540b952c1a150b393b",
-    "qwen": "857069867253da2e718574f3699cd48fedf0fadf",
-    "deepseek": "746a966ed184defaa58768d6b7018ec63682fb43",
-    "note": "LOCAL commits only \u2014 not pushed. Freeze BLOCKED."
+    "measure_tip_laguna": "bf82eab5fd6c1fb04e863f0c4b05b5658dec4aee",
+    "note": "git_tips = docs/origin HEAD at write; Laguna measure tip remains bf82eab until remeasure"
   }
 }
