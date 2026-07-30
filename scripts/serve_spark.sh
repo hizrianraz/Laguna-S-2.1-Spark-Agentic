@@ -6,7 +6,8 @@ set -euo pipefail
 ROOT="${LAGUNA_ENGINE:-$HOME/src/llama.cpp-laguna}"
 BIN="${ROOT}/build/bin"
 MODEL="${LAGUNA_MODEL:-$HOME/models/laguna-s-2.1/laguna-s-2.1-Q4_K_M.gguf}"
-HOST="${LAGUNA_HOST:-0.0.0.0}"
+# Default loopback; set LAGUNA_HOST=0.0.0.0 only when intentionally exposing LAN
+HOST="${LAGUNA_HOST:-127.0.0.1}"
 PORT="${LAGUNA_PORT:-8000}"
 CTX="${LAGUNA_CTX:-8192}"
 # MoE: keep default GPU offload full unless RAM pressure; override with LAGUNA_NGL

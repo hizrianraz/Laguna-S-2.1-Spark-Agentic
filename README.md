@@ -4,9 +4,6 @@ license_name: openmdw-1.1
 license_link: https://huggingface.co/poolside/Laguna-S-2.1/blob/main/LICENSE.md
 language:
   - en
-base_model:
-  - poolside/Laguna-S-2.1
-  - poolside/Laguna-S-2.1-GGUF
 pipeline_tag: text-generation
 tags:
   - deployment-pack
@@ -103,8 +100,8 @@ poolside/Laguna-S-2.1                 ← base (official)
 └── hizrianraz/Laguna-S-2.1-Spark-Agentic  ← this pack (runtime · measured)
 ```
 
-HF **Model tree** = README YAML `base_model` → `poolside/Laguna-S-2.1` + `poolside/Laguna-S-2.1-GGUF`.
-This pack is **not** a checkpoint.
+HF deploy-pack cards **omit** YAML `base_model` so Hub does **not** attach `base_model:finetune` / quantized tree relation. Upstream cited in prose + links only.
+This pack is **not** a checkpoint. No `library_name: gguf`. No `base_model_relation: quantized`.
 
 ---
 

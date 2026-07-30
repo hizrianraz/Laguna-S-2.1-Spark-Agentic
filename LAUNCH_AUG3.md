@@ -4,7 +4,7 @@ Status: **LOCKED** · measure tip + model card + lock set filled `2026-07-29T14:
 Repo: https://huggingface.co/hizrianraz/Laguna-S-2.1-Spark-Agentic  
 Timezone: WIB (UTC+7)
 
-**Family launch:** co-ships with `Qwen3-Coder-Next-Spark-Agentic` (probe) and co-lists `DeepSeek-V4-Flash-Spark-Agentic` (scaffold **unmeasured**) at the same go-live.  
+**Family launch:** co-ships with `Qwen3-Coder-Next-Spark-Agentic` (probe) and co-lists `DeepSeek-V4-Flash-REAP25-Spark-Agentic` (scaffold **unmeasured**) at the same go-live.  
 This pack remains the **sole flagship measured** claim (40/40). Qwen probe ≠ S gate. DeepSeek co-list ≠ ship claim. No trade of S freeze quality.
 
 ## Freeze window

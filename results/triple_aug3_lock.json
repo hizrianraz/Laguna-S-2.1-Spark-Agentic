@@ -1,38 +1,214 @@
 {
-  "schema": "family.triple_aug3_lock/v1",
-  "updated_at_wib": "2026-07-30T12:20:00+07:00",
+  "schema": "family.triple_aug3_lock/v4",
+  "updated_at_wib": "2026-07-30T13:46:00+07:00",
   "freeze_wib": "2026-08-02T18:00:00+07:00",
+  "list_wib": "2026-08-03T12:00:00+07:00",
   "launch_wib": "2026-08-03T12:00:00+07:00",
+  "standard": "SPARK_AGENTIC_QUANT_STANDARD.md",
+  "positioning": {
+    "north_star": "Three role-specialized, agent-calibrated, independently reproduced models with \u226597% agentic retention on one DGX Spark",
+    "not_day0_label": "all_three_strongest",
+    "innovation": "max_agentic_capability_retained_per_128GB + secure_deploy + independent_repro",
+    "not_identical_wrappers": true
+  },
+  "promo_window": {
+    "mode": "list_all_day0_promote_sequential",
+    "timezone": "WIB",
+    "day0_list_all_three": "2026-08-03T12:00:00+07:00",
+    "laguna_hero_cta": "2026-08-03T20:00:00+07:00",
+    "qwen_hero_cta": "2026-08-04T20:00:00+07:00",
+    "deepseek_hero_cta": "2026-08-05T20:00:00+07:00",
+    "deepseek_hero_requires": "evidence_gate_pass_by_2026-08-02T18:00:00+07:00",
+    "note": "likes7d rolling 7d \u2014 waves overlap without same-day CTA collision"
+  },
   "public_promo_before_launch": false,
   "diy_gguf": false,
+  "diy_gguf_scope": "Laguna_GGUF_mirrors_host_official_only",
+  "agent_cal_nvfp4_track": "exception_after_SAQS_not_default_aug3",
+  "download_claim_policy": "no_high_download_claim_until_repo_hosts_needed_artifact",
+  "pack_class_default": "deployment_runtime_pack_no_weights",
+  "repo_layers": [
+    "checkpoint_if_weights",
+    "deployment_pack",
+    "evaluation_dataset"
+  ],
+  "targets_jul30_snapshot": {
+    "source": "https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=15",
+    "captured_wib": "2026-07-30T13:18:00+07:00",
+    "global_likes7d_n8": 284,
+    "global_likes7d_n10": 185,
+    "textgen_likes7d_n8": 126,
+    "ours_baseline": {
+      "Laguna-S-2.1-Spark-Agentic": {
+        "likes": 0,
+        "downloads": 0
+      },
+      "Qwen3-Coder-Next-Spark-Agentic": {
+        "likes": 0,
+        "downloads": 0
+      },
+      "DeepSeek-V4-Flash-REAP25-Spark-Agentic": {
+        "likes": 1,
+        "downloads": 0
+      },
+      "DeepSeek-V4-Flash-Spark-Agentic__legacy_redirect": {
+        "likes": 1,
+        "downloads": 0,
+        "note": "legacy id redirect-only"
+      }
+    },
+    "committed_target": "all_three_top10_text_generation",
+    "primary_target": "laguna_global_top10",
+    "stretch_target": "all_three_global_top10",
+    "recommended_each_textgen": "150-180 likes7d",
+    "recommended_laguna_global": "250-300 likes7d",
+    "recommended_three_global_each": "350-400 likes7d",
+    "recalc_on": "2026-08-02T18:00:00+07:00"
+  },
+  "collection": {
+    "working_title": "Three Frontier Coding Models on One DGX Spark",
+    "subtitle_role": "role-specialized leaders \u00b7 one Spark Agentic Quant Standard",
+    "existing_slug": "hizrianraz/dgx-spark-agentic-deployment-packs-6a6a3110ad1c4397372a3ef6",
+    "order": [
+      "hizrianraz/Laguna-S-2.1-Spark-Agentic",
+      "hizrianraz/Qwen3-Coder-Next-Spark-Agentic",
+      "hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic"
+    ],
+    "publicize_not_before": "2026-08-03T12:00:00+07:00",
+    "legacy_redirect": [
+      "hizrianraz/DeepSeek-V4-Flash-Spark-Agentic"
+    ]
+  },
   "members": {
     "Laguna-S-2.1-Spark-Agentic": {
-      "role": "flagship_measured",
-      "smoke": "40/40",
-      "claim": "ship",
-      "port": 8000
+      "role": "flagship_long_horizon_repo_maintenance",
+      "specialization": "best_long_horizon_repository_maintenance_agent",
+      "wave": "day0_hero",
+      "aug3_class": "measured_rc_official_nvfp4_dflash",
+      "canonical_artifact": "poolside/Laguna-S-2.1-NVFP4",
+      "approx_gib": 67,
+      "native_protocol": "poolside_v1",
+      "smoke_not_headline": "40/40 tool-format only",
+      "claim": "ship_only_after_saqs_security_closed_loop",
+      "port": 8000,
+      "promo_gate": [
+        "saqs_or_documented_partial_with_honest_labels",
+        "repeat_memory_throughput_unified_mem",
+        "executed_multiturn_agent_task_raw_traj",
+        "secure_server_defaults_kit",
+        "independent_spark_reproduction"
+      ]
     },
     "Qwen3-Coder-Next-Spark-Agentic": {
-      "role": "co_ship_probe",
-      "smoke": "2/2 probe",
+      "role": "interactive_coding_throughput",
+      "specialization": "best_interactive_coding_throughput_and_concurrency",
+      "wave": "day1_hero",
+      "aug3_class": "quality_fp8_profile",
+      "canonical_artifact_quality": "Qwen/Qwen3-Coder-Next-FP8",
+      "approx_gib_quality": 75,
+      "speed_lane": "agent_calibrated_nvfp4_tech_preview_until_saqs",
+      "approx_gib_speed_target": 44,
+      "native_protocol": "qwen3_coder_non_thinking",
+      "smoke_not_headline": "2/2 probe tool-format only",
       "claim": null,
-      "port": 8001
+      "port": 8001,
+      "promo_gate": [
+        "one_canonical_pinned_install_path_fp8",
+        "real_closed_loop_coding_agent_trace",
+        "peak_memory_context_unified_mem",
+        "clean_machine_reproduction",
+        "native_qwen3_coder_parser_not_forced_hermes"
+      ]
     },
-    "DeepSeek-V4-Flash-Spark-Agentic": {
-      "role": "co_list_scaffold_unmeasured",
-      "smoke": null,
-      "claim": null,
+    "DeepSeek-V4-Flash-REAP25-Spark-Agentic": {
+      "role": "experimental_long_context_investigation",
+      "specialization": "best_experimental_long_context_investigation_and_reasoning",
+      "wave": "day2_hero_if_gate",
+      "aug3_class": "experimental_reap25_pulsar_preview",
+      "canonical_artifact": "twaggs88/DeepSeek-V4-Flash-REAP25-DSpark-ds4-GGUF",
+      "approx_gib": 85,
+      "official_full_does_not_fit_gib": 155,
+      "dspark_means": "deepseek_speculative_decoding_module_NOT_dgx_spark",
+      "rename_status": "done_2026-07-30_reap25_canonical_old_redirect",
+      "native_protocol": "encoding_dsv4_via_pulsar",
+      "smoke_not_headline": null,
       "port": 8002,
       "hold_gates": [
-        "no_official_gguf",
-        "q4_residency",
-        "need_HOLD_RELEASE"
-      ]
+        "clear_reap25_pulsar_provenance",
+        "name_must_not_imply_full_official_on_one_spark",
+        "pinned_artifact_runtime_sha",
+        "measured_spark_run_unified_mem",
+        "native_encoding_not_forced_hermes",
+        "independent_reproduction_attempt",
+        "need_HOLD_RELEASE_if_any_block"
+      ],
+      "if_gate_fail": "remain_public_scaffold_experimental_label_no_hero_campaign",
+      "public_id": "DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+      "legacy_id": "DeepSeek-V4-Flash-Spark-Agentic",
+      "claim": null
     }
   },
+  "saqs_hard_gates": {
+    "agentic_retention_vs_ref": 0.97,
+    "max_category_regression_pp": 3,
+    "tool_schema_validity": 0.995,
+    "wrong_tool_or_nocall_fp_max": 0.01,
+    "critical_security_failures": 0,
+    "peak_nonswap_gib_max": 112,
+    "free_gib_min": 12,
+    "soak": "8h_or_500_req_zero_crash_oom",
+    "repro": "two_clean_machine_one_independent_owner"
+  },
   "honesty": [
+    "Quantization does not make upstream smarter",
+    "smoke \u2260 agent benchmark",
     "DeepSeek co-list \u2260 measured ship",
-    "Qwen probe \u2260 Laguna gate trade",
-    "verifier_neq_gate_clearance"
-  ]
+    "Qwen FP8 quality \u2260 NVFP4 speed claim",
+    "DSpark \u2260 DGX Spark",
+    "official DeepSeek-V4-Flash full ~155GiB does not fit one Spark",
+    "verifier_neq_gate_clearance",
+    "deployment_pack_download_counters_may_stay_zero",
+    "no_incentivized_likes_or_dummy_download_loops",
+    "never_public_Finance_SKU",
+    "no_inherited_upstream_BF16_scores_as_our_quant",
+    "packs_not_finetune_not_quantized_relation"
+  ],
+  "safe_cta": "If you reproduced this and found it useful, please like the Hugging Face model and share your hardware and result in Community.",
+  "pacing_internal_per_model": {
+    "h6_likes": 75,
+    "h24_likes": 200,
+    "h72_likes": "350-400",
+    "min_public_receipts": 3,
+    "min_external_deployments": 10,
+    "support_sla_min": 30
+  },
+  "pending_founder_decisions": [],
+  "decided": {
+    "deepseek_rename_to_REAP25_id": {
+      "status": "done",
+      "at_wib": "2026-07-30T13:46:00+07:00",
+      "canonical": "hizrianraz/DeepSeek-V4-Flash-REAP25-Spark-Agentic",
+      "legacy_redirect": "hizrianraz/DeepSeek-V4-Flash-Spark-Agentic"
+    },
+    "qwen_agent_cal_nvfp4_start": {
+      "status": "after_launch",
+      "at_wib": "2026-07-30T14:01:00+07:00",
+      "rule": "No Qwen agent-cal NVFP4 workstream before freeze. Preview only until SAQS. Start after Aug 3 launch.",
+      "day0_claim": "FP8 quality path only — not NVFP4 speed"
+    },
+    "day0_surface": {
+      "status": "packs_only",
+      "at_wib": "2026-07-30T14:01:00+07:00",
+      "rule": "Day-0 list = three deployment packs only. No open weight-hosting checkpoint repos at list. Weights stay upstream / peer under pull scripts.",
+      "no_high_download_claim": true
+    },
+    "tiered_claims": {
+      "status": "locked",
+      "at_wib": "2026-07-30T14:01:00+07:00",
+      "laguna": "sole_flagship_measured_path_if_gates",
+      "qwen": "co_ship_probe_fp8_quality_unshipped_until_gate",
+      "deepseek": "co_list_scaffold_unmeasured_no_hero_without_freeze_gate"
+    }
+  },
+  "updated_at_wib": "2026-07-30T14:05:00+07:00"
 }

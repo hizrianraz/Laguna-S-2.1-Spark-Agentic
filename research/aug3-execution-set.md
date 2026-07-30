@@ -8,7 +8,7 @@ Launch: 2026-08-03 12:00 WIB
 
 1. **Laguna-S-2.1-Spark-Agentic** — locked flagship **40/40**, diy_gguf=false
 2. **Qwen3-Coder-Next-Spark-Agentic** — co-ship probe (2/2 not gate)
-3. **DeepSeek-V4-Flash-Spark-Agentic** — co-list scaffold **unmeasured** (no ship claim)
+3. **DeepSeek-V4-Flash-REAP25-Spark-Agentic** — co-list scaffold **unmeasured** (no ship claim)
 
 ## Parallel
 

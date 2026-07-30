@@ -291,7 +291,9 @@ def main():
     ap.add_argument("--api-key", default="sk-local")
     ap.add_argument("--model", default="local-laguna")
     ap.add_argument("--cases", default=str(Path(__file__).with_name("cases.json")))
-    ap.add_argument("--out", default="")
+    # Default receipt path — smoke always leaves evidence unless --out "" overrides empty intentionally
+    _default_out = str(Path(__file__).resolve().parents[2] / "results" / "agent_smoke_latest.json")
+    ap.add_argument("--out", default=_default_out, help="receipt JSON path (default: results/agent_smoke_latest.json)")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--ids", default="", help="comma ids")
     ap.add_argument("--sleep", type=float, default=0.2)
@@ -371,7 +373,9 @@ def main():
 
     text = json.dumps(summary, indent=2)
     if args.out:
-        Path(args.out).write_text(text + "\n")
+        outp = Path(args.out)
+        outp.parent.mkdir(parents=True, exist_ok=True)
+        outp.write_text(text + "\n")
         print("wrote", args.out)
     print(
         f"SUMMARY pass={n_pass}/{len(results)} rate={summary['pass_rate']} elapsed={summary['elapsed_s']}s"
