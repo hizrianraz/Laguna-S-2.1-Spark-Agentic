@@ -31,3 +31,6 @@ models/
 weights/
 *.log
 prompts/_mirror/
+
+!results/triple_aug3_lock.json
+!results/RECEIPT_INDEX.json

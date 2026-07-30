@@ -1,0 +1,38 @@
+{
+  "schema": "family.triple_aug3_lock/v1",
+  "updated_at_wib": "2026-07-30T12:20:00+07:00",
+  "freeze_wib": "2026-08-02T18:00:00+07:00",
+  "launch_wib": "2026-08-03T12:00:00+07:00",
+  "public_promo_before_launch": false,
+  "diy_gguf": false,
+  "members": {
+    "Laguna-S-2.1-Spark-Agentic": {
+      "role": "flagship_measured",
+      "smoke": "40/40",
+      "claim": "ship",
+      "port": 8000
+    },
+    "Qwen3-Coder-Next-Spark-Agentic": {
+      "role": "co_ship_probe",
+      "smoke": "2/2 probe",
+      "claim": null,
+      "port": 8001
+    },
+    "DeepSeek-V4-Flash-Spark-Agentic": {
+      "role": "co_list_scaffold_unmeasured",
+      "smoke": null,
+      "claim": null,
+      "port": 8002,
+      "hold_gates": [
+        "no_official_gguf",
+        "q4_residency",
+        "need_HOLD_RELEASE"
+      ]
+    }
+  },
+  "honesty": [
+    "DeepSeek co-list \u2260 measured ship",
+    "Qwen probe \u2260 Laguna gate trade",
+    "verifier_neq_gate_clearance"
+  ]
+}
